@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* Banner image zoom-out animation */
+@keyframes banner-zoom-out {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-banner-zoom-out {
+  animation: banner-zoom-out 8000ms ease-out both;
+}
+
 
 
 
