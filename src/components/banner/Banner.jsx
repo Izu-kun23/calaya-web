@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Auto-import all banner images in the folder
@@ -12,6 +12,7 @@ import WhiteButtons from '../buttons/WhiteButtons'
 import Pagination from '../pagination/pagination'
 
 const Banner = () => {
+  // Extract and sort images
   const images = useMemo(() => {
     const urls = Object.values(bannerImageModules)
       .map((mod) => (mod && typeof mod === 'object' && 'default' in mod ? mod.default : null))
@@ -19,41 +20,28 @@ const Banner = () => {
     return urls.length > 0 ? urls.sort((a, b) => a.localeCompare(b)) : []
   }, [])
 
-  // Text inference
-  const baseSlides = useMemo(() => {
+  // Generate slide data with text
+  const slides = useMemo(() => {
     const inferTexts = (url) => {
       const name = url.split('/').pop()?.toLowerCase() || ''
-      if (name.includes('offshore')) return { small: 'Prioritizing Safe Operation', big: 'With Standerdized Services' }
+      if (name.includes('offshore')) return { small: 'Prioritizing Safe Operation', big: 'With Standardized Services' }
       if (name.includes('valve')) return { small: 'Building & Nurturing', big: 'Strong Professional Networks' }
-      if (name.includes('wellhead')) return { small: 'A Leading Oil & gas solutions', big: 'With High-integrity systems' }
-      return { small: 'World class team', big: 'Providing excellent services' }
+      if (name.includes('wellhead')) return { small: 'A Leading Oil & Gas Solutions', big: 'With High-Integrity Systems' }
+      return { small: 'World Class Team', big: 'Providing Excellent Services' }
     }
     return images.map((url) => ({ url, ...inferTexts(url) }))
   }, [images])
 
-  // Seamless slides
-  const slides = useMemo(() => {
-    if (baseSlides.length <= 1) return baseSlides
-    return [baseSlides[baseSlides.length - 1], ...baseSlides, baseSlides[0]]
-  }, [baseSlides])
-
-  const [current, setCurrent] = useState(1)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragStartX, setDragStartX] = useState(0)
-  const [dragOffset, setDragOffset] = useState(0)
-
-  const containerRef = useRef(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const intervalRef = useRef(null)
 
-  // Auto-slide with proper cleanup
+  // Auto-slide functionality
   useEffect(() => {
-    if (images.length <= 1 || isDragging) return
-    
+    if (slides.length <= 1) return
+
     const startAutoSlide = () => {
       intervalRef.current = setInterval(() => {
-        setIsTransitioning(true)
-        setCurrent((prev) => prev + 1)
+        setCurrentIndex((prev) => (prev + 1) % slides.length)
       }, 6000)
     }
 
@@ -65,171 +53,219 @@ const Banner = () => {
         intervalRef.current = null
       }
     }
-  }, [images.length, isDragging])
+  }, [slides.length])
 
-  // Transition end → loop fix
-  const handleTransitionEnd = useCallback(() => {
-    setIsTransitioning(false)
-    if (current === slides.length - 1) setCurrent(1)
-    if (current === 0) setCurrent(slides.length - 2)
-  }, [current, slides.length])
-
-  // Dragging handlers with useCallback for performance
-  const handleMouseDown = useCallback((e) => {
-    if (images.length <= 1) return
-    setIsDragging(true)
-    setDragStartX(e.clientX)
-    setDragOffset(0)
+  // Handle pagination change
+  const handlePageChange = (page) => {
+    // Clear auto-slide temporarily
     if (intervalRef.current) {
       clearInterval(intervalRef.current)
       intervalRef.current = null
     }
-  }, [images.length])
-
-  const handleMouseMove = useCallback((e) => {
-    if (!isDragging) return
-    setDragOffset(e.clientX - dragStartX)
-  }, [isDragging, dragStartX])
-
-  const handleMouseUp = useCallback(() => {
-    if (!isDragging) return
-    setIsDragging(false)
-    const threshold = containerRef.current?.offsetWidth / 4 || 100
     
-    if (Math.abs(dragOffset) > threshold) {
-      setIsTransitioning(true)
-      setCurrent((prev) => dragOffset > 0 ? prev - 1 : prev + 1)
-    } else {
-      // Snap back with transition
-      setIsTransitioning(true)
-      setCurrent((prev) => prev)
-    }
-    setDragOffset(0)
-  }, [isDragging, dragOffset])
-
-  // Event listeners with proper cleanup
-  useEffect(() => {
-    if (isDragging) {
-      const handleMouseMoveGlobal = (e) => handleMouseMove(e)
-      const handleMouseUpGlobal = () => handleMouseUp()
-      
-      window.addEventListener('mousemove', handleMouseMoveGlobal, { passive: true })
-      window.addEventListener('mouseup', handleMouseUpGlobal, { passive: true })
-      
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMoveGlobal)
-        window.removeEventListener('mouseup', handleMouseUpGlobal)
+    setCurrentIndex(page - 1) // Convert 1-based to 0-based index
+    
+    // Restart auto-slide after a delay
+    setTimeout(() => {
+      if (slides.length > 1) {
+        intervalRef.current = setInterval(() => {
+          setCurrentIndex((prev) => (prev + 1) % slides.length)
+        }, 6000)
       }
-    }
-  }, [isDragging, handleMouseMove, handleMouseUp])
+    }, 8000)
+  }
 
-  // Transform calculation with useMemo for performance
-  const transform = useMemo(() => {
-    const base = -current * 100
-    if (isDragging && containerRef.current) {
-      return base + (dragOffset / containerRef.current.offsetWidth) * 100
-    }
-    return base
-  }, [current, isDragging, dragOffset])
+  // Smooth scroll function
+  const scrollToNextSection = () => {
+    const bannerHeight = window.innerHeight
+    window.scrollTo({
+      top: bannerHeight,
+      behavior: 'smooth'
+    })
+  }
 
-  // Current text with useMemo
-  const currentSlide = useMemo(() => {
-    if (baseSlides.length <= 1) return baseSlides[0] || {}
-    let index = current - 1
-    if (current === 0) index = baseSlides.length - 1
-    if (current === slides.length - 1) index = 0
-    return baseSlides[index]
-  }, [baseSlides, current, slides.length])
+  // Get current slide data
+  const currentSlide = slides[currentIndex] || {}
 
-  // Pagination change handler
-  const handlePageChange = useCallback((page) => {
-    setIsTransitioning(true)
-    setCurrent(page)
-  }, [])
-
-  // Memoized image rendering for performance
-  const renderedImages = useMemo(() => {
-    return slides.map((s, i) => (
-      <img
-        key={`${s.url}-${i}`}
-        src={s.url}
-        alt="Banner"
-        className={`w-full h-full object-cover shrink-0 grow-0 basis-full select-none pointer-events-none ${
-          current === i ? 'animate-banner-zoom-out' : ''
-        }`}
-      />
-    ))
-  }, [slides, current])
+  // Handle edge cases
+  if (!slides.length) {
+    return (
+      <div className="relative w-full h-96 md:h-[500px] lg:h-[815px] bg-gray-800 flex items-center justify-center">
+        <p className="text-white">No banner images found</p>
+      </div>
+    )
+  }
 
   return (
     <div className="relative w-full h-96 md:h-[500px] lg:h-[815px] overflow-hidden">
-      {/* Images */}
-      <div
-        ref={containerRef}
-        className={`absolute inset-0 flex h-full ${isTransitioning ? 'transition-transform duration-700 ease-out' : ''}`}
-        style={{ transform: `translateX(${transform}%)` }}
-        onTransitionEnd={handleTransitionEnd}
-        onMouseDown={handleMouseDown}
-      >
-        {renderedImages}
+      {/* Background Images with Overlapping Transitions */}
+      <div className="absolute inset-0">
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: [0.4, 0, 0.2, 1]
+            }}
+          >
+            <motion.img
+              src={currentSlide.url}
+              alt={`Banner ${currentIndex + 1}`}
+              className="w-full h-full object-cover"
+              initial={{ scale: 1.08 }}
+              animate={{ scale: 1 }}
+              transition={{ 
+                duration: 8,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Overlay text */}
-      <div className="absolute inset-0 bg-black/40 flex items-start justify-center pt-12 md:pt-16 lg:pt-90">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex items-start justify-center pt-12 md:pt-16 lg:pt-90">
         <div className="text-center text-white max-w-3xl w-full px-4">
+          {/* Animated text content */}
           <AnimatePresence mode="wait">
-            {currentSlide && (
-              <motion.div
-                key={`${currentSlide.small}-${currentSlide.big}`}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ 
-                  duration: 0.6, 
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  staggerChildren: 0.1
-                }}
-              >
-                <BannerCard>
-                  <motion.p 
-                    className="text-xs md:text-sm lg:text-base uppercase tracking-widest text-white/90"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                  >
-                    {currentSlide.small}
-                  </motion.p>
-                  <motion.h1 
-                    className="mt-2 text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    {currentSlide.big}
-                  </motion.h1>
-                  <motion.div 
-                    className="mt-6 flex items-center justify-center pointer-events-auto"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <WhiteButtons size="md">Discover More</WhiteButtons>
-                  </motion.div>
-                </BannerCard>
-              </motion.div>
-            )}
+            <motion.div
+              key={`text-${currentIndex}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ 
+                duration: 0.8, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+            >
+              <BannerCard>
+                <motion.p 
+                  className="text-xs md:text-sm lg:text-base uppercase tracking-widest text-white/90"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {currentSlide.small}
+                </motion.p>
+                
+                <motion.h1 
+                  className="mt-2 text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
+                  initial={{ opacity: 0, y: 25 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  {currentSlide.big}
+                </motion.h1>
+                
+                <motion.div 
+                  className="mt-6 flex items-center justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <WhiteButtons size="md">Discover More</WhiteButtons>
+                </motion.div>
+              </BannerCard>
+            </motion.div>
           </AnimatePresence>
           
-          {/* Pagination positioned outside of animations - always visible */}
-          <div className="mt-6 flex justify-center pointer-events-auto">
+          {/* Static pagination */}
+          <motion.div 
+            className="mt-6 flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
             <Pagination
-              totalPages={images.length || 1}
-              currentPage={current === 0 ? images.length : current === slides.length - 1 ? 1 : current}
+              totalPages={slides.length}
+              currentPage={currentIndex + 1}
               onChange={handlePageChange}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Animated Scroll Arrow */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+      >
+        <motion.button
+          onClick={scrollToNextSection}
+          className="flex flex-col items-center group cursor-pointer"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {/* Scroll text */}
+          <motion.span
+            className="text-white/80 text-xs uppercase tracking-wider mb-2 group-hover:text-white transition-colors duration-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 2 }}
+          >
+            Scroll
+          </motion.span>
+          
+          {/* Animated Arrow */}
+          <motion.div
+            className="relative"
+            animate={{ 
+              y: [0, 8, 0] 
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <motion.svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white/80 group-hover:text-white transition-colors duration-300"
+              whileHover={{ strokeWidth: 2.5 }}
+            >
+              <motion.path
+                d="M12 5v14M19 12l-7 7-7-7"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 2.2 }}
+              />
+            </motion.svg>
+          </motion.div>
+          
+          {/* Pulsing ring effect */}
+          <motion.div
+            className="absolute inset-0 rounded-full border-2 border-white/30"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 0, 0.5]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: 1,
+              ease: "easeInOut"
+            }}
+          />
+        </motion.button>
+      </motion.div>
     </div>
   )
 }
