@@ -131,7 +131,7 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex items-start justify-center pt-12 md:pt-16 lg:pt-90">
+      <div className="absolute inset-0 flex items-start justify-center pt-20 sm:pt-16 md:pt-16 lg:pt-90">
         <div className="text-center text-white max-w-3xl w-full px-4">
           {/* Animated text content */}
           <AnimatePresence mode="wait">
@@ -156,7 +156,7 @@ const Banner = () => {
                 </motion.p>
                 
                 <motion.h1 
-                  className="mt-2 text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
+                  className="mt-2 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
                   initial={{ opacity: 0, y: 25 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
@@ -165,7 +165,7 @@ const Banner = () => {
                 </motion.h1>
                 
                 <motion.div 
-                  className="mt-6 flex items-center justify-center"
+                  className="mt-4 sm:mt-6 flex items-center justify-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
@@ -180,7 +180,7 @@ const Banner = () => {
           
           {/* Static pagination */}
           <motion.div 
-            className="mt-6 flex justify-center"
+            className="mt-4 sm:mt-6 flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}

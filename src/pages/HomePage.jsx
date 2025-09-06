@@ -257,15 +257,15 @@ const HomePage = () => {
 
       {/* Stats Section */}
       <section className="w-full bg-blue-50 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <SmartMotion>
-            <h2 className="text-2xl md:text-4xl text-gray-900 mt-9 mb-9">
+            <h2 className="text-xl sm:text-2xl md:text-4xl text-gray-900 mt-9 mb-9 px-4">
               Providing Services in the Oil and Gas Industry
             </h2>
           </SmartMotion>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 justify-items-center">
             <SmartMotion delay={0.2}>
-              <div className="ml-[280px]">
+              <div className="sm:ml-[280px]">
                 <CountUpNumber end={2005} duration={2000} />
                 <div className="mt-2 text-gray-700 uppercase text-sm">
                   around since
@@ -273,7 +273,7 @@ const HomePage = () => {
               </div>
             </SmartMotion>
             <SmartMotion delay={0.4}>
-              <div className="mr-[280px]">
+              <div className="sm:mr-[280px]">
                 <CountUpNumber end={100} duration={1800} suffix="%" />
                 <div className="mt-2 text-gray-700 uppercase text-sm">
                   trusted
@@ -285,33 +285,33 @@ const HomePage = () => {
       </section>
 
       {/* Who We Are */}
-      <section className="w-full bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="w-full bg-white py-8 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SmartMotion>
-            <h3 className="text-red-500 text-lg font-semibold tracking-wide uppercase mb-8 mt-10 ml-[560px]">
+            <h3 className="text-red-500 text-lg font-semibold tracking-wide uppercase mb-8 mt-10 text-center sm:text-left sm:ml-[560px]">
               Why Calaya?
             </h3>
           </SmartMotion>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 ml-5">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center md:text-left md:ml-5">
                   At Calaya
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-1 p-6">
+                <p className="text-gray-700 leading-relaxed mb-1 p-4 sm:p-6 text-center md:text-left">
                   We are a distinguished limited liability company with
                   operations spanning seven countries: Nigeria, Equatorial
                   Guinea, Congo, Malaysia, Mozambique, Angola, and Spain. Since
                   our establishment in 2005, we have emerged as a trusted leader
                   in the oil and gas services sector.
                 </p>
-                <p className="text-gray-700 leading-relaxed p-6">
+                <p className="text-gray-700 leading-relaxed p-4 sm:p-6 text-center md:text-left">
                   Through innovative engineering approaches and our commitment
                   to excellence, we have built lasting relationships across the
                   energy industry, consistently exceeding expectations in
                   diverse international markets.
                 </p>
-                <div className="px-8">
+                <div className="px-4 sm:px-8 text-center md:text-left">
                   <Link
                     to="/about"
                     className="inline-flex items-center gap-1 border-2 border-red-500 bg-white text-red-500 px-5 py-3 rounded-md shadow hover:bg-red-500 hover:text-white transition-colors text-sm"
@@ -358,10 +358,10 @@ const HomePage = () => {
       </section>
 
       {/* Blue Commitment Section */}
-      <section className="w-full bg-blue-900 py-16">
-        <div className="max-w-7xl mx-auto px-6 text-white">
+      <section className="w-full bg-blue-900 py-8 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white">
           <SmartMotion>
-            <h3 className="text-sm font-semibold uppercase mb-7 mt-[-30px] ml-[420px]">
+            <h3 className="text-sm font-semibold uppercase mb-7 mt-[-30px] text-center sm:text-left sm:ml-[420px]">
               At Calaya, we committed to service delivery.
             </h3>
           </SmartMotion>
@@ -415,7 +415,7 @@ const HomePage = () => {
   }}
 >
   <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/75 to-gray-900/75"></div>
-  <div className="relative z-10 max-w-7xl mx-auto px-6">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
     <SmartMotion>
       <div className="text-left mt-[-60px]">
         <div className="flex items-center mb-4">
@@ -424,14 +424,14 @@ const HomePage = () => {
             Our Top Services
           </h2>
         </div>
-        <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mx-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight mx-3 text-white">
           Best Offers Within
           <br />
           the Oil & Gas
           <br />
           Sector
         </h1>
-        <p className="text-gray-400 text-lg md:text-xl leading-relaxed mx-3 mt-6 max-w-2xl">
+        <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed mx-3 mt-6 max-w-2xl">
           A trusted multinational oil and gas service provider since 2005,
           delivering innovative solutions through strategic partnerships
           and advanced technologies across Africa.
@@ -440,10 +440,10 @@ const HomePage = () => {
     </SmartMotion>
     
     {/* Service Cards Carousel */}
-    <div className="mt-16 relative ml-4">
+    <div className="mt-16 relative px-2 sm:px-0 sm:ml-4">
       <div 
         ref={carouselRef}
-        className="flex overflow-x-auto scrollbar-hide gap-6 pt-4 pb-4 cursor-grab select-none" 
+        className="flex overflow-x-auto scrollbar-hide gap-3 sm:gap-4 md:gap-6 pt-4 pb-4 cursor-grab select-none" 
         style={{ 
           scrollbarWidth: 'none', 
           msOverflowStyle: 'none',
@@ -458,9 +458,9 @@ const HomePage = () => {
         onTouchEnd={handleTouchEnd}
         onScroll={updateCurrentSlide}
       >
-        <div className="flex gap-6 min-w-max">
+        <div className="flex gap-3 sm:gap-4 md:gap-6 min-w-max">
           <SmartMotion delay={0.1}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={procurementImage}
                 title="Procurement Services"
@@ -470,7 +470,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.2}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={civilImage}
                 title="Civil Engineering"
@@ -480,7 +480,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.3}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={facilitiesImage}
                 title="Facilities Management"
@@ -490,7 +490,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.4}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={technicalImage}
                 title="Technical Manpower"
@@ -500,7 +500,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.5}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={pipelineImage}
                 title="Pipeline Construction"
@@ -510,7 +510,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.6}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={inspectionImage}
                 title="Inspenction Services"
@@ -520,7 +520,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.7}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={corrosionImage}
                 title="Corrosion Management"
@@ -530,7 +530,7 @@ const HomePage = () => {
             </div>
           </SmartMotion>
           <SmartMotion delay={0.8}>
-            <div className="w-[400px] flex-shrink-0">
+            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={wellImage}
                 title="Well Services"
@@ -546,13 +546,10 @@ const HomePage = () => {
 </section>
 
 {/* White background section with pagination controls */}
-<section className="w-full bg-white pt-2 pb-1">
-  <div className="max-w-7xl mx-auto px-6">
+<section className="w-full bg-white pt-2 pb-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
     {/* Pagination Controls */}
-    <div className="flex items-center justify-center gap-6 mb-16">
-      {/* Previous Button */}
-    
-      
+    <div className="flex items-center justify-center gap-4 sm:gap-6 mb-16">
       {/* Pagination Dots */}
       <div className="flex gap-2">
         {Array.from({ length: totalSlides }, (_, index) => (
@@ -571,26 +568,24 @@ const HomePage = () => {
       {/* Next Button */}
       <button
         onClick={nextSlide}
-        className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
       >
-        <MoveRight className="w-6 h-6 text-red-500" />
+        <MoveRight className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
       </button>
     </div>
-    
-    {/* This section provides space for any additional content */}
   </div>
 </section>
 
 {/* Get in Touch Section */}
-<section className="w-full bg-gray-50 py-16">
-  <div className="max-w-7xl mx-auto px-6">
+<section className="w-full bg-gray-50 py-8 sm:py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
       <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
-        <div className="flex-1">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Ready to Work With Us?
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed max-w-2xl">
+          <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
             Let's discuss how Calaya Engineering can help you achieve your oil and gas project goals. 
             Our experienced team is ready to provide innovative solutions tailored to your needs.
           </p>
@@ -601,14 +596,14 @@ const HomePage = () => {
         <div className="flex-shrink-0">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-red-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 text-lg font-semibold"
+            className="inline-flex items-center gap-2 bg-red-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 text-base sm:text-lg font-semibold"
           >
             Get in Touch
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 24 24"
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
             >
               <path
                 fillRule="evenodd"
@@ -624,47 +619,47 @@ const HomePage = () => {
 </section>
 
 {/* Latest from Calaya Section */}
-<section className="w-full bg-white py-16">
-  <div className="max-w-7xl mx-auto px-6">
+<section className="w-full bg-white py-8 sm:py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
     <SmartMotion>
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 sm:mb-12">
         <div className="flex items-center justify-center mb-4">
           <span className="text-red-500 text-2xl font-bold mr-3">|</span>
           <h2 className="text-red-500 text-sm font-semibold uppercase tracking-wide">
             Latest from Calaya
           </h2>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Stay Updated with Our Latest News
         </h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
           Discover our recent achievements, project updates, and industry insights
         </p>
       </div>
     </SmartMotion>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       {/* News Item 1 */}
       <SmartMotion delay={0.1}>
         <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-          <div className="h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+          <div className="h-40 sm:h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
             <div className="text-white text-center">
-              <div className="text-4xl font-bold mb-2">2024</div>
-              <div className="text-sm uppercase tracking-wide">New Year</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-2">2024</div>
+              <div className="text-xs sm:text-sm uppercase tracking-wide">New Year</div>
             </div>
           </div>
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <div className="text-sm text-red-500 font-semibold mb-2">January 15, 2024</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
               Expanding Operations to New Markets
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               Calaya Engineering announces expansion into three new African markets, 
               strengthening our presence across the continent.
             </p>
             <Link
               to="/news/expansion-2024"
-              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200"
+              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
             >
               Read More →
             </Link>
@@ -675,24 +670,24 @@ const HomePage = () => {
       {/* News Item 2 */}
       <SmartMotion delay={0.2}>
         <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-          <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+          <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
             <div className="text-white text-center">
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-sm uppercase tracking-wide">Projects</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-2">500+</div>
+              <div className="text-xs sm:text-sm uppercase tracking-wide">Projects</div>
             </div>
           </div>
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <div className="text-sm text-red-500 font-semibold mb-2">December 20, 2023</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
               Milestone Achievement: 500+ Projects Completed
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               We're proud to announce the successful completion of over 500 oil and gas 
               projects across our seven operating countries.
             </p>
             <Link
               to="/news/milestone-500"
-              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200"
+              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
             >
               Read More →
             </Link>
@@ -703,24 +698,24 @@ const HomePage = () => {
       {/* News Item 3 */}
       <SmartMotion delay={0.3}>
         <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-          <div className="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+          <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
             <div className="text-white text-center">
-              <div className="text-4xl font-bold mb-2">ISO</div>
-              <div className="text-sm uppercase tracking-wide">Certified</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-2">ISO</div>
+              <div className="text-xs sm:text-sm uppercase tracking-wide">Certified</div>
             </div>
           </div>
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <div className="text-sm text-red-500 font-semibold mb-2">November 10, 2023</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
               ISO 9001:2015 Certification Renewed
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               Calaya Engineering successfully renews ISO 9001:2015 certification, 
               reaffirming our commitment to quality management systems.
             </p>
             <Link
               to="/news/iso-certification"
-              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200"
+              className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
             >
               Read More →
             </Link>
@@ -730,17 +725,17 @@ const HomePage = () => {
     </div>
 
     <SmartMotion delay={0.4}>
-      <div className="text-center mt-12">
+      <div className="text-center mt-8 sm:mt-12">
         <Link
           to="/news"
-          className="inline-flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors duration-200 font-semibold"
+          className="inline-flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors duration-200 font-semibold text-sm sm:text-base"
         >
           View All News
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
-            className="w-5 h-5"
+            className="w-4 h-4 sm:w-5 sm:h-5"
           >
             <path
               fillRule="evenodd"
