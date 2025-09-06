@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import calayaLogo from "../../assets/images/calaya_logo_wc.png";
+import { Link, useLocation } from "react-router-dom";
+import calayaLogoWhite from "../../assets/images/calaya_logo_wc.png";
+import calayaLogoBlack from "../../assets/images/calaya_logo_1.png";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const navbarRef = useRef(null);
+  const location = useLocation();
+
+  // Check if we're on the home page
+  const isHomePage = location.pathname === "/";
 
   const handleDropdownToggle = (dropdown) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
@@ -56,16 +61,27 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-transparent absolute top-0 left-0 z-50" ref={navbarRef}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
-        {/* Left Links */}
-        <div className="flex space-x-20 ml-1 text-sm font-semibold">
+    <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo Left */}
+        <div className="flex-shrink-0">
+          <Link to="/">
+            <img
+              src={isHomePage ? calayaLogoWhite : calayaLogoBlack}
+              alt="Calaya Engineering Logo"
+              className="h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:shadow-lg"
+            />
+          </Link>
+        </div>
+
+        {/* Navigation Links Center */}
+        <div className={`flex items-center space-x-8 text-sm font-semibold ${isHomePage ? 'text-white' : 'text-gray-800'}`}>
           <Link
             to="/"
             className="relative group transition-colors duration-200"
           >
             Home
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+            <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
           </Link>
 
           {/* Who Are We Dropdown */}
@@ -90,7 +106,7 @@ const Navbar = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
             </button>
             {openDropdown === "whoWeAre" && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/20 overflow-hidden transition-all duration-300 origin-top opacity-100 scale-y-100 visible z-50">
@@ -130,10 +146,10 @@ const Navbar = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
             </button>
             {openDropdown === "whatWeDo" && (
-              <div className="absolute top-full left-0 mt-2  w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/20 overflow-hidden transition-all duration-300 origin-top opacity-100 scale-y-100 visible z-50">
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/20 overflow-hidden transition-all duration-300 origin-top opacity-100 scale-y-100 visible z-50">
                 {dropdownItems.whatWeDo.map((item, index) => (
                   <Link
                     key={index}
@@ -147,21 +163,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
-        </div>
 
-        {/* Logo Center */}
-        <div className="mx-1 ml-4 mr-4">
-          <Link to="/">
-            <img
-              src={calayaLogo}
-              alt="Calaya Engineering Logo"
-              className="h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:shadow-lg"
-            />
-          </Link>
-        </div>
-
-        {/* Right Links */}
-        <div className="flex space-x-28 text-sm font-semibold mr-1">
           {/* Products / Technologies Dropdown */}
           <div className="relative">
             <button
@@ -184,7 +186,7 @@ const Navbar = () => {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
             </button>
             {openDropdown === "productsTechnologies" && (
               <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/20 overflow-hidden transition-all duration-300 origin-top opacity-100 scale-y-100 visible z-50">
@@ -207,14 +209,17 @@ const Navbar = () => {
             className="relative group transition-colors duration-200"
           >
             Projects & Partners
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+            <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
           </Link>
+        </div>
+
+        {/* Contact Us Button Right */}
+        <div className="flex-shrink-0">
           <Link
-            to="/"
-            className="relative group transition-colors duration-200"
+            to="/contact"
+            className="bg-red-500 text-white px-4 py-2.5 rounded-full hover:bg-red-600 transition-colors duration-200 text-sm font-semibold"
           >
-            Contacts
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-700 group-hover:w-full transition-all duration-300 ease-out"></span>
+            Contact Us
           </Link>
         </div>
       </div>

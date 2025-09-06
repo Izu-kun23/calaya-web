@@ -2,7 +2,7 @@ import React from 'react'
 
 const ServicesCard = ({ image, title, description, buttonText = "Learn More" }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out w-[400px] h-[400px] flex flex-col">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out w-[368px] h-[400px] flex flex-col">
       {/* Image at the top */}
       <div className="aspect-w-16 aspect-h-9">
         <img 

@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navigation/navbar'
 import Footer from '../components/footer/Footer'
+import TopArrow from '../components/arrow/toparrow'
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +11,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <TopArrow />
     </div>
   )
 }
