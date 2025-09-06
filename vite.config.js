@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/calaya-web/', // Replace 'calaya-web' with your actual repository name
+  base: '/calaya-web/', // Keep this for GitHub's default domain
 })
