@@ -118,12 +118,12 @@ const ClientSection = () => {
             {clients.map((client, index) => (
               <div 
                 key={`first-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-56 h-28 p-4 mx-6"
+                className="flex-shrink-0 flex items-center justify-center w-48 h-24 sm:w-56 sm:h-28 p-2 sm:p-4 mx-3 sm:mx-6"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  className="max-h-16 sm:max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             ))}
@@ -132,12 +132,12 @@ const ClientSection = () => {
             {clients.map((client, index) => (
               <div 
                 key={`second-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-56 h-28 p-4 mx-6"
+                className="flex-shrink-0 flex items-center justify-center w-48 h-24 sm:w-56 sm:h-28 p-2 sm:p-4 mx-3 sm:mx-6"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  className="max-h-16 sm:max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             ))}
