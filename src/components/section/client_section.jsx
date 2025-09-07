@@ -39,23 +39,43 @@ const ClientSection = () => {
   useEffect(() => {
     let animationId
     const speed = 0.5 // Adjust speed as needed
-    const itemWidth = 224 + 48 // w-56 (224px) + mx-6 (48px)
+    
+    // Calculate responsive item width
+    const getItemWidth = () => {
+      if (window.innerWidth < 640) { // Mobile
+        return 192 + 24 // w-48 (192px) + mx-3 (24px)
+      } else { // Desktop
+        return 224 + 48 // w-56 (224px) + mx-6 (48px)
+      }
+    }
+    
+    const itemWidth = getItemWidth()
     const totalWidth = itemWidth * clients.length
 
     const animate = () => {
       setTranslateX(prev => {
         const newValue = prev - speed
-        return newValue <= -totalWidth ? 0 : newValue
+        const currentItemWidth = getItemWidth()
+        const currentTotalWidth = currentItemWidth * clients.length
+        return newValue <= -currentTotalWidth ? 0 : newValue
       })
       animationId = requestAnimationFrame(animate)
     }
 
     animationId = requestAnimationFrame(animate)
 
+    // Handle window resize
+    const handleResize = () => {
+      setTranslateX(0) // Reset position on resize
+    }
+
+    window.addEventListener('resize', handleResize)
+
     return () => {
       if (animationId) {
         cancelAnimationFrame(animationId)
       }
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 

@@ -90,14 +90,14 @@ const Banner = () => {
   // Handle edge cases
   if (!slides.length) {
     return (
-      <div className="relative w-full h-96 md:h-[500px] lg:h-[815px] bg-gray-800 flex items-center justify-center">
+      <div className="relative w-full h-screen md:h-[500px] lg:h-[815px] bg-gray-800 flex items-center justify-center">
         <p className="text-white">No banner images found</p>
       </div>
     )
   }
 
   return (
-    <div className="relative w-full h-96 md:h-[500px] lg:h-[815px] overflow-hidden">
+    <div className="relative w-full h-screen md:h-[500px] lg:h-[815px] overflow-hidden">
       {/* Background Images with Overlapping Transitions */}
       <div className="absolute inset-0">
         <AnimatePresence>
