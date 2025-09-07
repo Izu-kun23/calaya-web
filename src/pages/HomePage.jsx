@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { MoveRight, MoveLeft } from "lucide-react";
 import Banner from "../components/banner/Banner";
 import teamImage from "../assets/images/Useable_Images/image4.jpg";
 import serviceImage from "../assets/images/Useable_Images/image5.jpg";
@@ -554,6 +554,14 @@ const HomePage = () => {
   <div className="max-w-7xl mx-auto px-4 sm:px-6">
     {/* Pagination Controls */}
     <div className="flex items-center justify-center gap-2 sm:gap-4 mb-16">
+      {/* Previous Button */}
+      <button
+        onClick={prevSlide}
+        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+      >
+        <MoveLeft className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
+      </button>
+
       {/* Pagination Dots */}
       <div className="flex gap-1.5">
         {Array.from({ length: totalSlides }, (_, index) => (
