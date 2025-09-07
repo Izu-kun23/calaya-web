@@ -35,6 +35,7 @@ import xwaveLogo from '../../assets/clients/xwave_logo.png'
 
 const ClientSection = () => {
   const [translateX, setTranslateX] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     let animationId
@@ -42,12 +43,20 @@ const ClientSection = () => {
     
     // Calculate responsive item width
     const getItemWidth = () => {
-      if (window.innerWidth < 640) { // Mobile
+      const width = window.innerWidth
+      if (width < 640) { // Mobile
         return 192 + 24 // w-48 (192px) + mx-3 (24px)
       } else { // Desktop
         return 224 + 48 // w-56 (224px) + mx-6 (48px)
       }
     }
+    
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    
+    checkMobile()
     
     const itemWidth = getItemWidth()
     const totalWidth = itemWidth * clients.length
@@ -66,6 +75,7 @@ const ClientSection = () => {
 
     // Handle window resize
     const handleResize = () => {
+      checkMobile()
       setTranslateX(0) // Reset position on resize
     }
 
@@ -131,7 +141,9 @@ const ClientSection = () => {
             className="flex items-center"
             style={{ 
               transform: `translateX(${translateX}px)`,
-              willChange: 'transform'
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              perspective: '1000px'
             }}
           >
             {/* First set of clients */}
@@ -139,11 +151,19 @@ const ClientSection = () => {
               <div 
                 key={`first-${index}`}
                 className="flex-shrink-0 flex items-center justify-center w-48 h-24 sm:w-56 sm:h-28 p-2 sm:p-4 mx-3 sm:mx-6"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
+                }}
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
                   className="max-h-16 sm:max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)'
+                  }}
                 />
               </div>
             ))}
@@ -153,11 +173,19 @@ const ClientSection = () => {
               <div 
                 key={`second-${index}`}
                 className="flex-shrink-0 flex items-center justify-center w-48 h-24 sm:w-56 sm:h-28 p-2 sm:p-4 mx-3 sm:mx-6"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
+                }}
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
                   className="max-h-16 sm:max-h-20 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)'
+                  }}
                 />
               </div>
             ))}
