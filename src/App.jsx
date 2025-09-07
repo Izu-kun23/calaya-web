@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './layout/layout'
 import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
 
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
@@ -17,6 +18,9 @@ const App = () => {
         <Routes>
           {/* Home Page */}
           <Route path="/" element={<HomePage />} />
+
+          {/* About Page */}
+          <Route path="/about" element={<AboutPage />} />
 
           {/* 404 Page */}
           <Route path="*" element={<div />} />

@@ -191,81 +191,81 @@ const Banner = () => {
               onChange={handlePageChange}
             />
           </motion.div>
+
+          {/* Scroll Arrow - Now below pagination */}
+          <motion.div 
+            className="mt-3 flex justify-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
+            <motion.button
+              onClick={scrollToNextSection}
+              className="flex flex-col items-center group cursor-pointer relative"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {/* Scroll text */}
+              <motion.span
+                className="text-white/80 text-xs uppercase tracking-wider mb-2 group-hover:text-white transition-colors duration-300"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 2 }}
+              >
+                Scroll
+              </motion.span>
+              
+              {/* Animated Arrow */}
+              <motion.div
+                className="relative w-6 h-6 flex items-center justify-center"
+                animate={{ 
+                  y: [0, 5, 0] 
+                }}
+                transition={{ 
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <motion.svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-white/80 group-hover:text-white transition-colors duration-300"
+                  whileHover={{ strokeWidth: 2.5 }}
+                >
+                  <motion.path
+                    d="M12 5v14M19 12l-7 7-7-7"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1, delay: 2.2 }}
+                  />
+                </motion.svg>
+              </motion.div>
+              
+              {/* Pulsing ring effect - around both text and arrow */}
+              <motion.div
+                className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 border-white/30"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.5, 0, 0.5]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: 1,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.button>
+          </motion.div>
         </div>
       </div>
-
-      {/* Animated Scroll Arrow */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.5 }}
-      >
-        <motion.button
-          onClick={scrollToNextSection}
-          className="flex flex-col items-center group cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {/* Scroll text */}
-          <motion.span
-            className="text-white/80 text-xs uppercase tracking-wider mb-2 group-hover:text-white transition-colors duration-300"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 2 }}
-          >
-            Scroll
-          </motion.span>
-          
-          {/* Animated Arrow */}
-          <motion.div
-            className="relative"
-            animate={{ 
-              y: [0, 8, 0] 
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <motion.svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-white/80 group-hover:text-white transition-colors duration-300"
-              whileHover={{ strokeWidth: 2.5 }}
-            >
-              <motion.path
-                d="M12 5v14M19 12l-7 7-7-7"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1, delay: 2.2 }}
-              />
-            </motion.svg>
-          </motion.div>
-          
-          {/* Pulsing ring effect */}
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-white/30"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 0, 0.5]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: 1,
-              ease: "easeInOut"
-            }}
-          />
-        </motion.button>
-      </motion.div>
     </div>
   )
 }

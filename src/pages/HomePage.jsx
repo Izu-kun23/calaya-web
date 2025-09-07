@@ -15,6 +15,7 @@ import inspectionImage from "../assets/images/service_images/inspection_image.jp
 import wellImage from "../assets/images/service_images/well.jpg"
 import WhiteCard from "../components/cards/white_card";
 import ServicesCard from "../components/cards/services_cards";
+import ClientSection from "../components/section/client_section";
 import missionIcon from "../assets/icons/mission_icon.png";
 import visionIcon from "../assets/icons/vision_icon.png";
 import strategyIcon from "../assets/icons/startegy_icon.png";
@@ -190,7 +191,28 @@ const HomePage = () => {
     scrollToSlide(prevIndex);
   };
 
-  // Drag functionality handlers
+  // Simple touch events for smooth horizontal scrolling
+  const handleTouchStart = (e) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  // Simple mouse events
   const handleMouseDown = (e) => {
     if (!carouselRef.current) return;
     setIsDragging(true);
@@ -217,34 +239,15 @@ const HomePage = () => {
     if (!isDragging || !carouselRef.current) return;
     e.preventDefault();
     const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Multiply for faster scrolling
+    const walk = (x - startX) * 1.5;
     carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  // Touch events for mobile
-  const handleTouchStart = (e) => {
-    if (!carouselRef.current) return;
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging || !carouselRef.current) return;
-    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
   };
 
   // Update current slide based on scroll position
   const updateCurrentSlide = () => {
     if (!carouselRef.current) return;
-    const cardWidth = 400; // w-[400px] = 400px
-    const gap = 24; // gap-6 = 24px
+    const cardWidth = 400;
+    const gap = 24;
     const scrollPosition = carouselRef.current.scrollLeft;
     const newSlide = Math.round(scrollPosition / (cardWidth + gap));
     setCurrentSlide(Math.min(newSlide, totalSlides - 1));
@@ -361,8 +364,8 @@ const HomePage = () => {
       <section className="w-full bg-blue-900 py-8 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white">
           <SmartMotion>
-            <h3 className="text-sm font-semibold uppercase mb-7 mt-[-30px] text-center sm:text-left sm:ml-[420px]">
-              At Calaya, we committed to service delivery.
+            <h3 className="text-sm font-semibold uppercase mb-7 mt-[-20px] sm:mt-[-30px] text-center sm:text-left sm:ml-[420px]">
+              We are committed to service delivery.
             </h3>
           </SmartMotion>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -447,7 +450,8 @@ const HomePage = () => {
         style={{ 
           scrollbarWidth: 'none', 
           msOverflowStyle: 'none',
-          WebkitScrollbar: { display: 'none' }
+          WebkitScrollbar: { display: 'none' },
+          touchAction: 'pan-x' // Only allow horizontal panning
         }}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
@@ -513,7 +517,7 @@ const HomePage = () => {
             <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={inspectionImage}
-                title="Inspenction Services"
+                title="Inspection Services"
                 description="Sustainable environmental solutions and compliance services for responsible operations."
                 buttonText="Learn More"
               />
@@ -546,17 +550,17 @@ const HomePage = () => {
 </section>
 
 {/* White background section with pagination controls */}
-<section className="w-full bg-white pt-2 pb-16">
+<section className="w-full bg-white pt-1 pb-[-5px]">
   <div className="max-w-7xl mx-auto px-4 sm:px-6">
     {/* Pagination Controls */}
-    <div className="flex items-center justify-center gap-4 sm:gap-6 mb-16">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-16">
       {/* Pagination Dots */}
-      <div className="flex gap-2">
+      <div className="flex gap-1.5">
         {Array.from({ length: totalSlides }, (_, index) => (
           <button
             key={index}
             onClick={() => scrollToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300  ${
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300  ${
               currentSlide === index 
                 ? 'bg-red-500 scale-125' 
                 : 'bg-red-300 hover:bg-red-100'
@@ -577,7 +581,7 @@ const HomePage = () => {
 </section>
 
 {/* Get in Touch Section */}
-<section className="w-full bg-gray-50 py-8 sm:py-16">
+<section className="w-full bg-gray-50 py-8 sm:py-18 ">
   <div className="max-w-7xl mx-auto px-4 sm:px-6">
     <div className="flex flex-col md:flex-row items-center justify-between gap-8">
       <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
@@ -749,6 +753,8 @@ const HomePage = () => {
   </div>
 </section>
 
+      {/* Client Section */}
+      <ClientSection />
     </div>
   );
 };
