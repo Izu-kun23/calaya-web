@@ -131,7 +131,7 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex items-start justify-center pt-20 sm:pt-16 md:pt-16 lg:pt-90">
+      <div className="absolute inset-0 flex items-end justify-center pb-8 sm:items-start sm:pt-16 md:pt-16 lg:pt-90">
         <div className="text-center text-white max-w-3xl w-full px-4">
           {/* Animated text content */}
           <AnimatePresence mode="wait">
