@@ -28,10 +28,13 @@ const Navbar = () => {
       },
     ],
     whatWeDo: [
-      { name: "Engineering Services", link: "/engineering" },
-      { name: "Consulting", link: "/consulting" },
-      { name: "Project Management", link: "/project-management" },
-      { name: "Quality Assurance", link: "/quality" },
+      { name: "Well Services", link: "/services/well-services" },
+      { name: "Corrosion Management", link: "/services/corrosion-management" },
+      { name: "Pipeline Construction", link: "/services/pipeline-construction" },
+      { name: "Technical Manpower Support", link: "/services/technical-manpower" },
+      { name: "Facilities Management", link: "/services/facilities-management" },
+      { name: "Civil Engineering", link: "/services/civil-engineering" },
+      { name: "Procurement Services", link: "/services/procurement" },
     ],
     productsTechnologies: [
       { name: "Valve Technologies", link: "/valves" },
@@ -77,20 +80,20 @@ const Navbar = () => {
 
   return (
     <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/" onClick={handleLinkClick}>
             <img
               src={isHomePage ? calayaLogoWhite : calayaLogoBlack}
               alt="Calaya Engineering Logo"
-              className="h-8 sm:h-10 md:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:shadow-lg"
+              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:shadow-lg"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className={`hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-semibold ${isHomePage ? 'text-white' : 'text-gray-800'}`}>
+        <div className={`hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8 text-xs sm:text-sm font-semibold ${isHomePage ? 'text-white' : 'text-gray-800'}`}>
           <Link
             to="/"
             className="relative group transition-colors duration-200"
@@ -166,7 +169,7 @@ const Navbar = () => {
             </button>
             
             {activeDropdown === "whatWeDo" && (
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
                 {dropdownItems.whatWeDo.map((item, index) => (
                   <Link
                     key={index}
@@ -235,146 +238,174 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`p-2 rounded-md ${isHomePage ? 'text-white' : 'text-gray-800'} hover:bg-gray-100 focus:outline-none`}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Sidebar Background Blur */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg">
-          <div className="px-4 py-2 space-y-1">
-            <Link
-              to="/"
-              className="block px-3 py-2 text-gray-800 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-              onClick={handleLinkClick}
-            >
-              Home
-            </Link>
+        <div className="lg:hidden fixed inset-0 backdrop-blur-sm z-40" />
+      )}
 
-            {/* Mobile - Who We Are */}
-            <div>
-              <button
-                onClick={() => handleDropdownToggle("whoWeAre")}
-                className="w-full text-left px-3 py-2 text-gray-800 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200 flex items-center justify-between"
+      {/* Mobile Sidebar */}
+      <div className={`lg:hidden fixed top-0 left-0 h-full w-72 sm:w-80 bg-white/90 backdrop-blur-md shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
+        isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+          <img
+            src={calayaLogoBlack}
+            alt="Calaya Engineering Logo"
+            className="h-8 w-auto"
+          />
+          <button
+            onClick={closeAllMenus}
+            className="p-2 rounded-md text-gray-800 hover:bg-gray-100 focus:outline-none"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* Sidebar Content */}
+        <div className="flex flex-col h-full">
+          <div className="flex-1 overflow-y-auto py-4">
+            <div className="px-4 space-y-2">
+              <Link
+                to="/"
+                className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
+                onClick={handleLinkClick}
               >
-                Who We Are
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "whoWeAre" ? "rotate-180" : ""}`} />
-              </button>
-              
-              {activeDropdown === "whoWeAre" && (
-                <div className="ml-4 space-y-1">
-                  {dropdownItems.whoWeAre.map((item, index) => (
-                    <div key={index}>
-                      {item.hasSubmenu ? (
-                        <div>
-                          <button
-                            onClick={() => handleSubmenuToggle(`policies-${index}`)}
-                            className="w-full text-left px-3 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200 flex items-center justify-between"
+                Home
+              </Link>
+
+              {/* Mobile - Who We Are */}
+              <div>
+                <button
+                  onClick={() => handleDropdownToggle("whoWeAre")}
+                  className="w-full text-left px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between font-medium"
+                >
+                  Who We Are
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "whoWeAre" ? "rotate-180" : ""}`} />
+                </button>
+                
+                {activeDropdown === "whoWeAre" && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {dropdownItems.whoWeAre.map((item, index) => (
+                      <div key={index}>
+                        {item.hasSubmenu ? (
+                          <div>
+                            <button
+                              onClick={() => handleSubmenuToggle(`policies-${index}`)}
+                              className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between"
+                            >
+                              <span className="font-medium">{item.name}</span>
+                              <ChevronRight className={`w-3 h-3 transition-transform duration-200 ${activeSubmenu === `policies-${index}` ? "rotate-90" : ""}`} />
+                            </button>
+                            {activeSubmenu === `policies-${index}` && (
+                              <div className="ml-4 mt-1 space-y-1">
+                                {item.submenu.map((subItem, subIndex) => (
+                                  <Link
+                                    key={subIndex}
+                                    to={subItem.link}
+                                    className="block px-4 py-2 text-xs text-gray-500 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                                    onClick={handleLinkClick}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            to={item.link}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                            onClick={handleLinkClick}
                           >
-                            <span className="font-medium">{item.name}</span>
-                            <ChevronRight className={`w-3 h-3 transition-transform duration-200 ${activeSubmenu === `policies-${index}` ? "rotate-90" : ""}`} />
-                          </button>
-                          {activeSubmenu === `policies-${index}` && (
-                            <div className="ml-4 space-y-1">
-                              {item.submenu.map((subItem, subIndex) => (
-                                <Link
-                                  key={subIndex}
-                                  to={subItem.link}
-                                  className="block px-3 py-2 text-xs text-gray-500 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-                                  onClick={handleLinkClick}
-                                >
-                                  {subItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <Link
-                          to={item.link}
-                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-                          onClick={handleLinkClick}
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                            {item.name}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-            {/* Mobile - What We Do */}
-            <div>
-              <button
-                onClick={() => handleDropdownToggle("whatWeDo")}
-                className="w-full text-left px-3 py-2 text-gray-800 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200 flex items-center justify-between"
+              {/* Mobile - What We Do */}
+              <div>
+                <button
+                  onClick={() => handleDropdownToggle("whatWeDo")}
+                  className="w-full text-left px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between font-medium"
+                >
+                  What We Do
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "whatWeDo" ? "rotate-180" : ""}`} />
+                </button>
+                
+                {activeDropdown === "whatWeDo" && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {dropdownItems.whatWeDo.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.link}
+                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                        onClick={handleLinkClick}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile - Products / Services */}
+              <div>
+                <button
+                  onClick={() => handleDropdownToggle("productsTechnologies")}
+                  className="w-full text-left px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between font-medium"
+                >
+                  Products / Services
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "productsTechnologies" ? "rotate-180" : ""}`} />
+                </button>
+                
+                {activeDropdown === "productsTechnologies" && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {dropdownItems.productsTechnologies.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.link}
+                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                        onClick={handleLinkClick}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                to="/"
+                className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
+                onClick={handleLinkClick}
               >
-                What We Do
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "whatWeDo" ? "rotate-180" : ""}`} />
-              </button>
-              
-              {activeDropdown === "whatWeDo" && (
-                <div className="ml-4 space-y-1">
-                  {dropdownItems.whatWeDo.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={item.link}
-                      className="block px-3 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-                      onClick={handleLinkClick}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+                Projects & Partners
+              </Link>
             </div>
+          </div>
 
-            {/* Mobile - Products / Services */}
-            <div>
-              <button
-                onClick={() => handleDropdownToggle("productsTechnologies")}
-                className="w-full text-left px-3 py-2 text-gray-800 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200 flex items-center justify-between"
-              >
-                Products / Services
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "productsTechnologies" ? "rotate-180" : ""}`} />
-              </button>
-              
-              {activeDropdown === "productsTechnologies" && (
-                <div className="ml-4 space-y-1">
-                  {dropdownItems.productsTechnologies.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={item.link}
-                      className="block px-3 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-                      onClick={handleLinkClick}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <Link
-              to="/"
-              className="block px-3 py-2 text-gray-800 hover:bg-red-500 hover:text-white rounded-md transition-colors duration-200"
-              onClick={handleLinkClick}
-            >
-              Projects & Partners
-            </Link>
-
+          {/* Sidebar Footer */}
+          <div className="p-4 border-t border-gray-200">
             <Link
               to="/contact"
-              className="block mx-3 my-2 bg-red-500 text-white px-4 py-2.5 rounded-full hover:bg-red-600 transition-colors duration-200 text-sm font-semibold text-center"
+              className="block w-full bg-red-500 text-white px-4 py-3 rounded-lg hover:bg-red-600 transition-colors duration-200 text-sm font-semibold text-center"
               onClick={handleLinkClick}
             >
               Contact Us
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

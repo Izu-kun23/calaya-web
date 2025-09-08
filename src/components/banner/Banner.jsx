@@ -131,8 +131,8 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex items-end justify-center pb-8 sm:items-start sm:pt-16 md:pt-16 lg:pt-90">
-        <div className="text-center text-white max-w-3xl w-full px-4">
+      <div className="absolute inset-0 flex items-center justify-center lg:items-end lg:pb-24 xl:pb-6">
+        <div className="text-center text-white max-w-4xl w-full px-4 sm:px-6 lg:px-8">
           {/* Animated text content */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -180,7 +180,7 @@ const Banner = () => {
           
           {/* Static pagination */}
           <motion.div 
-            className="mt-4 sm:mt-6 flex justify-center"
+            className="mt-6 sm:mt-8 flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}

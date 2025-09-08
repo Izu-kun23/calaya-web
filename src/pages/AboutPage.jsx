@@ -6,10 +6,10 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-blue-900 to-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <section className="w-full bg-gradient-to-br from-blue-900 to-blue-800 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -17,7 +17,7 @@ const AboutPage = () => {
             About Calaya Engineering
           </motion.h1>
           <motion.p 
-            className="text-xl text-blue-100 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -28,19 +28,19 @@ const AboutPage = () => {
       </section>
 
       {/* Company Overview */}
-      <section className="w-full py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="w-full py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Our Company
               </h2>
-              <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
                 <p>
                   Calaya Engineering Services is a limited liability Company incorporated under the laws of the Federal Republic of Nigeria, Republic of Equatorial Guinea, Congo, Malaysia, Mozambique, Angola and Spain since 2005.
                 </p>
@@ -105,77 +105,77 @@ const AboutPage = () => {
       </section>
 
       {/* Key Strengths */}
-      <section className="w-full py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="w-full py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Key Strengths
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
               What sets us apart in the oil and gas industry
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <motion.div 
-              className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-4xl font-bold text-red-500 mb-2">20,000+</h3>
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">Projects Completed</h4>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-500 mb-2">20,000+</h3>
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Projects Completed</h4>
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 Successfully delivered thousands of projects across Africa with excellence and precision.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-4xl font-bold text-red-500 mb-2">47,890</h3>
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">Happy Customers</h4>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-500 mb-2">47,890</h3>
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Happy Customers</h4>
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 Building lasting relationships with satisfied clients who trust our expertise and service quality.
               </p>
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-4xl font-bold text-red-500 mb-2">450+</h3>
-              <h4 className="text-xl font-semibold text-gray-900 mb-4">Team Members</h4>
-              <p className="text-gray-700 leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-500 mb-2">450+</h3>
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">Team Members</h4>
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 A dedicated team of skilled professionals committed to delivering exceptional results and innovation.
               </p>
             </motion.div>

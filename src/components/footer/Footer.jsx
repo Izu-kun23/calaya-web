@@ -5,66 +5,66 @@ import calayaLogo from "../../assets/images/calaya_logo_wc.png";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-blue-900 mt-10">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="w-full bg-blue-900 mt-8 sm:mt-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Left - Logo */}
-          <div className="flex flex-col items-start md:items-center lg:items-start text-left md:text-center lg:text-left">
+          <div className="flex flex-col items-start sm:items-center lg:items-start text-left sm:text-center lg:text-left">
             <Link to="/" className="mb-4">
               <img
                 src={calayaLogo}
                 alt="Calaya Engineering Logo"
-                className="h-16 w-auto mx-auto md:mx-0"
+                className="h-12 sm:h-14 lg:h-16 w-auto mx-auto sm:mx-0"
               />
             </Link>
-              <p className="text-gray-300 text-sm max-w-xs">
+              <p className="text-gray-300 text-xs sm:text-sm max-w-xs">
                 Leading oil and gas engineering solutions since 2005.
               </p>
               
               {/* Social Media Links */}
-              <div className="flex space-x-3 mt-4">
+              <div className="flex space-x-2 sm:space-x-3 mt-4">
                 <a 
                   href="https://facebook.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                 >
-                  <Facebook className="w-5 h-5 text-white" />
+                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </a>
                 
                 <a 
                   href="https://twitter.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                 >
-                  <Twitter className="w-5 h-5 text-white" />
+                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </a>
                 
                 <a 
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                 >
-                  <Instagram className="w-5 h-5 text-white" />
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </a>
                 
                 <a 
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
                 >
-                  <Linkedin className="w-5 h-5 text-white" />
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </a>
               </div>
             </div>
 
           {/* Middle - Links */}
-          <div className="flex flex-col items-start md:items-center lg:items-center">
-            <h3 className="text-white font-semibold mb-6 mr-15">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
+          <div className="flex flex-col items-start sm:items-center lg:items-center">
+            <h3 className="text-white font-semibold mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h3>
+            <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3 text-xs sm:text-sm">
               <Link to="/" className="text-gray-300 hover:text-white transition-colors">
                 Home
               </Link>
@@ -88,8 +88,8 @@ const Footer = () => {
 
           {/* Right - Contact Information */}
           <div className="flex flex-col items-start text-left">
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
-            <div className="text-gray-300 text-sm leading-relaxed space-y-2 max-w-xs">
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Contact Us</h3>
+            <div className="text-gray-300 text-xs sm:text-sm leading-relaxed space-y-2 max-w-xs">
               <p className="font-medium">Port Harcourt</p>
               <p>
                 Plot 194B, 23 Fiddil Avenue,<br />
@@ -117,8 +117,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom - Copyright */}
-        <div className="border-t border-blue-800 mt-8 pt-6 text-center">
-          <p className="text-sm text-gray-300">
+        <div className="border-t border-blue-800 mt-6 sm:mt-8 pt-4 sm:pt-6 text-center">
+          <p className="text-xs sm:text-sm text-gray-300">
             © {new Date().getFullYear()} Calaya Engineering. All rights reserved.
           </p>
         </div>

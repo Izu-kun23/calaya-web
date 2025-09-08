@@ -6,7 +6,7 @@ const Pagination = ({ totalPages = 5, currentPage, onChange }) => {
   const activePage = isControlled ? currentPage : internalPage;
 
   return (
-    <div className="flex justify-center mt-8 gap-2 md:gap-3">
+    <div className="flex justify-center mt-6 sm:mt-8 gap-2 sm:gap-3">
       {[...Array(totalPages)].map((_, index) => {
         const page = index + 1;
         const isActive = page === activePage;
@@ -23,11 +23,11 @@ const Pagination = ({ totalPages = 5, currentPage, onChange }) => {
               }
             }}
             aria-label={`Go to slide ${page}`}
-            className={`transition-colors rounded-md ${
+            className={`transition-all duration-300 ease-out rounded-full transform hover:scale-110 ${
               isActive
-                ? "bg-blue-500"
-                : "bg-white/60 hover:bg-white/80"
-            } w-8 h-1 md:w-10 md:h-2.5 shadow-sm border border-white/40`}
+                ? "bg-white shadow-lg scale-110"
+                : "bg-white/60 hover:bg-white/80 shadow-md"
+            } w-8 h-2 sm:w-10 sm:h-2.5 md:w-12 md:h-3 border border-white/30 hover:border-white/50`}
           >
             <span className="sr-only">{`Slide ${page}`}</span>
           </button>

@@ -212,6 +212,27 @@ const HomePage = () => {
     setIsDragging(false);
   };
 
+  // Add touch event listeners with passive: false to allow preventDefault
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const touchMoveHandler = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      
+      const x = e.touches[0].pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      carousel.scrollLeft = scrollLeft - walk;
+    };
+
+    carousel.addEventListener('touchmove', touchMoveHandler, { passive: false });
+
+    return () => {
+      carousel.removeEventListener('touchmove', touchMoveHandler);
+    };
+  }, [isDragging, startX, scrollLeft]);
+
   // Simple mouse events
   const handleMouseDown = (e) => {
     if (!carouselRef.current) return;
@@ -259,26 +280,26 @@ const HomePage = () => {
       <Banner />
 
       {/* Stats Section */}
-      <section className="w-full bg-blue-50 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <section className="w-full bg-blue-50 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SmartMotion>
-            <h2 className="text-xl sm:text-2xl md:text-4xl text-gray-900 mt-9 mb-9 px-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-6 sm:mt-9 mb-6 sm:mb-9 px-4">
               Providing Services in the Oil and Gas Industry
             </h2>
           </SmartMotion>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 justify-items-center max-w-4xl mx-auto">
             <SmartMotion delay={0.2}>
-              <div className="sm:ml-[280px]">
+              <div className="text-center">
                 <CountUpNumber end={2005} duration={2000} />
-                <div className="mt-2 text-gray-700 uppercase text-sm">
+                <div className="mt-2 text-gray-700 uppercase text-sm font-medium">
                   around since
                 </div>
               </div>
             </SmartMotion>
             <SmartMotion delay={0.4}>
-              <div className="sm:mr-[280px]">
+              <div className="text-center">
                 <CountUpNumber end={100} duration={1800} suffix="%" />
-                <div className="mt-2 text-gray-700 uppercase text-sm">
+                <div className="mt-2 text-gray-700 uppercase text-sm font-medium">
                   trusted
                 </div>
               </div>
@@ -288,14 +309,14 @@ const HomePage = () => {
       </section>
 
       {/* Who We Are */}
-      <section className="w-full bg-white py-8 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SmartMotion>
-            <h3 className="text-red-500 text-lg font-semibold tracking-wide uppercase mb-8 mt-10 text-center sm:text-left sm:ml-[560px]">
+            <h3 className="text-red-500 text-base sm:text-lg font-semibold tracking-wide uppercase mb-6 sm:mb-8 mt-6 sm:mt-10 text-center sm:text-left sm:ml-[280px] lg:ml-[560px]">
               Why Calaya?
             </h3>
           </SmartMotion>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
             <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
               <div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center md:text-left md:ml-5">
@@ -361,14 +382,14 @@ const HomePage = () => {
       </section>
 
       {/* Blue Commitment Section */}
-      <section className="w-full bg-blue-900 py-8 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white">
+      <section className="w-full bg-blue-900 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <SmartMotion>
-            <h3 className="text-sm font-semibold uppercase mb-7 mt-[-20px] sm:mt-[-30px] text-center sm:text-left sm:ml-[420px]">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase mb-6 sm:mb-7 mt-[-20px] sm:mt-[-30px] text-center sm:text-left sm:ml-[210px] lg:ml-[420px]">
               We are committed to service delivery.
             </h3>
           </SmartMotion>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <SmartMotion delay={0.1}>
               <WhiteCard
                 iconSrc={missionIcon}
@@ -458,7 +479,6 @@ const HomePage = () => {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
         onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onScroll={updateCurrentSlide}
       >
@@ -551,9 +571,9 @@ const HomePage = () => {
 
 {/* White background section with pagination controls */}
 <section className="w-full bg-white pt-1 pb-[-5px]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Pagination Controls */}
-    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-16">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 mb-12 sm:mb-16">
       {/* Previous Button */}
       <button
         onClick={prevSlide}
@@ -589,15 +609,15 @@ const HomePage = () => {
 </section>
 
 {/* Get in Touch Section */}
-<section className="w-full bg-gray-50 py-8 sm:py-18 ">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
-    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+<section className="w-full bg-gray-50 py-8 sm:py-12 lg:py-18">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
       <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
         <div className="flex-1 text-center md:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Ready to Work With Us?
           </h2>
-          <p className="text-gray-700 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
+          <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
             Let's discuss how Calaya Engineering can help you achieve your oil and gas project goals. 
             Our experienced team is ready to provide innovative solutions tailored to your needs.
           </p>
@@ -631,26 +651,26 @@ const HomePage = () => {
 </section>
 
 {/* Latest from Calaya Section */}
-<section className="w-full bg-white py-8 sm:py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+<section className="w-full bg-white py-8 sm:py-12 lg:py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <SmartMotion>
       <div className="text-center mb-8 sm:mb-12">
         <div className="flex items-center justify-center mb-4">
-          <span className="text-red-500 text-2xl font-bold mr-3">|</span>
-          <h2 className="text-red-500 text-sm font-semibold uppercase tracking-wide">
+          <span className="text-red-500 text-xl sm:text-2xl font-bold mr-3">|</span>
+          <h2 className="text-red-500 text-xs sm:text-sm font-semibold uppercase tracking-wide">
             Latest from Calaya
           </h2>
         </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Stay Updated with Our Latest News
         </h1>
-        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+        <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
           Discover our recent achievements, project updates, and industry insights
         </p>
       </div>
     </SmartMotion>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       {/* News Item 1 */}
       <SmartMotion delay={0.1}>
         <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
