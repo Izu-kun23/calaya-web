@@ -193,10 +193,10 @@ const Well_Services = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Expert Well Services Solutions
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-[-2rem]">
               At Calaya Engineering, we provide comprehensive well services across four key categories, 
               ensuring optimal performance, safety, and reliability for your oil and gas operations. 
               Our experienced team delivers cutting-edge solutions tailored to your specific needs.

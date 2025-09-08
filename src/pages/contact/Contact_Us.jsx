@@ -1,0 +1,517 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Phone, Mail, MapPin, Clock, Linkedin, Twitter, Instagram, Send } from 'lucide-react';
+
+// Import flag images
+import nigeriaFlag from '../../assets/flags/Flag_of_Nigeria.png';
+import malaysiaFlag from '../../assets/flags/Flag_of_Malaysia.svg.png';
+import mozambiqueFlag from '../../assets/flags/Flag_of_Mozambique.svg.png';
+import equatorialGuineaFlag from '../../assets/flags/first_flag_of_equatorial_guinea.png';
+import congoFlag from '../../assets/flags/Flag_of_the_Republic_of_the_Congo.svg.png';
+import spainFlag from '../../assets/flags/Flag_of_Spain.svg.png';
+import angolaFlag from '../../assets/flags/Flag-Angola (1).png';
+import ukFlag from '../../assets/flags/Flag_of_the_United_Kingdom_(1-2).svg.webp';
+import ghanaFlag from '../../assets/flags/Flag_of_Ghana.svg.png';
+
+const Contact_Us = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 ">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-red-200 to-blue-800 text-white py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              Let's Collaborate
+            </h1>
+            <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              We are open to collaborate with leading oil and gas providers worldwide. 
+              Reach out to discuss how we can support your next project.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            
+            {/* Left Side - Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                  Get in Touch
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Contact us if you have any questions. Our lines are open Monday to Friday.
+                </p>
+              </div>
+
+              {/* Contact Details */}
+              <div className="space-y-6">
+                {/* Phone */}
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-500 p-3 rounded-lg">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <p className="text-gray-600">+234 (0) 123 456 7890</p>
+                    <p className="text-sm text-gray-500">Monday - Friday, 8:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-500 p-3 rounded-lg">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <p className="text-gray-600">calayaengineering@yahoo.co.uk</p>
+                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-4">
+                  <div className="bg-gray-500 p-3 rounded-lg">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Office Hours</h3>
+                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                    <p className="text-sm text-gray-500">Saturday: 9:00 AM - 2:00 PM</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="pt-6">
+                <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
+                <div className="flex gap-4">
+                  <a 
+                    href="https://linkedin.com/company/calaya-engineering" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                  <a 
+                    href="https://twitter.com/calayaengineering" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-sky-500 hover:bg-sky-600 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
+                  >
+                    <Twitter className="w-6 h-6" />
+                  </a>
+                  <a 
+                    href="https://instagram.com/calayaengineering" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white rounded-2xl shadow-xl p-8 lg:p-10"
+            >
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                Send us a Message
+              </h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-300"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-300"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-300"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    Subject *
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-300"
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                {/* Message */}
+    <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-300 resize-none"
+                    placeholder="Tell us about your project or inquiry..."
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                >
+                  <Send className="w-5 h-5" />
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Various Locations Section */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <span className="text-red-500 text-3xl font-bold mr-3">|</span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                Our Global Presence
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Operating across multiple countries to serve the oil and gas industry worldwide
+            </p>
+          </motion.div>
+
+          {/* 3x3 Grid of Locations */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Nigeria */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={nigeriaFlag} alt="Nigeria Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Nigeria</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Headquarters</p>
+                  <p>Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State</p>
+                  <p>P.O Box 4738</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+234) 84301123</p>
+                  <p>(+234) 9028219836</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Malaysia */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={malaysiaFlag} alt="Malaysia Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Malaysia</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Asia Pacific Office</p>
+                  <p>4806-11-3 Jalan CBD Perdana 2, Cyberjaya 6300, Selangor</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: +968-95221083</p>
+                  <p>+968-24501499</p>
+                  <p>FAX: +968-24501288</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Mozambique */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={mozambiqueFlag} alt="Mozambique Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Mozambique</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Operations Center</p>
+                  <p>Av Olof Oalm, 244-2 Andar 402, Maputo</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: 00258823165166</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Equatorial Guinea */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={equatorialGuineaFlag} alt="Equatorial Guinea Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Equatorial Guinea</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Regional Office</p>
+                  <p>Carreterra Malabo, Sampaka S/N Bioko Norte, R.G.E.</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+240) 222 267 366</p>
+                  <p>(+240) 551 632 846</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Congo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={congoFlag} alt="Congo Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Congo Brazzaville</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Operations Center</p>
+                  <p>Congo (Gc Congosarl) Quarter Cq, 118 Tchimbamba Arrondissement E.P Lumumba Pointe-Noire</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+240) 66406541</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Spain */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={spainFlag} alt="Spain Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Spain</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">European Office</p>
+                  <p>C/Martin Fierro – 3, 30, 1a; 50012 Zaragoza, Espana</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+34) 671418761</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Angola */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={angolaFlag} alt="Angola Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Angola</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Regional Office</p>
+                  <p>CITEC, Bairro Simulabuco-Cabinda</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+244) 933515530</p>
+                  <p>(+244) 930614514</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* United Kingdom */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={ukFlag} alt="UK Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">United Kingdom</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">UK Office</p>
+                  <p>Bradwell And Partners 219 Titan Court, 3 Bishop Square, Hatfield Business Park, AL10 9NA</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p>Tel: (+44) 161 460 5756</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Ghana - TBD */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-200"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                  <img src={ghanaFlag} alt="Ghana Flag" className="w-full h-full object-cover rounded-full" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Ghana</h3>
+                <div className="text-left text-sm text-gray-600 space-y-2">
+                  <p className="font-medium">Coming Soon</p>
+                  <p>Details to be announced</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
+                  <p className="text-gray-500 italic">TBD</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              With operations spanning across multiple continents, we bring local expertise 
+              and global standards to every project, ensuring consistent quality and service delivery worldwide.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Contact_Us;

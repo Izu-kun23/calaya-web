@@ -2,30 +2,32 @@ import React from 'react'
 
 const ServicesCard = ({ image, title, description, buttonText = "Learn More" }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out w-full h-[380px] sm:h-[400px] flex flex-col">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 ease-out w-full max-w-[385px] h-[420px] sm:h-[440px] flex flex-col group">
       {/* Image at the top */}
-      <div className="aspect-w-16 aspect-h-9">
+      <div className="relative overflow-hidden">
         <img 
           src={image} 
           alt={title}
-          className="w-full h-40 sm:h-48 object-cover"
+          className="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       
       {/* Card body */}
       <div className="p-4 sm:p-6 flex flex-col flex-grow">
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-red-600 transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 flex-grow">
+        <p className="text-gray-600 leading-relaxed mb-4 sm:mb-6 flex-grow text-xs sm:text-sm">
           {description}
         </p>
         
-        {/* Centered arrow button */}
-        <div className="flex justify-center mt-auto">
-          <button className="inline-flex items-center justify-center bg-red-500 text-white w-12 h-8 sm:w-16 sm:h-8 rounded-md hover:bg-red-600 transition-colors">
+        {/* Button */}
+        <div className="mt-auto">
+          <button className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm group-hover:shadow-lg">
+            {buttonText}
             <svg 
-              className="w-4 h-4 sm:w-5 sm:h-5" 
+              className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"

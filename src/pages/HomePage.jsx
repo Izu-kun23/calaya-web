@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { MoveRight, MoveLeft } from "lucide-react";
 import Banner from "../components/banner/Banner";
-import teamImage from "../assets/images/Useable_Images/image4.jpg";
+import teamImage from "../assets/images/Useable_Images/personnel.png";
 import serviceImage from "../assets/images/Useable_Images/image5.jpg";
 import procurementImage from "../assets/images/service_images/procurement.jpg";
 import civilImage from "../assets/images/service_images/civil.jpg"
@@ -16,6 +16,7 @@ import wellImage from "../assets/images/service_images/well.jpg"
 import WhiteCard from "../components/cards/white_card";
 import ServicesCard from "../components/cards/services_cards";
 import ClientSection from "../components/section/client_section";
+import Testimonials from "../components/testimonials/Testimonials";
 import missionIcon from "../assets/icons/mission_icon.png";
 import visionIcon from "../assets/icons/vision_icon.png";
 import strategyIcon from "../assets/icons/startegy_icon.png";
@@ -81,53 +82,103 @@ const CountUpNumber = ({ end, duration = 2000, suffix = "" }) => {
 
 /**
  * SmartMotion
- * Handles conditional animations depending on scroll and user’s entry point.
+ * Enhanced component that handles animations regardless of user's entry point.
+ * Automatically animates elements when they come into view, whether user started at top or middle of page.
  */
 const SmartMotion = ({
   children,
   delay = 0,
-  threshold = 0.6,
+  threshold = 0.3,
   ...motionProps
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: threshold });
   const [hasAnimated, setHasAnimated] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
-  const [userStartedAtTop, setUserStartedAtTop] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
+  // Use intersection observer for better performance
   useEffect(() => {
-    setUserStartedAtTop(window.scrollY <= 100);
-  }, []);
+    const element = ref.current;
+    if (!element) return;
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            // Check if element is already visible (user scrolled to middle of page)
+            const rect = element.getBoundingClientRect();
+            const isCurrentlyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isCurrentlyVisible) {
+              // Element is already visible, animate immediately
+              setTimeout(() => {
+                setShouldAnimate(true);
+                setHasAnimated(true);
+              }, delay * 1000);
+            } else {
+              // Element is coming into view, animate when it enters
+              setTimeout(() => {
+                setShouldAnimate(true);
+                setHasAnimated(true);
+              }, delay * 1000);
+            }
+            observer.disconnect();
+          }
+        });
+      },
+      { 
+        threshold: threshold,
+        rootMargin: '50px 0px -50px 0px' // Start animation slightly before element is fully visible
+      }
+    );
+
+    observer.observe(element);
+    setIsInitialized(true);
+
+    return () => observer.disconnect();
+  }, [threshold, delay, hasAnimated]);
+
+  // Fallback for elements that are already visible when component mounts
   useEffect(() => {
-    if (userStartedAtTop === null) return;
+    if (!isInitialized || hasAnimated) return;
+    
     const element = ref.current;
     if (!element) return;
 
     const rect = element.getBoundingClientRect();
     const isCurrentlyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (userStartedAtTop) {
-      if (isInView && !hasAnimated) {
-        setTimeout(() => setShouldAnimate(true), delay * 1000);
+    
+    if (isCurrentlyVisible) {
+      setTimeout(() => {
+        setShouldAnimate(true);
         setHasAnimated(true);
-      }
-    } else {
-      if (isCurrentlyVisible && !hasAnimated) {
-        setTimeout(() => setShouldAnimate(true), delay * 1000);
-        setHasAnimated(true);
-      }
+      }, delay * 1000);
     }
-  }, [userStartedAtTop, isInView, delay, hasAnimated]);
+  }, [isInitialized, hasAnimated, delay]);
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20, x: motionProps.initial?.x || 0 }}
+      initial={{ opacity: 0, y: 30, x: motionProps.initial?.x || 0 }}
       animate={
-        shouldAnimate ? { opacity: 1, y: 0, x: 0, ...motionProps.animate } : {}
+        shouldAnimate 
+          ? { 
+              opacity: 1, 
+              y: 0, 
+              x: 0, 
+              ...motionProps.animate 
+            } 
+          : { 
+              opacity: 0, 
+              y: 30, 
+              x: motionProps.initial?.x || 0 
+            }
       }
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ 
+        duration: 0.8, 
+        ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smoother animation
+        delay: shouldAnimate ? 0 : delay 
+      }}
       {...motionProps}
     >
       {children}
@@ -170,8 +221,15 @@ const HomePage = () => {
 
   const scrollToSlide = (slideIndex) => {
     if (carouselRef.current) {
-      const cardWidth = 400; // w-[400px] = 400px
-      const gap = 24; // gap-6 = 24px
+      // Responsive card width based on screen size
+      const getCardWidth = () => {
+        if (window.innerWidth < 640) return 260; // mobile
+        if (window.innerWidth < 768) return 320; // sm
+        if (window.innerWidth < 1024) return 350; // md
+        return 400; // lg+
+      };
+      const cardWidth = getCardWidth();
+      const gap = window.innerWidth < 640 ? 12 : 24; // gap-3 on mobile, gap-6 on larger screens
       const scrollPosition = slideIndex * (cardWidth + gap);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -267,8 +325,15 @@ const HomePage = () => {
   // Update current slide based on scroll position
   const updateCurrentSlide = () => {
     if (!carouselRef.current) return;
-    const cardWidth = 400;
-    const gap = 24;
+    // Responsive card width based on screen size
+    const getCardWidth = () => {
+      if (window.innerWidth < 640) return 260; // mobile
+      if (window.innerWidth < 768) return 320; // sm
+      if (window.innerWidth < 1024) return 350; // md
+      return 400; // lg+
+    };
+    const cardWidth = getCardWidth();
+    const gap = window.innerWidth < 640 ? 12 : 24; // gap-3 on mobile, gap-6 on larger screens
     const scrollPosition = carouselRef.current.scrollLeft;
     const newSlide = Math.round(scrollPosition / (cardWidth + gap));
     setCurrentSlide(Math.min(newSlide, totalSlides - 1));
@@ -284,8 +349,11 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SmartMotion>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-6 sm:mt-9 mb-6 sm:mb-9 px-4">
-              Providing Services in the Oil and Gas Industry
+              Trusted by Industry Leaders Across 7 Countries
             </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4 mb-8">
+              Partnering with major operators including Shell, Chevron, and TotalEnergies to deliver world-class engineering solutions
+            </p>
           </SmartMotion>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 justify-items-center max-w-4xl mx-auto">
             <SmartMotion delay={0.2}>
@@ -323,18 +391,24 @@ const HomePage = () => {
                   At Calaya
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-1 p-4 sm:p-6 text-center md:text-left">
-                  We are a distinguished limited liability company with
+                  We are a distinguished multinational engineering company with
                   operations spanning seven countries: Nigeria, Equatorial
                   Guinea, Congo, Malaysia, Mozambique, Angola, and Spain. Since
                   our establishment in 2005, we have emerged as a trusted leader
-                  in the oil and gas services sector.
+                  in the oil and gas services sector, serving major international operators.
                 </p>
                 <p className="text-gray-700 leading-relaxed p-4 sm:p-6 text-center md:text-left">
-                  Through innovative engineering approaches and our commitment
-                  to excellence, we have built lasting relationships across the
-                  energy industry, consistently exceeding expectations in
+                  Through innovative engineering approaches, ISO 9001:2015 certified quality management systems, and our unwavering commitment
+                  to excellence, we have built lasting partnerships with industry giants like Shell, Chevron, and TotalEnergies, consistently exceeding expectations in
                   diverse international markets.
                 </p>
+                <div className="px-4 sm:px-6 text-center md:text-left">
+                  <div className="flex flex-wrap gap-4 mb-4">
+                    <span className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm font-medium">ISO 9001:2015 Certified</span>
+                    <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">500+ Projects Completed</span>
+                    <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">7+ Countries</span>
+                  </div>
+                </div>
                 <div className="px-4 sm:px-8 text-center md:text-left">
                   <Link
                     to="/about"
@@ -449,16 +523,16 @@ const HomePage = () => {
           </h2>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight mx-3 text-white">
-          Best Offers Within
+          World-Class Engineering
           <br />
-          the Oil & Gas
+          Solutions for the
           <br />
-          Sector
+          Oil & Gas Industry
         </h1>
-        <p className="text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed mx-3 mt-6 max-w-2xl">
-          A trusted multinational oil and gas service provider since 2005,
-          delivering innovative solutions through strategic partnerships
-          and advanced technologies across Africa.
+        <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed mx-3 mt-6 max-w-2xl">
+          A trusted multinational engineering leader since 2005, delivering innovative solutions 
+          through strategic partnerships with industry giants like Shell, Chevron, and TotalEnergies. 
+          Our ISO 9001:2015 certified processes ensure excellence across 7 countries.
         </p>
       </div>
     </SmartMotion>
@@ -484,81 +558,81 @@ const HomePage = () => {
       >
         <div className="flex gap-3 sm:gap-4 md:gap-6 min-w-max">
           <SmartMotion delay={0.1}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={procurementImage}
                 title="Procurement Services"
-                description="Comprehensive engineering solutions for complex oil and gas projects with cutting-edge technology."
+                description="Strategic sourcing and supply chain management for critical oil and gas equipment, ensuring quality, compliance, and cost optimization for major operators."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.2}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={civilImage}
                 title="Civil Engineering"
-                description="End-to-end project management services ensuring timely delivery and quality execution."
+                description="Infrastructure development and construction management for offshore platforms, onshore facilities, and supporting infrastructure with international standards compliance."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.3}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={facilitiesImage}
                 title="Facilities Management"
-                description="Expert technical consulting services to optimize your operations and maximize efficiency."
+                description="Comprehensive operations and maintenance services for oil and gas facilities, ensuring optimal performance, safety compliance, and extended asset lifecycle."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.4}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={technicalImage}
                 title="Technical Manpower"
-                description="High-quality equipment supply and maintenance services for all your operational needs."
+                description="Skilled engineering professionals and technical specialists deployed across international projects, providing expertise in drilling, production, and maintenance operations."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.5}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={pipelineImage}
                 title="Pipeline Construction"
-                description="Comprehensive safety solutions and training programs to ensure workplace security."
+                description="End-to-end pipeline engineering and construction services, from design and installation to testing and commissioning, meeting international safety and environmental standards."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.6}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={inspectionImage}
                 title="Inspection Services"
-                description="Sustainable environmental solutions and compliance services for responsible operations."
+                description="Advanced non-destructive testing and inspection services for critical infrastructure, ensuring compliance with international standards and regulatory requirements."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.7}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={corrosionImage}
                 title="Corrosion Management"
-                description="Professional maintenance and repair services to keep your equipment running optimally."
+                description="Specialized corrosion prevention and control services, including coating systems, cathodic protection, and material selection for harsh offshore and onshore environments."
                 buttonText="Learn More"
               />
             </div>
           </SmartMotion>
           <SmartMotion delay={0.8}>
-            <div className="w-[280px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+            <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
               <ServicesCard
                 image={wellImage}
                 title="Well Services"
-                description="Comprehensive training programs to develop skilled professionals in the oil and gas sector."
+                description="Complete well lifecycle services including drilling support, completion, workover operations, and well intervention services for both onshore and offshore applications."
                 buttonText="Learn More"
               />
             </div>
@@ -780,6 +854,9 @@ const HomePage = () => {
     </SmartMotion>
   </div>
 </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* Client Section */}
       <ClientSection />
