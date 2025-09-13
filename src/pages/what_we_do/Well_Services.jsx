@@ -1,10 +1,31 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Wrench, Settings, Shield, Droplets } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Wrench, Settings, Shield, Droplets, CheckCircle, Target, TrendingUp } from 'lucide-react'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import ClientSection from '../../components/section/client_section'
+import wellheadMaintenance1 from '../../assets/wellhead_maintenance/wellhead_maintenance1.jpeg'
+import wellheadMaintenance2 from '../../assets/wellhead_maintenance/wellhead_maintenance2.jpeg'
+import leakSealing1 from '../../assets/wellhead_leak_sealing/wellhead_sealing1.jpeg'
+import leakSealing2 from '../../assets/wellhead_leak_sealing/wellhead_sealing2.jpeg'
+import leakSealing3 from '../../assets/wellhead_leak_sealing/wellhead_sealing7.jpeg'
 
 const Well_Services = () => {
   const [activeTab, setActiveTab] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const location = useLocation()
+  const [searchParams] = useSearchParams()
+  
+  // Handle URL-based tab activation
+  useEffect(() => {
+    const tabParam = searchParams.get('tab')
+    if (tabParam) {
+      const tabIndex = parseInt(tabParam)
+      if (tabIndex >= 0 && tabIndex < 4) {
+        setActiveTab(tabIndex)
+      }
+    }
+  }, [searchParams])
+  
   const wellCategories = [
     {
       icon: <Settings className="w-8 h-8" />,
@@ -33,93 +54,91 @@ const Well_Services = () => {
             description: "Advanced pressure control services and flowback equipment for safe and efficient well completion operations with full safety protocols."
           },
           {
-            title: "Ancillary Rental Equipment",
-            description: "Wide range of rental equipment including cranes, compressors, valves, gas busters, and tanks for complete project support."
+            title: "Project Design & Equipment Selection",
+            description: "Complete project design, equipment selection, and accessory material preparation with comprehensive project and operation reporting."
           }
         ],
         benefits: [
-          "Established project teams in each Nigerian upstream region",
           "Experienced and qualified completion engineers",
-          "Full technical support and supervision for rig operations",
-          "Localized, opportune and high-quality services"
+          "Regional project teams across Nigeria",
+          "Comprehensive equipment and rental services",
+          "Complete project design and reporting"
         ]
       }
     },
     {
       icon: <Wrench className="w-8 h-8" />,
       title: "Well Intervention",
-      description: "Advanced well intervention techniques to restore, enhance, or maintain well productivity through various downhole operations and remedial work.",
+      description: "Advanced well intervention techniques and services to restore, enhance, or maintain well performance through specialized tools and methodologies.",
       features: [
-        "Coiled Tubing Operations",
-        "Wireline Services",
-        "Fishing and Milling Operations",
-        "Stimulation and Acidizing",
-        "Well Cleanout and Maintenance"
+        "Well Stimulation Services",
+        "Remedial Operations",
+        "Production Enhancement",
+        "Well Integrity Solutions"
       ],
       detailedContent: {
-        overview: "Calaya Engineering Services Limited Well Intervention services operate Coil Tubing, Slickline and Well Testing services. We offer our services both onshore and offshore. Calaya Coil Tubing Services have been delivering services to Oil & Gas Operators Onshore and Offshore since our inception. We provide the expertise and work in collaboration with our customers to ensure that their well performance is improved.",
+        overview: "Our well intervention services encompass a comprehensive range of techniques designed to restore, enhance, or maintain well performance. We utilize specialized tools, advanced methodologies, and experienced personnel to address various well challenges and optimize production efficiency.",
         services: [
           {
-            title: "Coil Tubing Services",
-            description: "Professional coil tubing services delivered to Oil & Gas Operators both onshore and offshore since our inception, providing expertise for improved well performance."
+            title: "Well Stimulation Services",
+            description: "Advanced well stimulation techniques including acidizing, fracturing, and matrix treatments to enhance well productivity and reservoir performance."
           },
           {
-            title: "Slickline Services",
-            description: "Wide range of technology for lowering equipment or measuring devices into wells using Slickline, E-Line, and Mechanical Wireline for well intervention and reservoir evaluation."
+            title: "Remedial Operations",
+            description: "Specialized remedial operations to address well problems, restore production, and maintain optimal well performance through targeted intervention techniques."
           },
           {
-            title: "Memory Logging & Perforation",
-            description: "Advanced memory logging and perforation services to enable well intervention and comprehensive reservoir evaluation with cutting-edge technology."
+            title: "Production Enhancement",
+            description: "Comprehensive production enhancement services utilizing advanced technologies and methodologies to maximize well productivity and operational efficiency."
           },
           {
-            title: "Fishing & Cleaning Services",
-            description: "Expert fishing and cleaning services for well intervention operations, ensuring optimal well performance and equipment recovery."
+            title: "Well Integrity Solutions",
+            description: "Professional well integrity assessment and restoration services to ensure safe and reliable well operations with comprehensive monitoring and maintenance."
           }
         ],
         benefits: [
-          "Onshore and offshore service capabilities",
-          "Collaborative approach with customers",
-          "Improved well performance focus",
-          "Comprehensive reservoir evaluation"
+          "Advanced intervention techniques",
+          "Specialized tools and equipment",
+          "Experienced intervention personnel",
+          "Comprehensive well performance optimization"
         ]
       }
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Well Head Maintenance",
-      description: "Professional wellhead maintenance services to ensure safety, reliability, and optimal performance of wellhead equipment and associated systems.",
+      description: "Professional wellhead maintenance services to ensure optimal performance, safety, and regulatory compliance for oil and gas production operations.",
       features: [
-        "Wellhead Equipment Inspection",
         "Preventive Maintenance Programs",
-        "Emergency Repairs",
-        "Equipment Upgrades",
-        "Safety System Testing"
+        "Emergency Repair Services",
+        "Regulatory Compliance",
+        "Safety Inspections"
       ],
       detailedContent: {
-        overview: "Calaya well head maintenance services form a key part of Calaya's well integrity capability - from new HPHT developments, through to the mature brownfield site. This includes the routine inspection, repair and maintenance of surface wellheads, as well as the provision of pressure testing services.",
+        overview: "Our wellhead maintenance services provide comprehensive care for wellhead equipment to ensure optimal performance, safety, and regulatory compliance. We implement preventive maintenance programs, emergency repair services, and regular safety inspections to maintain the highest standards of operational excellence.",
         services: [
           {
-            title: "First and Second Line Maintenance",
-            description: "Comprehensive routine and non-routine maintenance services for wellhead equipment, ensuring optimal performance and reliability."
+            title: "Preventive Maintenance Programs",
+            description: "Comprehensive preventive maintenance programs designed to extend equipment life, reduce downtime, and ensure optimal wellhead performance through scheduled inspections and servicing."
           },
           {
-            title: "Repair, Refurbishment and Installation",
-            description: "Complete repair, refurbishment and installation services for wellhead equipment and accessories, including chokes and valves of all brands."
+            title: "Emergency Repair Services",
+            description: "Rapid response emergency repair services for critical wellhead issues, ensuring minimal downtime and maintaining safe operations with 24/7 availability."
           },
           {
-            title: "OEM Equipment Supply & Maintenance",
-            description: "Supply, installation and maintenance of OEM wellhead equipment and accessories with full technical support and expertise."
+            title: "Regulatory Compliance",
+            description: "Full compliance with industry regulations and standards, including documentation, reporting, and certification services to meet all regulatory requirements."
           },
           {
-            title: "Tool Rentals & Specialized Services",
-            description: "Tool rentals including lubricators, X-overs, drilling spools/adapters, running & retrieving tools for seal assembly & wear bushing, plus Pneumac/Hydraulic bolting services."
+            title: "Safety Inspections",
+            description: "Thorough safety inspections and assessments of wellhead equipment to identify potential issues and ensure compliance with safety standards and best practices."
           }
         ],
         benefits: [
-          "Well integrity capability from HPHT to brownfield",
-          "Routine inspection and pressure testing services",
-          "Comprehensive repair and refurbishment expertise",
-          "Complete tool rental and specialized services"
+          "Extended equipment life",
+          "Reduced operational downtime",
+          "Full regulatory compliance",
+          "Enhanced safety standards"
         ]
       }
     },
@@ -184,168 +203,303 @@ const Well_Services = () => {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      {/* Navigation Tabs */}
+      <section className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Expert Well Services Solutions
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-[-2rem]">
-              At Calaya Engineering, we provide comprehensive well services across four key categories, 
-              ensuring optimal performance, safety, and reliability for your oil and gas operations. 
-              Our experienced team delivers cutting-edge solutions tailored to your specific needs.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Interactive Tabs Section */}
-      <section className="pb-12 sm:pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+          <div className="flex overflow-x-auto">
             {wellCategories.map((category, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center px-3 sm:px-4 md:px-6 py-2 sm:py-3 m-1 sm:m-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${
+                className={`flex items-center gap-3 px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
                   activeTab === index
-                    ? 'bg-red-500 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 shadow-md'
+                    ? "border-red-600 text-red-600 bg-red-50"
+                    : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <div className="mr-2 sm:mr-3">
+                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
                   {category.icon}
-                </div>
-                <span className="font-semibold whitespace-nowrap">{category.title}</span>
+                </span>
+                <span className="font-medium text-sm sm:text-base">{category.title}</span>
               </button>
             ))}
           </div>
-
-          {/* Tab Content */}
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 lg:p-10"
-          >
-            {/* Active Tab Header */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start mb-6 sm:mb-8">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4 sm:mb-0 sm:mr-6">
-                {wellCategories[activeTab].icon}
-              </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center sm:text-left">
-                  {wellCategories[activeTab].title}
-                </h3>
-                <p className="text-base sm:text-lg text-gray-600 text-center sm:text-left">
-                  {wellCategories[activeTab].description}
-                </p>
-              </div>
-            </div>
-
-            {/* Overview Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">Overview</h4>
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                {wellCategories[activeTab].detailedContent.overview}
-              </p>
-            </div>
-
-            {/* Services Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">Our Services</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
-                {wellCategories[activeTab].detailedContent.services.map((service, serviceIndex) => (
-                  <div key={serviceIndex} className="bg-gray-50 rounded-lg p-4 sm:p-6">
-                    <h5 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">
-                      {service.title}
-                    </h5>
-                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Benefits Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">Key Benefits</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-                {wellCategories[activeTab].detailedContent.benefits.map((benefit, benefitIndex) => (
-                  <div key={benefitIndex} className="flex items-center bg-red-50 rounded-lg p-3 sm:p-4">
-                    <div className="w-6 sm:w-8 h-1 bg-red-500 mr-2 sm:mr-3 flex-shrink-0"></div>
-                    <span className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Services List */}
-            <div>
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">Quick Services List</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
-                {wellCategories[activeTab].features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center p-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                    <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      {/* Content Section */}
+      <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
-              Why Choose Calaya for Well Services?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">20+</span>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Left Column - Service Overview */}
+            <div className="lg:col-span-1">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white rounded-lg shadow-lg p-6 h-fit sticky top-8"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-red-600">
+                    {wellCategories[activeTab].icon}
+                  </span>
+                  <h2 className="text-xl font-bold text-gray-900">
+                    {wellCategories[activeTab].title}
+                  </h2>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Years Experience</h3>
-                <p className="text-sm sm:text-base text-gray-600">Extensive experience in well services across multiple countries</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">500+</span>
+                <p className="text-gray-600 mb-6">
+                  {wellCategories[activeTab].description}
+                </p>
+                
+                <div className="space-y-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">Key Features:</h3>
+                  {wellCategories[activeTab].features.map((feature, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-gray-600">{feature}</span>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Projects Completed</h3>
-                <p className="text-sm sm:text-base text-gray-600">Successfully completed well service projects worldwide</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">24/7</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Support Available</h3>
-                <p className="text-sm sm:text-base text-gray-600">Round-the-clock technical support and emergency services</p>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* Right Column - Detailed Content */}
+            <div className="lg:col-span-2">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                {/* Overview */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Target className="w-6 h-6 text-red-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    {wellCategories[activeTab].detailedContent.overview}
+                  </p>
+                </div>
+
+                {/* Services */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Settings className="w-6 h-6 text-red-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {wellCategories[activeTab].detailedContent.services.map((service, index) => (
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
+                        <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
+                        <p className="text-gray-600 text-sm">{service.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Well Head Maintenance Images - Only for Well Head Maintenance tab */}
+                {activeTab === 2 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Shield className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Well Head Maintenance in Action</h3>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(wellheadMaintenance1)}
+                      >
+                        <img
+                          src={wellheadMaintenance1}
+                          alt="Well Head Maintenance Service 1"
+                          className="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h4 className="font-bold text-xl mb-2">Professional Well Head Maintenance</h4>
+                          <p className="text-base text-white/90">Expert maintenance services ensuring optimal performance</p>
+                        </div>
+                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(wellheadMaintenance2)}
+                      >
+                        <img
+                          src={wellheadMaintenance2}
+                          alt="Well Head Maintenance Service 2"
+                          className="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <h4 className="font-bold text-xl mb-2">Safety & Compliance Focus</h4>
+                          <p className="text-base text-white/90">Meeting highest safety and regulatory standards</p>
+                        </div>
+                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Leak Sealing Images - Only for Leak Sealing tab */}
+                {activeTab === 3 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Droplets className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Leak Sealing & Valve Greasing in Action</h3>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(leakSealing1)}
+                      >
+                        <img
+                          src={leakSealing1}
+                          alt="Leak Sealing Service 1"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">RS Clare Advanced Lubricants</h4>
+                          <p className="text-sm text-white/90">High-performance greases for superior sealing</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                      
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(leakSealing2)}
+                      >
+                        <img
+                          src={leakSealing2}
+                          alt="Leak Sealing Service 2"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Professional Application</h4>
+                          <p className="text-sm text-white/90">State-of-the-art equipment for precise operations</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group lg:col-span-1"
+                        onClick={() => setSelectedImage(leakSealing3)}
+                      >
+                        <img
+                          src={leakSealing3}
+                          alt="Leak Sealing Service 3"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Multi-Industry Expertise</h4>
+                          <p className="text-sm text-white/90">Versatile solutions across various markets</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Benefits */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <TrendingUp className="w-6 h-6 text-green-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {wellCategories[activeTab].detailedContent.benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Client Section */}
       <ClientSection />
+
+      {/* Image Modal/Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-7xl max-h-[90vh] mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Well Head Maintenance - Full View"
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-colors duration-300"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Users, Wrench, Monitor, Shield, Search, Building, HardHat, Settings, Zap, Droplets } from "lucide-react";
 import calayaLogoWhite from "../../assets/images/calaya_logo_wc.png";
 import calayaLogoBlack from "../../assets/images/calaya_logo_1.png";
+import DropDown from "../dropdown/drop_down";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -15,32 +16,94 @@ const Navbar = () => {
 
   const dropdownItems = {
     whoWeAre: [
-      { name: "About Us", link: "/about" },
-      { name: "Our Certifications", link: "/certifications" },
+      { name: "About Us", link: "/about", icon: <Users className="w-5 h-5" />, description: "Learn about our company history and mission" },
+      { name: "Our Certifications", link: "/certifications", icon: <Shield className="w-5 h-5" />, description: "View our industry certifications and standards" },
       { 
         name: "Our Policies", 
         link: "/policies", 
-        hasSubmenu: true, 
+        icon: <Settings className="w-5 h-5" />, 
+        description: "OHS and Quality policies",
+        hasSubmenu: true,
         submenu: [
-          { name: "OHS Policy", link: "/policies/ohs" },
-          { name: "Quality Policy", link: "/policies/quality" }
+          { name: "OHS Policy", link: "/policies/ohs", icon: <Shield className="w-4 h-4" />, description: "Occupational Health and Safety Policy" },
+          { name: "Quality Policy", link: "/policies/quality", icon: <Settings className="w-4 h-4" />, description: "Quality Management Policy" }
         ]
       },
     ],
     whatWeDo: [
-      { name: "Well Services", link: "/services/well-services" },
-      { name: "Corrosion Management", link: "/services/corrosion-management" },
-      { name: "Pipeline Construction", link: "/services/pipeline-construction" },
-      { name: "Technical Manpower Support", link: "/services/technical-manpower" },
-      { name: "Facilities Management", link: "/services/facilities-management" },
-      { name: "Civil Engineering", link: "/services/civil-engineering" },
-      { name: "Procurement Services", link: "/services/procurement" },
+      { 
+        name: "Well Services", 
+        link: "/services/well-services", 
+        icon: <Wrench className="w-5 h-5" />, 
+        description: "Complete well lifecycle services",
+        hasSubmenu: true,
+        submenu: [
+          { name: "Well Completion", link: "/services/well-services?tab=0", icon: <Settings className="w-4 h-4" />, description: "Comprehensive well completion services" },
+          { name: "Well Intervention", link: "/services/well-services?tab=1", icon: <Wrench className="w-4 h-4" />, description: "Advanced well intervention techniques" },
+          { name: "Well Head Maintenance", link: "/services/well-services?tab=2", icon: <Shield className="w-4 h-4" />, description: "Professional wellhead maintenance services" },
+          { name: "Leak Sealing & Greasing", link: "/services/well-services?tab=3", icon: <Settings className="w-4 h-4" />, description: "Specialized leak sealing and valve greasing" }
+        ]
+      },
+      { 
+        name: "Corrosion Management", 
+        link: "/services/corrosion-management", 
+        icon: <Monitor className="w-5 h-5" />, 
+        description: "Advanced corrosion prevention solutions",
+        hasSubmenu: true,
+        submenu: [
+          { name: "Internal Corrosion Monitoring", link: "/services/corrosion-management?tab=0", icon: <Monitor className="w-4 h-4" />, description: "Advanced internal corrosion monitoring systems" },
+          { name: "Cathodic Protection Services", link: "/services/corrosion-management?tab=1", icon: <Shield className="w-4 h-4" />, description: "Comprehensive cathodic protection systems" },
+          { name: "DCVG Survey & Repair", link: "/services/corrosion-management?tab=2", icon: <Search className="w-4 h-4" />, description: "Advanced DCVG surveys and repair solutions" }
+        ]
+      },
+      { 
+        name: "Pipeline Construction", 
+        link: "/services/pipeline-construction", 
+        icon: <Building className="w-5 h-5" />, 
+        description: "Pipeline laying and hot tapping services",
+        hasSubmenu: true,
+        submenu: [
+          { name: "Pipeline Laying/Construction", link: "/services/pipeline-construction?tab=0", icon: <Wrench className="w-4 h-4" />, description: "Pipeline laying, fabrication, and installation" },
+          { name: "Hot Tapping Services", link: "/services/pipeline-construction?tab=1", icon: <Settings className="w-4 h-4" />, description: "Live pipeline connections and modifications" }
+        ]
+      },
+      { 
+        name: "Technical Manpower Support", 
+        link: "/services/technical-manpower", 
+        icon: <HardHat className="w-5 h-5" />, 
+        description: "Skilled engineering professionals",
+      },
+      { 
+        name: "Facilities Management", 
+        link: "/services/facilities-management", 
+        icon: <Building className="w-5 h-5" />, 
+        description: "Comprehensive facilities management services",
+        hasSubmenu: true,
+        submenu: [
+          { name: "HVAC/Electrical Installation", link: "/services/facilities-management?tab=0", icon: <Zap className="w-4 h-4" />, description: "HVAC and electrical installation & maintenance" },
+          { name: "Grit & Hydro Blasting", link: "/services/facilities-management?tab=1", icon: <Droplets className="w-4 h-4" />, description: "Grit & hydro blasting and coating services" },
+          { name: "Tank & Pipe Cleaning", link: "/services/facilities-management?tab=2", icon: <Settings className="w-4 h-4" />, description: "Cleaning of tanks, test separators, pipes & platforms" },
+          { name: "Online Leak Repair", link: "/services/facilities-management?tab=3", icon: <Shield className="w-4 h-4" />, description: "Professional online leak repair services" }
+        ]
+      },
+      { 
+        name: "Civil Engineering", 
+        link: "/services/civil-engineering", 
+        icon: <Building className="w-5 h-5" />, 
+        description: "Infrastructure development and construction",
+      },
+      { 
+        name: "Procurement Services", 
+        link: "/services/procurement", 
+        icon: <Settings className="w-5 h-5" />, 
+        description: "Strategic sourcing and supply chain management",
+      },
     ],
     productsTechnologies: [
-      { name: "Valve Technologies", link: "/valves" },
-      { name: "Wellhead Systems", link: "/wellheads" },
-      { name: "Offshore Solutions", link: "/offshore" },
-      { name: "Custom Equipment", link: "/custom" },
+      { name: "Valve Technologies", link: "/valves", icon: <Settings className="w-5 h-5" />, description: "Advanced valve systems and technologies" },
+      { name: "Wellhead Systems", link: "/wellheads", icon: <Wrench className="w-5 h-5" />, description: "Complete wellhead equipment and systems" },
+      { name: "Offshore Solutions", link: "/offshore", icon: <Building className="w-5 h-5" />, description: "Offshore platform and marine solutions" },
+      { name: "Custom Equipment", link: "/custom", icon: <Settings className="w-5 h-5" />, description: "Custom engineered equipment solutions" },
     ],
   };
 
@@ -114,47 +177,13 @@ const Navbar = () => {
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
             </button>
             
-            {activeDropdown === "whoWeAre" && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
-                {dropdownItems.whoWeAre.map((item, index) => (
-                  <div key={index} className="relative">
-                    {item.hasSubmenu ? (
-                      <>
-                        <button
-                          onClick={() => handleSubmenuToggle(`policies-${index}`)}
-                          className="w-full px-4 py-3 text-gray-800 hover:bg-red-50 transition-colors duration-200 flex items-center justify-between text-left"
-                        >
-                          <span className="text-sm font-medium">{item.name}</span>
-                          <ChevronRight className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${activeSubmenu === `policies-${index}` ? "rotate-90" : ""}`} />
-                        </button>
-                        {activeSubmenu === `policies-${index}` && (
-                          <div className="bg-gray-50 border-t border-gray-100">
-                            {item.submenu.map((subItem, subIndex) => (
-                              <Link
-                                key={subIndex}
-                                to={subItem.link}
-                                className="block px-6 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white transition-colors duration-200"
-                                onClick={handleLinkClick}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        to={item.link}
-                        className="block px-4 py-3 text-sm text-gray-800 hover:bg-red-500 hover:text-white transition-colors duration-200"
-                        onClick={handleLinkClick}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+            <DropDown
+              isOpen={activeDropdown === "whoWeAre"}
+              onClose={() => setActiveDropdown(null)}
+              title="Who We Are"
+              items={dropdownItems.whoWeAre}
+              columns={3}
+            />
           </div>
 
           {/* What We Do Dropdown */}
@@ -168,48 +197,24 @@ const Navbar = () => {
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
             </button>
             
-            {activeDropdown === "whatWeDo" && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
-                {dropdownItems.whatWeDo.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={item.link}
-                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-red-500 hover:text-white transition-colors duration-200"
-                    onClick={handleLinkClick}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <DropDown
+              isOpen={activeDropdown === "whatWeDo"}
+              onClose={() => setActiveDropdown(null)}
+              title="What We Do"
+              items={dropdownItems.whatWeDo}
+              columns={4}
+            />
           </div>
 
-          {/* Products / Services Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => handleDropdownToggle("productsTechnologies")}
-              className="relative group transition-colors duration-200 flex items-center focus:outline-none"
-            >
-              Products / Services
-              <ChevronDown className={`w-4 h-4 ml-1 transition-transform duration-200 ${activeDropdown === "productsTechnologies" ? "rotate-180" : ""}`} />
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
-            </button>
-            
-            {activeDropdown === "productsTechnologies" && (
-              <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
-                {dropdownItems.productsTechnologies.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={item.link}
-                    className="block px-4 py-3 text-sm text-gray-800 hover:bg-red-500 hover:text-white transition-colors duration-200"
-                    onClick={handleLinkClick}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Product & Partners Link */}
+          <Link
+            to="/products"
+            className="relative group transition-colors duration-200"
+            onClick={handleLinkClick}
+          >
+            Product & Partners
+            <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
+          </Link>
 
           <Link
             to="/"
@@ -344,65 +349,48 @@ const Navbar = () => {
                 
                 {activeDropdown === "whatWeDo" && (
                   <div className="ml-4 mt-2 space-y-1">
-                    {dropdownItems.whatWeDo.map((item, index) => (
-                      <Link
-                        key={index}
-                        to={item.link}
+              {dropdownItems.whatWeDo.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item.link}
                         className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
                         onClick={handleLinkClick}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Mobile - Products / Services */}
-              <div>
-                <button
-                  onClick={() => handleDropdownToggle("productsTechnologies")}
-                  className="w-full text-left px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between font-medium"
                 >
-                  Products / Services
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === "productsTechnologies" ? "rotate-180" : ""}`} />
-                </button>
-                
-                {activeDropdown === "productsTechnologies" && (
-                  <div className="ml-4 mt-2 space-y-1">
-                    {dropdownItems.productsTechnologies.map((item, index) => (
-                      <Link
-                        key={index}
-                        to={item.link}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
-                        onClick={handleLinkClick}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+                  {item.name}
+                </Link>
+              ))}
+            </div>
                 )}
-              </div>
+        </div>
 
+              {/* Mobile - Product & Partners */}
               <Link
-                to="/"
+                to="/products"
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
               >
-                Projects & Partners
+                Product & Partners
               </Link>
+
+          <Link
+            to="/"
+                className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
+                onClick={handleLinkClick}
+          >
+                Projects & Partners
+          </Link>
             </div>
           </div>
 
           {/* Sidebar Footer */}
           <div className="p-4 border-t border-gray-200">
-            <Link
+          <Link
               to="/contact"
               className="block w-full bg-red-500 text-white px-4 py-3 rounded-lg hover:bg-red-600 transition-colors duration-200 text-sm font-semibold text-center"
               onClick={handleLinkClick}
-            >
+          >
               Contact Us
-            </Link>
+          </Link>
           </div>
         </div>
       </div>

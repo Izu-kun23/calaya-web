@@ -8,6 +8,12 @@ import OHS_Policy from './pages/policies/OHS_Policy'
 import Quality_Policy from './pages/policies/Quality_Policy'
 import Well_Services from './pages/what_we_do/Well_Services'
 import Corrosion_Management from './pages/what_we_do/Corrosion_Management'
+import Pipeline_Construction from './pages/what_we_do/Pipeline_Construction'
+import Technical_Manpower_Support from './pages/what_we_do/Technical_Manpower_Support'
+import Facilities_Management from './pages/what_we_do/Facilities_Management'
+import Procurement_Services from './pages/what_we_do/Procurement_Services'
+import Civil_Engineering from './pages/what_we_do/Civil_Engineering'
+import Product_Partners from './pages/Product_Partners'
 
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
@@ -37,6 +43,12 @@ const App = () => {
           {/* What We Do Services */}
           <Route path="/services/well-services" element={<Well_Services />} />
           <Route path="/services/corrosion-management" element={<Corrosion_Management />} />
+          <Route path="/services/pipeline-construction" element={<Pipeline_Construction />} />
+          <Route path="/services/technical-manpower" element={<Technical_Manpower_Support />} />
+          <Route path="/services/facilities-management" element={<Facilities_Management />} />
+          <Route path="/services/procurement" element={<Procurement_Services />} />
+          <Route path="/services/civil-engineering" element={<Civil_Engineering />} />
+          <Route path="/products" element={<Product_Partners />} />
 
           {/* 404 Page */}
           <Route path="*" element={<div />} />

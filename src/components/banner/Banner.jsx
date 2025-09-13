@@ -7,7 +7,6 @@ const bannerImageModules = import.meta.glob(
   { eager: true }
 )
 
-import BannerCard from './BannerCard'
 import WhiteButtons from '../buttons/WhiteButtons'
 import Pagination from '../pagination/pagination'
 
@@ -32,7 +31,14 @@ const Banner = () => {
     return images.map((url) => ({ url, ...inferTexts(url) }))
   }, [images])
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  // Create infinite loop slides (duplicate slides for seamless looping)
+  const infiniteSlides = useMemo(() => {
+    if (slides.length <= 1) return slides
+    // Add duplicate slides at the end and beginning for infinite loop
+    return [...slides, ...slides, ...slides]
+  }, [slides])
+
+  const [currentIndex, setCurrentIndex] = useState(slides.length) // Start from middle set
   const intervalRef = useRef(null)
 
   // Auto-slide functionality
@@ -41,8 +47,15 @@ const Banner = () => {
 
     const startAutoSlide = () => {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % slides.length)
-      }, 6000)
+        setCurrentIndex((prev) => {
+          const nextIndex = prev + 1
+          // If we've reached the end of the duplicated slides, reset to start of middle set
+          if (nextIndex >= slides.length * 2) {
+            return slides.length
+          }
+          return nextIndex
+        })
+      }, 5000)
     }
 
     startAutoSlide()
@@ -63,16 +76,23 @@ const Banner = () => {
       intervalRef.current = null
     }
     
-    setCurrentIndex(page - 1) // Convert 1-based to 0-based index
+    // Set to middle set + page index for seamless loop
+    setCurrentIndex(slides.length + (page - 1))
     
     // Restart auto-slide after a delay
     setTimeout(() => {
       if (slides.length > 1) {
         intervalRef.current = setInterval(() => {
-          setCurrentIndex((prev) => (prev + 1) % slides.length)
-        }, 6000)
+          setCurrentIndex((prev) => {
+            const nextIndex = prev + 1
+            if (nextIndex >= slides.length * 2) {
+              return slides.length
+            }
+            return nextIndex
+          })
+        }, 5000)
       }
-    }, 8000)
+    }, 7000)
   }
 
   // Smooth scroll function
@@ -98,103 +118,91 @@ const Banner = () => {
 
   return (
     <div className="relative w-full h-screen md:h-[500px] lg:h-[815px] overflow-hidden">
-      {/* Background Images with Overlapping Transitions */}
-      <div className="absolute inset-0">
-        <AnimatePresence>
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: [0.4, 0, 0.2, 1]
-            }}
-          >
-            <motion.img
-              src={currentSlide.url}
-              alt={`Banner ${currentIndex + 1}`}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.08 }}
-              animate={{ scale: 1 }}
-              transition={{ 
-                duration: 8,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-            />
-          </motion.div>
-        </AnimatePresence>
+      {/* Complete Slide Units - Image + Text together */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="flex h-full w-full"
+          style={{ width: `${infiniteSlides.length * 100}%` }}
+          animate={{ x: `-${(currentIndex * 100) / infiniteSlides.length}%` }}
+          transition={{ 
+            duration: 1.5,
+            ease: "easeInOut"
+          }}
+        >
+          {infiniteSlides.map((slide, index) => (
+            <div
+              key={index}
+              className="h-full flex-shrink-0 relative"
+              style={{ width: `${100 / infiniteSlides.length}%` }}
+            >
+              {/* Background Image */}
+              <img
+                src={slide.url}
+                alt={`Banner ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Dark overlay with tint */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/80 to-black/60" />
+
+            </div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Fixed text overlay - doesn't move with images */}
+      <div className="absolute inset-0 z-10 flex items-center">
+        <div className="text-white max-w-7xl w-full px-4 sm:px-6 lg:px-15">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Text content on the left */}
+            <div className="space-y-6">
+              <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/90 font-medium">
+                A Leading Oil & Gas Firm
+              </p>
+              
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+                Providing Excellent Services
+              </h1>
+              
+              <p className="text-lg md:text-xl text-white/80 font-medium">
+                Across Africa
+              </p>
+              
+              <div className="pt-4 flex flex-col sm:flex-row gap-4">
+                <button className="w-45 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300">
+                  <span className="text-black text-sm font-semibold">View Services</span>
+                </button>
+                <button className="w-45 h-16 rounded-full flex items-center justify-center border border-white hover:border-red-500 group transition-colors duration-300">
+                  <span className="text-white group-hover:text-red-500 text-sm font-semibold transition-colors duration-300">Contact Us</span>
+                </button>
+              </div>
+            </div>
+            
+            {/* Empty space on the right for balance */}
+            <div></div>
+          </div>
+        </div>
+      </div>
 
-      {/* Content overlay */}
-      <div className="absolute inset-0 flex items-center justify-center lg:items-end lg:pb-24 xl:pb-6">
-        <div className="text-center text-white max-w-4xl w-full px-4 sm:px-6 lg:px-8">
-          {/* Animated text content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`text-${currentIndex}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ 
-                duration: 0.8, 
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-            >
-              <BannerCard>
-                <motion.p 
-                  className="text-xs md:text-sm lg:text-base uppercase tracking-widest text-white/90"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  {currentSlide.small}
-                </motion.p>
-                
-                <motion.h1 
-                  className="mt-2 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white"
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                  {currentSlide.big}
-                </motion.h1>
-                
-                <motion.div 
-                  className="mt-4 sm:mt-6 flex items-center justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <WhiteButtons size="md">Discover More</WhiteButtons>
-                </motion.div>
-              </BannerCard>
-            </motion.div>
-          </AnimatePresence>
-          
-          {/* Static pagination */}
+      {/* Bottom section with pagination and scroll arrow - stays fixed */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div className="pb-8">
+          {/* Pagination */}
           <motion.div 
-            className="mt-6 sm:mt-8 flex justify-center"
+            className="flex justify-center mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
           >
             <Pagination
               totalPages={slides.length}
-              currentPage={currentIndex + 1}
+              currentPage={((currentIndex % slides.length) + 1)}
               onChange={handlePageChange}
             />
           </motion.div>
 
-          {/* Scroll Arrow - Now below pagination */}
+          {/* Scroll Arrow */}
           <motion.div 
-            className="mt-3 flex justify-center"
+            className="flex justify-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}

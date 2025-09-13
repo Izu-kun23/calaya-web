@@ -1,146 +1,122 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Monitor, Shield, Search } from "lucide-react";
+import { Monitor, Shield, Search, CheckCircle, Target, TrendingUp, Settings } from "lucide-react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
 
 const Corrosion_Management = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  // Handle URL-based tab activation
+  useEffect(() => {
+    const tabParam = searchParams.get('tab');
+    if (tabParam) {
+      const tabIndex = parseInt(tabParam);
+      if (tabIndex >= 0 && tabIndex < 3) {
+        setActiveTab(tabIndex);
+      }
+    }
+  }, [searchParams]);
+
   const corrosionCategories = [
     {
       icon: <Monitor className="w-8 h-8" />,
       title: "Internal Corrosion Monitoring",
-      description:
-        "Advanced internal corrosion monitoring systems and technologies to detect, assess, and prevent corrosion within pipelines, vessels, and equipment.",
+      description: "Advanced internal corrosion monitoring systems and services to detect, assess, and prevent corrosion in pipelines, vessels, and equipment.",
       features: [
-        "Corrosion Coupon Installation & Monitoring",
-        "Electrical Corrosion Probe Systems",
-        "Oil Tank Corrosion Assessment",
-        "Platform & Subsea Pipeline Monitoring",
-        "Quantitative Corrosion Rate Analysis",
+        "Real-time Corrosion Monitoring",
+        "Advanced Detection Systems",
+        "Data Analysis & Reporting",
+        "Predictive Maintenance",
+        "Risk Assessment",
+        "Compliance Monitoring",
+        "Custom Monitoring Solutions",
+        "24/7 System Support",
       ],
-        detailedContent: {
-          overview:
-            "The monitoring of corrosive processes is part of the routine of many industries, especially those of processes such as refineries, petrochemicals, FPSOs and other plants. At Calaya Engineering Services, our procedures for Internal Corrosion Monitoring involves the use of Corrosion Coupons and Electrical Corrosion Probes to give a quantitative estimate of corrosion rates that take place within a specific Operating System, offer Visual Signals of the Corrosion type and Monitor the amount of Internal Corrosion in Oil Tanks, Platform Pipes, Deep Core or Subsea Pipes.",
-          services: [
-            {
-              title: "Corrosion Coupons",
-              description:
-                "Professional installation and monitoring of corrosion coupons to provide quantitative estimates of corrosion rates within specific operating systems, offering visual signals of corrosion types and patterns.",
-            },
-            {
-              title: "Electrical Corrosion Probes",
-              description:
-                "Advanced electrical corrosion probe systems for real-time monitoring and quantitative assessment of corrosion rates in various operating environments and conditions.",
-            },
-            {
-              title: "Oil Tank Corrosion Monitoring",
-              description:
-                "Specialized monitoring services for internal corrosion in oil storage tanks, providing comprehensive assessment and early warning systems for tank integrity management.",
-            },
-            {
-              title: "Pipeline Corrosion Assessment",
-              description:
-                "Comprehensive monitoring of internal corrosion in platform pipes, deep core pipes, and subsea pipes using advanced probe technologies and coupon analysis.",
-            },
-          ],
-        benefits: [
-          "Quantitative corrosion rate estimation",
-          "Visual corrosion type identification",
-          "Multi-industry application (refineries, petrochemicals, FPSOs)",
-          "Comprehensive system monitoring",
+      detailedContent: {
+        overview: "Our internal corrosion monitoring services provide comprehensive solutions for detecting, assessing, and preventing corrosion in pipelines, vessels, and equipment. We utilize advanced monitoring systems, real-time data analysis, and predictive maintenance techniques to ensure optimal asset protection and regulatory compliance.",
+        services: [
+          { title: "Real-time Monitoring Systems", description: "Advanced real-time corrosion monitoring systems with continuous data collection and analysis for immediate corrosion detection and assessment." },
+          { title: "Corrosion Detection Technology", description: "State-of-the-art corrosion detection technology including electrical resistance probes, linear polarization resistance, and ultrasonic monitoring systems." },
+          { title: "Data Analysis & Reporting", description: "Comprehensive data analysis and reporting services with detailed corrosion rate calculations, trend analysis, and predictive maintenance recommendations." },
+          { title: "Risk Assessment & Mitigation", description: "Professional risk assessment services to identify corrosion risks and implement effective mitigation strategies for optimal asset protection." },
         ],
-      },
+        benefits: [
+          "Early corrosion detection and prevention",
+          "Real-time monitoring and data analysis",
+          "Reduced maintenance costs",
+          "Enhanced asset lifespan",
+          "Regulatory compliance assurance",
+          "Predictive maintenance capabilities",
+        ],
+      }
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Cathodic Protection Services",
-      description:
-        "Comprehensive cathodic protection systems design, installation, and maintenance to prevent external corrosion of buried and submerged metallic structures.",
+      description: "Comprehensive cathodic protection systems and services for pipelines, tanks, and structures to prevent corrosion and ensure long-term asset integrity.",
       features: [
-        "Pipeline Protection (Oil, Gas, Product, Water)",
-        "Storage Tank Systems (Above & Underground)",
-        "Marine Structures (Jetties, Wharves, Piling)",
-        "Power Station Cooling Systems",
-        "Industrial & Infrastructure Applications",
+        "Impressed Current Systems",
+        "Galvanic Anode Systems",
+        "System Design & Installation",
+        "Performance Monitoring",
+        "Maintenance & Testing",
+        "System Optimization",
+        "Emergency Repairs",
+        "Compliance Certification",
       ],
-        detailedContent: {
-          overview:
-            "CALAYA has been providing successful cathodic protection solutions to the Oil, Gas, Petrochemical, Water and Power Industries over the last 15 years. Our comprehensive cathodic protection services cover a wide range of applications including pipelines, storage tanks, well casings, marine structures, and industrial facilities.",
-          services: [
-            {
-              title: "Pipeline Cathodic Protection",
-              description:
-                "Complete cathodic protection solutions for oil, gas, product, and water pipelines, including system design, installation, and ongoing monitoring for optimal corrosion prevention.",
-            },
-            {
-              title: "Storage Tank Protection",
-              description:
-                "Specialized cathodic protection systems for above ground and underground storage tanks, ensuring long-term integrity and preventing external corrosion in various environments.",
-            },
-            {
-              title: "Marine & Industrial Structures",
-              description:
-                "Advanced cathodic protection for marine structures including jetties and wharves, sheet and cylindrical piling (land & marine), and in-plant pipe work systems.",
-            },
-            {
-              title: "Power & Infrastructure Protection",
-              description:
-                "Comprehensive protection solutions for compressor stations, cooling water pipe work for power stations, concrete structures (pipelines, bridges), and well casings.",
-            },
-          ],
-        benefits: [
-          "15+ years of successful industry experience",
-          "Multi-industry expertise (Oil, Gas, Petrochemical, Water, Power)",
-          "Comprehensive application coverage",
-          "Proven track record of successful solutions",
+      detailedContent: {
+        overview: "Our cathodic protection services provide comprehensive corrosion prevention solutions for pipelines, tanks, and structures. We design, install, monitor, and maintain both impressed current and galvanic anode systems to ensure optimal corrosion protection and long-term asset integrity.",
+        services: [
+          { title: "System Design & Installation", description: "Professional design and installation of cathodic protection systems including impressed current and galvanic anode systems for various applications." },
+          { title: "Performance Monitoring", description: "Continuous monitoring of cathodic protection system performance with regular testing, data collection, and system optimization recommendations." },
+          { title: "Maintenance & Testing", description: "Comprehensive maintenance and testing services including annual surveys, rectifier maintenance, and system performance evaluations." },
+          { title: "Emergency Repairs", description: "Rapid response emergency repair services for cathodic protection systems to ensure continuous corrosion protection and system reliability." },
         ],
-      },
+        benefits: [
+          "Comprehensive corrosion prevention",
+          "Long-term asset protection",
+          "Regulatory compliance",
+          "Reduced maintenance requirements",
+          "System optimization and efficiency",
+          "Emergency response capabilities",
+        ],
+      }
     },
     {
       icon: <Search className="w-8 h-8" />,
       title: "DCVG (Coating Defect Survey & Repair)",
-      description:
-        "Advanced DCVG (Direct Current Voltage Gradient) surveys to detect coating defects and provide comprehensive repair solutions for pipeline integrity management.",
+      description: "Advanced DCVG (Direct Current Voltage Gradient) surveys and coating defect repair services for pipeline integrity assessment and maintenance.",
       features: [
-        "Field DCVG Surveys (Oil, Gas, Water Pipelines)",
-        "NACE Certified Expert Analysis",
-        "Coating Fault Location & Sizing",
-        "Cathodic Protection Strategy Evaluation",
-        "Pipeline Coating Anomaly Detection",
+        "DCVG Survey Services",
+        "Coating Defect Detection",
+        "Pipeline Integrity Assessment",
+        "Repair Recommendations",
+        "Coating Repair Services",
+        "Quality Assurance",
+        "Documentation & Reporting",
+        "Follow-up Monitoring",
       ],
-        detailedContent: {
-          overview:
-            "In particular, oil and natural gas pipelines are routinely monitored using this technique to help locate coating faults and highlight deficiencies in their cathodic protection (CP) strategies. Qualified Calaya technical personnel can conduct DCVG surveys in the field for oil, gas and water pipelines. Data is then analyzed by NACE certified experts. Direct Current Voltage Gradient surveys are used to evaluate defects in pipeline coatings. Corrosion normally occurs where the bare metal surface of a pipeline comes in contact with its surrounding electrolyte (water and soil). The primary purpose of a DCVG survey is to find and size pipeline coating anomalies associated with corrosion.",
-          services: [
-            {
-              title: "Field DCVG Surveys",
-              description:
-                "Qualified Calaya technical personnel conduct comprehensive DCVG surveys in the field for oil, gas, and water pipelines, providing accurate detection of coating faults and cathodic protection deficiencies.",
-            },
-            {
-              title: "NACE Certified Data Analysis",
-              description:
-                "Professional data analysis by NACE certified experts to evaluate coating defects, assess corrosion risks, and provide detailed recommendations for pipeline integrity management.",
-            },
-            {
-              title: "Coating Anomaly Detection",
-              description:
-                "Advanced DCVG technology to find and size pipeline coating anomalies associated with corrosion, identifying areas where bare metal surfaces contact surrounding electrolytes.",
-            },
-            {
-              title: "Cathodic Protection Strategy Assessment",
-              description:
-                "Comprehensive evaluation of cathodic protection strategies to highlight deficiencies and optimize protection systems for enhanced pipeline integrity and corrosion prevention.",
-            },
-          ],
-        benefits: [
-          "Qualified technical personnel for field surveys",
-          "NACE certified expert data analysis",
-          "Routine pipeline monitoring capability",
-          "Coating fault location and sizing accuracy",
+      detailedContent: {
+        overview: "Our DCVG (Direct Current Voltage Gradient) survey and coating defect repair services provide comprehensive pipeline integrity assessment and maintenance solutions. We utilize advanced survey techniques to detect coating defects, assess pipeline integrity, and provide professional repair services to ensure optimal pipeline performance and safety.",
+        services: [
+          { title: "DCVG Survey Services", description: "Professional DCVG survey services for pipeline coating defect detection and integrity assessment using advanced survey equipment and techniques." },
+          { title: "Coating Defect Assessment", description: "Comprehensive coating defect assessment and analysis with detailed reporting on defect severity, location, and recommended repair actions." },
+          { title: "Coating Repair Services", description: "Professional coating repair services including surface preparation, coating application, and quality assurance to restore pipeline integrity." },
+          { title: "Pipeline Integrity Analysis", description: "Detailed pipeline integrity analysis with risk assessment, repair prioritization, and maintenance planning for optimal pipeline performance." },
         ],
-      },
-    },
+        benefits: [
+          "Accurate coating defect detection",
+          "Comprehensive pipeline integrity assessment",
+          "Professional repair services",
+          "Enhanced pipeline safety",
+          "Optimized maintenance planning",
+          "Regulatory compliance assurance",
+        ],
+      }
+    }
   ];
 
   return (
@@ -158,216 +134,128 @@ const Corrosion_Management = () => {
               Corrosion Management
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Advanced corrosion prevention and management solutions for oil and
-              gas infrastructure
+              Advanced corrosion prevention and management solutions for optimal asset protection
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      {/* Navigation Tabs */}
+      <section className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Comprehensive Corrosion Management Solutions
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-[-2rem]">
-              Calaya Engineering Services is one of the renowned Oil & Gas
-              servicing company that works in conformity with approved standards
-              to provide the best results at all levels of corrosion management
-              for process and storage facilities.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Interactive Tabs Section */}
-      <section className="pb-12 sm:pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+          <div className="flex overflow-x-auto">
             {corrosionCategories.map((category, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center px-3 sm:px-4 md:px-6 py-2 sm:py-3 m-1 sm:m-2 rounded-lg transition-all duration-300 text-sm sm:text-base ${
+                className={`flex items-center gap-3 px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
                   activeTab === index
-                    ? "bg-red-500 text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 shadow-md"
+                    ? "border-red-600 text-red-600 bg-red-50"
+                    : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <div className="mr-2 sm:mr-3">{category.icon}</div>
-                <span className="font-semibold whitespace-nowrap">
-                  {category.title}
+                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
+                  {category.icon}
                 </span>
+                <span className="font-medium text-sm sm:text-base">{category.title}</span>
               </button>
             ))}
           </div>
-
-          {/* Tab Content */}
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 lg:p-10"
-          >
-            {/* Active Tab Header */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start mb-6 sm:mb-8">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4 sm:mb-0 sm:mr-6">
-                {corrosionCategories[activeTab].icon}
-              </div>
-              <div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center sm:text-left">
-                  {corrosionCategories[activeTab].title}
-                </h3>
-                <p className="text-base sm:text-lg text-gray-600 text-center sm:text-left">
-                  {corrosionCategories[activeTab].description}
-                </p>
-              </div>
-            </div>
-
-            {/* Overview Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-                Overview
-              </h4>
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                {corrosionCategories[activeTab].detailedContent.overview}
-              </p>
-            </div>
-
-            {/* Services Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">
-                Our Services
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
-                {corrosionCategories[activeTab].detailedContent.services.map(
-                  (service, serviceIndex) => (
-                    <div
-                      key={serviceIndex}
-                      className="bg-gray-50 rounded-lg p-4 sm:p-6"
-                    >
-                      <h5 className="text-base sm:text-lg font-semibold text-gray-900 mb-3">
-                        {service.title}
-                      </h5>
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Benefits Section */}
-            <div className="mb-6 sm:mb-8">
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-6">
-                Key Benefits
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-                {corrosionCategories[activeTab].detailedContent.benefits.map(
-                  (benefit, benefitIndex) => (
-                    <div
-                      key={benefitIndex}
-                      className="flex items-center bg-red-50 rounded-lg p-3 sm:p-4"
-                    >
-                      <div className="w-6 sm:w-8 h-1 bg-red-500 mr-2 sm:mr-3 flex-shrink-0"></div>
-                      <span className="text-xs sm:text-sm md:text-base text-gray-700 font-medium">
-                        {benefit}
-                      </span>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Quick Services List */}
-            <div>
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-                Quick Services List
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
-                {corrosionCategories[activeTab].features.map(
-                  (feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center p-2">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
-                      <span className="text-xs sm:text-sm text-gray-700">
-                        {feature}
-                      </span>
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us Section
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      {/* Content Section */}
+      <section className="py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-center"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
-              Why Choose Calaya for Corrosion Management?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">
-                    19+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Left Column - Service Overview */}
+            <div className="lg:col-span-1">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white rounded-lg shadow-lg p-6 h-fit sticky top-8"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-red-600">
+                    {corrosionCategories[activeTab].icon}
                   </span>
+                  <h2 className="text-xl font-bold text-gray-900">
+                    {corrosionCategories[activeTab].title}
+                  </h2>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Years Experience
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Extensive experience in corrosion management across multiple
-                  countries
+                <p className="text-gray-600 mb-6">
+                  {corrosionCategories[activeTab].description}
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">
-                    500+
-                  </span>
+                
+                <div className="space-y-3">
+                  <h3 className="font-semibold text-gray-900 mb-3">Key Features:</h3>
+                  {corrosionCategories[activeTab].features.map((feature, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-gray-600">{feature}</span>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Projects Completed
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Successfully completed corrosion management projects worldwide
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 sm:w-20 h-6 sm:h-8 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <span className="text-sm sm:text-lg font-bold text-white">
-                    24/7
-                  </span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                  Support Available
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  Round-the-clock technical support and emergency services
-                </p>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* Right Column - Detailed Content */}
+            <div className="lg:col-span-2">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                {/* Overview */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Target className="w-6 h-6 text-red-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    {corrosionCategories[activeTab].detailedContent.overview}
+                  </p>
+                </div>
+
+                {/* Services */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Settings className="w-6 h-6 text-red-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {corrosionCategories[activeTab].detailedContent.services.map((service, index) => (
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
+                        <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
+                        <p className="text-gray-600 text-sm">{service.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Benefits */}
+                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <TrendingUp className="w-6 h-6 text-green-600" />
+                    <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {corrosionCategories[activeTab].detailedContent.benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Client Section */}
       <ClientSection />
