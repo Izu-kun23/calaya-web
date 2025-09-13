@@ -2,85 +2,86 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Building, Wrench, Shield, CheckCircle, Target, TrendingUp, Settings, Zap, HardHat, Monitor, Users, Search, Droplets } from 'lucide-react'
 
+
 const Product_Partners = () => {
   // Product and Partner data
   const products = [
     {
       id: 1,
       name: "RS Clare",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/rs_clare.jpg",
       description: "Advanced lubricants and greasing equipment"
     },
     {
       id: 2,
       name: "Precise Tool",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/precise_tool.jpg",
       description: "Precision engineering and tooling solutions"
     },
     {
       id: 3,
       name: "DHVI",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/DHVI.png",
       description: "Industrial valves and equipment"
     },
     {
       id: 4,
       name: "IP Pipeline Technologies",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/ip_pipeline.jpg",
       description: "Pipeline construction and maintenance"
     },
     {
       id: 5,
       name: "Lex Technology",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/lex.jpg",
       description: "Technology solutions for oil and gas"
     },
     {
       id: 6,
       name: "TCK.W",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/i2S.jpg",
       description: "Specialized equipment and services"
     },
     {
       id: 7,
       name: "12S",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/i2S.jpg",
       description: "Engineering and technical services"
     },
     {
       id: 8,
       name: "RemediAde",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/remediade.jpg",
       description: "Environmental and remediation services"
     },
     {
       id: 9,
       name: "C-Cube International",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/c-cube.jpeg",
       description: "International engineering solutions"
     },
     {
       id: 10,
       name: "Samoa LTD",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/samoa.png",
       description: "Industrial equipment and services"
     },
     {
       id: 11,
       name: "Shootfire by Vimal Fire",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/shootfire.jpg",
       description: "Fire safety and protection systems"
     },
     {
       id: 12,
       name: "GM Flow Measurement",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/gm_flow.jpg",
       description: "Flow measurement and control systems"
     },
     {
       id: 13,
       name: "Leak Detection and Repair",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+      image: "/src/assets/product_partners/leak_detection.jpg",
       description: "Specialized leak detection services"
     }
   ]
