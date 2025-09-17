@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Shield, Search, CheckCircle, Target, TrendingUp, Settings } from "lucide-react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
 
 const Corrosion_Management = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null); // State for image modal
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -236,6 +237,89 @@ const Corrosion_Management = () => {
                   </div>
                 </div>
 
+                {/* Internal Corrosion Monitoring Images - Only for Internal Corrosion Monitoring tab */}
+                {activeTab === 0 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Monitor className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Internal Corrosion Monitoring in Action</h3>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/internal_corrosion_monitering/access fitting (hottapped on a pipeline by calaya engineering services).jpg")}
+                      >
+                        <img
+                          src="/src/assets/internal_corrosion_monitering/access fitting (hottapped on a pipeline by calaya engineering services).jpg"
+                          alt="Access Fitting Hot-tapped on Pipeline"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Access Fitting Installation</h4>
+                          <p className="text-sm text-white/90">Hot-tapped access fitting on pipeline for monitoring</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/internal_corrosion_monitering/IMG_20230806_113504_236.jpg")}
+                      >
+                        <img
+                          src="/src/assets/internal_corrosion_monitering/IMG_20230806_113504_236.jpg"
+                          alt="Corrosion Monitoring Equipment"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Monitoring Equipment Setup</h4>
+                          <p className="text-sm text-white/90">Advanced corrosion monitoring systems in operation</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group lg:col-span-1"
+                        onClick={() => setSelectedImage("/src/assets/internal_corrosion_monitering/IMG_20230806_152149_381.jpg")}
+                      >
+                        <img
+                          src="/src/assets/internal_corrosion_monitering/IMG_20230806_152149_381.jpg"
+                          alt="Corrosion Detection Analysis"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Corrosion Detection Analysis</h4>
+                          <p className="text-sm text-white/90">Advanced analysis for effective corrosion management</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Benefits */}
                 <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
@@ -259,6 +343,43 @@ const Corrosion_Management = () => {
 
       {/* Client Section */}
       <ClientSection />
+
+      {/* Image Modal/Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-4xl max-h-[80vh] mx-4 overflow-y-auto overflow-x-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Internal Corrosion Monitoring - Full View"
+                className="rounded-lg shadow-2xl"
+                style={{ maxWidth: '100%', width: 'auto', height: 'auto' }}
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-colors duration-300"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

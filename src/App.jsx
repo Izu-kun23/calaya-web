@@ -13,7 +13,9 @@ import Technical_Manpower_Support from './pages/what_we_do/Technical_Manpower_Su
 import Facilities_Management from './pages/what_we_do/Facilities_Management'
 import Procurement_Services from './pages/what_we_do/Procurement_Services'
 import Civil_Engineering from './pages/what_we_do/Civil_Engineering'
-import Product_Partners from './pages/Product_Partners'
+import Product_Partners from './pages/partners/Product_Partners'
+import RS_Clare from './pages/partners/RS_Clare'
+import Certifications from './pages/Certifications'
 
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
@@ -49,6 +51,8 @@ const App = () => {
           <Route path="/services/procurement" element={<Procurement_Services />} />
           <Route path="/services/civil-engineering" element={<Civil_Engineering />} />
           <Route path="/products" element={<Product_Partners />} />
+          <Route path="/partners/rs-clare" element={<RS_Clare />} />
+          <Route path="/certifications" element={<Certifications />} />
 
           {/* 404 Page */}
           <Route path="*" element={<div />} />

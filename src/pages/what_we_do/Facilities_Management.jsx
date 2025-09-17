@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Building, Wrench, Droplets, Zap, CheckCircle, Target, TrendingUp, Settings } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Building, Wrench, Droplets, Zap, CheckCircle, Target, TrendingUp, Settings, X } from "lucide-react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
 
 const Facilities_Management = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -262,6 +263,156 @@ const Facilities_Management = () => {
                   </div>
                 </div>
 
+                {/* HVAC Images Section - Only show for first tab */}
+                {activeTab === 0 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Building className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">HVAC Installation & Maintenance</h3>
+                    </div>
+                    <p className="text-gray-600 mb-6">
+                      Our professional HVAC installation and maintenance services ensure optimal system performance and energy efficiency for industrial facilities.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/facilities_management/hvac1.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/facilities_management/hvac1.jpeg"
+                          alt="HVAC System Installation"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">HVAC System Installation</h4>
+                          <p className="text-sm text-white/90">Professional installation of industrial HVAC systems</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/facilities_management/hvac2.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/facilities_management/hvac2.jpeg"
+                          alt="HVAC Maintenance Services"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">HVAC Maintenance Services</h4>
+                          <p className="text-sm text-white/90">Regular maintenance and repair services</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Grit & Hydro Blasting Images Section - Only show for second tab */}
+                {activeTab === 1 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Wrench className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Grit & Hydro Blasting Services</h3>
+                    </div>
+                    <p className="text-gray-600 mb-6">
+                      Professional surface preparation and coating services using advanced grit and hydro blasting techniques for optimal adhesion and protection.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/hydroblasting/hydroblasting9.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/hydroblasting/hydroblasting9.jpeg"
+                          alt="Hydro Blasting Operations"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Hydro Blasting Operations</h4>
+                          <p className="text-sm text-white/90">High-pressure water blasting for surface preparation</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/hydroblasting/hydroblasting2.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/hydroblasting/hydroblasting2.jpeg"
+                          alt="Advanced Hydro Blasting"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Advanced Hydro Blasting</h4>
+                          <p className="text-sm text-white/90">Specialized hydro blasting equipment and techniques</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/gritblasting/gritblasting1.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/gritblasting/gritblasting1.jpeg"
+                          alt="Grit Blasting Services"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Grit Blasting Services</h4>
+                          <p className="text-sm text-white/90">Professional grit blasting for surface preparation</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Benefits */}
                 <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
@@ -285,6 +436,39 @@ const Facilities_Management = () => {
 
       {/* Client Section */}
       <ClientSection />
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[90vh] w-full overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Enlarged view"
+                className="w-full h-auto object-contain rounded-lg shadow-2xl"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors duration-300"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
