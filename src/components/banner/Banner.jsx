@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 // Auto-import all banner images in the folder
 const bannerImageModules = import.meta.glob(
@@ -171,9 +172,12 @@ const Banner = () => {
                 <button className="w-45 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300">
                   <span className="text-black text-sm font-semibold">View Services</span>
                 </button>
-                <button className="w-45 h-16 rounded-full flex items-center justify-center border border-white hover:border-red-500 group transition-colors duration-300">
+                <Link 
+                  to="/contact" 
+                  className="w-45 h-16 rounded-full flex items-center justify-center border border-white hover:border-red-500 group transition-colors duration-300"
+                >
                   <span className="text-white group-hover:text-red-500 text-sm font-semibold transition-colors duration-300">Contact Us</span>
-                </button>
+                </Link>
               </div>
             </div>
             

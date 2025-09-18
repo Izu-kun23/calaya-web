@@ -163,6 +163,13 @@ const Product_Partners = () => {
                       >
                         View Details
                       </Link>
+                    ) : product.name === "Precise Tool" ? (
+                      <Link
+                        to="/partners/precise-tool"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
                     ) : (
                       <button className="w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium text-sm">
                         View Details

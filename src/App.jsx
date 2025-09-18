@@ -15,6 +15,7 @@ import Procurement_Services from './pages/what_we_do/Procurement_Services'
 import Civil_Engineering from './pages/what_we_do/Civil_Engineering'
 import Product_Partners from './pages/partners/Product_Partners'
 import RS_Clare from './pages/partners/RS_Clare'
+import Precise_Tool from './pages/partners/Precise_Tool'
 import Certifications from './pages/Certifications'
 
 // Import your page components here
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/services/civil-engineering" element={<Civil_Engineering />} />
           <Route path="/products" element={<Product_Partners />} />
           <Route path="/partners/rs-clare" element={<RS_Clare />} />
+          <Route path="/partners/precise-tool" element={<Precise_Tool />} />
           <Route path="/certifications" element={<Certifications />} />
 
           {/* 404 Page */}
