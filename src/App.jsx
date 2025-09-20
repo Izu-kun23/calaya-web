@@ -16,6 +16,12 @@ import Civil_Engineering from './pages/what_we_do/Civil_Engineering'
 import Product_Partners from './pages/partners/Product_Partners'
 import RS_Clare from './pages/partners/RS_Clare'
 import Precise_Tool from './pages/partners/Precise_Tool'
+import DHVI from './pages/partners/DHVI'
+import IP_Pipeline from './pages/partners/IP_Pipeline'
+import Lex_Technology from './pages/partners/Lex_Technology'
+import TCK_W from './pages/partners/TCK_W'
+import TwelveS from './pages/partners/12S'
+import RemediAde from './pages/partners/RemediAde'
 import Certifications from './pages/Certifications'
 
 // Import your page components here
@@ -54,6 +60,12 @@ const App = () => {
           <Route path="/products" element={<Product_Partners />} />
           <Route path="/partners/rs-clare" element={<RS_Clare />} />
           <Route path="/partners/precise-tool" element={<Precise_Tool />} />
+          <Route path="/partners/dhvi" element={<DHVI />} />
+          <Route path="/partners/ip-pipeline" element={<IP_Pipeline />} />
+          <Route path="/partners/lex-technology" element={<Lex_Technology />} />
+          <Route path="/partners/tck-w" element={<TCK_W />} />
+          <Route path="/partners/12s" element={<TwelveS />} />
+          <Route path="/partners/remediade" element={<RemediAde />} />
           <Route path="/certifications" element={<Certifications />} />
 
           {/* 404 Page */}

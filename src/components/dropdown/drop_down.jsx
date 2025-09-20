@@ -35,7 +35,7 @@ const DropDown = ({
           transition={{ duration: 0.3, ease: "easeOut" }}
           className={`fixed top-16 left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50`}
         >
-            <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="w-full px-12 py-12">
               {/* Header */}
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
@@ -48,7 +48,7 @@ const DropDown = ({
               </motion.div>
           
               {/* Grid layout */}
-              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${columns} gap-6`}>
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-${columns} gap-8`}>
                 {items.map((item, index) => (
                   <motion.div 
                     key={index} 
@@ -60,18 +60,13 @@ const DropDown = ({
                 <div>
                   {/* Main item - always show */}
                   {item.hasSubmenu ? (
-                    <div className="flex items-start space-x-3 p-4 rounded-lg">
-                      {item.icon && (
-                        <div className="flex-shrink-0 mt-1">
-                          {item.icon}
-                        </div>
-                      )}
+                    <div className="flex items-start space-x-4 p-6 rounded-lg hover:bg-gray-50 transition-colors">
                       <div className="flex-1">
-                        <h4 className="font-semibold text-lg mb-1 text-gray-900">
+                        <h4 className="font-semibold text-xl mb-2 text-gray-900">
                           {item.name}
                         </h4>
                         {item.description && (
-                          <p className="text-sm text-gray-600">
+                          <p className="text-base text-gray-600 leading-relaxed">
                             {item.description}
                           </p>
                         )}
@@ -86,21 +81,16 @@ const DropDown = ({
                   ) : (
                     <Link
                       to={item.link}
-                      className={`block p-4 rounded-lg transition-all duration-300 ${textColor} ${hoverColor} ${hoverTextColor} group`}
+                      className={`block p-6 rounded-lg transition-all duration-300 ${textColor} ${hoverColor} ${hoverTextColor} group`}
                       onClick={onClose}
                     >
-                      <div className="flex items-start space-x-3">
-                        {item.icon && (
-                          <div className="flex-shrink-0 mt-1">
-                            {item.icon}
-                          </div>
-                        )}
+                      <div className="flex items-start">
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lg mb-1 group-hover:text-white transition-colors">
+                          <h4 className="font-semibold text-xl mb-2 group-hover:text-white transition-colors">
                             {item.name}
                           </h4>
                           {item.description && (
-                            <p className="text-sm opacity-80 group-hover:text-white transition-colors">
+                            <p className="text-base opacity-80 group-hover:text-white transition-colors leading-relaxed">
                               {item.description}
                             </p>
                           )}
@@ -131,12 +121,7 @@ const DropDown = ({
                                 className={`block p-3 rounded-lg transition-all duration-300 ${textColor} ${hoverColor} ${hoverTextColor} group`}
                                 onClick={onClose}
                               >
-                          <div className="flex items-start space-x-3">
-                            {subItem.icon && (
-                              <div className="flex-shrink-0 mt-0.5">
-                                {subItem.icon}
-                              </div>
-                            )}
+                          <div className="flex items-start">
                             <div className="flex-1">
                               <h5 className="font-medium text-base mb-1 group-hover:text-white transition-colors">
                                 {subItem.name}

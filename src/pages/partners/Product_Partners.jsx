@@ -40,8 +40,8 @@ const Product_Partners = () => {
     {
       id: 6,
       name: "TCK.W",
-      image: "/src/assets/product_partners/i2S.jpg",
-      description: "Specialized equipment and services"
+      image: "/src/assets/tck.w/tck.w_logo.png",
+      description: "Real-time online wire rope inspection system"
     },
     {
       id: 7,
@@ -95,7 +95,7 @@ const Product_Partners = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="text-center"
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
@@ -114,7 +114,7 @@ const Product_Partners = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -132,22 +132,23 @@ const Product_Partners = () => {
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 overflow-hidden group cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                 </div>
 
                 {/* Product Info */}
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-200">
                     {product.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -159,19 +160,61 @@ const Product_Partners = () => {
                     {product.name === "RS Clare" ? (
                       <Link
                         to="/partners/rs-clare"
-                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium text-sm text-center"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
                       >
                         View Details
                       </Link>
                     ) : product.name === "Precise Tool" ? (
                       <Link
                         to="/partners/precise-tool"
-                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium text-sm text-center"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "DHVI" ? (
+                      <Link
+                        to="/partners/dhvi"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "IP Pipeline Technologies" ? (
+                      <Link
+                        to="/partners/ip-pipeline"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Lex Technology" ? (
+                      <Link
+                        to="/partners/lex-technology"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "TCK.W" ? (
+                      <Link
+                        to="/partners/tck-w"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "12S" ? (
+                      <Link
+                        to="/partners/12s"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "RemediAde" ? (
+                      <Link
+                        to="/partners/remediade"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
                       >
                         View Details
                       </Link>
                     ) : (
-                      <button className="w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-300 font-medium text-sm">
+                      <button className="w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm">
                         View Details
                       </button>
                     )}
@@ -190,7 +233,7 @@ const Product_Partners = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               Need Custom Solutions?
@@ -199,10 +242,10 @@ const Product_Partners = () => {
               Contact us to discuss your specific product requirements and partnership opportunities
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+              <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
                 Contact Sales
               </button>
-              <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors duration-300">
+              <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors duration-200">
                 Become a Partner
               </button>
             </div>

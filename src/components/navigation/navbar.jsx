@@ -1,10 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo, useCallback, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronRight, Users, Wrench, Monitor, Shield, Search, Building, HardHat, Settings, Zap, Droplets } from "lucide-react";
 import calayaLogoWhite from "../../assets/images/calaya_logo_wc.png";
 import calayaLogoBlack from "../../assets/images/calaya_logo_1.png";
 import DropDown from "../dropdown/drop_down";
 
+/**
+ * Navbar Component - Optimized with memoization and callbacks for better performance
+ * Prevents unnecessary re-renders and improves navigation responsiveness
+ */
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -14,7 +18,8 @@ const Navbar = () => {
 
   const isHomePage = location.pathname === "/";
 
-  const dropdownItems = {
+  // Memoize dropdown items to prevent recreation on every render
+  const dropdownItems = useMemo(() => ({
     whoWeAre: [
       { name: "About Us", link: "/about", icon: <Users className="w-5 h-5" />, description: "Learn about our company history and mission" },
       { name: "Our Certifications", link: "/certifications", icon: <Shield className="w-5 h-5" />, description: "View our industry certifications and standards" },
@@ -105,7 +110,7 @@ const Navbar = () => {
       { name: "Offshore Solutions", link: "/offshore", icon: <Building className="w-5 h-5" />, description: "Offshore platform and marine solutions" },
       { name: "Custom Equipment", link: "/custom", icon: <Settings className="w-5 h-5" />, description: "Custom engineered equipment solutions" },
     ],
-  };
+  }), []);
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
