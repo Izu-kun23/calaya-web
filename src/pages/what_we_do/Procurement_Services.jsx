@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Settings, Building, Wrench, Search, Users, TrendingUp, CheckCircle, Target } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Settings, Building, Wrench, Search, Users, TrendingUp, CheckCircle, Target, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
 import procurementDiagram from "../../assets/images/Useable_Images/procurement.png";
 
 const Procurement_Services = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const [searchParams] = useSearchParams();
 
@@ -57,6 +60,81 @@ const Procurement_Services = () => {
       }
     }
   ];
+
+  // Gallery data array for Procurement Services
+  const procurementImages = [
+    {
+      id: 1,
+      src: procurementDiagram,
+      alt: "Procurement Service Process Diagram",
+      title: "Procurement Process Overview",
+      description: "Our comprehensive procurement process ensures efficient material management, supplier qualification, contract management, and logistics coordination for optimal results",
+      category: "Process"
+    }
+  ];
+
+  // Get current gallery based on active tab
+  const getCurrentGallery = () => {
+    switch (activeTab) {
+      case 0: return procurementImages
+      default: return []
+    }
+  }
+
+  // Gallery functions
+  const openModal = useCallback((index) => {
+    setCurrentImageIndex(index)
+    setSelectedImage(getCurrentGallery()[index])
+    document.body.style.overflow = 'hidden'
+  }, [activeTab])
+
+  const closeModal = useCallback(() => {
+    setSelectedImage(null)
+    document.body.style.overflow = 'unset'
+  }, [])
+
+  const nextImage = useCallback(() => {
+    const gallery = getCurrentGallery()
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % gallery.length)
+    setSelectedImage(gallery[(currentImageIndex + 1) % gallery.length])
+  }, [activeTab, currentImageIndex])
+
+  const prevImage = useCallback(() => {
+    const gallery = getCurrentGallery()
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length)
+    setSelectedImage(gallery[(currentImageIndex - 1 + gallery.length) % gallery.length])
+  }, [activeTab, currentImageIndex])
+
+  // Keyboard navigation and body scroll lock
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return
+      
+      switch (e.key) {
+        case 'Escape':
+          closeModal()
+          break
+        case 'ArrowLeft':
+          prevImage()
+          break
+        case 'ArrowRight':
+          nextImage()
+          break
+        default:
+          break
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage, closeModal, nextImage, prevImage])
+
+  // Reset modal when tab changes
+  useEffect(() => {
+    setSelectedImage(null)
+    setCurrentImageIndex(0)
+    document.body.style.overflow = 'unset'
+  }, [activeTab])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -161,11 +239,11 @@ const Procurement_Services = () => {
                   {/* Procurement Process Diagram */}
                   <div className="mt-8 p-6 bg-gray-50 rounded-lg">
                     <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">Our Procurement Process</h4>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center cursor-pointer group" onClick={() => openModal(0)}>
                       <img 
                         src={procurementDiagram} 
                         alt="Procurement Service Process Diagram" 
-                        className="w-full max-w-lg h-auto"
+                        className="w-full max-w-lg h-auto group-hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
                       />
                     </div>
                     <p className="text-sm text-gray-600 mt-4 text-center">
@@ -214,6 +292,83 @@ const Procurement_Services = () => {
 
       {/* Client Section */}
       <ClientSection />
+
+      {/* Enhanced Gallery Modal - No Size Constraints */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full h-full flex items-center justify-center p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-6 right-6 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                aria-label="Close image modal"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Navigation Arrows */}
+              {getCurrentGallery().length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+
+              {/* Modal Content */}
+              <div className="w-full max-w-6xl">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-none max-h-none w-auto h-auto object-contain mx-auto"
+                  style={{
+                    width: '530px',
+                    height: '630px'
+                  }}
+                />
+                <div className="mt-4 text-center">
+                  <h3 id="modal-title" className="text-xl font-semibold text-white mb-2">
+                    {selectedImage.title}
+                  </h3>
+                  <p id="modal-description" className="text-gray-300">
+                    {selectedImage.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

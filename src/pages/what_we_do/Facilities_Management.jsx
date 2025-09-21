@@ -413,6 +413,110 @@ const Facilities_Management = () => {
                   </div>
                 )}
 
+                {/* Tank Cleaning Images Section - Only show for third tab */}
+                {activeTab === 2 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Droplets className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Tank Cleaning Services</h3>
+                    </div>
+                    <p className="text-gray-600 mb-6">
+                      Professional tank cleaning services using advanced techniques and equipment to ensure safe and efficient cleaning of industrial tanks, vessels, and equipment.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/facilities_management/tank_cleaning1.jpg")}
+                      >
+                        <img
+                          src="/src/assets/facilities_management/tank_cleaning1.jpg"
+                          alt="Professional Tank Cleaning Operations"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Professional Tank Cleaning Operations</h4>
+                          <p className="text-sm text-white/90">Advanced tank cleaning with specialized equipment and safety protocols</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      
+                    </div>
+                  </div>
+                )}
+
+                {/* Online Leak Repair Images Section - Only show for fourth tab */}
+                {activeTab === 3 && (
+                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Zap className="w-6 h-6 text-red-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Online Leak Repair Services</h3>
+                    </div>
+                    <p className="text-gray-600 mb-6">
+                      Specialized online leak repair services for pipelines and equipment without interrupting operations, ensuring minimal downtime and maximum efficiency.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/facilities_management/Online_leak1.jpg")}
+                      >
+                        <img
+                          src="/src/assets/facilities_management/Online_leak1.jpg"
+                          alt="Online Leak Repair Operations"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Online Leak Repair Operations</h4>
+                          <p className="text-sm text-white/90">Professional leak repair using advanced sealing methodology without operational interruption</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage("/src/assets/facilities_management/online_leak2.jpeg")}
+                      >
+                        <img
+                          src="/src/assets/facilities_management/online_leak2.jpeg"
+                          alt="Advanced Leak Sealing Techniques"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">Advanced Leak Sealing Techniques</h4>
+                          <p className="text-sm text-white/90">Expert technicians using specialized tools for critical equipment leak repair</p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Benefits */}
                 <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">

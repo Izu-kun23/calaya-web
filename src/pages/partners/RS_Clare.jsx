@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ZoomIn, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import CaseStudyModal from '../../components/modal/CaseStudyModal';
 
 const RS_Clare = () => {
@@ -9,6 +10,116 @@ const RS_Clare = () => {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  
+  // Gallery state management
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Gallery images data
+  const galleryImages = [
+    {
+      id: 1,
+      src: "https://www.youtube.com/watch?v=Rj8FRNJKV7s",
+      thumbnail: "/src/assets/casestudy/rsclare_gallery/gallery5.png",
+      alt: "RS Clare Advanced Oilfield Lubrication",
+      title: "RS Clare Advanced Oilfield Lubrication",
+      description: "Watch our demonstration video showcasing RS Clare's advanced oilfield lubrication solutions",
+      category: "Video",
+      isVideo: true
+    },
+    {
+      id: 2,
+      src: "/src/assets/casestudy/rsclare_gallery/gallery1.png",
+      alt: "RS Clare field operations",
+      title: "Field Operations",
+      description: "RS Clare products in action across various field operations and applications",
+      category: "Operations"
+    },
+    {
+      id: 3,
+      src: "/src/assets/casestudy/rsclare_gallery/gallery2.png",
+      alt: "RS Clare equipment in action",
+      title: "Equipment in Action",
+      description: "Our equipment performing critical functions in demanding industrial environments",
+      category: "Equipment"
+    },
+    {
+      id: 4,
+      src: "/src/assets/casestudy/rsclare_gallery/gallery3.png",
+      alt: "RS Clare valve maintenance",
+      title: "Valve Maintenance",
+      description: "Professional valve maintenance using RS Clare advanced lubrication solutions",
+      category: "Maintenance"
+    },
+    {
+      id: 5,
+      src: "/src/assets/casestudy/rsclare_gallery/gallery4.png",
+      alt: "RS Clare industrial applications",
+      title: "Industrial Applications",
+      description: "RS Clare solutions applied across diverse industrial applications and sectors",
+      category: "Applications"
+    }
+  ];
+
+  // Gallery functions
+  const openModal = useCallback((index) => {
+    setCurrentImageIndex(index);
+    setSelectedImage(galleryImages[index]);
+    setIsLoading(false);
+    // Lock body scroll
+    document.body.style.overflow = 'hidden';
+  }, [galleryImages]);
+
+  const closeModal = useCallback(() => {
+    setSelectedImage(null);
+    // Restore body scroll
+    document.body.style.overflow = 'unset';
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    );
+    setSelectedImage(galleryImages[(currentImageIndex + 1) % galleryImages.length]);
+  }, [galleryImages, currentImageIndex]);
+
+  const prevImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    );
+    setSelectedImage(galleryImages[currentImageIndex === 0 ? galleryImages.length - 1 : currentImageIndex - 1]);
+  }, [galleryImages, currentImageIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, closeModal, nextImage, prevImage]);
+
+  // Cleanup effect
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   // Case study data
   const caseStudies = [
@@ -368,184 +479,209 @@ const RS_Clare = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-12 lg:py-16 bg-gray-100"
+        className="py-16 lg:py-20 bg-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center"
+            className="text-center mb-16"
           >
-            Gallery
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto"
-          >
-            Explore our field operations and RS Clare product applications across various oil and gas facilities
-          </motion.p>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {/* YouTube Video */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => {
-                setSelectedVideo("https://www.youtube.com/watch?v=Rj8FRNJKV7s");
-                setIsVideoModalOpen(true);
-              }}
-            >
-              <div className="aspect-square overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-red-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    <p className="text-gray-900 font-semibold bg-white/80 px-2 py-1 rounded">Watch Video</p>
-                  </div>
-                </div>
-                <img
-                  src="/src/assets/casestudy/rsclare_gallery/gallery5.png"
-                  alt="RS Clare video thumbnail"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-gray-900">RS Clare Advanced Oilfield Lubrication</h3>
-              </div>
-            </motion.div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Gallery
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+              Explore our field operations and RS Clare product applications across various oil and gas facilities
+            </p>
+          </motion.div>
 
-            {/* Gallery Images */}
-            {[
-              {
-                src: "/src/assets/casestudy/rsclare_gallery/gallery1.png",
-                alt: "RS Clare field operations",
-                title: "Field Operations"
-              },
-              {
-                src: "/src/assets/casestudy/rsclare_gallery/gallery2.png",
-                alt: "RS Clare equipment in action",
-                title: "Equipment in Action"
-              },
-              {
-                src: "/src/assets/casestudy/rsclare_gallery/gallery3.png",
-                alt: "RS Clare valve maintenance",
-                title: "Valve Maintenance"
-              },
-              {
-                src: "/src/assets/casestudy/rsclare_gallery/gallery4.png",
-                alt: "RS Clare industrial applications",
-                title: "Industrial Applications"
-              },
-              
-            ].map((image, index) => (
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {galleryImages.map((image, index) => (
               <motion.div
-                key={index}
+                key={image.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: (index + 1) * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                onClick={() => {
-                  setSelectedImage(image.src);
-                  setIsImageModalOpen(true);
+                className="group cursor-pointer"
+                onClick={() => openModal(index)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(index);
+                  }
                 }}
+                aria-label={`View ${image.title} in full size`}
               >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-semibold text-gray-900">{image.title}</h3>
-                </div>
+                <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  {image.isVideo ? (
+                    <div className="relative w-full h-72">
+                      <img
+                        src={image.thumbnail}
+                        alt={image.alt}
+                        className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                        onLoad={() => setIsLoading(false)}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="bg-red-600 rounded-full p-4 shadow-lg">
+                          <Play className="w-8 h-8 text-white" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      onLoad={() => setIsLoading(false)}
+                    />
+                  )}
+                  
+                  {/* Loading State */}
+                  {isLoading && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                      <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                    </div>
+                  )}
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="mb-2">
+                      <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                        {image.category}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                    <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                    <div className="flex items-center text-sm font-medium">
+                      {image.isVideo ? (
+                        <>
+                          <Play className="w-4 h-4 mr-2" />
+                          <span>Click to watch video</span>
+                        </>
+                      ) : (
+                        <>
+                          <ZoomIn className="w-4 h-4 mr-2" />
+                          <span>Click to view full size</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Zoom/Play Icon */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                    {image.isVideo ? (
+                      <Play className="w-6 h-6 text-gray-800" />
+                    ) : (
+                      <ZoomIn className="w-6 h-6 text-gray-800" />
+                    )}
+                  </div>
+                </article>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Video Modal */}
-      {isVideoModalOpen && selectedVideo && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setIsVideoModalOpen(false)}
-        >
+      {/* Enhanced Image Modal - No Size Constraints */}
+      <AnimatePresence>
+        {selectedImage && (
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="relative max-w-4xl w-full max-h-[90vh] overflow-hidden rounded-lg"
-            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
           >
-            <button
-              onClick={() => setIsVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-300"
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full h-full flex items-center justify-center p-4"
+              onClick={(e) => e.stopPropagation()}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <div className="aspect-video w-full">
-              <iframe
-                src={selectedVideo.replace('watch?v=', 'embed/')}
-                title="RS Clare Video"
-                className="w-full h-full rounded-lg"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-6 right-6 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                aria-label="Close image modal"
+              >
+                <X className="w-6 h-6" />
+              </button>
 
-      {/* Image Modal */}
-      {isImageModalOpen && selectedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setIsImageModalOpen(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setIsImageModalOpen(false)}
-              className="absolute top-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img
-              src={selectedImage}
-              alt="Gallery image"
-              className="w-full h-full object-contain max-h-[90vh]"
-            />
+              {/* Navigation Arrows */}
+              {galleryImages.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+
+              {/* Modal Content */}
+              {selectedImage.isVideo ? (
+                <div className="w-full max-w-6xl">
+                  <div className="relative w-full h-0 pb-[56.25%] bg-black rounded-lg overflow-hidden">
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${selectedImage.src.split('v=')[1]?.split('&')[0]}?autoplay=1`}
+                      title={selectedImage.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <h3 id="modal-title" className="text-xl font-semibold text-white mb-2">
+                      {selectedImage.title}
+                    </h3>
+                    <p id="modal-description" className="text-gray-300">
+                      {selectedImage.description}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-none max-h-none w-auto h-auto object-contain"
+                  style={{
+                    width: '530px',
+                    height: '630px'
+                  }}
+                />
+              )}
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
 
       {/* Case Study Modal */}
       <CaseStudyModal

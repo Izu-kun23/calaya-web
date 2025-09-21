@@ -335,26 +335,37 @@ const RemediAde = () => {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={image.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  className="group cursor-pointer"
                   onClick={() => openModal(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openModal(index);
+                    }
+                  }}
+                  aria-label={`View ${image.title} in full size`}
                 >
-                  <div className="relative overflow-hidden">
+                  <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     {image.isVideo ? (
-                      <div className="relative w-full h-64">
+                      <div className="relative w-full h-72">
                         <img
-                          src={`https://img.youtube.com/vi/${image.src.split('v=')[1]?.split('&')[0]}/maxresdefault.jpg`}
+                          src={image.thumbnail || `https://img.youtube.com/vi/${image.src.split('v=')[1]?.split('&')[0]}/maxresdefault.jpg`}
                           alt={image.alt}
-                          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                          loading="lazy"
+                          onLoad={() => setIsLoading(false)}
                         />
-                        <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                        <div className="absolute inset-0 flex items-center justify-center">
                           <div className="bg-red-600 rounded-full p-4 shadow-lg">
                             <Play className="w-8 h-8 text-white" />
                           </div>
@@ -364,33 +375,55 @@ const RemediAde = () => {
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                        onLoad={() => setIsLoading(false)}
                       />
                     )}
-                    <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                    
+                    {/* Loading State */}
+                    {isLoading && (
+                      <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                    
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="mb-2">
+                        <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                          {image.category}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                      <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                      <div className="flex items-center text-sm font-medium">
+                        {image.isVideo ? (
+                          <>
+                            <Play className="w-4 h-4 mr-2" />
+                            <span>Click to watch video</span>
+                          </>
+                        ) : (
+                          <>
+                            <ZoomIn className="w-4 h-4 mr-2" />
+                            <span>Click to view full size</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Zoom/Play Icon */}
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
                       {image.isVideo ? (
-                        <Play className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <Play className="w-6 h-6 text-gray-800" />
                       ) : (
-                        <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <ZoomIn className="w-6 h-6 text-gray-800" />
                       )}
                     </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        {image.category}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {image.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {image.description}
-                    </p>
-                  </div>
+                  </article>
                 </motion.div>
               ))}
             </div>
@@ -398,30 +431,36 @@ const RemediAde = () => {
         </div>
       </motion.section>
 
-      {/* Enhanced Modal */}
+      {/* Enhanced Image Modal - No Size Constraints */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center"
             onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative max-w-4xl max-h-[90vh] mx-4"
+              transition={{ duration: 0.3 }}
+              className="relative w-full h-full flex items-center justify-center p-4"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                className="absolute top-6 right-6 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                aria-label="Close image modal"
               >
-                <X className="w-8 h-8" />
+                <X className="w-6 h-6" />
               </button>
 
               {/* Navigation Arrows */}
@@ -429,14 +468,15 @@ const RemediAde = () => {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black bg-opacity-50 rounded-full p-2"
+                    className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous image"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
-                  
                   <button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-black bg-opacity-50 rounded-full p-2"
+                    className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next image"
                   >
                     <ChevronRight className="w-6 h-6" />
                   </button>
@@ -444,56 +484,37 @@ const RemediAde = () => {
               )}
 
               {/* Modal Content */}
-              <div className="bg-white rounded-lg overflow-hidden">
-                {selectedImage.isVideo ? (
-                  <div className="w-full">
-                    <div className="relative w-full h-0 pb-[56.25%] bg-black">
-                      <iframe
-                        className="absolute top-0 left-0 w-full h-full"
-                        src={`https://www.youtube.com/embed/${selectedImage.src.split('v=')[1]?.split('&')[0]}?autoplay=1&start=6`}
-                        title={selectedImage.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {selectedImage.title}
-                      </h3>
-                      <p className="text-gray-600">
-                        {selectedImage.description}
-                      </p>
-                    </div>
+              {selectedImage.isVideo ? (
+                <div className="w-full max-w-6xl">
+                  <div className="relative w-full h-0 pb-[56.25%] bg-black rounded-lg overflow-hidden">
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${selectedImage.src.split('v=')[1]?.split('&')[0]}?autoplay=1&start=6`}
+                      title={selectedImage.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe>
                   </div>
-                ) : (
-                  <img
-                    src={selectedImage.src}
-                    alt={selectedImage.alt}
-                    className="max-w-none max-h-none w-auto h-auto object-contain"
-                    style={{
-                      width: '530px',
-                      height: '630px'
-                    }}
-                  />
-                )}
-              </div>
-
-              {/* Content Info */}
-              {!selectedImage.isVideo && (
-                <div className="mt-4 text-center">
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {selectedImage.title}
-                  </h3>
-                  <p className="text-gray-300">
-                    {selectedImage.description}
-                  </p>
-                  {galleryImages.length > 1 && (
-                    <p className="text-sm text-gray-400 mt-2">
-                      {currentImageIndex + 1} of {galleryImages.length}
+                  <div className="mt-4 text-center">
+                    <h3 id="modal-title" className="text-xl font-semibold text-white mb-2">
+                      {selectedImage.title}
+                    </h3>
+                    <p id="modal-description" className="text-gray-300">
+                      {selectedImage.description}
                     </p>
-                  )}
+                  </div>
                 </div>
+              ) : (
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-none max-h-none w-auto h-auto object-contain"
+                  style={{
+                    width: '530px',
+                    height: '630px'
+                  }}
+                />
               )}
             </motion.div>
           </motion.div>

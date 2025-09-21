@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Wrench, Settings, Shield, Droplets, CheckCircle, Target, TrendingUp } from 'lucide-react'
+import { Wrench, Settings, Shield, Droplets, CheckCircle, Target, TrendingUp, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import ClientSection from '../../components/section/client_section'
 import wellheadMaintenance1 from '../../assets/wellhead_maintenance/wellhead_maintenance1.jpeg'
@@ -8,10 +8,19 @@ import wellheadMaintenance2 from '../../assets/wellhead_maintenance/wellhead_mai
 import leakSealing1 from '../../assets/wellhead_leak_sealing/wellhead_sealing1.jpeg'
 import leakSealing2 from '../../assets/wellhead_leak_sealing/wellhead_sealing2.jpeg'
 import leakSealing3 from '../../assets/wellhead_leak_sealing/wellhead_sealing7.jpeg'
+import wellCompletion1 from '../../assets/well_services/Well_completion1.jpeg'
+import wellCompletion2 from '../../assets/well_services/well_completion2.jpeg'
+import wellIntervention1 from '../../assets/well_services/well_intervention1.jpeg'
+import wellIntervention2 from '../../assets/well_services/well_intervention2.jpeg'
+import wellIntervention3 from '../../assets/well_services/well_intervention3.jpeg'
+import wellIntervention4 from '../../assets/well_services/well_intervention4.jpeg'
+import wellIntervention5 from '../../assets/well_services/well_intervention5.jpeg'
 
 const Well_Services = () => {
   const [activeTab, setActiveTab] = useState(0)
   const [selectedImage, setSelectedImage] = useState(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
   const location = useLocation()
   const [searchParams] = useSearchParams()
   
@@ -182,6 +191,181 @@ const Well_Services = () => {
     }
   ]
 
+  // Gallery data arrays for different tabs
+  const wellCompletionImages = [
+    {
+      id: 1,
+      src: wellCompletion1,
+      alt: "Well Completion Operations - Industrial Platform",
+      title: "Professional Well Completion Operations",
+      description: "Advanced completion services with specialized equipment and safety protocols",
+      category: "Completion"
+    },
+    {
+      id: 2,
+      src: wellCompletion2,
+      alt: "Well Completion Services - Equipment Installation",
+      title: "Advanced Completion Equipment",
+      description: "State-of-the-art equipment for casing, cementing, and production installation",
+      category: "Equipment"
+    }
+  ]
+
+  const wellInterventionImages = [
+    {
+      id: 1,
+      src: wellIntervention1,
+      alt: "Well Intervention Operations - Night Operations",
+      title: "Night Operations Excellence",
+      description: "24/7 well intervention capabilities with advanced lighting and safety protocols",
+      category: "Operations"
+    },
+    {
+      id: 2,
+      src: wellIntervention2,
+      alt: "Well Intervention - Heavy Equipment Operations",
+      title: "Heavy Equipment Operations",
+      description: "Advanced intervention rigs and specialized equipment for complex operations",
+      category: "Equipment"
+    },
+    {
+      id: 3,
+      src: wellIntervention3,
+      alt: "Well Intervention - Specialized Tools",
+      title: "Specialized Intervention Tools",
+      description: "Professional tools and techniques for precise well intervention operations",
+      category: "Tools"
+    },
+    {
+      id: 4,
+      src: wellIntervention4,
+      alt: "Well Intervention - Production Enhancement",
+      title: "Production Enhancement",
+      description: "Advanced techniques to maximize well productivity and operational efficiency",
+      category: "Enhancement"
+    },
+    {
+      id: 5,
+      src: wellIntervention5,
+      alt: "Well Intervention - Comprehensive Operations",
+      title: "Comprehensive Well Intervention",
+      description: "Complete intervention services from stimulation to integrity solutions",
+      category: "Services"
+    }
+  ]
+
+  const wellHeadMaintenanceImages = [
+    {
+      id: 1,
+      src: wellheadMaintenance1,
+      alt: "Well Head Maintenance Service 1",
+      title: "Professional Well Head Maintenance",
+      description: "Expert maintenance services ensuring optimal performance",
+      category: "Maintenance"
+    },
+    {
+      id: 2,
+      src: wellheadMaintenance2,
+      alt: "Well Head Maintenance Service 2",
+      title: "Safety & Compliance Focus",
+      description: "Meeting highest safety and regulatory standards",
+      category: "Safety"
+    }
+  ]
+
+  const leakSealingImages = [
+    {
+      id: 1,
+      src: leakSealing1,
+      alt: "Leak Sealing Service 1",
+      title: "RS Clare Advanced Lubricants",
+      description: "High-performance greases for superior sealing",
+      category: "Lubricants"
+    },
+    {
+      id: 2,
+      src: leakSealing2,
+      alt: "Leak Sealing Service 2",
+      title: "Professional Application",
+      description: "State-of-the-art equipment for precise operations",
+      category: "Application"
+    },
+    {
+      id: 3,
+      src: leakSealing3,
+      alt: "Leak Sealing Service 3",
+      title: "Multi-Industry Expertise",
+      description: "Versatile solutions across various markets",
+      category: "Expertise"
+    }
+  ]
+
+  // Get current gallery based on active tab
+  const getCurrentGallery = () => {
+    switch (activeTab) {
+      case 0: return wellCompletionImages
+      case 1: return wellInterventionImages
+      case 2: return wellHeadMaintenanceImages
+      case 3: return leakSealingImages
+      default: return []
+    }
+  }
+
+  // Gallery functions
+  const openModal = useCallback((index) => {
+    setCurrentImageIndex(index)
+    setSelectedImage(getCurrentGallery()[index])
+    document.body.style.overflow = 'hidden'
+  }, [activeTab])
+
+  const closeModal = useCallback(() => {
+    setSelectedImage(null)
+    document.body.style.overflow = 'unset'
+  }, [])
+
+  const nextImage = useCallback(() => {
+    const gallery = getCurrentGallery()
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % gallery.length)
+    setSelectedImage(gallery[(currentImageIndex + 1) % gallery.length])
+  }, [activeTab, currentImageIndex])
+
+  const prevImage = useCallback(() => {
+    const gallery = getCurrentGallery()
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length)
+    setSelectedImage(gallery[(currentImageIndex - 1 + gallery.length) % gallery.length])
+  }, [activeTab, currentImageIndex])
+
+  // Keyboard navigation and body scroll lock
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return
+      
+      switch (e.key) {
+        case 'Escape':
+          closeModal()
+          break
+        case 'ArrowLeft':
+          prevImage()
+          break
+        case 'ArrowRight':
+          nextImage()
+          break
+        default:
+          break
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage, closeModal, nextImage, prevImage])
+
+  // Reset modal when tab changes
+  useEffect(() => {
+    setSelectedImage(null)
+    setCurrentImageIndex(0)
+    document.body.style.overflow = 'unset'
+  }, [activeTab])
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
@@ -299,146 +483,384 @@ const Well_Services = () => {
                   </div>
                 </div>
 
-                {/* Well Head Maintenance Images - Only for Well Head Maintenance tab */}
-                {activeTab === 2 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Shield className="w-6 h-6 text-red-600" />
-                      <h3 className="text-xl font-bold text-gray-900">Well Head Maintenance in Action</h3>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Well Completion Gallery - Only for Well Completion tab */}
+                {activeTab === 0 && (
+                  <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                  >
+                    <div className="px-6 lg:px-8">
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                        onClick={() => setSelectedImage(wellheadMaintenance1)}
-                      >
-                        <img
-                          src={wellheadMaintenance1}
-                          alt="Well Head Maintenance Service 1"
-                          className="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-6 left-6 text-white">
-                          <h4 className="font-bold text-xl mb-2">Professional Well Head Maintenance</h4>
-                          <p className="text-base text-white/90">Expert maintenance services ensuring optimal performance</p>
-                        </div>
-                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                        onClick={() => setSelectedImage(wellheadMaintenance2)}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
                       >
-                        <img
-                          src={wellheadMaintenance2}
-                          alt="Well Head Maintenance Service 2"
-                          className="w-full h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-6 left-6 text-white">
-                          <h4 className="font-bold text-xl mb-2">Safety & Compliance Focus</h4>
-                          <p className="text-base text-white/90">Meeting highest safety and regulatory standards</p>
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                          <Settings className="w-8 h-8 text-red-600" />
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                            Well Completion Gallery
+                          </h2>
                         </div>
-                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
+                        <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                          Explore our comprehensive well completion operations and advanced equipment installations
+                        </p>
                       </motion.div>
+
+                      {/* Gallery Grid */}
+                      <div className={`grid gap-6 lg:gap-8 ${wellCompletionImages.length === 1 ? 'grid-cols-1 max-w-4xl mx-auto' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2'}`}>
+                        {wellCompletionImages.map((image, index) => (
+                          <motion.div
+                            key={image.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group cursor-pointer"
+                            onClick={() => openModal(index)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                openModal(index);
+                              }
+                            }}
+                            aria-label={`View ${image.title} in full size`}
+                          >
+                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                className={`w-full object-cover group-hover:scale-110 transition-transform duration-500 ${wellCompletionImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
+                                loading="lazy"
+                                onLoad={() => setIsLoading(false)}
+                              />
+
+                              {/* Loading State */}
+                              {isLoading && (
+                                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                                  <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                </div>
+                              )}
+
+                              {/* Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                              {/* Content */}
+                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <div className="mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                    {image.category}
+                                  </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                                <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                                <div className="flex items-center text-sm font-medium">
+                                  <ZoomIn className="w-4 h-4 mr-2" />
+                                  <span>Click to view full size</span>
+                                </div>
+                              </div>
+
+                              {/* Zoom Icon */}
+                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                                <ZoomIn className="w-6 h-6 text-gray-800" />
+                              </div>
+                            </article>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </motion.section>
                 )}
 
-                {/* Leak Sealing Images - Only for Leak Sealing tab */}
-                {activeTab === 3 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Droplets className="w-6 h-6 text-red-600" />
-                      <h3 className="text-xl font-bold text-gray-900">Leak Sealing & Valve Greasing in Action</h3>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Well Intervention Gallery - Only for Well Intervention tab */}
+                {activeTab === 1 && (
+                  <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                  >
+                    <div className="px-6 lg:px-8">
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                        onClick={() => setSelectedImage(leakSealing1)}
-                      >
-                        <img
-                          src={leakSealing1}
-                          alt="Leak Sealing Service 1"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
-                          <h4 className="font-bold text-lg mb-1">RS Clare Advanced Lubricants</h4>
-                          <p className="text-sm text-white/90">High-performance greases for superior sealing</p>
-                        </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
-                      </motion.div>
-                      
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                        onClick={() => setSelectedImage(leakSealing2)}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
                       >
-                        <img
-                          src={leakSealing2}
-                          alt="Leak Sealing Service 2"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
-                          <h4 className="font-bold text-lg mb-1">Professional Application</h4>
-                          <p className="text-sm text-white/90">State-of-the-art equipment for precise operations</p>
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                          <Wrench className="w-8 h-8 text-red-600" />
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                            Well Intervention Gallery
+                          </h2>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
+                        <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                          Explore our advanced well intervention operations and specialized equipment capabilities
+                        </p>
                       </motion.div>
 
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group lg:col-span-1"
-                        onClick={() => setSelectedImage(leakSealing3)}
-                      >
-                        <img
-                          src={leakSealing3}
-                          alt="Leak Sealing Service 3"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
-                          <h4 className="font-bold text-lg mb-1">Multi-Industry Expertise</h4>
-                          <p className="text-sm text-white/90">Versatile solutions across various markets</p>
-                        </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
-                      </motion.div>
+                      {/* Gallery Grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        {wellInterventionImages.map((image, index) => (
+                          <motion.div
+                            key={image.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group cursor-pointer"
+                            onClick={() => openModal(index)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                openModal(index);
+                              }
+                            }}
+                            aria-label={`View ${image.title} in full size`}
+                          >
+                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onLoad={() => setIsLoading(false)}
+                              />
+
+                              {/* Loading State */}
+                              {isLoading && (
+                                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                                  <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                </div>
+                              )}
+
+                              {/* Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                              {/* Content */}
+                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <div className="mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                    {image.category}
+                                  </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                                <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                                <div className="flex items-center text-sm font-medium">
+                                  <ZoomIn className="w-4 h-4 mr-2" />
+                                  <span>Click to view full size</span>
+                                </div>
+                              </div>
+
+                              {/* Zoom Icon */}
+                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                                <ZoomIn className="w-6 h-6 text-gray-800" />
+                              </div>
+                            </article>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </motion.section>
+                )}
+
+                {/* Well Head Maintenance Gallery - Only for Well Head Maintenance tab */}
+                {activeTab === 2 && (
+                  <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                  >
+                    <div className="px-6 lg:px-8">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                      >
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                          <Shield className="w-8 h-8 text-red-600" />
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                            Well Head Maintenance Gallery
+                          </h2>
+                        </div>
+                        <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                          Explore our professional wellhead maintenance operations and safety compliance standards
+                        </p>
+                      </motion.div>
+
+                      {/* Gallery Grid */}
+                      <div className={`grid gap-6 lg:gap-8 ${wellHeadMaintenanceImages.length === 1 ? 'grid-cols-1 max-w-4xl mx-auto' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-2'}`}>
+                        {wellHeadMaintenanceImages.map((image, index) => (
+                          <motion.div
+                            key={image.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group cursor-pointer"
+                            onClick={() => openModal(index)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                openModal(index);
+                              }
+                            }}
+                            aria-label={`View ${image.title} in full size`}
+                          >
+                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                className={`w-full object-cover group-hover:scale-110 transition-transform duration-500 ${wellHeadMaintenanceImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
+                                loading="lazy"
+                                onLoad={() => setIsLoading(false)}
+                              />
+
+                              {/* Loading State */}
+                              {isLoading && (
+                                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                                  <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                </div>
+                              )}
+
+                              {/* Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                              {/* Content */}
+                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <div className="mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                    {image.category}
+                                  </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                                <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                                <div className="flex items-center text-sm font-medium">
+                                  <ZoomIn className="w-4 h-4 mr-2" />
+                                  <span>Click to view full size</span>
+                                </div>
+                              </div>
+
+                              {/* Zoom Icon */}
+                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                                <ZoomIn className="w-6 h-6 text-gray-800" />
+                              </div>
+                            </article>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.section>
+                )}
+
+                {/* Leak Sealing Gallery - Only for Leak Sealing tab */}
+                {activeTab === 3 && (
+                  <motion.section
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                  >
+                    <div className="px-6 lg:px-8">
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                      >
+                        <div className="flex items-center justify-center gap-3 mb-6">
+                          <Droplets className="w-8 h-8 text-red-600" />
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                            Leak Sealing & Valve Greasing Gallery
+                          </h2>
+                        </div>
+                        <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                          Explore our specialized leak sealing operations and RS Clare advanced lubricant applications
+                        </p>
+                      </motion.div>
+
+                      {/* Gallery Grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                        {leakSealingImages.map((image, index) => (
+                          <motion.div
+                            key={image.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group cursor-pointer"
+                            onClick={() => openModal(index)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                openModal(index);
+                              }
+                            }}
+                            aria-label={`View ${image.title} in full size`}
+                          >
+                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                              <img
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                                onLoad={() => setIsLoading(false)}
+                              />
+
+                              {/* Loading State */}
+                              {isLoading && (
+                                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                                  <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                </div>
+                              )}
+
+                              {/* Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                              {/* Content */}
+                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <div className="mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                    {image.category}
+                                  </span>
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
+                                <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
+                                <div className="flex items-center text-sm font-medium">
+                                  <ZoomIn className="w-4 h-4 mr-2" />
+                                  <span>Click to view full size</span>
+                                </div>
+                              </div>
+
+                              {/* Zoom Icon */}
+                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                                <ZoomIn className="w-6 h-6 text-gray-800" />
+                              </div>
+                            </article>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.section>
                 )}
 
                 {/* Benefits */}
@@ -465,37 +887,78 @@ const Well_Services = () => {
       {/* Client Section */}
       <ClientSection />
 
-      {/* Image Modal/Lightbox */}
+      {/* Enhanced Gallery Modal - No Size Constraints */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-7xl max-h-[90vh] mx-4"
+              className="relative w-full h-full flex items-center justify-center p-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage}
-                alt="Well Head Maintenance - Full View"
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-              />
+              {/* Close Button */}
               <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-colors duration-300"
+                onClick={closeModal}
+                className="absolute top-6 right-6 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                aria-label="Close image modal"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X className="w-6 h-6" />
               </button>
+
+              {/* Navigation Arrows */}
+              {getCurrentGallery().length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+
+              {/* Modal Content */}
+              <div className="w-full max-w-6xl">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="max-w-none max-h-none w-auto h-auto object-contain mx-auto"
+                  style={{
+                    width: '530px',
+                    height: '630px'
+                  }}
+                />
+                <div className="mt-4 text-center">
+                  <h3 id="modal-title" className="text-xl font-semibold text-white mb-2">
+                    {selectedImage.title}
+                  </h3>
+                  <p id="modal-description" className="text-gray-300">
+                    {selectedImage.description}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
