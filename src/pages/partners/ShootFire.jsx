@@ -1,16 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Shield, TrendingUp, Globe, CheckCircle, Award } from "lucide-react";
+import { Shield, Flame, Target, CheckCircle, AlertTriangle, Zap } from "lucide-react";
 
-// Import CCube logo
-import logoCCube from "../../assets/product_partners/c-cube.jpeg";
+// Import Shoot Fire logo
+import logoShootFire from "../../assets/product_partners/shootfire.jpg";
 
-const CCube = () => {
+const ShootFire = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
+      <section className="bg-gradient-to-r from-red-900 to-red-800 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -19,10 +19,10 @@ const CCube = () => {
             className="text-center"
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-              C-Cube International
+              Shoot Fire by Vimal Fire
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
-              International Engineering Solutions & Global Partnership Development
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-red-100 max-w-3xl mx-auto">
+              Advanced Fire Safety and Suppression Systems
             </p>
           </motion.div>
         </div>
@@ -54,8 +54,8 @@ const CCube = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={logoCCube}
-                  alt="C-Cube International Logo"
+                  src={logoShootFire}
+                  alt="Shoot Fire by Vimal Fire Logo"
                   className="h-32 w-auto sm:h-36 lg:h-50 rounded-2xl"
                 />
               </div>
@@ -63,17 +63,17 @@ const CCube = () => {
               {/* Content - Right Side */}
               <div className="flex-1 space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p className="text-xl font-medium text-gray-800">
-                  C-CUBE INTERNATIONAL specializes in corrosion and degradation and has developed various patented technologies to measure corrosion very precisely.
+                  Shoot Fire by Vimal Fire is engaged in the manufacturing of sophisticated products ranging from specialized fire extinguishers and advanced firefighting systems to many more.
                 </p>
                 <p>
-                  C-Cube International operates worldwide in a wide range of industries such as infrastructure, shipping, process industries, insurance companies, research institutes, offshore applications, hydraulics and coating suppliers.
+                  It is likely a fire suppression system designed to rapidly detect and extinguish fires. It incorporates advanced technology for rapid response, utilizing agents like foam or gas to effectively suppress fire.
                 </p>
                 <p>
-                  C-cube technologies detect corrosion at an early stage. Based on the measurement results, we quantify the protection values and predict the lifespan of coatings. Predictive maintenance also becomes possible based on these insights.
+                  Shootfire by Vimal Fire is crucial for ensuring safety of people and property by swiftly containing and extinguishing fire before it escalates.
                 </p>
                 <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500">
                   <p className="font-semibold text-gray-800">
-                    This method of maintenance prevents failure and downtime by addressing corroded locations early, before corrosion becomes a problem. This method can save up to <span className="text-red-600 font-bold text-xl">40% of maintenance costs!</span>
+                    Our advanced fire suppression systems provide <span className="text-red-600 font-bold text-xl">rapid response</span> and effective fire containment to protect lives and property.
                   </p>
                 </div>
               </div>
@@ -90,45 +90,44 @@ const CCube = () => {
           >
             {/* Feature 1 */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <Flame className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Patented Technologies</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Fire Suppression Systems</h3>
               <p className="text-gray-600 leading-relaxed">
-                Advanced patented technologies for precise corrosion measurement and early-stage detection across diverse industries.
+                Advanced fire suppression systems designed to rapidly detect and extinguish fires using sophisticated technology and effective agents.
               </p>
             </div>
 
             {/* Feature 2 */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Cost Savings</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Rapid Response Technology</h3>
               <p className="text-gray-600 leading-relaxed">
-                Proven to reduce maintenance costs by up to 40% through early corrosion detection and predictive maintenance.
+                Cutting-edge technology for rapid fire detection and response, utilizing advanced agents like foam or gas for effective fire suppression.
               </p>
             </div>
 
             {/* Feature 3 */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <Globe className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Global Operations</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Safety Protection</h3>
               <p className="text-gray-600 leading-relaxed">
-                Worldwide operations serving infrastructure, shipping, offshore, and research industries with specialized solutions.
+                Crucial safety systems for protecting lives and property by swiftly containing and extinguishing fires before they escalate.
               </p>
             </div>
           </motion.div>
 
+
         </div>
       </section>
-
-
 
     </div>
   );
 };
 
-export default CCube;
+export default ShootFire;

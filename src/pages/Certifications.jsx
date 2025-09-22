@@ -1,110 +1,77 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+
+// Import certification images
+import certification1 from '../assets/certifications/certification1.jpg';
+import certification2 from '../assets/certifications/certification2.jpg';
+import certification3 from '../assets/certifications/certification3.jpg';
+import certification4 from '../assets/certifications/certification4.jpg';
+import certification5 from '../assets/certifications/certification5.jpg';
+import certification6 from '../assets/certifications/certification6.jpg';
+import certification7 from '../assets/certifications/certification7.jpg';
+import certification8 from '../assets/certifications/certification8.jpg';
+import certification9 from '../assets/certifications/certification9.jpg';
+import certification10 from '../assets/certifications/certification10.jpg';
+import certification11 from '../assets/certifications/certification11.jpg';
 
 const Certifications = () => {
-  // Certification data
-  const certifications = [
-    {
-      id: 1,
-      title: "ISO 9001:2015",
-      description: "Quality Management System",
-      issuer: "International Organization for Standardization",
-      date: "2023",
-      category: "Quality Management",
-      image: "/src/assets/certifications/iso9001.png"
-    },
-    {
-      id: 2,
-      title: "ISO 14001:2015",
-      description: "Environmental Management System",
-      issuer: "International Organization for Standardization",
-      date: "2023",
-      category: "Environmental Management",
-      image: "/src/assets/certifications/iso14001.png"
-    },
-    {
-      id: 3,
-      title: "OHSAS 18001:2007",
-      description: "Occupational Health and Safety Management",
-      issuer: "British Standards Institution",
-      date: "2023",
-      category: "Health & Safety",
-      image: "/src/assets/certifications/ohsas18001.png"
-    },
-    {
-      id: 4,
-      title: "API Q1",
-      description: "Specification for Quality Management System Requirements for Manufacturing Organizations for the Petroleum and Natural Gas Industry",
-      issuer: "American Petroleum Institute",
-      date: "2023",
-      category: "Oil & Gas Quality",
-      image: "/src/assets/certifications/apiq1.png"
-    },
-    {
-      id: 5,
-      title: "API Q2",
-      description: "Specification for Quality Management System Requirements for Service Supply Organizations for the Petroleum and Natural Gas Industry",
-      issuer: "American Petroleum Institute",
-      date: "2023",
-      category: "Oil & Gas Services",
-      image: "/src/assets/certifications/apiq2.png"
-    },
-    {
-      id: 6,
-      title: "NACE International",
-      description: "Corrosion Control and Prevention Certification",
-      issuer: "NACE International",
-      date: "2023",
-      category: "Corrosion Control",
-      image: "/src/assets/certifications/nace.png"
-    },
-    {
-      id: 7,
-      title: "ASME BPVC",
-      description: "Boiler and Pressure Vessel Code Certification",
-      issuer: "American Society of Mechanical Engineers",
-      date: "2023",
-      category: "Pressure Vessels",
-      image: "/src/assets/certifications/asme.png"
-    },
-    {
-      id: 8,
-      title: "AWS D1.1",
-      description: "Structural Welding Code - Steel",
-      issuer: "American Welding Society",
-      date: "2023",
-      category: "Welding Standards",
-      image: "/src/assets/certifications/aws.png"
-    },
-    {
-      id: 9,
-      title: "DNV GL",
-      description: "Marine and Offshore Certification",
-      issuer: "DNV GL",
-      date: "2023",
-      category: "Marine & Offshore",
-      image: "/src/assets/certifications/dnvgl.png"
-    }
+  // State for modal
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Certification images data
+  const certificationImages = [
+    { id: 1, src: certification1, alt: "Certification 1", title: "Quality Management Certification" },
+    { id: 2, src: certification2, alt: "Certification 2", title: "Safety Management Certification" },
+    { id: 3, src: certification3, alt: "Certification 3", title: "Environmental Management Certification" },
+    { id: 4, src: certification4, alt: "Certification 4", title: "Industry Standards Certification" },
+    { id: 5, src: certification5, alt: "Certification 5", title: "Technical Excellence Certification" },
+    { id: 6, src: certification6, alt: "Certification 6", title: "Professional Standards Certification" },
+    { id: 7, src: certification7, alt: "Certification 7", title: "Compliance Certification" },
+    { id: 8, src: certification8, alt: "Certification 8", title: "Quality Assurance Certification" },
+    { id: 9, src: certification9, alt: "Certification 9", title: "Industry Compliance Certification" },
+    { id: 10, src: certification10, alt: "Certification 10", title: "Professional Certification" },
+    { id: 11, src: certification11, alt: "Certification 11", title: "Standards Compliance Certification" }
   ];
 
-  const categories = [
-    "All",
-    "Quality Management",
-    "Environmental Management",
-    "Health & Safety",
-    "Oil & Gas Quality",
-    "Oil & Gas Services",
-    "Corrosion Control",
-    "Pressure Vessels",
-    "Welding Standards",
-    "Marine & Offshore"
-  ];
+  // Modal functions
+  const openModal = (image, index) => {
+    setSelectedImage(image);
+    setCurrentImageIndex(index);
+    document.body.style.overflow = 'hidden';
+  };
 
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const closeModal = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
+  };
 
-  const filteredCertifications = selectedCategory === "All" 
-    ? certifications 
-    : certifications.filter(cert => cert.category === selectedCategory);
+  const goToPrevious = () => {
+    const newIndex = currentImageIndex === 0 ? certificationImages.length - 1 : currentImageIndex - 1;
+    setCurrentImageIndex(newIndex);
+    setSelectedImage(certificationImages[newIndex]);
+  };
+
+  const goToNext = () => {
+    const newIndex = currentImageIndex === certificationImages.length - 1 ? 0 : currentImageIndex + 1;
+    setCurrentImageIndex(newIndex);
+    setSelectedImage(certificationImages[newIndex]);
+  };
+
+  // Handle keyboard navigation
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedImage) {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') goToPrevious();
+        if (e.key === 'ArrowRight') goToNext();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, currentImageIndex]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -123,7 +90,7 @@ const Certifications = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4"
             >
-              Certifications
+              Our Certifications
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -154,7 +121,7 @@ const Certifications = () => {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Our Certifications
+              Certification Portfolio
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
               Calaya Engineering Services maintains a comprehensive portfolio of international certifications and standards, 
@@ -162,79 +129,46 @@ const Certifications = () => {
             </p>
           </motion.div>
 
-          {/* Category Filter */}
+          {/* Certifications Gallery */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCertifications.map((certification, index) => (
+            {certificationImages.map((cert, index) => (
               <motion.div
-                key={certification.id}
+                key={cert.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group cursor-pointer bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200"
+                onClick={() => openModal(cert, index)}
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img
-                      src={certification.image}
-                      alt={certification.title}
-                      className="w-12 h-12 object-contain"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'block';
-                      }}
-                    />
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg" style={{ display: 'none' }}>
-                      {certification.title.charAt(0)}
+                <div className="relative overflow-hidden group-hover:bg-red-50 transition-colors duration-300">
+                  <img
+                    src={cert.src}
+                    alt={cert.alt}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white rounded-full p-3 shadow-lg">
+                        <ExternalLink className="w-6 h-6 text-red-600" />
+                      </div>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      {certification.title}
-                    </h3>
-                    <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-                      {certification.category}
-                    </span>
-                  </div>
                 </div>
-                
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {certification.description}
-                </p>
-                
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="flex justify-between items-center text-sm text-gray-500">
-                    <span className="font-medium">{certification.issuer}</span>
-                    <span>{certification.date}</span>
-                  </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{cert.title}</h3>
+                  <p className="text-sm text-gray-600">Click to view full certification</p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Stats Section */}
           <motion.div 
@@ -246,7 +180,7 @@ const Certifications = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-3xl lg:text-4xl font-bold mb-2">{certifications.length}</div>
+                <div className="text-3xl lg:text-4xl font-bold mb-2">{certificationImages.length}</div>
                 <div className="text-blue-100">Active Certifications</div>
               </div>
               <div>
@@ -261,6 +195,74 @@ const Certifications = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <div className="fixed inset-0 z-50">
+            {/* Modal Background */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4"
+              onClick={closeModal}
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="relative max-w-4xl max-h-full"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={closeModal}
+                  className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200"
+                >
+                  <X className="w-8 h-8" />
+                </button>
+
+                {/* Navigation Buttons */}
+                <button
+                  onClick={goToPrevious}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 bg-black bg-opacity-50 rounded-full p-2"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={goToNext}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors duration-200 bg-black bg-opacity-50 rounded-full p-2"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+
+                {/* Image */}
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Description Below Modal */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4"
+            >
+              <div className="bg-white rounded-lg p-4 shadow-xl">
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">{selectedImage.title}</h3>
+                <p className="text-sm text-gray-600">
+                  {currentImageIndex + 1} of {certificationImages.length}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

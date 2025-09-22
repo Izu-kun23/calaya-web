@@ -226,7 +226,7 @@ const Navbar = () => {
             className="relative group transition-colors duration-200"
             onClick={handleLinkClick}
           >
-            Projects & Partners
+            Our Projects
             <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isHomePage ? 'bg-red-700' : 'bg-red-500'} group-hover:w-full transition-all duration-300 ease-out`}></span>
           </Link>
         </div>
@@ -382,7 +382,7 @@ const Navbar = () => {
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
           >
-                Projects & Partners
+                Our Projects
           </Link>
             </div>
           </div>

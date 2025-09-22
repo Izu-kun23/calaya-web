@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Shield, TrendingUp, Globe, CheckCircle, Award } from "lucide-react";
+import { Building, Wrench, Shield, CheckCircle, Target, TrendingUp, Settings, Globe, Users, Award } from "lucide-react";
 
-// Import CCube logo
-import logoCCube from "../../assets/product_partners/c-cube.jpeg";
+// Import Samoa logo
+import logoSamoa from "../../assets/product_partners/samoa.png";
 
-const CCube = () => {
+const Samoa = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -19,10 +19,10 @@ const CCube = () => {
             className="text-center"
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-              C-Cube International
+              Samoa LTD
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
-              International Engineering Solutions & Global Partnership Development
+              Industrial Equipment and Services
             </p>
           </motion.div>
         </div>
@@ -54,26 +54,26 @@ const CCube = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={logoCCube}
-                  alt="C-Cube International Logo"
-                  className="h-32 w-auto sm:h-36 lg:h-50 rounded-2xl"
+                  src={logoSamoa}
+                  alt="Samoa LTD Logo"
+                  className="h-32 w-95 sm:h-36 lg:h-55 rounded-2xl"
                 />
               </div>
               
               {/* Content - Right Side */}
               <div className="flex-1 space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p className="text-xl font-medium text-gray-800">
-                  C-CUBE INTERNATIONAL specializes in corrosion and degradation and has developed various patented technologies to measure corrosion very precisely.
+                  SAMOA LTD (UK) was established in 1987 as a distribution and marketing company for the United Kingdom and Republic of Ireland.
                 </p>
                 <p>
-                  C-Cube International operates worldwide in a wide range of industries such as infrastructure, shipping, process industries, insurance companies, research institutes, offshore applications, hydraulics and coating suppliers.
+                  SAMOA SA were initially a manufacturer of grease nipples and lever grease guns. Now SAMOA has evolved to become one of the world's leading manufacturers of lubrication equipment.
                 </p>
                 <p>
-                  C-cube technologies detect corrosion at an early stage. Based on the measurement results, we quantify the protection values and predict the lifespan of coatings. Predictive maintenance also becomes possible based on these insights.
+                  Samoa Industrial Group designs and manufactures Air Operated Double Diaphragm Pumps, Pneumatic Piston Pumps, and Volume flow meters, and control valves, electrical components for fluid management systems, hose reels, hand-operated guns, and other products and accessories for fluid management.
                 </p>
-                <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6 border-l-4 border-blue-500">
                   <p className="font-semibold text-gray-800">
-                    This method of maintenance prevents failure and downtime by addressing corroded locations early, before corrosion becomes a problem. This method can save up to <span className="text-red-600 font-bold text-xl">40% of maintenance costs!</span>
+                    With over <span className="text-blue-600 font-bold text-xl">35 years</span> of experience since 1987, SAMOA has established itself as a world-leading manufacturer of lubrication equipment and fluid management solutions.
                   </p>
                 </div>
               </div>
@@ -91,22 +91,22 @@ const CCube = () => {
             {/* Feature 1 */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Wrench className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Patented Technologies</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Lubrication Equipment</h3>
               <p className="text-gray-600 leading-relaxed">
-                Advanced patented technologies for precise corrosion measurement and early-stage detection across diverse industries.
+                World-leading manufacturer of lubrication equipment including grease nipples, lever grease guns, and advanced lubrication systems.
               </p>
             </div>
 
             {/* Feature 2 */}
             <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+                <Shield className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Cost Savings</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Fluid Management Systems</h3>
               <p className="text-gray-600 leading-relaxed">
-                Proven to reduce maintenance costs by up to 40% through early corrosion detection and predictive maintenance.
+                Air Operated Double Diaphragm Pumps, Pneumatic Piston Pumps, Volume flow meters, control valves, and electrical components.
               </p>
             </div>
 
@@ -115,20 +115,19 @@ const CCube = () => {
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Globe className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Global Operations</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">UK & Ireland Distribution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Worldwide operations serving infrastructure, shipping, offshore, and research industries with specialized solutions.
+                Established distribution and marketing company serving the United Kingdom and Republic of Ireland since 1987.
               </p>
             </div>
           </motion.div>
 
+
         </div>
       </section>
-
-
 
     </div>
   );
 };
 
-export default CCube;
+export default Samoa;

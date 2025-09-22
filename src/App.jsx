@@ -23,6 +23,8 @@ import TCK_W from './pages/partners/TCK_W'
 import TwelveS from './pages/partners/12S'
 import RemediAde from './pages/partners/RemediAde'
 import CCube from './pages/partners/CCube'
+import Samoa from './pages/partners/Samoa'
+import ShootFire from './pages/partners/ShootFire'
 import Certifications from './pages/Certifications'
 
 // Import your page components here
@@ -68,6 +70,8 @@ const App = () => {
           <Route path="/partners/12s" element={<TwelveS />} />
             <Route path="/partners/remediade" element={<RemediAde />} />
             <Route path="/partners/c-cube" element={<CCube />} />
+            <Route path="/partners/samoa" element={<Samoa />} />
+            <Route path="/partners/shootfire" element={<ShootFire />} />
             <Route path="/certifications" element={<Certifications />} />
 
           {/* 404 Page */}

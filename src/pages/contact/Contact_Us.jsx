@@ -510,6 +510,69 @@ const Contact_Us = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Google Maps Section */}
+      <section className="py-16 lg:py-20 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <span className="text-red-500 text-3xl font-bold mr-3">|</span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                Our Headquarters Location
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Visit us at our main office in Port Harcourt, Nigeria
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-xl overflow-hidden"
+          >
+            {/* Map Container */}
+            <div className="relative w-full h-96 lg:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.2!2d7.032328756053624!3d4.802818303115847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDgnMTAuMSJOIDfCsDAxJzU2LjQiRQ!5e0!3m2!1sen!2sng!4v1640995200000!5m2!1sen!2sng"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Calaya Engineering Headquarters Location - Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State, Nigeria"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+
+            {/* Address Info */}
+            <div className="p-6 lg:p-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Calaya Engineering Headquarters</h3>
+                  <p className="text-blue-100">
+                    Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State
+                  </p>
+                  <p className="text-blue-100">P.O Box 4738</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-blue-100 mb-1">Port Harcourt, Nigeria</p>
+                  <p className="text-blue-100">calayaengineering@yahoo.co.uk</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
