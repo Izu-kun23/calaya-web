@@ -26,6 +26,7 @@ import CCube from './pages/partners/CCube'
 import Samoa from './pages/partners/Samoa'
 import ShootFire from './pages/partners/ShootFire'
 import Certifications from './pages/Certifications'
+import Projects from './pages/Projects'
 
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
@@ -73,6 +74,7 @@ const App = () => {
             <Route path="/partners/samoa" element={<Samoa />} />
             <Route path="/partners/shootfire" element={<ShootFire />} />
             <Route path="/certifications" element={<Certifications />} />
+            <Route path="/projects" element={<Projects />} />
 
           {/* 404 Page */}
           <Route path="*" element={<div />} />

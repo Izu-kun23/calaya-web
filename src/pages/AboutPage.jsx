@@ -1,29 +1,42 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ClientSection from '../components/section/client_section'
+import aboutHeroImage from '../assets/images/Useable_Images/new_about.jpeg'
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-blue-900 to-blue-800 py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            About Calaya Engineering
-          </motion.h1>
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          > 
-            Delivering excellence in oil and gas services since 2005.
-          </motion.p>
+      <section className="relative w-full h-75 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={aboutHeroImage}
+            alt="Calaya Engineering team"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-blue-900/60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+          <div className="text-center text-white">
+            <motion.h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              About Calaya Engineering
+            </motion.h1>
+            <motion.p 
+              className="text-lg sm:text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            > 
+              Delivering excellence in oil and gas services since 2005.
+            </motion.p>
+          </div>
         </div>
       </section>
 

@@ -222,7 +222,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/"
+            to="/projects"
             className="relative group transition-colors duration-200"
             onClick={handleLinkClick}
           >
@@ -378,7 +378,7 @@ const Navbar = () => {
               </Link>
 
           <Link
-            to="/"
+            to="/projects"
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
           >
