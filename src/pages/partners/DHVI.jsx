@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
 // Import DHVI logo
 import dhviLogo from '../../assets/product_partners/DHVI.png';
@@ -95,9 +96,20 @@ const DHVI = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20"
+        className="relative bg-gray-900 text-white py-12 sm:py-16 lg:py-20 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Industrial facility"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-blue-900/60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -111,7 +123,7 @@ const DHVI = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto"
             >
               Downhole Video & Intervention - Advanced downhole inspection and intervention solutions
             </motion.p>

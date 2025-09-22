@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Globe, CheckCircle, Award } from "lucide-react";
+import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
 // Import CCube logo
 import logoCCube from "../../assets/product_partners/c-cube.jpeg";
@@ -10,8 +11,19 @@ const CCube = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gray-900 text-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Industrial facility"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-blue-900/60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,7 +33,7 @@ const CCube = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
               C-Cube International
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">
               International Engineering Solutions & Global Partnership Development
             </p>
           </motion.div>
