@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const ServicesCard = ({ image, title, description, buttonText = "Learn More" }) => {
+const ServicesCard = ({ image, title, description, buttonText = "Learn More", link = "#" }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 ease-out w-full max-w-[385px] h-[420px] sm:h-[440px] flex flex-col group">
       {/* Image at the top */}
@@ -24,7 +25,10 @@ const ServicesCard = ({ image, title, description, buttonText = "Learn More" }) 
         
         {/* Button */}
         <div className="mt-auto">
-          <button className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm group-hover:shadow-lg">
+          <Link 
+            to={link}
+            className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm group-hover:shadow-lg"
+          >
             {buttonText}
             <svg 
               className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" 
@@ -39,7 +43,7 @@ const ServicesCard = ({ image, title, description, buttonText = "Learn More" }) 
                 d="M17 8l4 4m0 0l-4 4m4-4H3" 
               />
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

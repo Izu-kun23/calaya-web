@@ -40,11 +40,12 @@ const Contact_Us = () => {
     setSubmitStatus(null);
 
     try {
-      // Send email using local server (secure server-side call)
-      console.log('Sending email via local server...');
+      console.log('Sending email via Nodemailer server...');
       
-      // Use local server for development
-      const response = await fetch('http://localhost:3001/send-email', {
+      // Use Nodemailer server for development and production
+      const functionUrl = 'http://localhost:3001/send-email';
+      
+      const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ const Contact_Us = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('Email sent successfully:', result);
+        console.log('Emails sent successfully:', result);
         
         setSubmitStatus('success');
         

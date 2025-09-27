@@ -1,30 +1,34 @@
-// Netlify serverless function for sending emails via Resend
-// This runs on the server side, keeping the API key secure
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const PORT = 3001;
 
-const RESEND_API_KEY = 're_eUpM7Rce_5ABztmWVUKZRmV7KkSUCM8ya';
+// Enable CORS for all routes
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'],
+  credentials: true
+}));
 
-exports.handler = async (event, context) => {
-  // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
-  }
+app.use(express.json());
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', message: 'CORS server is running' });
+});
+
+// Email endpoint that forwards to Resend API
+app.post('/send-email', async (req, res) => {
   try {
-    // Parse the request body
-    const { name, email, phone, subject, message } = JSON.parse(event.body);
+    const { name, email, phone, subject, message } = req.body;
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Missing required fields' })
-      };
+      return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Send confirmation email to customer (using verified email for now)
+    const RESEND_API_KEY = 're_eUpM7Rce_5ABztmWVUKZRmV7KkSUCM8ya';
+
+    // Send customer confirmation email
     const customerEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -33,7 +37,7 @@ exports.handler = async (event, context) => {
       },
       body: JSON.stringify({
         from: 'Calaya Engineering <calayaengineering@yahoo.co.uk>',
-        to: ['izuchukwuonuoha6@gmail.com'], // Using verified email for now
+        to: [email],
         subject: `[CUSTOMER CONFIRMATION] Thank you for contacting Calaya Engineering - ${subject}`,
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
@@ -113,7 +117,7 @@ Oil & Gas | Corrosion Management | Pipeline Services | Engineering Solutions
       })
     });
 
-    // Send notification email to admin
+    // Send admin notification email
     const adminEmailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -197,37 +201,34 @@ Calaya Engineering - Excellence in Engineering Solutions
       const customerResult = await customerEmailResponse.json();
       const adminResult = await adminEmailResponse.json();
       
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ 
-          success: true, 
-          message: 'Emails sent successfully to both customer and admin',
-          customerEmailId: customerResult.id,
-          adminEmailId: adminResult.id
-        })
-      };
+      res.json({ 
+        success: true, 
+        message: 'Emails sent successfully to both customer and admin',
+        customerEmailId: customerResult.id,
+        adminEmailId: adminResult.id
+      });
     } else {
       const customerError = await customerEmailResponse.json().catch(() => ({}));
       const adminError = await adminEmailResponse.json().catch(() => ({}));
       
       console.error('Email sending errors:', { customerError, adminError });
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ 
-          error: 'Failed to send one or both emails',
-          details: { customerError, adminError }
-        })
-      };
+      res.status(500).json({ 
+        error: 'Failed to send one or both emails',
+        details: { customerError, adminError }
+      });
     }
 
   } catch (error) {
-    console.error('Serverless function error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ 
-        error: 'Internal server error',
-        details: error.message 
-      })
-    };
+    console.error('Email sending error:', error);
+    res.status(500).json({ 
+      error: 'Internal server error',
+      details: error.message 
+    });
   }
-};
+});
+
+app.listen(PORT, () => {
+  console.log(`CORS proxy server running on port ${PORT}`);
+  console.log(`Health check: http://localhost:${PORT}/health`);
+  console.log(`Email endpoint: http://localhost:${PORT}/send-email`);
+});

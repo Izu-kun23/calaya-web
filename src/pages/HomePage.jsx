@@ -72,7 +72,7 @@ const CountUpNumber = ({ end, duration = 2000, suffix = "" }) => {
   return (
     <div
       ref={containerRef}
-      className="text-red-500 text-4xl md:text-5xl font-extrabold"
+      className="font-data text-red-500 text-4xl md:text-5xl font-extrabold tracking-tight"
     >
       {value}
       {suffix}
@@ -348,10 +348,10 @@ const HomePage = () => {
       <section className="w-full bg-blue-50 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SmartMotion>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-6 sm:mt-9 mb-6 sm:mb-9 px-4">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-6 sm:mt-[-9px] mb-6 sm:mb-9 px-4 font-extrabold">
               Trusted by Industry Leaders Across 7 Countries
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4 mb-8">
+            <p className="font-body text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4 mb-8 leading-relaxed">
               Partnering with major operators including Shell, Chevron, and TotalEnergies to deliver world-class engineering solutions
             </p>
           </SmartMotion>
@@ -359,7 +359,7 @@ const HomePage = () => {
             <SmartMotion delay={0.2}>
               <div className="text-center">
                 <CountUpNumber end={2005} duration={2000} />
-                <div className="mt-2 text-gray-700 uppercase text-sm font-medium">
+                <div className="font-data mt-2 text-gray-700 uppercase text-sm font-medium tracking-wide">
                   around since
                 </div>
               </div>
@@ -367,7 +367,7 @@ const HomePage = () => {
             <SmartMotion delay={0.4}>
               <div className="text-center">
                 <CountUpNumber end={100} duration={1800} suffix="%" />
-                <div className="mt-2 text-gray-700 uppercase text-sm font-medium">
+                <div className="font-data mt-2 text-gray-700 uppercase text-sm font-medium tracking-wide">
                   trusted
                 </div>
               </div>
@@ -380,7 +380,7 @@ const HomePage = () => {
       <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SmartMotion>
-            <h3 className="text-red-500 text-base sm:text-lg font-semibold tracking-wide uppercase mb-6 sm:mb-8 mt-6 sm:mt-10 text-center sm:text-left sm:ml-[280px] lg:ml-[560px]">
+            <h3 className="text-red-500 text-base sm:text-lg font-semibold tracking-wide uppercase mb-6 sm:mb-8 mt-6 sm:mt-1 text-center sm:text-left sm:ml-[280px] lg:ml-[560px]">
               Why Calaya?
             </h3>
           </SmartMotion>
@@ -564,6 +564,7 @@ const HomePage = () => {
                 title="Procurement Services"
                 description="Strategic sourcing and supply chain management for critical oil and gas equipment, ensuring quality, compliance, and cost optimization for major operators."
                 buttonText="Learn More"
+                link="/services/procurement"
               />
             </div>
           </SmartMotion>
@@ -574,6 +575,7 @@ const HomePage = () => {
                 title="Civil Engineering"
                 description="Infrastructure development and construction management for offshore platforms, onshore facilities, and supporting infrastructure with international standards compliance."
                 buttonText="Learn More"
+                link="/services/civil-engineering"
               />
             </div>
           </SmartMotion>
@@ -584,6 +586,7 @@ const HomePage = () => {
                 title="Facilities Management"
                 description="Comprehensive operations and maintenance services for oil and gas facilities, ensuring optimal performance, safety compliance, and extended asset lifecycle."
                 buttonText="Learn More"
+                link="/services/facilities-management"
               />
             </div>
           </SmartMotion>
@@ -594,6 +597,7 @@ const HomePage = () => {
                 title="Technical Manpower"
                 description="Skilled engineering professionals and technical specialists deployed across international projects, providing expertise in drilling, production, and maintenance operations."
                 buttonText="Learn More"
+                link="/services/technical-manpower"
               />
             </div>
           </SmartMotion>
@@ -604,6 +608,7 @@ const HomePage = () => {
                 title="Pipeline Construction"
                 description="End-to-end pipeline engineering and construction services, from design and installation to testing and commissioning, meeting international safety and environmental standards."
                 buttonText="Learn More"
+                link="/services/pipeline-construction"
               />
             </div>
           </SmartMotion>
@@ -614,6 +619,7 @@ const HomePage = () => {
                 title="Inspection Services"
                 description="Advanced non-destructive testing and inspection services for critical infrastructure, ensuring compliance with international standards and regulatory requirements."
                 buttonText="Learn More"
+                link="/services/corrosion-management"
               />
             </div>
           </SmartMotion>
@@ -624,6 +630,7 @@ const HomePage = () => {
                 title="Corrosion Management"
                 description="Specialized corrosion prevention and control services, including coating systems, cathodic protection, and material selection for harsh offshore and onshore environments."
                 buttonText="Learn More"
+                link="/services/corrosion-management"
               />
             </div>
           </SmartMotion>
@@ -634,6 +641,7 @@ const HomePage = () => {
                 title="Well Services"
                 description="Complete well lifecycle services including drilling support, completion, workover operations, and well intervention services for both onshore and offshore applications."
                 buttonText="Learn More"
+                link="/services/well-services"
               />
             </div>
           </SmartMotion>
