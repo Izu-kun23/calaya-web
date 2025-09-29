@@ -140,38 +140,35 @@ const Navbar = () => {
       }
     };
 
-    // Prevent body scroll when dropdown is open
-    const preventScroll = (e) => {
-      if (activeDropdown || isMobileMenuOpen) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
+    // Listen for custom event to open What We Do dropdown
+    const handleOpenWhatWeDoDropdown = () => {
+      // Don't open dropdown if mobile menu is open
+      if (isMobileMenuOpen) {
+        return;
       }
+      setActiveDropdown('whatWeDo');
+      setActiveSubmenu(null);
     };
 
-    // Add scroll prevention when dropdown is open
-    if (activeDropdown || isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('wheel', preventScroll, { passive: false });
-      document.addEventListener('touchmove', preventScroll, { passive: false });
-    } else {
-      document.body.style.overflow = 'unset';
-      document.removeEventListener('wheel', preventScroll);
-      document.removeEventListener('touchmove', preventScroll);
-    }
+    // Listen for custom event to open mobile menu
+    const handleOpenMobileMenu = () => {
+      setIsMobileMenuOpen(true);
+    };
+
 
     document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('openWhatWeDoDropdown', handleOpenWhatWeDoDropdown);
+    window.addEventListener('openMobileMenu', handleOpenMobileMenu);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('wheel', preventScroll);
-      document.removeEventListener('touchmove', preventScroll);
-      document.body.style.overflow = 'unset';
+      window.removeEventListener('openWhatWeDoDropdown', handleOpenWhatWeDoDropdown);
+      window.removeEventListener('openMobileMenu', handleOpenMobileMenu);
     };
   }, [activeDropdown, isMobileMenuOpen]);
 
   return (
-    <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
+    <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">

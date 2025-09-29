@@ -164,12 +164,21 @@ const Banner = () => {
                 Providing Excellent Services
               </h1>
               
-              <p className="text-lg md:text-xl text-white/80 font-medium">
-                Across Africa
-              </p>
               
               <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                <button className="w-45 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300">
+                <button 
+                  onClick={() => {
+                    // Check if mobile menu should open (mobile view)
+                    if (window.innerWidth < 1024) { // lg breakpoint
+                      // Dispatch custom event to open mobile menu
+                      window.dispatchEvent(new CustomEvent('openMobileMenu'));
+                    } else {
+                      // Dispatch custom event to trigger What We Do dropdown (desktop)
+                      window.dispatchEvent(new CustomEvent('openWhatWeDoDropdown'));
+                    }
+                  }}
+                  className="w-45 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300"
+                >
                   <span className="text-black text-sm font-semibold">View Services</span>
                 </button>
                 <Link 

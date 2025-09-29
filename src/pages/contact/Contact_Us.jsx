@@ -234,8 +234,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Office Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-sm text-gray-500">Saturday: 9:00 AM - 2:00 PM</p>
+                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -245,7 +244,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                 <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex gap-4">
                   <a 
-                    href="https://linkedin.com/company/calaya-engineering" 
+                    href="https://www.linkedin.com/company/calaya-engineering-services-limited/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
@@ -462,7 +461,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Nigeria</h3>
                 <div className="text-left text-sm text-gray-600 space-y-2">
                   <p className="font-medium">Headquarters</p>
-                  <p>Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State</p>
+                  <p>Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State, Nigeria</p>
                   <p>P.O Box 4738</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
                   <p>Tel: (+234) 84301123</p>
@@ -717,7 +716,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                 <div>
                   <h3 className="text-xl font-bold mb-2">Calaya Engineering Headquarters</h3>
                   <p className="text-blue-100">
-                    Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State
+                    Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State, Nigeria
                   </p>
                   <p className="text-blue-100">P.O Box 4738</p>
                 </div>

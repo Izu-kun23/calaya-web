@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ClientSection from '../components/section/client_section'
-import aboutHeroImage from '../assets/images/Useable_Images/new_about.jpeg'
+import aboutHeroImage from '../assets/images/Useable_Images/image5.jpg'
 
 const AboutPage = () => {
   return (
@@ -12,7 +12,7 @@ const AboutPage = () => {
           <img
             src={aboutHeroImage}
             alt="Calaya Engineering team"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-blue-900/60"></div>
         </div>
@@ -105,6 +105,10 @@ const AboutPage = () => {
                 <div className="flex items-center">
                   <div className="w-3 h-3 bg-white rounded-full mr-3"></div>
                   <span>Spain</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-3 h-3 bg-white rounded-full mr-3"></div>
+                  <span>Ghana</span>
                 </div>
               </div>
               

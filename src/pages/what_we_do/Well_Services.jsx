@@ -502,7 +502,7 @@ const Well_Services = () => {
                       >
                         <div className="flex items-center justify-center gap-3 mb-6">
                           <Settings className="w-8 h-8 text-red-600" />
-                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
                             Well Completion Gallery
                           </h2>
                         </div>
@@ -597,7 +597,7 @@ const Well_Services = () => {
                       >
                         <div className="flex items-center justify-center gap-3 mb-6">
                           <Wrench className="w-8 h-8 text-red-600" />
-                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
                             Well Intervention Gallery
                           </h2>
                         </div>
@@ -692,7 +692,7 @@ const Well_Services = () => {
                       >
                         <div className="flex items-center justify-center gap-3 mb-6">
                           <Shield className="w-8 h-8 text-red-600" />
-                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
                             Well Head Maintenance Gallery
                           </h2>
                         </div>
@@ -787,7 +787,7 @@ const Well_Services = () => {
                       >
                         <div className="flex items-center justify-center gap-3 mb-6">
                           <Droplets className="w-8 h-8 text-red-600" />
-                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
                             Leak Sealing & Valve Greasing Gallery
                           </h2>
                         </div>
