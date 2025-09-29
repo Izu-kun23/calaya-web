@@ -98,8 +98,8 @@ const Footer = () => {
                 P.O Box 4738
               </p>
               <p>
-                <a href="mailto:calayaengineering@yahoo.co.uk" className="hover:text-white transition-colors">
-                  calayaengineering@yahoo.co.uk
+                <a href="mailto:info@calayaengineering.com" className="hover:text-white transition-colors">
+                  info@calayaengineering.com
                 </a>
               </p>
               <p>

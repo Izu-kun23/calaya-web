@@ -28,13 +28,25 @@ const DropDown = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className={`fixed top-16 left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50`}
-        >
+        <>
+          {/* Backdrop overlay */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            onClick={onClose}
+          />
+          
+          {/* Dropdown content */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className={`fixed top-16 left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto`}
+          >
             <div className="w-full px-12 py-12">
               {/* Header */}
               <motion.div 
@@ -159,7 +171,8 @@ const DropDown = ({
               </button>
             </motion.div>
           </div>
-        </motion.div>
+          </motion.div>
+        </>
       )}
     </AnimatePresence>
   )

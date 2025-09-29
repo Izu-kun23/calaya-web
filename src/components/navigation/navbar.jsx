@@ -131,7 +131,7 @@ const Navbar = () => {
     closeAllMenus();
   };
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside and prevent scroll when dropdown is open
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -140,11 +140,35 @@ const Navbar = () => {
       }
     };
 
+    // Prevent body scroll when dropdown is open
+    const preventScroll = (e) => {
+      if (activeDropdown || isMobileMenuOpen) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    // Add scroll prevention when dropdown is open
+    if (activeDropdown || isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+    } else {
+      document.body.style.overflow = 'unset';
+      document.removeEventListener('wheel', preventScroll);
+      document.removeEventListener('touchmove', preventScroll);
+    }
+
     document.addEventListener('mousedown', handleClickOutside);
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('wheel', preventScroll);
+      document.removeEventListener('touchmove', preventScroll);
+      document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [activeDropdown, isMobileMenuOpen]);
 
   return (
     <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
