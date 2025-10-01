@@ -6,6 +6,9 @@ import ClientSection from "../../components/section/client_section";
 import cathodicImage from "../../assets/corrosion management/cathodic_image.jpg";
 import dcvgImage1 from "../../assets/corrosion management/dvcg1.jpg";
 import dcvgImage2 from "../../assets/corrosion management/dcvg2.jpg";
+import itmImage1 from "../../assets/internal_corrosion_monitering/itm1.jpg";
+import itmImage2 from "../../assets/internal_corrosion_monitering/itm2.jpg";
+import itmImage3 from "../../assets/internal_corrosion_monitering/itm3.jpg";
 
 const Corrosion_Management = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -143,7 +146,7 @@ const Corrosion_Management = () => {
   const internalCorrosionImages = [
     {
       id: 1,
-      src: "/src/assets/internal_corrosion_monitering/itm1.jpg",
+      src: itmImage1,
       alt: "Internal Corrosion Monitoring Field Operations",
       title: "Professional Field Inspection",
       description: "Industrial worker performing internal corrosion monitoring inspection on pipeline systems using specialized equipment",
@@ -151,7 +154,7 @@ const Corrosion_Management = () => {
     },
     {
       id: 2,
-      src: "/src/assets/internal_corrosion_monitering/itm2.jpg",
+      src: itmImage2,
       alt: "Advanced Corrosion Monitoring Equipment",
       title: "Advanced Monitoring Systems",
       description: "Professional technicians operating sophisticated corrosion monitoring equipment on industrial pipeline infrastructure",
@@ -159,7 +162,7 @@ const Corrosion_Management = () => {
     },
     {
       id: 3,
-      src: "/src/assets/internal_corrosion_monitering/itm3.jpg",
+      src: itmImage3,
       alt: "Industrial Corrosion Detection Analysis",
       title: "Corrosion Detection & Analysis",
       description: "Specialized corrosion detection equipment and analysis tools in action during pipeline maintenance operations",
