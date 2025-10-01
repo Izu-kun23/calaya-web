@@ -1,0 +1,11 @@
+# Netlify redirects file for React SPA
+# This ensures that all routes are handled by the React app for client-side routing
+
+# Redirect all non-asset requests to index.html for React Router
+/*    /index.html   200
+
+# Optional: Handle common API redirects or specific routes
+# /api/*  https://your-api-domain.com/api/:splat  200
+
+# Optional: Force HTTPS redirect (uncomment if needed)
+# http://calaya-engineering.netlify.app/*  https://calaya-engineering.netlify.app/:splat  301!
