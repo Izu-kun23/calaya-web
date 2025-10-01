@@ -143,26 +143,26 @@ const Corrosion_Management = () => {
   const internalCorrosionImages = [
     {
       id: 1,
-      src: "/src/assets/internal_corrosion_monitering/access fitting (hottapped on a pipeline by calaya engineering services).jpg",
-      alt: "Access Fitting Hot-tapped on Pipeline",
-      title: "Access Fitting Installation",
-      description: "Hot-tapped access fitting on pipeline for monitoring",
-      category: "Installation"
+      src: "/src/assets/internal_corrosion_monitering/itm1.jpg",
+      alt: "Internal Corrosion Monitoring Field Operations",
+      title: "Professional Field Inspection",
+      description: "Industrial worker performing internal corrosion monitoring inspection on pipeline systems using specialized equipment",
+      category: "Field Operations"
     },
     {
       id: 2,
-      src: "/src/assets/internal_corrosion_monitering/IMG_20230806_113504_236.jpg",
-      alt: "Corrosion Monitoring Equipment",
-      title: "Monitoring Equipment Setup",
-      description: "Advanced corrosion monitoring systems in operation",
+      src: "/src/assets/internal_corrosion_monitering/itm2.jpg",
+      alt: "Advanced Corrosion Monitoring Equipment",
+      title: "Advanced Monitoring Systems",
+      description: "Professional technicians operating sophisticated corrosion monitoring equipment on industrial pipeline infrastructure",
       category: "Equipment"
     },
     {
       id: 3,
-      src: "/src/assets/internal_corrosion_monitering/IMG_20230806_152149_381.jpg",
-      alt: "Corrosion Detection Analysis",
-      title: "Corrosion Detection Analysis",
-      description: "Advanced analysis for effective corrosion management",
+      src: "/src/assets/internal_corrosion_monitering/itm3.jpg",
+      alt: "Industrial Corrosion Detection Analysis",
+      title: "Corrosion Detection & Analysis",
+      description: "Specialized corrosion detection equipment and analysis tools in action during pipeline maintenance operations",
       category: "Analysis"
     }
   ];
