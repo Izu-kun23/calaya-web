@@ -4,6 +4,21 @@ import { Building, Wrench, Shield, CheckCircle, Target, TrendingUp, Settings, Za
 import { Link } from 'react-router-dom'
 import heroImage from '../../assets/images/Useable_Images/image12.jpg'
 
+// Import all product partner images
+import rsClareImage from '../../assets/product_partners/rs_clare.jpg'
+import preciseToolImage from '../../assets/product_partners/precise_tool.jpg'
+import dhviImage from '../../assets/product_partners/DHVI.png'
+import ipPipelineImage from '../../assets/product_partners/ip_pipeline.jpg'
+import lexImage from '../../assets/product_partners/lex.jpg'
+import tckwImage from '../../assets/tck.w/tck.w_logo.png'
+import i2sImage from '../../assets/product_partners/i2S.jpg'
+import remediadeImage from '../../assets/product_partners/remediade.jpg'
+import cCubeImage from '../../assets/product_partners/c-cube.jpeg'
+import samoaImage from '../../assets/product_partners/samoa.png'
+import shootfireImage from '../../assets/product_partners/shootfire.jpg'
+import gmFlowImage from '../../assets/product_partners/gm_flow.jpg'
+import leakDetectionImage from '../../assets/product_partners/leak_detection.jpg'
+
 
 const Product_Partners = () => {
   // Product and Partner data
@@ -11,79 +26,79 @@ const Product_Partners = () => {
     {
       id: 1,
       name: "RS Clare",
-      image: "/src/assets/product_partners/rs_clare.jpg",
+      image: rsClareImage,
       description: "Advanced lubricants and greasing equipment"
     },
     {
       id: 2,
       name: "Precise Tool",
-      image: "/src/assets/product_partners/precise_tool.jpg",
+      image: preciseToolImage,
       description: "Precision engineering and tooling solutions"
     },
     {
       id: 3,
       name: "DHVI",
-      image: "/src/assets/product_partners/DHVI.png",
+      image: dhviImage,
       description: "Industrial valves and equipment"
     },
     {
       id: 4,
       name: "IP Pipeline Technologies",
-      image: "/src/assets/product_partners/ip_pipeline.jpg",
+      image: ipPipelineImage,
       description: "Pipeline construction and maintenance"
     },
     {
       id: 5,
       name: "Lex Technology",
-      image: "/src/assets/product_partners/lex.jpg",
+      image: lexImage,
       description: "Technology solutions for oil and gas"
     },
     {
       id: 6,
       name: "TCK.W",
-      image: "/src/assets/tck.w/tck.w_logo.png",
+      image: tckwImage,
       description: "Real-time online wire rope inspection system"
     },
     {
       id: 7,
       name: "12S",
-      image: "/src/assets/product_partners/i2S.jpg",
+      image: i2sImage,
       description: "Engineering and technical services"
     },
     {
       id: 8,
       name: "RemediAde",
-      image: "/src/assets/product_partners/remediade.jpg",
+      image: remediadeImage,
       description: "Environmental and remediation services"
     },
     {
       id: 9,
       name: "C-Cube International",
-      image: "/src/assets/product_partners/c-cube.jpeg",
+      image: cCubeImage,
       description: "International engineering solutions"
     },
     {
       id: 10,
       name: "Samoa LTD",
-      image: "/src/assets/product_partners/samoa.png",
+      image: samoaImage,
       description: "Industrial equipment and services"
     },
     {
       id: 11,
       name: "Shootfire by Vimal Fire",
-      image: "/src/assets/product_partners/shootfire.jpg",
+      image: shootfireImage,
       description: "Fire safety and protection systems"
     },
     {
       id: 12,
       name: "GM Flow Measurement",
-      image: "/src/assets/product_partners/gm_flow.jpg",
+      image: gmFlowImage,
       description: "Flow measurement and control systems"
     },
     {
       id: 13,
       name: "Leak Detection and Repair",
-      image: "/src/assets/product_partners/leak_detection.jpg",
+      image: leakDetectionImage,
       description: "Specialized leak detection services"
     }
   ]
@@ -260,31 +275,6 @@ const Product_Partners = () => {
       </section>
 
 
-      {/* Call to Action */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              Need Custom Solutions?
-            </h2>
-            <p className="text-lg text-red-100 mb-8 max-w-2xl mx-auto">
-              Contact us to discuss your specific product requirements and partnership opportunities
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-                Contact Sales
-              </button>
-              <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors duration-200">
-                Become a Partner
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 }
