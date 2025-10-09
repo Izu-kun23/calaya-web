@@ -48,7 +48,7 @@ const ShootFire = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-xl p-8 lg:p-12 mb-16"
+            className="p-8 lg:p-12 mb-16"
           >
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
               {/* Logo - Left Side */}
@@ -89,7 +89,7 @@ const ShootFire = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {/* Feature 1 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                 <Flame className="w-6 h-6 text-red-600" />
               </div>
@@ -100,7 +100,7 @@ const ShootFire = () => {
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-blue-600" />
               </div>
@@ -111,7 +111,7 @@ const ShootFire = () => {
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-green-600" />
               </div>

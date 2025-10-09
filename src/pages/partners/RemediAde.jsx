@@ -289,7 +289,7 @@ const RemediAde = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="rounded-xl p-6 hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="text-red-600 mb-4">
                   {service.icon}

@@ -451,7 +451,7 @@ const RS_Clare = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-lg shadow-lg p-4 lg:p-6 hover:shadow-xl transition-shadow duration-300 relative"
+                className="rounded-lg p-4 lg:p-6 hover:shadow-xl transition-shadow duration-300 relative"
               >
                 <h3 className="text-base lg:text-lg font-bold text-gray-900 mb-3">
                   {caseStudy.title}

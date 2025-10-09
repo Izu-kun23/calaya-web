@@ -272,7 +272,7 @@ const Lex_Technology = () => {
               {/* Swipeable Product Carousel */}
               <div className="relative max-w-6xl mx-auto">
                 {/* Main Product Display */}
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div className="overflow-hidden">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 p-6">
                     {/* Product Image */}
                     <motion.div
@@ -310,13 +310,13 @@ const Lex_Technology = () => {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevSlide}
-                  className="absolute -left-16 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-300 z-10"
+                  className="absolute -left-16 top-1/2 transform -translate-y-1/2 bg-gray-100 rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 z-10"
                 >
                   <ChevronLeft className="w-6 h-6 text-gray-600" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute -right-16 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-300 z-10"
+                  className="absolute -right-16 top-1/2 transform -translate-y-1/2 bg-gray-100 rounded-full p-3 hover:bg-gray-200 transition-colors duration-300 z-10"
                 >
                   <ChevronRight className="w-6 h-6 text-gray-600" />
                 </button>

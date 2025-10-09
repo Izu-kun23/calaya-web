@@ -291,7 +291,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-80 overflow-hidden">
+      <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -307,12 +307,12 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            className="text-center text-white px-4"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
               Our Projects
             </h1>
-            <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-3xl mx-auto leading-relaxed">
               Delivering Excellence Across the Oil & Gas Industry
             </p>
           </motion.div>
@@ -320,54 +320,57 @@ const Projects = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Search and Filter Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-xl shadow-lg p-6 mb-8"
+          className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8"
         >
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search projects or clients..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+          <div className="flex flex-col gap-4">
+            {/* Top Row - Search and Filter */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Search Bar */}
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search projects or clients..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                />
+              </div>
+
+              {/* Client Filter */}
+              <div className="relative">
+                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <select
+                  value={selectedClient}
+                  onChange={(e) => setSelectedClient(e.target.value)}
+                  className="pl-10 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white w-full sm:min-w-[200px] text-base"
+                >
+                  {uniqueClients.map(client => (
+                    <option key={client} value={client}>
+                      {client === 'All' ? 'All Clients' : client}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
-            {/* Client Filter */}
-            <div className="relative">
-              <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <select
-                value={selectedClient}
-                onChange={(e) => setSelectedClient(e.target.value)}
-                className="pl-10 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white min-w-[200px]"
-              >
-                {uniqueClients.map(client => (
-                  <option key={client} value={client}>
-                    {client === 'All' ? 'All Clients' : client}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Expand/Collapse Buttons */}
-            <div className="flex gap-2">
+            {/* Bottom Row - Expand/Collapse Buttons */}
+            <div className="flex flex-col sm:flex-row gap-2 sm:justify-end">
               <button
                 onClick={expandAll}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
               >
                 Expand All
               </button>
               <button
                 onClick={collapseAll}
-                className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
               >
                 Collapse All
               </button>
@@ -376,49 +379,51 @@ const Projects = () => {
         </motion.div>
 
         {/* Projects by Client */}
-        <div className="grid gap-8">
+        <div className="grid gap-6 sm:gap-8">
           {Object.entries(filteredProjects).map(([client, projects], index) => (
             <motion.div
               key={client}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+              className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border border-gray-100"
             >
               {/* Client Header */}
               <div
-                className="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200 p-8 cursor-pointer hover:from-gray-100 hover:to-gray-200 transition-all duration-300"
+                className="bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200 p-4 sm:p-6 lg:p-8 cursor-pointer hover:from-gray-100 hover:to-gray-200 transition-all duration-300"
                 onClick={() => toggleClient(client)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-md border-2 border-gray-200 overflow-hidden">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="flex items-center gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg sm:rounded-xl flex items-center justify-center shadow-md border-2 border-gray-200 overflow-hidden flex-shrink-0">
                       {clientLogos[client] ? (
                         <img 
                           src={clientLogos[client]} 
                           alt={`${client} logo`}
-                          className="w-full h-full object-contain p-2"
+                          className="w-full h-full object-contain p-1 sm:p-2"
                         />
                       ) : (
-                        <Building className="w-8 h-8 text-gray-400" />
+                        <Building className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" />
                       )}
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-1">{client}</h3>
-                      <p className="text-gray-600 text-lg">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-1 leading-tight break-words">
+                        {client}
+                      </h3>
+                      <p className="text-gray-600 text-sm sm:text-base lg:text-lg">
                         {projects.length} {projects.length === 1 ? 'Project' : 'Projects'} Completed
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
+                    <span className="text-xs sm:text-sm bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold whitespace-nowrap">
                       {projects.length} Projects
                     </span>
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
                       {expandedClients.has(client) ? (
-                        <ChevronUp className="w-5 h-5 text-gray-600" />
+                        <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-600" />
+                        <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                       )}
                     </div>
                   </div>
@@ -435,22 +440,22 @@ const Projects = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-8">
-                      <div className="grid gap-6">
+                    <div className="p-4 sm:p-6 lg:p-8">
+                      <div className="grid gap-4 sm:gap-6">
                         {projects.map((project, projectIndex) => (
                           <motion.div
                             key={project.id}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: projectIndex * 0.05 }}
-                            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 shadow-sm"
+                            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-blue-100 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 shadow-sm"
                           >
-                            <div className="flex items-start gap-6">
-                              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-md">
+                            <div className="flex items-start gap-3 sm:gap-4 lg:gap-6">
+                              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-xs sm:text-sm shadow-md">
                                 {project.id}
                               </div>
-                              <div className="flex-1">
-                                <p className="text-gray-800 font-medium leading-relaxed text-lg">
+                              <div className="flex-1 min-w-0">
+                                <p className="text-gray-800 font-medium leading-relaxed text-sm sm:text-base lg:text-lg break-words">
                                   {project.description}
                                 </p>
                               </div>
@@ -471,12 +476,12 @@ const Projects = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-12"
+            className="text-center py-8 sm:py-12"
           >
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <Search className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">No Projects Found</h3>
-              <p className="text-gray-500">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <Search className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-600 mb-2">No Projects Found</h3>
+              <p className="text-gray-500 text-sm sm:text-base">
                 Try adjusting your search terms or filter criteria.
               </p>
             </div>

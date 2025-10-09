@@ -160,7 +160,7 @@ const Product_Partners = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 overflow-hidden group cursor-pointer"
+                className="rounded-lg hover:shadow-xl transition-all duration-200 overflow-hidden group cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative overflow-hidden">
@@ -257,6 +257,20 @@ const Product_Partners = () => {
                     ) : product.name === "Shootfire by Vimal Fire" ? (
                       <Link
                         to="/partners/shootfire"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "GM Flow Measurement" ? (
+                      <Link
+                        to="/partners/gm-flow"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Leak Detection and Repair" ? (
+                      <Link
+                        to="/partners/leak-detection"
                         className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
                       >
                         View Details

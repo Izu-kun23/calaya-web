@@ -25,6 +25,8 @@ import RemediAde from './pages/partners/RemediAde'
 import CCube from './pages/partners/CCube'
 import Samoa from './pages/partners/Samoa'
 import ShootFire from './pages/partners/ShootFire'
+import GM_Flow from './pages/partners/GM_Flow'
+import Leak_Detection from './pages/partners/Leak_Detection'
 import Certifications from './pages/Certifications'
 import Projects from './pages/Projects'
 
@@ -73,6 +75,8 @@ const App = () => {
             <Route path="/partners/c-cube" element={<CCube />} />
             <Route path="/partners/samoa" element={<Samoa />} />
             <Route path="/partners/shootfire" element={<ShootFire />} />
+            <Route path="/partners/gm-flow" element={<GM_Flow />} />
+            <Route path="/partners/leak-detection" element={<Leak_Detection />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/projects" element={<Projects />} />
 

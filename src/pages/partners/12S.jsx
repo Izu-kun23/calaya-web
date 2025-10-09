@@ -291,7 +291,7 @@ const TwelveS = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl">
+          <div className="p-8 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               {/* Before Image */}
               <div className="text-center">
