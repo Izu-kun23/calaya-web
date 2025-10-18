@@ -289,7 +289,7 @@ const Corrosion_Management = () => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white shadow-sm">
+      <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto">
             {corrosionCategories.map((category, index) => (
@@ -322,7 +322,7 @@ const Corrosion_Management = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-lg shadow-lg p-6 h-fit sticky top-8"
+                className="bg-white rounded-lg p-6 h-fit sticky top-8"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-red-600">
@@ -358,7 +358,7 @@ const Corrosion_Management = () => {
                 className="space-y-8"
               >
                 {/* Overview */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Target className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
@@ -369,14 +369,14 @@ const Corrosion_Management = () => {
                 </div>
 
                 {/* Services */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Settings className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {corrosionCategories[activeTab].detailedContent.services.map((service, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 transition-shadow duration-300">
                         <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
                         <p className="text-gray-600 text-sm">{service.description}</p>
                       </div>
@@ -386,7 +386,7 @@ const Corrosion_Management = () => {
 
                 {/* Specific Applications - Only for Cathodic Protection Services tab */}
                 {activeTab === 1 && corrosionCategories[activeTab].detailedContent.applications && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="bg-white rounded-lg p-6 lg:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <Shield className="w-6 h-6 text-red-600" />
                       <h3 className="text-xl font-bold text-gray-900">Specific Applications</h3>
@@ -412,7 +412,7 @@ const Corrosion_Management = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                    className="py-16 lg:py-20 bg-white rounded-lg"
                   >
                     <div className="px-6 lg:px-8">
                       <motion.div
@@ -454,7 +454,7 @@ const Corrosion_Management = () => {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
@@ -507,7 +507,7 @@ const Corrosion_Management = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                    className="py-16 lg:py-20 bg-white rounded-lg"
                   >
                     <div className="px-6 lg:px-8">
                       <motion.div
@@ -549,7 +549,7 @@ const Corrosion_Management = () => {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
@@ -602,7 +602,7 @@ const Corrosion_Management = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="py-16 lg:py-20 bg-white rounded-lg shadow-lg"
+                    className="py-16 lg:py-20 bg-white rounded-lg"
                   >
                     <div className="px-6 lg:px-8">
                       <motion.div
@@ -644,7 +644,7 @@ const Corrosion_Management = () => {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
@@ -691,7 +691,7 @@ const Corrosion_Management = () => {
                 )}
 
                 {/* Benefits */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <TrendingUp className="w-6 h-6 text-green-600" />
                     <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>

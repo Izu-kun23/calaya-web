@@ -345,7 +345,7 @@ const RS_Clare = () => {
               viewport={{ once: true }}
               src="/src/assets/product_partners/content_images/rsclare1.png"
               alt="RS Clare Products and Services"
-              className="w-full lg:max-w-xs lg:w-auto h-64 sm:h-80 lg:h-100 object-cover rounded-lg shadow-lg"
+              className="w-full lg:max-w-xs lg:w-auto h-64 sm:h-80 lg:h-100 object-cover rounded-lg "
             />
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
@@ -451,7 +451,7 @@ const RS_Clare = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="rounded-lg p-4 lg:p-6 hover:shadow-xl transition-shadow duration-300 relative"
+                className="rounded-lg p-4 lg:p-6 hover: transition-shadow duration-300 relative"
               >
                 <h3 className="text-base lg:text-lg font-bold text-gray-900 mb-3">
                   {caseStudy.title}
@@ -530,7 +530,7 @@ const RS_Clare = () => {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
                   {image.isVideo ? (
                     <div className="relative w-full h-72">
                       <img
@@ -541,7 +541,7 @@ const RS_Clare = () => {
                         onLoad={() => setIsLoading(false)}
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-red-600 rounded-full p-4 shadow-lg">
+                        <div className="bg-red-600 rounded-full p-4 ">
                           <Play className="w-8 h-8 text-white" />
                         </div>
                       </div>

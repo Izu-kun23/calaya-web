@@ -62,6 +62,19 @@ const Navbar = () => {
         ]
       },
       { 
+        name: "Inspection Services", 
+        link: "/services/inspection", 
+        icon: <Wrench className="w-5 h-5" />, 
+        description: "Professional inspection and non-destructive testing services",
+        hasSubmenu: true,
+        submenu: [
+          { name: "Statutory Inspection", link: "/services/inspection?tab=0", icon: <Shield className="w-4 h-4" />, description: "Regulatory compliance inspections and safety systems" },
+          { name: "Manual NDT", link: "/services/inspection?tab=1", icon: <Wrench className="w-4 h-4" />, description: "Traditional non-destructive testing methods" },
+          { name: "Advanced NDT", link: "/services/inspection?tab=2", icon: <Monitor className="w-4 h-4" />, description: "Cutting-edge inspection technologies" },
+          // { name: "Leak Sealing & Greasing", link: "/services/well-services?tab=3", icon: <Settings className="w-4 h-4" />, description: "Specialized leak sealing and valve greasing" }
+        ]
+      },
+      { 
         name: "Pipeline Construction", 
         link: "/services/pipeline-construction", 
         icon: <Building className="w-5 h-5" />, 
@@ -168,7 +181,7 @@ const Navbar = () => {
   }, [activeDropdown, isMobileMenuOpen]);
 
   return (
-    <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0' : 'bg-white shadow-md'} z-50`} ref={navbarRef}>
+    <nav className={`w-full ${isHomePage ? 'bg-transparent absolute top-0 left-0 right-0' : 'bg-white'} z-50`} ref={navbarRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -176,7 +189,7 @@ const Navbar = () => {
             <img
               src={isHomePage ? calayaLogoWhite : calayaLogoBlack}
               alt="Calaya Engineering Logo"
-              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:shadow-lg"
+              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:"
             />
           </Link>
         </div>
@@ -280,7 +293,7 @@ const Navbar = () => {
       )}
 
       {/* Mobile Sidebar */}
-      <div className={`lg:hidden fixed top-0 left-0 h-full w-72 sm:w-80 bg-white/90 backdrop-blur-md shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
+      <div className={`lg:hidden fixed top-0 left-0 h-full w-72 sm:w-80 bg-white/90 backdrop-blur-md transform transition-transform duration-300 ease-in-out z-50 ${
         isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         {/* Sidebar Header */}
@@ -375,17 +388,44 @@ const Navbar = () => {
                 
                 {activeDropdown === "whatWeDo" && (
                   <div className="ml-4 mt-2 space-y-1">
-              {dropdownItems.whatWeDo.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.link}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
-                        onClick={handleLinkClick}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+                    {dropdownItems.whatWeDo.map((item, index) => (
+                      <div key={index}>
+                        {item.hasSubmenu ? (
+                          <div>
+                            <button
+                              onClick={() => handleSubmenuToggle(`whatWeDo-${index}`)}
+                              className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-between"
+                            >
+                              <span className="font-medium">{item.name}</span>
+                              <ChevronRight className={`w-3 h-3 transition-transform duration-200 ${activeSubmenu === `whatWeDo-${index}` ? "rotate-90" : ""}`} />
+                            </button>
+                            {activeSubmenu === `whatWeDo-${index}` && (
+                              <div className="ml-4 mt-1 space-y-1">
+                                {item.submenu.map((subItem, subIndex) => (
+                                  <Link
+                                    key={subIndex}
+                                    to={subItem.link}
+                                    className="block px-4 py-2 text-xs text-gray-500 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                                    onClick={handleLinkClick}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <Link
+                            to={item.link}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
+                            onClick={handleLinkClick}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 )}
         </div>
 

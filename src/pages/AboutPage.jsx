@@ -55,7 +55,7 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-4 sm:space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
                 <p>
-                  Calaya Engineering Services is a limited liability Company incorporated under the laws of the Federal Republic of Nigeria, Republic of Equatorial Guinea, Congo, Malaysia, Mozambique, Angola and Spain since 2005.
+                Calaya Engineering Services Limited is a limited liability company incorporated in 2005 under the laws of the Federal Republic of Nigeria, and also incorporated in the Republic of Equatorial Guinea, Ghana, United Kingdom, Congo, Angola, Spain, and Malaysia.
                 </p>
                 <p>
                   We are one of the leading oil and gas service provider with a very robust track record for excellence in service delivery.
@@ -141,7 +141,7 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <motion.div 
-              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 text-center hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -160,7 +160,7 @@ const AboutPage = () => {
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 text-center hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -179,7 +179,7 @@ const AboutPage = () => {
             </motion.div>
 
             <motion.div 
-              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out"
+              className="bg-white rounded-xl p-6 sm:p-8 text-center hover:-translate-y-2 transition-all duration-300 ease-out"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const ServicesCard = ({ image, title, description, buttonText = "Learn More", link = "#" }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 ease-out w-full max-w-[385px] h-[420px] sm:h-[440px] flex flex-col group">
+    <div className="bg-white rounded-xl overflow-hidden hover:-translate-y-3 transition-all duration-500 ease-out w-full max-w-[385px] h-[420px] sm:h-[440px] flex flex-col group">
       {/* Image at the top */}
       <div className="relative overflow-hidden">
         <img 
@@ -27,7 +27,7 @@ const ServicesCard = ({ image, title, description, buttonText = "Learn More", li
         <div className="mt-auto">
           <Link 
             to={link}
-            className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm group-hover:shadow-lg"
+            className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm"
           >
             {buttonText}
             <svg 

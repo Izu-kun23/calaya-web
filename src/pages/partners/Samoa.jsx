@@ -101,7 +101,7 @@ const Samoa = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
             {/* Feature 1 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Wrench className="w-6 h-6 text-blue-600" />
               </div>
@@ -112,7 +112,7 @@ const Samoa = () => {
             </div>
 
             {/* Feature 2 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-green-600" />
               </div>
@@ -123,7 +123,7 @@ const Samoa = () => {
             </div>
 
             {/* Feature 3 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1 md:col-span-2 lg:col-span-1">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Globe className="w-6 h-6 text-purple-600" />
               </div>

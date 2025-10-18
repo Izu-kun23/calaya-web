@@ -276,7 +276,7 @@ Calaya Engineering - Excellence in Engineering Solutions
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white rounded-2xl shadow-xl p-8 lg:p-10"
+              className="bg-white rounded-2xl p-8 lg:p-10"
             >
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                 Send us a Message
@@ -402,7 +402,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-red-500 hover:bg-red-600 hover:shadow-lg transform hover:-translate-y-1'
+                      : 'bg-red-500 hover:bg-red-600 transform hover:-translate-y-1'
                   } text-white`}
                 >
                   {isSubmitting ? (
@@ -452,10 +452,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={nigeriaFlag} alt="Nigeria Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Nigeria</h3>
@@ -476,10 +476,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={malaysiaFlag} alt="Malaysia Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Malaysia</h3>
@@ -500,10 +500,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={mozambiqueFlag} alt="Mozambique Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Mozambique</h3>
@@ -522,10 +522,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={equatorialGuineaFlag} alt="Equatorial Guinea Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Equatorial Guinea</h3>
@@ -545,10 +545,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={congoFlag} alt="Congo Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Congo Brazzaville</h3>
@@ -567,10 +567,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={spainFlag} alt="Spain Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Spain</h3>
@@ -589,10 +589,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={angolaFlag} alt="Angola Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Angola</h3>
@@ -612,10 +612,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={ukFlag} alt="UK Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">United Kingdom</h3>
@@ -634,10 +634,10 @@ Calaya Engineering - Excellence in Engineering Solutions
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border border-gray-200"
+              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-200"
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-gray-200 overflow-hidden">
+                <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
                   <img src={ghanaFlag} alt="Ghana Flag" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Ghana</h3>
@@ -693,7 +693,7 @@ Calaya Engineering - Excellence in Engineering Solutions
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden"
+            className="bg-white rounded-2xl overflow-hidden"
           >
             {/* Map Container */}
             <div className="relative w-full h-96 lg:h-[500px]">

@@ -99,7 +99,7 @@ const Testimonials = () => {
             <motion.div
               key={testimonial.id}
               variants={itemVariants}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 lg:p-8 relative"
+              className="bg-white rounded-xl  hover: transition-shadow duration-300 p-6 lg:p-8 relative"
             >
               <Quote className="absolute top-4 right-4 text-red-100 w-8 h-8" />
               

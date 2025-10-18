@@ -189,13 +189,13 @@ const Precise_Tool = () => {
               <img
                 src="/src/assets/precisetool/precise_tool.jpg"
                 alt="Precise Tool"
-                className="w-full max-w-md h-auto rounded-2xl shadow-xl object-cover"
+                className="w-full max-w-md h-auto rounded-2xl  object-cover"
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
               />
-              <div className="w-full max-w-md h-72 bg-gray-200 rounded-2xl shadow-lg hidden items-center justify-center text-gray-500">
+              <div className="w-full max-w-md h-72 bg-gray-200 rounded-2xl  hidden items-center justify-center text-gray-500">
                 <p>Precise Tool Image</p>
               </div>
             </motion.div>
@@ -334,7 +334,7 @@ const Precise_Tool = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-10 lg:p-14 text-white shadow-xl mt-20"
+            className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-10 lg:p-14 text-white  mt-20"
           >
             <h3 className="text-3xl font-bold mb-8 text-center">
               Real-Time Drop Spool Systems
@@ -395,7 +395,7 @@ const Precise_Tool = () => {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
                   {image.isVideo ? (
                     <div className="relative w-full h-72">
                       <img
@@ -406,7 +406,7 @@ const Precise_Tool = () => {
                         onLoad={() => setIsLoading(false)}
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-red-600 rounded-full p-4 shadow-lg">
+                        <div className="bg-red-600 rounded-full p-4 ">
                           <Play className="w-8 h-8 text-white" />
                         </div>
                       </div>

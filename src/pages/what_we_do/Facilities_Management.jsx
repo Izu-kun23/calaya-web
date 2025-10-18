@@ -168,7 +168,7 @@ const Facilities_Management = () => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white shadow-sm">
+      <section className="bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto">
             {facilitiesCategories.map((category, index) => (
@@ -201,7 +201,7 @@ const Facilities_Management = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-lg shadow-lg p-6 h-fit sticky top-8"
+                className="bg-white rounded-lg  p-6 h-fit sticky top-8"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-red-600">
@@ -237,7 +237,7 @@ const Facilities_Management = () => {
                 className="space-y-8"
               >
                 {/* Overview */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Target className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
@@ -248,14 +248,14 @@ const Facilities_Management = () => {
                 </div>
 
                 {/* Services */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Settings className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {facilitiesCategories[activeTab].detailedContent.services.map((service, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover: transition-shadow duration-300">
                         <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
                         <p className="text-gray-600 text-sm">{service.description}</p>
                       </div>
@@ -265,7 +265,7 @@ const Facilities_Management = () => {
 
                 {/* HVAC Images Section - Only show for first tab */}
                 {activeTab === 0 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="bg-white rounded-lg  p-6 lg:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <Building className="w-6 h-6 text-red-600" />
                       <h3 className="text-xl font-bold text-gray-900">HVAC Installation & Maintenance</h3>
@@ -279,7 +279,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/facilities_management/hvac1.jpeg")}
                       >
                         <img
@@ -303,7 +303,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/facilities_management/hvac2.jpeg")}
                       >
                         <img
@@ -328,7 +328,7 @@ const Facilities_Management = () => {
 
                 {/* Grit & Hydro Blasting Images Section - Only show for second tab */}
                 {activeTab === 1 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="bg-white rounded-lg  p-6 lg:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <Wrench className="w-6 h-6 text-red-600" />
                       <h3 className="text-xl font-bold text-gray-900">Grit & Hydro Blasting Services</h3>
@@ -342,7 +342,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/hydroblasting/hydroblasting9.jpeg")}
                       >
                         <img
@@ -366,7 +366,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/hydroblasting/hydroblasting2.jpeg")}
                       >
                         <img
@@ -390,7 +390,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/gritblasting/gritblasting1.jpeg")}
                       >
                         <img
@@ -415,7 +415,7 @@ const Facilities_Management = () => {
 
                 {/* Tank Cleaning Images Section - Only show for third tab */}
                 {activeTab === 2 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-10">
+                  <div className="bg-white rounded-lg  p-6 lg:p-10">
                     <div className="flex items-center gap-3 mb-6">
                       <Droplets className="w-6 h-6 text-red-600" />
                       <h3 className="text-xl font-bold text-gray-900">Tank Cleaning Services</h3>
@@ -429,7 +429,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/facilities_management/tank_cleaning1.jpg")}
                       >
                         <img
@@ -456,7 +456,7 @@ const Facilities_Management = () => {
 
                 {/* Online Leak Repair Images Section - Only show for fourth tab */}
                 {activeTab === 3 && (
-                  <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                  <div className="bg-white rounded-lg  p-6 lg:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <Zap className="w-6 h-6 text-red-600" />
                       <h3 className="text-xl font-bold text-gray-900">Online Leak Repair Services</h3>
@@ -470,7 +470,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/facilities_management/Online_leak1.jpg")}
                       >
                         <img
@@ -494,7 +494,7 @@ const Facilities_Management = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage("/src/assets/facilities_management/online_leak2.jpeg")}
                       >
                         <img
@@ -518,7 +518,7 @@ const Facilities_Management = () => {
                 )}
 
                 {/* Benefits */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <TrendingUp className="w-6 h-6 text-green-600" />
                     <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
@@ -561,7 +561,7 @@ const Facilities_Management = () => {
               <img
                 src={selectedImage}
                 alt="Enlarged view"
-                className="w-full h-auto object-contain rounded-lg shadow-2xl"
+                className="w-full h-auto object-contain rounded-lg "
               />
               <button
                 onClick={() => setSelectedImage(null)}

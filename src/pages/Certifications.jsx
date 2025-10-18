@@ -145,7 +145,7 @@ const Certifications = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group cursor-pointer bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200"
+                className="group cursor-pointer bg-white rounded-xl  overflow-hidden hover: transition-all duration-300 border border-gray-200"
                 onClick={() => openModal(cert, index)}
               >
                 <div className="relative overflow-hidden group-hover:bg-red-50 transition-colors duration-300">
@@ -156,7 +156,7 @@ const Certifications = () => {
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white rounded-full p-3 shadow-lg">
+                      <div className="bg-white rounded-full p-3 ">
                         <ExternalLink className="w-6 h-6 text-red-600" />
                       </div>
                     </div>
@@ -249,7 +249,7 @@ const Certifications = () => {
               exit={{ opacity: 0, y: 20 }}
               className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4"
             >
-              <div className="bg-white rounded-lg p-4 shadow-xl">
+              <div className="bg-white rounded-lg p-4 ">
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">{selectedImage.title}</h3>
                 <p className="text-sm text-gray-600">
                   {currentImageIndex + 1} of {certificationImages.length}

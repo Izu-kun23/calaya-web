@@ -261,7 +261,7 @@ const IP_Pipeline = () => {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
                   <img
                     src={image.src}
                     alt={image.alt}

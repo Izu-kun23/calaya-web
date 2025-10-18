@@ -31,7 +31,7 @@ const OHS_Policy = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12"
+            className="bg-white rounded-xl  p-6 sm:p-8 md:p-12"
           >
             {/* Company Introduction */}
             <div className="mb-6 sm:mb-8">
@@ -115,7 +115,7 @@ const OHS_Policy = () => {
                 Management Responsibility
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                It is the duty of the Top Management to ensure that OH&S policy is upheld at all times, communicated with understanding within the organization and made available to interested parties on request and also be posted on the CESL internet website.
+                it is the responsibility of Top Management to ensure that the OH&S Policy is consistently implemented and maintained, effectively communicated and understood across all levels of the organization, made readily accessible to interested parties upon request, and prominently displayed on the CESL website.
               </p>
             </div>
           </motion.div>

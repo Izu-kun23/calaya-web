@@ -29,6 +29,7 @@ import GM_Flow from './pages/partners/GM_Flow'
 import Leak_Detection from './pages/partners/Leak_Detection'
 import Certifications from './pages/Certifications'
 import Projects from './pages/Projects'
+import Inspection_Services from './pages/what_we_do/Inspection_Services'
 
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/services/well-services" element={<Well_Services />} />
           <Route path="/services/corrosion-management" element={<Corrosion_Management />} />
           <Route path="/services/pipeline-construction" element={<Pipeline_Construction />} />
+          <Route path="/services/inspection" element={<Inspection_Services />} />
           <Route path="/services/technical-manpower" element={<Technical_Manpower_Support />} />
           <Route path="/services/facilities-management" element={<Facilities_Management />} />
           <Route path="/services/procurement" element={<Procurement_Services />} />

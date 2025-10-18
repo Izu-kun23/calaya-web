@@ -26,7 +26,7 @@ const WhiteButtons = ({
   disabled = false,
   ariaLabel
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900 disabled:opacity-60 disabled:cursor-not-allowed shadow-sm';
+  const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900 disabled:opacity-60 disabled:cursor-not-allowed ';
   const classes = [
     baseClasses,
     sizeClasses[size] || sizeClasses.md,

@@ -34,7 +34,7 @@ const TopArrow = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-110"
+          className="fixed bottom-8 right-8 z-50 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full  hover: transition-all duration-300 ease-in-out transform hover:scale-110"
           aria-label="Back to top"
         >
           <CircleArrowUp className="w-6 h-6" />

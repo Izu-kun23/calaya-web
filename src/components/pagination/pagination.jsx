@@ -25,8 +25,8 @@ const Pagination = ({ totalPages = 5, currentPage, onChange }) => {
             aria-label={`Go to slide ${page}`}
             className={`transition-all duration-300 ease-out rounded-full transform hover:scale-110 ${
               isActive
-                ? "bg-blue-900 shadow-lg scale-110"
-                : "bg-white/60 hover:bg-white/80 shadow-md"
+                ? "bg-blue-900  scale-110"
+                : "bg-white/60 hover:bg-white/80 "
             } w-8 h-2 sm:w-10 sm:h-2.5 md:w-12 md:h-3 border border-white/30 hover:border-white/50`}
           >
             <span className="sr-only">{`Slide ${page}`}</span>

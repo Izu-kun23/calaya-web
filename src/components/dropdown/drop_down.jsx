@@ -45,7 +45,7 @@ const DropDown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed top-16 left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto`}
+            className={`fixed top-16 left-0 w-full bg-white border-t border-gray-200 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto`}
           >
             <div className="w-full px-12 py-12">
               {/* Header */}

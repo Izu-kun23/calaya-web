@@ -31,7 +31,7 @@ const Quality_Policy = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12"
+            className="bg-white rounded-xl  p-6 sm:p-8 md:p-12"
           >
             {/* Company Introduction */}
             <div className="mb-8">

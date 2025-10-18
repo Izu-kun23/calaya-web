@@ -160,7 +160,7 @@ const Product_Partners = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="rounded-lg hover:shadow-xl transition-all duration-200 overflow-hidden group cursor-pointer"
+                className="rounded-lg hover: transition-all duration-200 overflow-hidden group cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative overflow-hidden">

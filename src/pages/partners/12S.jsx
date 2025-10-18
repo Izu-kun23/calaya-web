@@ -185,7 +185,7 @@ const TwelveS = () => {
             viewport={{ once: true }}
             className="max-w-6xl mx-auto"
           >
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-10 lg:p-14 text-white shadow-xl">
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-10 lg:p-14 text-white ">
               <div className="text-center mb-8">
                 <div className="flex justify-center mb-6">
                   <img
@@ -300,7 +300,7 @@ const TwelveS = () => {
                   <img
                     src={beforeImage}
                     alt="Underwater imaging before I2S technology - limited visibility in turbid conditions"
-                    className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    className="w-full h-auto rounded-lg  object-cover"
                   />
                 </div>
                 <p className="text-gray-600 mt-4 text-sm">
@@ -315,7 +315,7 @@ const TwelveS = () => {
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-full p-4 shadow-lg"
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-full p-4 "
                 >
                   <ChevronRight className="w-8 h-8 text-white" />
                 </motion.div>
@@ -328,7 +328,7 @@ const TwelveS = () => {
                   <img
                     src={afterImage}
                     alt="Underwater imaging after I2S technology - enhanced visibility and clarity"
-                    className="w-full h-auto rounded-lg shadow-lg object-cover"
+                    className="w-full h-auto rounded-lg  object-cover"
                   />
                 </div>
                 <p className="text-gray-600 mt-4 text-sm">

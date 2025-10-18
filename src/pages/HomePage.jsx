@@ -438,7 +438,7 @@ const HomePage = () => {
                   ref={imageContainerRef}
                   onMouseMove={handleContainerMouseMove}
                   onMouseLeave={handleContainerMouseLeave}
-                  className="aspect-[4/3] w-full overflow-hidden rounded-xl shadow-xl transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                  className="aspect-[4/3] w-full overflow-hidden rounded-xl transform transition-transform duration-300 ease-out hover:-translate-y-1"
                   style={{
                     transform: `translate(${containerOffset.x}px, ${containerOffset.y}px)`,
                   }}
@@ -659,7 +659,7 @@ const HomePage = () => {
       {/* Previous Button */}
       <button
         onClick={prevSlide}
-        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
       >
         <MoveLeft className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
       </button>
@@ -682,7 +682,7 @@ const HomePage = () => {
       {/* Next Button */}
       <button
         onClick={nextSlide}
-        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+        className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
       >
         <MoveRight className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
       </button>
@@ -710,7 +710,7 @@ const HomePage = () => {
         <div className="flex-shrink-0">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-red-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 text-base sm:text-lg font-semibold"
+            className="inline-flex items-center gap-2 bg-red-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-red-600 transition-all duration-300 text-base sm:text-lg font-semibold"
           >
             Get in Touch
             <svg
@@ -755,7 +755,7 @@ const HomePage = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       {/* News Item 1 */}
       <SmartMotion delay={0.1}>
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
           <div className="h-40 sm:h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
             <div className="text-white text-center">
               <div className="text-3xl sm:text-4xl font-bold mb-2">2024</div>
@@ -783,7 +783,7 @@ const HomePage = () => {
 
       {/* News Item 2 */}
       <SmartMotion delay={0.2}>
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
           <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
             <div className="text-white text-center">
               <div className="text-3xl sm:text-4xl font-bold mb-2">500+</div>
@@ -811,7 +811,7 @@ const HomePage = () => {
 
       {/* News Item 3 */}
       <SmartMotion delay={0.3}>
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
           <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
             <div className="text-white text-center">
               <div className="text-3xl sm:text-4xl font-bold mb-2">ISO</div>

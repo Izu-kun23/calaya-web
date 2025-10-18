@@ -90,7 +90,7 @@ const Leak_Detection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <Search className="w-6 h-6 text-blue-600" />
                 </div>
@@ -100,7 +100,7 @@ const Leak_Detection = () => {
                 </p>
               </div>
 
-              <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-green-600" />
                 </div>
@@ -127,7 +127,7 @@ const Leak_Detection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="p-6 text-center hover: transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <AlertTriangle className="w-6 h-6 text-red-600" />
                 </div>
@@ -137,7 +137,7 @@ const Leak_Detection = () => {
                 </p>
               </div>
 
-              <div className="p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="p-6 text-center hover: transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Zap className="w-6 h-6 text-yellow-600" />
                 </div>
@@ -147,7 +147,7 @@ const Leak_Detection = () => {
                 </p>
               </div>
 
-              <div className="p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="p-6 text-center hover: transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <Target className="w-6 h-6 text-purple-600" />
                 </div>

@@ -92,7 +92,7 @@ const GM_Flow = () => {
           {/* Key Benefits Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {/* Benefit 1 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Gauge className="w-6 h-6 text-blue-600" />
               </div>
@@ -103,7 +103,7 @@ const GM_Flow = () => {
             </div>
 
             {/* Benefit 2 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-green-600" />
               </div>
@@ -114,7 +114,7 @@ const GM_Flow = () => {
             </div>
 
             {/* Benefit 3 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Settings className="w-6 h-6 text-purple-600" />
               </div>
@@ -125,7 +125,7 @@ const GM_Flow = () => {
             </div>
 
             {/* Benefit 4 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-green-600" />
               </div>
@@ -136,7 +136,7 @@ const GM_Flow = () => {
             </div>
 
             {/* Benefit 5 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Globe className="w-6 h-6 text-blue-600" />
               </div>
@@ -147,7 +147,7 @@ const GM_Flow = () => {
             </div>
 
             {/* Benefit 6 */}
-            <div className="p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="p-6 hover: transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Target className="w-6 h-6 text-purple-600" />
               </div>

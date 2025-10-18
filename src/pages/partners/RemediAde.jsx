@@ -289,7 +289,7 @@ const RemediAde = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="rounded-xl p-6 hover:shadow-xl transition-shadow duration-300"
+                className="rounded-xl p-6 hover: transition-shadow duration-300"
               >
                 <div className="text-red-600 mb-4">
                   {service.icon}
@@ -355,7 +355,7 @@ const RemediAde = () => {
                   }}
                   aria-label={`View ${image.title} in full size`}
                 >
-                  <article className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
                     {image.isVideo ? (
                       <div className="relative w-full h-72">
                         <img
@@ -366,7 +366,7 @@ const RemediAde = () => {
                           onLoad={() => setIsLoading(false)}
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="bg-red-600 rounded-full p-4 shadow-lg">
+                          <div className="bg-red-600 rounded-full p-4 ">
                             <Play className="w-8 h-8 text-white" />
                           </div>
                         </div>

@@ -19,7 +19,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="relative bg-white rounded-xl shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-y-auto flex flex-col border border-gray-200"
+            className="relative bg-white rounded-xl max-w-5xl w-full max-h-[95vh] overflow-y-auto flex flex-col border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Engineering Header */}
@@ -100,7 +100,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                       <img 
                         src="/src/assets/casestudy/casestudy1.png" 
                         alt="WAPCo valve maintenance project" 
-                        className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                        className="w-full max-w-2xl mx-auto rounded-lg"
                       />
                     </div>
                   )}
@@ -109,7 +109,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                       <img 
                         src="/src/assets/casestudy/casestudy2.png" 
                         alt="Addax Petroleum RS Clare pumping operation" 
-                        className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                        className="w-full max-w-2xl mx-auto rounded-lg"
                       />
                     </div>
                   )}
@@ -118,7 +118,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                       <img 
                         src="/src/assets/casestudy/casestudy3.png" 
                         alt="NLNG GTS pipeline valve maintenance with RS Clare equipment" 
-                        className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                        className="w-full max-w-2xl mx-auto rounded-lg"
                       />
                     </div>
                   )}
@@ -169,13 +169,13 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
               </div>
 
               {/* Engineering Contact CTA */}
-              <div className="bg-gradient-to-r from-red-600 to-red-700 p-6 rounded-lg border border-red-500 shadow-lg">
+              <div className="bg-gradient-to-r from-red-600 to-red-700 p-6 rounded-lg border border-red-500">
                 <div className="text-center">
                   <h4 className="font-bold text-white text-lg mb-3">Engineering Consultation Required?</h4>
                   <p className="text-red-100 text-sm mb-4 max-w-2xl mx-auto">
                     Contact our technical engineering team for similar oil & gas solutions, field applications, and equipment specifications.
                   </p>
-                  <button className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                  <button className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
                     Contact Engineering Team
                   </button>
                 </div>

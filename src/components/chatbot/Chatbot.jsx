@@ -96,7 +96,7 @@ const Chatbot = () => {
       {/* Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-red-500 hover:bg-red-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+        className="fixed bottom-6 right-6 z-50 bg-red-500 hover:bg-red-600 text-white p-4 rounded-full  transition-all duration-300 hover:"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ scale: 0 }}
@@ -113,7 +113,7 @@ const Chatbot = () => {
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
-            className="fixed bottom-24 right-6 z-50 w-80 h-96 bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col"
+            className="fixed bottom-24 right-6 z-50 w-80 h-96 bg-white rounded-lg  border border-gray-200 flex flex-col"
           >
             {/* Header */}
             <div className="bg-red-500 text-white p-4 rounded-t-lg flex items-center justify-between">

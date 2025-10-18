@@ -326,7 +326,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8"
+          className="bg-white rounded-xl  p-4 sm:p-6 mb-6 sm:mb-8"
         >
           <div className="flex flex-col gap-4">
             {/* Top Row - Search and Filter */}
@@ -386,7 +386,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+              className="bg-white rounded-xl sm:rounded-2xl  overflow-hidden border border-gray-100"
             >
               {/* Client Header */}
               <div
@@ -395,7 +395,7 @@ const Projects = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div className="flex items-center gap-4 sm:gap-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg sm:rounded-xl flex items-center justify-center shadow-md border-2 border-gray-200 overflow-hidden flex-shrink-0">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-lg sm:rounded-xl flex items-center justify-center  border-2 border-gray-200 overflow-hidden flex-shrink-0">
                       {clientLogos[client] ? (
                         <img 
                           src={clientLogos[client]} 
@@ -419,7 +419,7 @@ const Projects = () => {
                     <span className="text-xs sm:text-sm bg-blue-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold whitespace-nowrap">
                       {projects.length} Projects
                     </span>
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center  flex-shrink-0">
                       {expandedClients.has(client) ? (
                         <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                       ) : (
@@ -448,10 +448,10 @@ const Projects = () => {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: projectIndex * 0.05 }}
-                            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-blue-100 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 shadow-sm"
+                            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-blue-100 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300 "
                           >
                             <div className="flex items-start gap-3 sm:gap-4 lg:gap-6">
-                              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-xs sm:text-sm shadow-md">
+                              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 text-white rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-xs sm:text-sm ">
                                 {project.id}
                               </div>
                               <div className="flex-1 min-w-0">
@@ -478,7 +478,7 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             className="text-center py-8 sm:py-12"
           >
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+            <div className="bg-white rounded-xl  p-6 sm:p-8">
               <Search className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-600 mb-2">No Projects Found</h3>
               <p className="text-gray-500 text-sm sm:text-base">

@@ -109,7 +109,7 @@ const Pipeline_Construction = () => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white shadow-sm">
+      <section className="bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto">
             {pipelineCategories.map((category, index) => (
@@ -142,7 +142,7 @@ const Pipeline_Construction = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-lg shadow-lg p-6 h-fit sticky top-8"
+                className="bg-white rounded-lg  p-6 h-fit sticky top-8"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-red-600">
@@ -178,7 +178,7 @@ const Pipeline_Construction = () => {
                 className="space-y-8"
               >
                 {/* Overview */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Target className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
@@ -189,14 +189,14 @@ const Pipeline_Construction = () => {
                 </div>
 
                 {/* Services */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Settings className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {pipelineCategories[activeTab].detailedContent.services.map((service, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover: transition-shadow duration-300">
                         <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
                         <p className="text-gray-600 text-sm">{service.description}</p>
                       </div>
@@ -205,7 +205,7 @@ const Pipeline_Construction = () => {
                 </div>
 
                 {/* Benefits */}
-                <div className="bg-white rounded-lg shadow-lg p-6 lg:p-8">
+                <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <TrendingUp className="w-6 h-6 text-green-600" />
                     <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>

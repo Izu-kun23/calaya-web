@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhiteCard = ({ iconSrc, title, description, number }) => {
   return (
-    <div className="w-full h-[16rem] bg-white rounded-xl shadow-lg border border-gray-200 p-6 flex flex-col items-center text-center transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl relative group">
+    <div className="w-full h-[16rem] bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center text-center transition-all duration-300 ease-out hover:-translate-y-1 relative group">
       {/* Number overlay - only visible on hover */}
       {number && (
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
