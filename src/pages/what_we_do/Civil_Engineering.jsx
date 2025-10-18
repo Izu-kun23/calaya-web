@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Building, Wrench, HardHat, CheckCircle, Target, TrendingUp, Settings } from "lucide-react";
+import {
+  Building,
+  Wrench,
+  HardHat,
+  CheckCircle,
+  Target,
+  TrendingUp,
+  Settings,
+} from "lucide-react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
 
@@ -11,7 +19,7 @@ const Civil_Engineering = () => {
 
   // Handle URL-based tab activation
   useEffect(() => {
-    const tabParam = searchParams.get('tab');
+    const tabParam = searchParams.get("tab");
     if (tabParam) {
       const tabIndex = parseInt(tabParam);
       if (tabIndex >= 0 && tabIndex < 1) {
@@ -24,10 +32,10 @@ const Civil_Engineering = () => {
     {
       icon: <Building className="w-8 h-8" />,
       title: "Civil Engineering Services",
-      description: "Comprehensive civil engineering services covering planning, designing and construction of infrastructure across commercial, residential, transportation, and environmental sectors.",
+      description:
+        "Calaya Engineering Services Limited offers civil engineering services which include, but are not limited to, the following:",
       features: [
         "Commercial & Residential Buildings",
-        "Transportation Infrastructure",
         "Water Distribution Systems",
         "Environmental Infrastructure",
         "Industrial Infrastructure",
@@ -36,14 +44,39 @@ const Civil_Engineering = () => {
         "Infrastructure Planning & Design",
       ],
       detailedContent: {
-        overview: "Calaya Engineering Services Limited is a company with a vast domain covering planning, designing and construction of infrastructure such as commercial and residential buildings; transportation infrastructure including roads, bridges, pipelines, railways; water distribution systems such as dams, canals, sanitation; environmental infrastructure like landscaping, city planning, parks; industrial infrastructure; construction management; construction engineering and a lot more. With tremendous growth of economy all over the world, there is a need to implement cost-effective, yet efficient civil engineering and construction engineering practices in order to meet the mounting needs while meeting budget constraints.",
+        overview:
+          "We are a country with a vast domain covering planning, designing and construction of infrastructure such as commercial and residential buildings; transportation infrastructure including roads, bridges, pipelines, railways; water distribution systems such as dams, canals, and sanitation; environmental infrastructure like landscaping, city planning, parks; industrial infrastructure; construction management; construction engineering and a lot more.",
         services: [
-          { title: "Commercial & Residential Buildings", description: "Professional planning, design, and construction services for commercial and residential buildings, ensuring structural integrity and compliance with building codes." },
-          { title: "Transportation Infrastructure", description: "Comprehensive transportation infrastructure development including roads, bridges, pipelines, and railways with advanced engineering solutions." },
-          { title: "Water Distribution Systems", description: "Expert design and construction of water distribution systems including dams, canals, and sanitation infrastructure for efficient water management." },
-          { title: "Environmental Infrastructure", description: "Environmental infrastructure development including landscaping, city planning, parks, and sustainable development solutions." },
-          { title: "Industrial Infrastructure", description: "Specialized industrial infrastructure planning and construction services tailored to meet specific industrial requirements and standards." },
-          { title: "Construction Management", description: "Professional construction management services ensuring project delivery on time, within budget, and meeting quality standards." },
+          {
+            title: "Commercial & Residential Buildings",
+            description:
+              "Professional planning, design, and construction services for commercial and residential buildings, ensuring structural integrity and compliance with building codes.",
+          },
+          // {
+          //   title: "Transportation Infrastructure",
+          //   description:
+          //     "Comprehensive transportation infrastructure development including roads, bridges, pipelines, and railways with advanced engineering solutions.",
+          // },
+          {
+            title: "Water Distribution Systems",
+            description:
+              "Expert design and construction of water distribution systems including dams, canals, and sanitation infrastructure for efficient water management.",
+          },
+          {
+            title: "Environmental Infrastructure",
+            description:
+              "Environmental infrastructure development including landscaping, city planning, parks, and sustainable development solutions.",
+          },
+          {
+            title: "Industrial Infrastructure",
+            description:
+              "Specialized industrial infrastructure planning and construction services tailored to meet specific industrial requirements and standards.",
+          },
+          {
+            title: "Construction Management",
+            description:
+              "Comprehensive transportation infrastructure development including roads, bridges, pipelines, and railways with advanced engineering solutions.",
+          },
         ],
         benefits: [
           "Cost-effective engineering solutions",
@@ -53,8 +86,8 @@ const Civil_Engineering = () => {
           "Professional construction management",
           "Advanced engineering expertise",
         ],
-      }
-    }
+      },
+    },
   ];
 
   return (
@@ -72,7 +105,8 @@ const Civil_Engineering = () => {
               Civil Engineering
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive civil engineering and construction services for infrastructure development
+              Comprehensive civil engineering and construction services for
+              infrastructure development
             </p>
           </motion.div>
         </div>
@@ -92,10 +126,16 @@ const Civil_Engineering = () => {
                     : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
+                <span
+                  className={`${
+                    activeTab === index ? "text-red-600" : "text-gray-400"
+                  }`}
+                >
                   {category.icon}
                 </span>
-                <span className="font-medium text-sm sm:text-base">{category.title}</span>
+                <span className="font-medium text-sm sm:text-base">
+                  {category.title}
+                </span>
               </button>
             ))}
           </div>
@@ -125,9 +165,11 @@ const Civil_Engineering = () => {
                 <p className="text-gray-600 mb-6">
                   {civilCategories[activeTab].description}
                 </p>
-                
+
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-gray-900 mb-3">Key Features:</h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    Key Features:
+                  </h3>
                   {civilCategories[activeTab].features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
@@ -151,7 +193,9 @@ const Civil_Engineering = () => {
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Target className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Service Overview
+                    </h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
                     {civilCategories[activeTab].detailedContent.overview}
@@ -162,15 +206,26 @@ const Civil_Engineering = () => {
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Settings className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Our Services
+                    </h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {civilCategories[activeTab].detailedContent.services.map((service, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 hover: transition-shadow duration-300">
-                        <h4 className="font-semibold text-gray-900 mb-2">{service.title}</h4>
-                        <p className="text-gray-600 text-sm">{service.description}</p>
-                      </div>
-                    ))}
+                    {civilCategories[activeTab].detailedContent.services.map(
+                      (service, index) => (
+                        <div
+                          key={index}
+                          className="border border-gray-200 rounded-lg p-4 hover: transition-shadow duration-300"
+                        >
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            {service.title}
+                          </h4>
+                          <p className="text-gray-600 text-sm">
+                            {service.description}
+                          </p>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
 
@@ -178,15 +233,19 @@ const Civil_Engineering = () => {
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <TrendingUp className="w-6 h-6 text-blue-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Key Benefits
+                    </h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {civilCategories[activeTab].detailedContent.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
-                      </div>
-                    ))}
+                    {civilCategories[activeTab].detailedContent.benefits.map(
+                      (benefit, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{benefit}</span>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </motion.div>
