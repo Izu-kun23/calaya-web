@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ClientSection from "../components/section/client_section";
+import aboutHeroImage from '../assets/images/Useable_Images/image5.jpg';
 
 const AboutPage = () => {
   return (
@@ -9,7 +10,7 @@ const AboutPage = () => {
       <section className="relative w-full h-75 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/assets/images/Useable_Images/image5.jpg"
+            src={aboutHeroImage}
             alt="Calaya Engineering team"
             className="w-full h-full object-cover object-center"
           />
