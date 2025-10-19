@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { MoveRight, MoveLeft } from "lucide-react";
 import Banner from "../components/banner/Banner";
 import teamImage from "../assets/images/Useable_Images/personnel.png";
-import serviceImage from "../assets/images/Useable_Images/image5.jpg";
 import procurementImage from "../assets/images/service_images/procurement.jpg";
 import civilImage from "../assets/images/service_images/civil.jpg"
 import facilitiesImage from "../assets/images/service_images/facilities.jpg"
@@ -509,7 +508,7 @@ const HomePage = () => {
 <section
   className="w-full relative bg-cover bg-center bg-no-repeat pt-[120px] pb-2"
   style={{
-    backgroundImage: `url(${serviceImage})`,
+    backgroundImage: `url("/assets/images/Useable_Images/image5.jpg")`,
   }}
 >
   <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/75 to-gray-900/75"></div>
