@@ -12,12 +12,21 @@ import ipPipelineImage from '../../assets/product_partners/ip_pipeline.jpg'
 import lexImage from '../../assets/product_partners/lex.jpg'
 import tckwImage from '../../assets/tck.w/tck.w_logo.png'
 import i2sImage from '../../assets/product_partners/i2S.jpg'
+import evergreenImage from '../../assets/evergreen_energy/evergreen.png'
 import remediadeImage from '../../assets/product_partners/remediade.jpg'
 import cCubeImage from '../../assets/product_partners/c-cube.jpeg'
 import samoaImage from '../../assets/product_partners/samoa.png'
 import shootfireImage from '../../assets/product_partners/shootfire.jpg'
 import gmFlowImage from '../../assets/product_partners/gm_flow.jpg'
 import leakDetectionImage from '../../assets/product_partners/leak_detection.jpg'
+// Import SAGE RIDER logo
+import sageRiderImage from '../../assets/sage_rider/sage_rider_logo.jpg'
+// Import ARIX image
+import arixImage from '../../assets/arix/arix_image.png'
+import gasDataLogo from '../../assets/gas_data/gasdata_logo.png'
+import soundwaveLogo from '../../assets/sound_wave_inspection/soundwave_logo.png'
+import scoreLogo from '../../assets/score_global/Score_logo.png'
+import northernEnergyLogo from '../../assets/northern_energy/Northernenergy_logo.png'
 
 
 const Product_Partners = () => {
@@ -27,7 +36,7 @@ const Product_Partners = () => {
       id: 1,
       name: "RS Clare",
       image: rsClareImage,
-      description: "Advanced lubricants and greasing equipment"
+      description: "Advanced lubricants and sealants for oil and gas valves"
     },
     {
       id: 2,
@@ -100,6 +109,72 @@ const Product_Partners = () => {
       name: "Leak Detection and Repair",
       image: leakDetectionImage,
       description: "Specialized leak detection services"
+    },
+    {
+      id: 14,
+      name: "SAGE RIDER",
+      image: sageRiderImage,
+      description: "Technical solutions for asset optimization and monitoring systems"
+    },
+    {
+      id: 15,
+      name: "ARIX Technologies",
+      image: arixImage,
+      description: "Innovative robotic and software solutions for pipe corrosion inspection"
+    },
+    {
+      id: 16,
+      name: "GAS DATA",
+      image: gasDataLogo,
+      description: "Market leaders in gas analysis and monitoring systems globally"
+    },
+    {
+      id: 17,
+      name: "Sound Wave Inspection Systems",
+      image: soundwaveLogo,
+      description: "Advanced sound-based technology for ultra-fast tube inspection"
+    },
+    {
+      id: 18,
+      name: "SCORE Global Expertise",
+      image: scoreLogo,
+      description: "Wellhead maintenance, testing and equipment solutions"
+    },
+    {
+      id: 19,
+      name: "Northern Energy Innovations",
+      image: northernEnergyLogo,
+      description: "Cutting-edge drilling, completion and artificial lift solutions"
+    },
+    {
+      id: 20,
+      name: "EverGreen Energy Savers",
+      image: evergreenImage, // Using placeholder until specific image is provided
+      description: "Multidimensional energy and oilfield technology provider"
+    },
+    {
+      id: 21,
+      name: "Tomojit Ghosh Calibration",
+      image: arixImage, // Using placeholder until specific image is provided
+      description: "Comprehensive calibration, inspection and surveying services"
+    },
+    {
+      id: 22,
+      name: "Quantum Downhole Systems",
+      image: arixImage, // Using placeholder until specific image is provided
+      description: "Innovative wellbore cleanout and production evaluation solutions"
+    },
+    {
+      id: 23,
+      name: "TCK.W Rope Monitor",
+      image: arixImage, // Using placeholder until specific image is provided
+      description: "Real-time online wire rope inspection systems"
+    },
+    {
+      id: 24,
+      name: "Valve Tight",
+      image: arixImage, // Using placeholder until specific image is provided
+      description: "DBB-SAVER technology for leak prevention and monitoring"
     }
   ]
 
@@ -167,7 +242,11 @@ const Product_Partners = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-200"
+                    className={`w-full h-48 group-hover:scale-105 transition-transform duration-200 ${
+                      product.name === "GAS DATA" || product.name === "Sound Wave Inspection Systems" || product.name === "SCORE Global Expertise" || product.name === "Northern Energy Innovations" || product.name === "EverGreen Energy Savers"
+                        ? "object-contain p-4 bg-white" 
+                        : "object-cover"
+                    }`}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -271,6 +350,62 @@ const Product_Partners = () => {
                     ) : product.name === "Leak Detection and Repair" ? (
                       <Link
                         to="/partners/leak-detection"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "SAGE RIDER" ? (
+                      <Link
+                        to="/partners/sage-rider"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "ARIX Technologies" ? (
+                      <Link
+                        to="/partners/arix"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "GAS DATA" ? (
+                      <Link
+                        to="/partners/gas-data"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Sound Wave Inspection Systems" ? (
+                      <Link
+                        to="/partners/sound-wave-inspection"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Valve Tight" ? (
+                      <Link
+                        to="/partners/valve-tight"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "SCORE Global Expertise" ? (
+                      <Link
+                        to="/partners/score-global"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Northern Energy Innovations" ? (
+                      <Link
+                        to="/partners/northern-energy"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "EverGreen Energy Savers" ? (
+                      <Link
+                        to="/partners/evergreen-energy"
                         className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
                       >
                         View Details

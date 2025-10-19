@@ -27,6 +27,14 @@ import Samoa from './pages/partners/Samoa'
 import ShootFire from './pages/partners/ShootFire'
 import GM_Flow from './pages/partners/GM_Flow'
 import Leak_Detection from './pages/partners/Leak_Detection'
+import Sage_Rider from './pages/partners/Sage_Rider'
+import Arix from './pages/partners/Arix'
+import Gas_Data from './pages/partners/Gas_Data'
+import Sound_Wave_Inspection from './pages/partners/Sound_Wave_Inspection'
+import Valve_Tight from './pages/partners/Valve_Tight'
+import Score_Global from './pages/partners/Score_Global'
+import Northern_Energy from './pages/partners/Northern_Energy'
+import EverGreen_Energy from './pages/partners/EverGreen_Energy'
 import Certifications from './pages/Certifications'
 import Projects from './pages/Projects'
 import Inspection_Services from './pages/what_we_do/Inspection_Services'
@@ -79,6 +87,14 @@ const App = () => {
             <Route path="/partners/shootfire" element={<ShootFire />} />
             <Route path="/partners/gm-flow" element={<GM_Flow />} />
             <Route path="/partners/leak-detection" element={<Leak_Detection />} />
+            <Route path="/partners/sage-rider" element={<Sage_Rider />} />
+            <Route path="/partners/arix" element={<Arix />} />
+            <Route path="/partners/gas-data" element={<Gas_Data />} />
+            <Route path="/partners/sound-wave-inspection" element={<Sound_Wave_Inspection />} />
+            <Route path="/partners/valve-tight" element={<Valve_Tight />} />
+            <Route path="/partners/score-global" element={<Score_Global />} />
+            <Route path="/partners/northern-energy" element={<Northern_Energy />} />
+            <Route path="/partners/evergreen-energy" element={<EverGreen_Energy />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/projects" element={<Projects />} />
 

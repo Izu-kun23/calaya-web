@@ -17,6 +17,10 @@ import rsclare2 from '../../assets/product_partners/content_images/rsclare2.png'
 import rsclare3 from '../../assets/product_partners/content_images/rsclare3.png';
 import rsclarelogo from '../../assets/product_partners/content_images/rsclarelogo.png';
 
+// Import new RS Clare images
+import rsclareNew1 from '../../assets/rsclare/rsclare_new.png';
+import rsclareNew2 from '../../assets/rsclare/rsclare_new2.png';
+
 const RS_Clare = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -346,7 +350,7 @@ const RS_Clare = () => {
             viewport={{ once: true }}
             className="text-lg text-gray-600 leading-relaxed mb-8"
           >
-            RS Clare is a leading provider of advanced lubricants and greasing equipment for industrial applications across various sectors.
+            RS Clare are manufacturers of advanced lubricants and sealants for oil and gas valves. The reputation RS Clare has for the quality and performance of their valve greases has been achieved during their long history of serving the global oil and gas market.
           </motion.p>
           
           {/* RS Clare Images */}
@@ -393,7 +397,7 @@ const RS_Clare = () => {
                 viewport={{ once: true }}
                 className="text-xs sm:text-sm mt-6 w-full lg:max-w-180 leading-relaxed text-gray-700"
               >
-                RS Clare are manufacturers of advanced lubricants and sealants for oil and gas valves and the supplier of choice to major exploration and production (E&P) operators worldwide, and the only oilfield lubricant manufacturer with a single product approved by the 6 major global valve OEMs. Our premium valve lubricants are completely hydrocarbon resistant so that even in the most aggressive environments, valves are protected and well integrity is maintained.
+                RS Clare valve lubricants and sealants have been field tested and are proven at enabling operators to increase re-greasing intervals and reduce the number and frequency of valve repairs, resulting in much lower operations costs and fewer production shut-downs or instances of non-production time (NPT).
               </motion.p>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -402,14 +406,85 @@ const RS_Clare = () => {
                 viewport={{ once: true }}
                 className="text-xs sm:text-sm mt-4 w-full lg:max-w-180 leading-relaxed text-gray-700"
               >
-                Our valve lubricants and sealants have been field tested and are proven at enabling operators to increase re-greasing intervals and reduce the number and frequency of valve repairs, resulting in much lower operational costs and fewer production shut-downs or instances of non-production time (NPT).
+                RS Clare Valve Sealants support the in-field sealing of gate valves with moderate to severe damage. RS Clare Valve Lubricant range has been comprehensively proven to deliver increased integrity and valve functionality.
               </motion.p>
+              
+              {/* First New RS Clare Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                viewport={{ once: true }}
+                className="mt-6 flex justify-start"
+              >
+                <img
+                  src={rsclareNew1}
+                  alt="RS Clare Valve Sealants and Lubricants"
+                  className="w-full max-w-2xl h-auto rounded-lg shadow-sm"
+                />
+              </motion.div>
+              
+              {/* Valve Benefits Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                viewport={{ once: true }}
+                className="mt-6 bg-gray-50 p-4 rounded-lg"
+              >
+                <h4 className="text-sm font-bold text-gray-900 mb-3">Valve Benefits of Valve Lubricant 601:</h4>
+                <ul className="text-xs sm:text-sm text-gray-700 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Reduced non-production time (NPT)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Fewer unplanned maintenance interventions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Reduced valve maintenance costs</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Valves are better protected so that it will last a longer time</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Extend greasing intervals and use less grease</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Reduced cost related valve re-greasing activity</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">•</span>
+                    <span>Improved well integrity</span>
+                  </li>
+                </ul>
+              </motion.div>
+              
+              {/* Second New RS Clare Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                viewport={{ once: true }}
+                className="mt-6 flex justify-start"
+              >
+                <img
+                  src={rsclareNew2}
+                  alt="RS Clare Valve Benefits and Performance"
+                  className="w-full max-w-2xl h-auto rounded-lg shadow-sm"
+                />
+              </motion.div>
               
               {/* RS Clare Additional Images */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
+                transition={{ duration: 0.6, delay: 1.3 }}
                 viewport={{ once: true }}
                 className="mt-6 flex justify-start"
               >
@@ -422,7 +497,7 @@ const RS_Clare = () => {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
                 viewport={{ once: true }}
                 className="mt-6 flex justify-start"
               >
