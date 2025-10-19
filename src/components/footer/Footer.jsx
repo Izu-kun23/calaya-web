@@ -24,7 +24,7 @@ const Footer = () => {
               {/* Social Media Links */}
               <div className="flex space-x-2 sm:space-x-3 mt-4">
                 <a 
-                  href="https://facebook.com" 
+                  href="https://www.facebook.com/Calayaengineeringservices" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
@@ -33,7 +33,7 @@ const Footer = () => {
                 </a>
                 
                 <a 
-                  href="https://twitter.com" 
+                  href="https://x.com/calayaeng2005" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
@@ -42,7 +42,7 @@ const Footer = () => {
                 </a>
                 
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/calaya_ltd/?hl=en" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"

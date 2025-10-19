@@ -22,12 +22,13 @@ const Pipeline_Construction = () => {
 
   const pipelineCategories = [
     {
-      icon: <Wrench className="w-8 h-8" />,
-      title: "Pipeline Laying/Construction/Fabrication",
+      icon: <Wrench className="w-4 h-8" />,
+      title: "Pipeline Laying/Construction",
       description: "Comprehensive pipeline laying, construction, and fabrication services for onshore and offshore oil and gas infrastructure projects.",
       features: [
         "Pipeline Design & Engineering",
         "Onshore Pipeline Construction",
+        "bunkering point removal",
         "Offshore Pipeline Installation",
         "Pipeline Fabrication Services",
         "Quality Control & Testing",

@@ -210,7 +210,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+234 (0) 123 456 7890</p>
+                    <p className="text-gray-600">(+234) 9028219836</p>
                     <p className="text-sm text-gray-500">Monday - Friday, 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>
@@ -223,6 +223,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
                     <p className="text-gray-600">info@calayaengineering.com</p>
+                    <p className="text-gray-600">calayaengineering@yahoo.co.uk.</p>
                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
                   </div>
                 </div>

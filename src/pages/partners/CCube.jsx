@@ -75,14 +75,10 @@ const CCube = () => {
               {/* Content - Right Side */}
               <div className="flex-1 space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p className="text-xl font-medium text-gray-800">
-                  C-CUBE INTERNATIONAL specializes in corrosion and degradation and has developed various patented technologies to measure corrosion very precisely.
-                </p>
+                C-CUBE INTERNATIONAL specializes in corrosion and degradation, and has developed patented technologies that enable highly precise corrosion measurement. The company operates globally across a wide range of industries, including infrastructure, shipping, process industries, insurance, research institutes, offshore applications, hydraulics, and coating suppliers.                </p>
                 <p>
-                  C-Cube International operates worldwide in a wide range of industries such as infrastructure, shipping, process industries, insurance companies, research institutes, offshore applications, hydraulics and coating suppliers.
-                </p>
-                <p>
-                  C-cube technologies detect corrosion at an early stage. Based on the measurement results, we quantify the protection values and predict the lifespan of coatings. Predictive maintenance also becomes possible based on these insights.
-                </p>
+                C-Cube’s technologies detect corrosion at an early stage. By analyzing the measurement results, they quantify protection values and accurately predict the lifespan of coatings. These insights also support predictive maintenance strategies, helping organizations reduce costs and prevent failures.                </p>
+                
                 <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl p-6 border-l-4 border-red-500">
                   <p className="font-semibold text-gray-800">
                     This method of maintenance prevents failure and downtime by addressing corroded locations early, before corrosion becomes a problem. This method can save up to <span className="text-red-600 font-bold text-xl">40% of maintenance costs!</span>
