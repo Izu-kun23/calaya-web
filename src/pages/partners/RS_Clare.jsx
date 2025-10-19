@@ -278,7 +278,7 @@ const RS_Clare = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
