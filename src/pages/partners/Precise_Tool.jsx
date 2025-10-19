@@ -1,6 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import CaseStudyModal from '../../components/modal/CaseStudyModal';
+
+// Import Precise Tool gallery images
+import oaura from '../../assets/precisetool/gallery/oaura.png';
+import oaura1 from '../../assets/precisetool/gallery/oaura1.png';
+import precise from '../../assets/precisetool/gallery/precise.png';
+import precise2 from '../../assets/precisetool/gallery/precise2.png';
+import precise3 from '../../assets/precisetool/gallery/precise3.png';
+
+// Import Precise Tool content images
+import preciseToolImg from '../../assets/precisetool/precise_tool.jpg';
+import preciseContent from '../../assets/precisetool/content.jpeg';
 
 const Precise_Tool = () => {
   // Gallery state management
@@ -13,7 +25,7 @@ const Precise_Tool = () => {
     {
       id: 1,
       src: "https://www.youtube.com/watch?v=xBwJT5WVC00",
-      thumbnail: "//assets/precisetool/gallery/oaura.png",
+      thumbnail: oaura,
       alt: "Oura Artificial Lift",
       title: "Oura Artificial Lift",
       description: "Advanced artificial lift solutions for enhanced oil recovery",
@@ -23,7 +35,7 @@ const Precise_Tool = () => {
     {
       id: 2,
       src: "https://www.youtube.com/watch?v=X82F-ngURHU",
-      thumbnail: "//assets/precisetool/gallery/oaura1.png",
+      thumbnail: oaura1,
       alt: "Oura Enhanced Oil Recovery",
       title: "Oura Enhanced Oil Recovery",
       description: "Innovative lift technology for maximum efficiency",
@@ -33,7 +45,7 @@ const Precise_Tool = () => {
     {
       id: 3,
       src: "https://www.youtube.com/watch?v=5VF4uYG_0Sg",
-      thumbnail: "//assets/precisetool/gallery/precise.png",
+      thumbnail: precise,
       alt: "Precise Downhole Solutions",
       title: "Precise Downhole Solutions",
       description: "Precision downhole solutions for complex operations",
@@ -43,7 +55,7 @@ const Precise_Tool = () => {
     {
       id: 4,
       src: "https://www.youtube.com/watch?v=_jTOpRPF3bU",
-      thumbnail: "//assets/precisetool/gallery/precise2.png",
+      thumbnail: precise2,
       alt: "Precise Downhole Solutions Services",
       title: "Precise Downhole Solutions Services",
       description: "Advanced precision technology for comprehensive solutions",
@@ -52,7 +64,7 @@ const Precise_Tool = () => {
     },
     {
       id: 5,
-      src: "//assets/precisetool/gallery/precise3.png",
+      src: precise3,
       alt: "Precise RFT PT Sensors",
       title: "Precise RFT PT Sensors",
       description: "Comprehensive downhole solutions with advanced sensor technology",
@@ -187,7 +199,7 @@ const Precise_Tool = () => {
               className="lg:w-1/2 flex justify-center"
             >
               <img
-                src="//assets/precisetool/precise_tool.jpg"
+                src={preciseToolImg}
                 alt="Precise Tool"
                 className="w-full max-w-md h-auto rounded-2xl  object-cover"
                 onError={(e) => {
@@ -314,7 +326,7 @@ const Precise_Tool = () => {
                className="mt-12 flex justify-center"
              >
                <img
-                 src="//assets/precisetool/content.jpeg"
+                 src={preciseContent}
                  alt="Precise Tool Products and Services"
                  className="max-w-6xl w-full h-auto rounded-lg"
                  onError={(e) => {
