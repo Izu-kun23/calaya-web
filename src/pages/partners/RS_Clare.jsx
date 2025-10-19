@@ -464,7 +464,7 @@ const RS_Clare = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="rounded-lg p-4 lg:p-6 hover: transition-shadow duration-300 relative"
+                className="bg-white rounded-lg border border-gray-200 hover:border-gray-300 p-4 lg:p-6 transition-all duration-300 relative"
               >
                 <h3 className="text-base lg:text-lg font-bold text-gray-900 mb-3">
                   {caseStudy.title}
@@ -543,7 +543,7 @@ const RS_Clare = () => {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
+                <article className="bg-white relative overflow-hidden rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
                   {image.isVideo ? (
                     <div className="relative w-full h-72">
                       <img

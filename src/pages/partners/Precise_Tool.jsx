@@ -407,7 +407,7 @@ const Precise_Tool = () => {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
+                <article className="bg-white relative overflow-hidden rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
                   {image.isVideo ? (
                     <div className="relative w-full h-72">
                       <img
