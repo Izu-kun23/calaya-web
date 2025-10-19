@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Drill, Zap, Settings, Search, Wrench } from 'lucide-react';
 import heroImage from '../../assets/images/Useable_Images/image12.jpg';
+import evergreenLogo from '../../assets/evergreen_energy/evergreen.png';
 
 const EverGreen_Energy = () => {
   // Products and services
@@ -92,10 +93,11 @@ const EverGreen_Energy = () => {
       {/* Company Overview */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="space-y-6"
@@ -112,6 +114,30 @@ const EverGreen_Energy = () => {
                   We specialize in comprehensive energy solutions that span the entire lifecycle of oil and gas 
                   operations, from initial drilling and completion through enhanced recovery and final well closure.
                 </p>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Logo */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
+              <img
+                src={evergreenLogo}
+                alt="EverGreen Energy Savers Logo"
+                className="w-full max-w-sm h-auto object-contain p-4"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  if (e.target.nextSibling) {
+                    e.target.nextSibling.style.display = 'flex';
+                  }
+                }}
+              />
+              <div className="w-full max-w-sm h-48 bg-gray-100 rounded-lg shadow-lg hidden items-center justify-center text-gray-500">
+                <p>EverGreen Energy Logo</p>
               </div>
             </motion.div>
           </div>
@@ -327,31 +353,7 @@ const EverGreen_Energy = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Transform Your Energy Operations
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Ready to benefit from multidimensional energy solutions and advanced oilfield technology? 
-              Contact EverGreen Energy Service for proprietary solutions tailored to the modern energy sector.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
-            >
-              Get in Touch
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 };

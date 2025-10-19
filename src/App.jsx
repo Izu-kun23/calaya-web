@@ -38,7 +38,7 @@ import EverGreen_Energy from './pages/partners/EverGreen_Energy'
 import Certifications from './pages/Certifications'
 import Projects from './pages/Projects'
 import Inspection_Services from './pages/what_we_do/Inspection_Services'
-
+import Tomojit_Ghosh from './pages/partners/Tomojit_Ghosh'
 // Import your page components here
 // import WhoAreWe from './pages/WhoAreWe'
 // import WhatWeDo from './pages/WhatWeDo'
@@ -97,7 +97,7 @@ const App = () => {
             <Route path="/partners/evergreen-energy" element={<EverGreen_Energy />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/projects" element={<Projects />} />
-
+            <Route path="/partners/tomojit-ghosh" element={<Tomojit_Ghosh />} />
           {/* 404 Page */}
           <Route path="*" element={<div />} />
         </Routes>

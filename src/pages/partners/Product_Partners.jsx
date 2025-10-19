@@ -27,6 +27,7 @@ import gasDataLogo from '../../assets/gas_data/gasdata_logo.png'
 import soundwaveLogo from '../../assets/sound_wave_inspection/soundwave_logo.png'
 import scoreLogo from '../../assets/score_global/Score_logo.png'
 import northernEnergyLogo from '../../assets/northern_energy/Northernenergy_logo.png'
+import tomojitGhoshLogo from '../../assets/tomojit_ghosh/TGC_logo.png'
 
 
 const Product_Partners = () => {
@@ -155,7 +156,7 @@ const Product_Partners = () => {
     {
       id: 21,
       name: "Tomojit Ghosh Calibration",
-      image: arixImage, // Using placeholder until specific image is provided
+      image: tomojitGhoshLogo, // Using placeholder until specific image is provided
       description: "Comprehensive calibration, inspection and surveying services"
     },
     {
@@ -243,7 +244,7 @@ const Product_Partners = () => {
                     src={product.image}
                     alt={product.name}
                     className={`w-full h-48 group-hover:scale-105 transition-transform duration-200 ${
-                      product.name === "GAS DATA" || product.name === "Sound Wave Inspection Systems" || product.name === "SCORE Global Expertise" || product.name === "Northern Energy Innovations" || product.name === "EverGreen Energy Savers"
+                      product.name === "GAS DATA" || product.name === "Sound Wave Inspection Systems" || product.name === "SCORE Global Expertise" || product.name === "Northern Energy Innovations" || product.name === "EverGreen Energy Savers" || product.name === "Tomojit Ghosh Calibration"
                         ? "object-contain p-4 bg-white" 
                         : "object-cover"
                     }`}
@@ -406,6 +407,13 @@ const Product_Partners = () => {
                     ) : product.name === "EverGreen Energy Savers" ? (
                       <Link
                         to="/partners/evergreen-energy"
+                        className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
+                      >
+                        View Details
+                      </Link>
+                    ) : product.name === "Tomojit Ghosh Calibration" ? (
+                      <Link
+                        to="/partners/tomojit-ghosh"
                         className="block w-full bg-gray-100 hover:bg-red-500 text-gray-700 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200 font-medium text-sm text-center"
                       >
                         View Details
