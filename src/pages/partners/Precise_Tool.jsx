@@ -13,7 +13,7 @@ const Precise_Tool = () => {
     {
       id: 1,
       src: "https://www.youtube.com/watch?v=xBwJT5WVC00",
-      thumbnail: "/src/assets/precisetool/gallery/oaura.png",
+      thumbnail: "//assets/precisetool/gallery/oaura.png",
       alt: "Oura Artificial Lift",
       title: "Oura Artificial Lift",
       description: "Advanced artificial lift solutions for enhanced oil recovery",
@@ -23,7 +23,7 @@ const Precise_Tool = () => {
     {
       id: 2,
       src: "https://www.youtube.com/watch?v=X82F-ngURHU",
-      thumbnail: "/src/assets/precisetool/gallery/oaura1.png",
+      thumbnail: "//assets/precisetool/gallery/oaura1.png",
       alt: "Oura Enhanced Oil Recovery",
       title: "Oura Enhanced Oil Recovery",
       description: "Innovative lift technology for maximum efficiency",
@@ -33,7 +33,7 @@ const Precise_Tool = () => {
     {
       id: 3,
       src: "https://www.youtube.com/watch?v=5VF4uYG_0Sg",
-      thumbnail: "/src/assets/precisetool/gallery/precise.png",
+      thumbnail: "//assets/precisetool/gallery/precise.png",
       alt: "Precise Downhole Solutions",
       title: "Precise Downhole Solutions",
       description: "Precision downhole solutions for complex operations",
@@ -43,7 +43,7 @@ const Precise_Tool = () => {
     {
       id: 4,
       src: "https://www.youtube.com/watch?v=_jTOpRPF3bU",
-      thumbnail: "/src/assets/precisetool/gallery/precise2.png",
+      thumbnail: "//assets/precisetool/gallery/precise2.png",
       alt: "Precise Downhole Solutions Services",
       title: "Precise Downhole Solutions Services",
       description: "Advanced precision technology for comprehensive solutions",
@@ -52,7 +52,7 @@ const Precise_Tool = () => {
     },
     {
       id: 5,
-      src: "/src/assets/precisetool/gallery/precise3.png",
+      src: "//assets/precisetool/gallery/precise3.png",
       alt: "Precise RFT PT Sensors",
       title: "Precise RFT PT Sensors",
       description: "Comprehensive downhole solutions with advanced sensor technology",
@@ -187,7 +187,7 @@ const Precise_Tool = () => {
               className="lg:w-1/2 flex justify-center"
             >
               <img
-                src="/src/assets/precisetool/precise_tool.jpg"
+                src="//assets/precisetool/precise_tool.jpg"
                 alt="Precise Tool"
                 className="w-full max-w-md h-auto rounded-2xl  object-cover"
                 onError={(e) => {
@@ -314,7 +314,7 @@ const Precise_Tool = () => {
                className="mt-12 flex justify-center"
              >
                <img
-                 src="/src/assets/precisetool/content.jpeg"
+                 src="//assets/precisetool/content.jpeg"
                  alt="Precise Tool Products and Services"
                  className="max-w-6xl w-full h-auto rounded-lg"
                  onError={(e) => {

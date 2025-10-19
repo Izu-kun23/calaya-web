@@ -16,7 +16,7 @@ const RemediAde = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/src/assets/remediade/remediade1.jpg",
+      src: "//assets/remediade/remediade1.jpg",
       alt: "RemediAde bio-remediation application showing all-natural hydrocarbon cleanup process",
       title: "Bio-Remediation Application",
       description: "All-natural, organic bio-remediation solution for hydrocarbon contamination in soil and water",

@@ -400,12 +400,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/facilities_management/hvac1.jpeg"
+                            "//assets/facilities_management/hvac1.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/facilities_management/hvac1.jpeg"
+                          src="//assets/facilities_management/hvac1.jpeg"
                           alt="HVAC System Installation"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -442,12 +442,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/facilities_management/hvac2.jpeg"
+                            "//assets/facilities_management/hvac2.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/facilities_management/hvac2.jpeg"
+                          src="//assets/facilities_management/hvac2.jpeg"
                           alt="HVAC Maintenance Services"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -503,12 +503,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/hydroblasting/hydroblasting9.jpeg"
+                            "//assets/hydroblasting/hydroblasting9.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/hydroblasting/hydroblasting9.jpeg"
+                          src="//assets/hydroblasting/hydroblasting9.jpeg"
                           alt="Hydro Blasting Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -545,12 +545,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/hydroblasting/hydroblasting2.jpeg"
+                            "//assets/hydroblasting/hydroblasting2.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/hydroblasting/hydroblasting2.jpeg"
+                          src="//assets/hydroblasting/hydroblasting2.jpeg"
                           alt="Advanced Hydro Blasting"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -587,12 +587,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/gritblasting/gritblasting1.jpeg"
+                            "//assets/gritblasting/gritblasting1.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/gritblasting/gritblasting1.jpeg"
+                          src="//assets/gritblasting/gritblasting1.jpeg"
                           alt="Grit Blasting Services"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -648,12 +648,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/facilities_management/tank_cleaning1.jpg"
+                            "//assets/facilities_management/tank_cleaning1.jpg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/facilities_management/tank_cleaning1.jpg"
+                          src="//assets/facilities_management/tank_cleaning1.jpg"
                           alt="Professional Tank Cleaning Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -710,12 +710,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/facilities_management/Online_leak1.jpg"
+                            "//assets/facilities_management/Online_leak1.jpg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/facilities_management/Online_leak1.jpg"
+                          src="//assets/facilities_management/Online_leak1.jpg"
                           alt="Online Leak Repair Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -753,12 +753,12 @@ const Facilities_Management = () => {
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
                         onClick={() =>
                           setSelectedImage(
-                            "/src/assets/facilities_management/online_leak2.jpeg"
+                            "//assets/facilities_management/online_leak2.jpeg"
                           )
                         }
                       >
                         <img
-                          src="/src/assets/facilities_management/online_leak2.jpeg"
+                          src="//assets/facilities_management/online_leak2.jpeg"
                           alt="Advanced Leak Sealing Techniques"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />

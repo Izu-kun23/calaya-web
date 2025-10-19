@@ -16,7 +16,7 @@ const DHVI = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/src/assets/dvhi/content1.png",
+      src: "//assets/dvhi/content1.png",
       alt: "DHVI downhole video inspection technology showing advanced equipment and systems",
       title: "DHVI Downhole Technology",
       description: "Advanced downhole video inspection technology and equipment for wellbore analysis",
@@ -24,7 +24,7 @@ const DHVI = () => {
     },
     {
       id: 2,
-      src: "/src/assets/dvhi/case_study1.png",
+      src: "//assets/dvhi/case_study1.png",
       alt: "DHVI case study showing leak detection combining camera and logging sensors",
       title: "Leak Detection Case Study",
       description: "Real-world application of DHVI technology for leak detection and wellbore analysis",
@@ -224,7 +224,7 @@ const DHVI = () => {
             className="mt-16 flex justify-center"
           >
             <img
-              src="/src/assets/dvhi/content1.png"
+              src="//assets/dvhi/content1.png"
               alt="DHVI Downhole Video Inspection Technology and Equipment"
               className="w-full max-w-6xl h-auto rounded-xl"
             />
@@ -334,7 +334,7 @@ const DHVI = () => {
             {/* Case Study Image */}
             <div className="mb-12">
               <img
-                src="/src/assets/dvhi/case_study1.png"
+                src="//assets/dvhi/case_study1.png"
                 alt="DHVI Case Study - Leak Detection Side View Images"
                 className="w-full max-w-5xl mx-auto rounded-xl"
               />
