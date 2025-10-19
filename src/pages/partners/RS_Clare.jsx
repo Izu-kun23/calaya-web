@@ -4,6 +4,19 @@ import { ZoomIn, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import CaseStudyModal from '../../components/modal/CaseStudyModal';
 import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
+// Import RS Clare gallery images
+import gallery1 from '../../assets/casestudy/rsclare_gallery/gallery1.png';
+import gallery2 from '../../assets/casestudy/rsclare_gallery/gallery2.png';
+import gallery3 from '../../assets/casestudy/rsclare_gallery/gallery3.png';
+import gallery4 from '../../assets/casestudy/rsclare_gallery/gallery4.png';
+import gallery5 from '../../assets/casestudy/rsclare_gallery/gallery5.png';
+
+// Import RS Clare content images
+import rsclare1 from '../../assets/product_partners/content_images/rsclare1.png';
+import rsclare2 from '../../assets/product_partners/content_images/rsclare2.png';
+import rsclare3 from '../../assets/product_partners/content_images/rsclare3.png';
+import rsclarelogo from '../../assets/product_partners/content_images/rsclarelogo.png';
+
 const RS_Clare = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +34,7 @@ const RS_Clare = () => {
     {
       id: 1,
       src: "https://www.youtube.com/watch?v=Rj8FRNJKV7s",
-      thumbnail: "//assets/casestudy/rsclare_gallery/gallery5.png",
+      thumbnail: gallery5,
       alt: "RS Clare Advanced Oilfield Lubrication",
       title: "RS Clare Advanced Oilfield Lubrication",
       description: "Watch our demonstration video showcasing RS Clare's advanced oilfield lubrication solutions",
@@ -30,7 +43,7 @@ const RS_Clare = () => {
     },
     {
       id: 2,
-      src: "//assets/casestudy/rsclare_gallery/gallery1.png",
+      src: gallery1,
       alt: "RS Clare field operations",
       title: "Field Operations",
       description: "RS Clare products in action across various field operations and applications",
@@ -38,7 +51,7 @@ const RS_Clare = () => {
     },
     {
       id: 3,
-      src: "//assets/casestudy/rsclare_gallery/gallery2.png",
+      src: gallery2,
       alt: "RS Clare equipment in action",
       title: "Equipment in Action",
       description: "Our equipment performing critical functions in demanding industrial environments",
@@ -46,7 +59,7 @@ const RS_Clare = () => {
     },
     {
       id: 4,
-      src: "//assets/casestudy/rsclare_gallery/gallery3.png",
+      src: gallery3,
       alt: "RS Clare valve maintenance",
       title: "Valve Maintenance",
       description: "Professional valve maintenance using RS Clare advanced lubrication solutions",
@@ -54,7 +67,7 @@ const RS_Clare = () => {
     },
     {
       id: 5,
-      src: "//assets/casestudy/rsclare_gallery/gallery4.png",
+      src: gallery4,
       alt: "RS Clare industrial applications",
       title: "Industrial Applications",
       description: "RS Clare solutions applied across diverse industrial applications and sectors",
@@ -343,7 +356,7 @@ const RS_Clare = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              src="//assets/product_partners/content_images/rsclare1.png"
+              src={rsclare1}
               alt="RS Clare Products and Services"
               className="w-full lg:max-w-xs lg:w-auto h-64 sm:h-80 lg:h-100 object-cover rounded-lg "
             />
@@ -359,7 +372,7 @@ const RS_Clare = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
-                src="//assets/product_partners/content_images/rsclarelogo.png"
+                src={rsclarelogo}
                 alt="RS Clare Logo"
                 className="max-w-48 sm:max-w-64 lg:max-w-32 w-full h-auto rounded-lg"
               />
@@ -401,7 +414,7 @@ const RS_Clare = () => {
                 className="mt-6 flex justify-start"
               >
                 <img
-                  src="//assets/product_partners/content_images/rsclare2.png"
+                  src={rsclare2}
                   alt="RS Clare Additional Products"
                   className="w-full sm:max-w-2xl lg:max-w-4xl h-auto rounded-lg"
                 />
@@ -414,7 +427,7 @@ const RS_Clare = () => {
                 className="mt-6 flex justify-start"
               >
                 <img
-                  src="//assets/product_partners/content_images/rsclare3.png"
+                  src={rsclare3}
                   alt="RS Clare Products 3"
                   className="w-full sm:max-w-2xl lg:max-w-4xl h-auto rounded-lg"
                 />

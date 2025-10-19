@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import DHVI logo
+// Import DHVI logo and gallery images
 import dhviLogo from '../../assets/product_partners/DHVI.png';
+import dhviContent1 from '../../assets/dvhi/content1.png';
+import dhviCaseStudy1 from '../../assets/dvhi/case_study1.png';
 
 const DHVI = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -16,7 +18,7 @@ const DHVI = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "//assets/dvhi/content1.png",
+      src: dhviContent1,
       alt: "DHVI downhole video inspection technology showing advanced equipment and systems",
       title: "DHVI Downhole Technology",
       description: "Advanced downhole video inspection technology and equipment for wellbore analysis",
@@ -24,7 +26,7 @@ const DHVI = () => {
     },
     {
       id: 2,
-      src: "//assets/dvhi/case_study1.png",
+      src: dhviCaseStudy1,
       alt: "DHVI case study showing leak detection combining camera and logging sensors",
       title: "Leak Detection Case Study",
       description: "Real-world application of DHVI technology for leak detection and wellbore analysis",
@@ -101,7 +103,7 @@ const DHVI = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/assets/images/Useable_Images/image12.jpg"
+            src={heroImage}
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -224,7 +226,7 @@ const DHVI = () => {
             className="mt-16 flex justify-center"
           >
             <img
-              src="//assets/dvhi/content1.png"
+              src={dhviContent1}
               alt="DHVI Downhole Video Inspection Technology and Equipment"
               className="w-full max-w-6xl h-auto rounded-xl"
             />
@@ -334,7 +336,7 @@ const DHVI = () => {
             {/* Case Study Image */}
             <div className="mb-12">
               <img
-                src="//assets/dvhi/case_study1.png"
+                src={dhviCaseStudy1}
                 alt="DHVI Case Study - Leak Detection Side View Images"
                 className="w-full max-w-5xl mx-auto rounded-xl"
               />
