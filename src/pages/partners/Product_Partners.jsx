@@ -167,12 +167,6 @@ const Product_Partners = () => {
     },
     {
       id: 23,
-      name: "TCK.W Rope Monitor",
-      image: arixImage, // Using placeholder until specific image is provided
-      description: "Real-time online wire rope inspection systems"
-    },
-    {
-      id: 24,
       name: "Valve Tight",
       image: arixImage, // Using placeholder until specific image is provided
       description: "DBB-SAVER technology for leak prevention and monitoring"
