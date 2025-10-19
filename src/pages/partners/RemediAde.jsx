@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight, Leaf, Recycle, Droplets, Factory, Play } from 'lucide-react';
 
-// Import RemediAde logo and video thumbnail
+// Import RemediAde logo, video thumbnail, and gallery images
 import remediadeLogo from '../../assets/product_partners/remediade.jpg';
 import remediadeVideoThumbnail from '../../assets/remediade/remidiadevid.png';
+import remediade1 from '../../assets/remediade/remediade1.jpg';
+import gallery1 from '../../assets/remediade/gallery1.jpg';
 
 const RemediAde = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -16,7 +18,7 @@ const RemediAde = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "//assets/remediade/remediade1.jpg",
+      src: remediade1,
       alt: "RemediAde bio-remediation application showing all-natural hydrocarbon cleanup process",
       title: "Bio-Remediation Application",
       description: "All-natural, organic bio-remediation solution for hydrocarbon contamination in soil and water",
