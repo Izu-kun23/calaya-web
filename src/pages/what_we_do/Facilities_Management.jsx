@@ -13,6 +13,14 @@ import {
 } from "lucide-react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import ClientSection from "../../components/section/client_section";
+import hvacImageOne from "../../assets/facilities_management/hvac1.jpeg";
+import hvacImageTwo from "../../assets/facilities_management/hvac2.jpeg";
+import tankCleaningImage from "../../assets/facilities_management/tank_cleaning1.jpg";
+import onlineLeakImageOne from "../../assets/facilities_management/Online_leak1.jpg";
+import onlineLeakImageTwo from "../../assets/facilities_management/online_leak2.jpeg";
+import hydroBlastingImageNine from "../../assets/hydroblasting/hydroblasting9.jpeg";
+import hydroBlastingImageTwo from "../../assets/hydroblasting/hydroblasting2.jpeg";
+import gritBlastingImageOne from "../../assets/gritblasting/gritblasting1.jpeg";
 
 const Facilities_Management = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -398,14 +406,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/facilities_management/hvac1.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(hvacImageOne)}
                       >
                         <img
-                          src="//assets/facilities_management/hvac1.jpeg"
+                          src={hvacImageOne}
                           alt="HVAC System Installation"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -440,14 +444,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/facilities_management/hvac2.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(hvacImageTwo)}
                       >
                         <img
-                          src="//assets/facilities_management/hvac2.jpeg"
+                          src={hvacImageTwo}
                           alt="HVAC Maintenance Services"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -501,14 +501,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/hydroblasting/hydroblasting9.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(hydroBlastingImageNine)}
                       >
                         <img
-                          src="//assets/hydroblasting/hydroblasting9.jpeg"
+                          src={hydroBlastingImageNine}
                           alt="Hydro Blasting Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -543,14 +539,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/hydroblasting/hydroblasting2.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(hydroBlastingImageTwo)}
                       >
                         <img
-                          src="//assets/hydroblasting/hydroblasting2.jpeg"
+                          src={hydroBlastingImageTwo}
                           alt="Advanced Hydro Blasting"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -585,14 +577,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/gritblasting/gritblasting1.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(gritBlastingImageOne)}
                       >
                         <img
-                          src="//assets/gritblasting/gritblasting1.jpeg"
+                          src={gritBlastingImageOne}
                           alt="Grit Blasting Services"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -646,14 +634,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/facilities_management/tank_cleaning1.jpg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(tankCleaningImage)}
                       >
                         <img
-                          src="//assets/facilities_management/tank_cleaning1.jpg"
+                          src={tankCleaningImage}
                           alt="Professional Tank Cleaning Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -708,14 +692,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/facilities_management/Online_leak1.jpg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(onlineLeakImageOne)}
                       >
                         <img
-                          src="//assets/facilities_management/Online_leak1.jpg"
+                          src={onlineLeakImageOne}
                           alt="Online Leak Repair Operations"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
@@ -751,14 +731,10 @@ const Facilities_Management = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
-                        onClick={() =>
-                          setSelectedImage(
-                            "//assets/facilities_management/online_leak2.jpeg"
-                          )
-                        }
+                        onClick={() => setSelectedImage(onlineLeakImageTwo)}
                       >
                         <img
-                          src="//assets/facilities_management/online_leak2.jpeg"
+                          src={onlineLeakImageTwo}
                           alt="Advanced Leak Sealing Techniques"
                           className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
