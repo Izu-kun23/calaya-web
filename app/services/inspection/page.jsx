@@ -1,11 +1,11 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building, Wrench, Droplets, Zap, CheckCircle, Target, TrendingUp, Settings, X, Shield, Monitor } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
 
-export default function InspectionServicesPage() {
+function InspectionContent() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const searchParams = useSearchParams();
@@ -292,5 +292,20 @@ export default function InspectionServicesPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function InspectionServicesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <InspectionContent />
+    </Suspense>
   );
 }

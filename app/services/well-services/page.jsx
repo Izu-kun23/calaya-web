@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Wrench, Settings, Shield, Droplets, CheckCircle, Target, TrendingUp, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
@@ -19,7 +19,7 @@ const wellIntervention3 = '/assets/well_services/well_intervention3.jpeg'
 const wellIntervention4 = '/assets/well_services/well_intervention4.jpeg'
 const wellIntervention5 = '/assets/well_services/well_intervention5.jpeg'
 
-export default function WellServicesPage() {
+function WellServicesContent() {
   const [activeTab, setActiveTab] = useState(0)
   const [selectedImage, setSelectedImage] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -967,4 +967,19 @@ export default function WellServicesPage() {
       </AnimatePresence>
     </div>
   )
+}
+
+export default function WellServicesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <WellServicesContent />
+    </Suspense>
+  );
 }

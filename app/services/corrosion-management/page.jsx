@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Shield, Search, CheckCircle, Target, TrendingUp, Settings, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
@@ -13,7 +13,7 @@ const itmImage1 = "/assets/internal_corrosion_monitering/itm1.jpg";
 const itmImage2 = "/assets/internal_corrosion_monitering/itm2.jpg";
 const itmImage3 = "/assets/internal_corrosion_monitering/itm3.jpg";
 
-export default function CorrosionManagementPage() {
+function CorrosionManagementContent() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -793,5 +793,20 @@ export default function CorrosionManagementPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function CorrosionManagementPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CorrosionManagementContent />
+    </Suspense>
   );
 }

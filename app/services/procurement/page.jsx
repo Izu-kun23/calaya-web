@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Settings, Building, Wrench, Search, Users, TrendingUp, CheckCircle, Target, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
@@ -8,7 +8,7 @@ import ClientSection from "../../../src/components/section/client_section";
 // Image from public folder
 const procurementDiagram = "/assets/images/Useable_Images/procurement.png";
 
-export default function ProcurementServicesPage() {
+function ProcurementContent() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -372,5 +372,20 @@ export default function ProcurementServicesPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function ProcurementServicesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <ProcurementContent />
+    </Suspense>
   );
 }
