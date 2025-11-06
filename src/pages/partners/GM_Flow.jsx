@@ -1,10 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Gauge, TrendingUp, Shield, Globe, Settings, Target } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import gmFlowLogo from '../../assets/product_partners/gm_flow.jpg';
 
-const GM_Flow = () => {
+export default function GMFlowPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -12,7 +12,7 @@ const GM_Flow = () => {
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -64,7 +64,7 @@ const GM_Flow = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={gmFlowLogo}
+                  src="/assets/product_partners/gm_flow.jpg"
                   alt="GM Flow Measurement Logo"
                   className="h-48 w-auto sm:h-56 lg:h-64 rounded-2xl"
                 />
@@ -165,4 +165,3 @@ const GM_Flow = () => {
   );
 };
 
-export default GM_Flow;

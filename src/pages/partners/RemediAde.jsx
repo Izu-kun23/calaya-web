@@ -1,15 +1,11 @@
+'use client';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight, Leaf, Recycle, Droplets, Factory, Play } from 'lucide-react';
 
-// Import RemediAde logo, video thumbnail, and gallery images
-import remediadeLogo from '../../assets/product_partners/remediade.jpg';
-import remediadeVideoThumbnail from '../../assets/remediade/remidiadevid.png';
-import remediade1 from '../../assets/remediade/remediade1.jpg';
-import gallery1 from '../../assets/remediade/gallery1.jpg';
-
-const RemediAde = () => {
+export default function RemediAdePage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +14,7 @@ const RemediAde = () => {
   const galleryImages = [
     {
       id: 1,
-      src: remediade1,
+      src: "/assets/remediade/remediade1.jpg",
       alt: "RemediAde bio-remediation application showing all-natural hydrocarbon cleanup process",
       title: "Bio-Remediation Application",
       description: "All-natural, organic bio-remediation solution for hydrocarbon contamination in soil and water",
@@ -32,7 +28,7 @@ const RemediAde = () => {
       description: "Watch our YouTube video demonstrating the effectiveness of RemediAde bio-remediation technology",
       category: "Video",
       isVideo: true,
-      thumbnail: remediadeVideoThumbnail
+      thumbnail: "/assets/remediade/remidiadevid.png"
     }
   ];
 
@@ -168,7 +164,7 @@ const RemediAde = () => {
             >
               <div className="bg-gray-50 rounded-2xl p-8 max-w-md w-full">
                 <img
-                  src={remediadeLogo}
+                  src="/assets/product_partners/remediade.jpg"
                   alt="RemediAde Logo - Environmental and Remediation Services"
                   className="w-full h-auto object-contain"
                 />
@@ -528,4 +524,3 @@ const RemediAde = () => {
   );
 };
 
-export default RemediAde;

@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Shield, Monitor, AlertTriangle, Settings, Zap, Target, Award } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-const Valve_Tight = () => {
+export default function ValveTightPage() {
   // DBB-SAVER features
   const features = [
     {
@@ -70,7 +71,7 @@ const Valve_Tight = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -342,4 +343,3 @@ const Valve_Tight = () => {
   );
 };
 
-export default Valve_Tight;

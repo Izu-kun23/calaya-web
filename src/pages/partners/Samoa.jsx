@@ -1,12 +1,10 @@
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Building, Wrench, Shield, CheckCircle, Target, TrendingUp, Settings, Globe, Users, Award } from "lucide-react";
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import Samoa logo
-import logoSamoa from "../../assets/product_partners/samoa.png";
-
-const Samoa = () => {
+export default function SamoaPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -15,7 +13,7 @@ const Samoa = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -66,7 +64,7 @@ const Samoa = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={logoSamoa}
+                  src="/assets/product_partners/samoa.png"
                   alt="Samoa LTD Logo"
                   className="h-32 w-95 sm:h-36 lg:h-55 rounded-2xl"
                 />
@@ -142,4 +140,3 @@ const Samoa = () => {
   );
 };
 
-export default Samoa;

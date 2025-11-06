@@ -1,7 +1,8 @@
+'use client';
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import calayaLogo from "../../assets/images/calaya_logo_wc.png";
+const calayaLogo = "/assets/images/calaya_logo_wc.png";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Left - Logo */}
           <div className="flex flex-col items-start sm:items-center lg:items-start text-left sm:text-center lg:text-left">
-            <Link to="/" className="mb-4">
+            <Link href="/" className="mb-4">
               <img
                 src={calayaLogo}
                 alt="Calaya Engineering Logo"
@@ -65,22 +66,22 @@ const Footer = () => {
           <div className="flex flex-col items-start sm:items-center lg:items-center">
             <h3 className="text-white font-semibold mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h3>
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3 text-xs sm:text-sm">
-              <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/" className="text-gray-300 hover:text-white transition-colors">
                 Home
               </Link>
-              <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
                 About Us
               </Link>
-              <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
                 Services
               </Link>
-              <Link to="/projects" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
                 Projects
               </Link>
-              <Link to="/products" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/products" className="text-gray-300 hover:text-white transition-colors">
                 Products
               </Link>
-              <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">
+              <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
                 Contact
               </Link>
             </div>
@@ -100,6 +101,11 @@ const Footer = () => {
               <p>
                 <a href="mailto:info@calayaengineering.com" className="hover:text-white transition-colors">
                   info@calayaengineering.com
+                </a>
+              </p>
+              <p>
+                <a href="mailto:calayaengineering@yahoo.co.uk" className="hover:text-white transition-colors">
+                  calayaengineering@yahoo.co.uk
                 </a>
               </p>
               <p>

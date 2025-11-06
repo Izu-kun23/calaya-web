@@ -1,13 +1,11 @@
+'use client';
+
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Settings, Monitor, Shield, Wrench, Users, Award, Clock, ZoomIn, X } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import scoreLogo from '../../assets/score_global/Score_logo.png';
-import score1 from '../../assets/score_global/Score_1.png';
-import score2 from '../../assets/score_global/Score_2.png';
 
-const Score_Global = () => {
+export default function ScoreGlobalPage() {
   // Gallery state management
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -16,7 +14,7 @@ const Score_Global = () => {
   const galleryImages = [
     {
       id: 1,
-      src: score1,
+      src: "/assets/score_global/Score_1.png",
       alt: "SCORE Global Equipment 1",
       title: "Wellhead Equipment",
       description: "Advanced wellhead maintenance and testing equipment for comprehensive field operations",
@@ -24,7 +22,7 @@ const Score_Global = () => {
     },
     {
       id: 2,
-      src: score2,
+      src: "/assets/score_global/Score_2.png",
       alt: "SCORE Global Equipment 2", 
       title: "Field Operations",
       description: "Professional wellhead maintenance services and Christmas tree equipment solutions",
@@ -105,7 +103,7 @@ const Score_Global = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -488,4 +486,3 @@ const Score_Global = () => {
   );
 };
 
-export default Score_Global;

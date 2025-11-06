@@ -1,13 +1,11 @@
+'use client';
+
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Target, Shield, Award, Zap, Settings, Monitor, Gauge, Wind, Leaf, ZoomIn, X } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import gasDataLogo from '../../assets/gas_data/gasdata_logo.png';
-import gasData1 from '../../assets/gas_data/gas_data1.png';
-import gasData2 from '../../assets/gas_data/gas_data2.png';
 
-const Gas_Data = () => {
+export default function GasDataPage() {
   // Gallery state management
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -16,7 +14,7 @@ const Gas_Data = () => {
   const galleryImages = [
     {
       id: 1,
-      src: gasData1,
+      src: "/assets/gas_data/gas_data1.png",
       alt: "GAS DATA Equipment 1",
       title: "Gas Analysis System",
       description: "Advanced monitoring and analysis equipment for comprehensive gas detection and measurement",
@@ -24,7 +22,7 @@ const Gas_Data = () => {
     },
     {
       id: 2,
-      src: gasData2,
+      src: "/assets/gas_data/gas_data2.png",
       alt: "GAS DATA Equipment 2", 
       title: "Monitoring Technology",
       description: "Precision gas detection and measurement systems for industrial applications",
@@ -114,7 +112,7 @@ const Gas_Data = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -177,7 +175,7 @@ const Gas_Data = () => {
               className="flex justify-center"
             >
               <img
-                src={gasDataLogo}
+                src="/assets/gas_data/gasdata_logo.png"
                 alt="GAS DATA Logo"
                 className="w-full max-w-sm h-auto object-contain"
                 onError={(e) => {
@@ -445,4 +443,3 @@ const Gas_Data = () => {
   );
 };
 
-export default Gas_Data;

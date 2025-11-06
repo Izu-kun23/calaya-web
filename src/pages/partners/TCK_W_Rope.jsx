@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Monitor, Shield, Zap, Settings, Eye, Clock, AlertTriangle } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-const TCK_W_Rope = () => {
+export default function TCKWRopePage() {
   // Key features of the rope monitor system
   const features = [
     {
@@ -74,7 +75,7 @@ const TCK_W_Rope = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -382,4 +383,3 @@ const TCK_W_Rope = () => {
   );
 };
 
-export default TCK_W_Rope;

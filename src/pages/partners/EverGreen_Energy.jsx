@@ -1,11 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Shield, Drill, Zap, Settings, Search, Wrench } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import evergreenLogo from '../../assets/evergreen_energy/evergreen.png';
 
-const EverGreen_Energy = () => {
+export default function EverGreenEnergyPage() {
   // Products and services
   const services = [
     {
@@ -65,7 +65,7 @@ const EverGreen_Energy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -126,7 +126,7 @@ const EverGreen_Energy = () => {
               className="flex justify-center"
             >
               <img
-                src={evergreenLogo}
+                src="/assets/evergreen_energy/evergreen.png"
                 alt="EverGreen Energy Savers Logo"
                 className="w-full max-w-sm h-auto object-contain p-4"
                 onError={(e) => {
@@ -358,4 +358,3 @@ const EverGreen_Energy = () => {
   );
 };
 
-export default EverGreen_Energy;

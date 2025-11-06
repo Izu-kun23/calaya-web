@@ -1,5 +1,6 @@
+'use client';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -92,7 +93,7 @@ const DropDown = ({
                     </div>
                   ) : (
                     <Link
-                      to={item.link}
+                      href={item.link}
                       className={`block p-6 rounded-lg transition-all duration-300 ${textColor} ${hoverColor} ${hoverTextColor} group`}
                       onClick={onClose}
                     >
@@ -129,7 +130,7 @@ const DropDown = ({
                               transition={{ duration: 0.3, delay: subIndex * 0.1 }}
                             >
                               <Link
-                                to={subItem.link}
+                                href={subItem.link}
                                 className={`block p-3 rounded-lg transition-all duration-300 ${textColor} ${hoverColor} ${hoverTextColor} group`}
                                 onClick={onClose}
                               >

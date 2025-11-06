@@ -1,10 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Shield, Target, AlertTriangle, Zap } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import leakDetectionLogo from '../../assets/product_partners/leak_detection.jpg';
 
-const Leak_Detection = () => {
+export default function LeakDetectionPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -12,7 +12,7 @@ const Leak_Detection = () => {
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -52,7 +52,7 @@ const Leak_Detection = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={leakDetectionLogo}
+                  src="/assets/product_partners/leak_detection.jpg"
                   alt="Leak Detection and Repair"
                   className="h-48 w-auto sm:h-56 lg:h-64 rounded-2xl"
                 />
@@ -164,4 +164,3 @@ const Leak_Detection = () => {
   );
 };
 
-export default Leak_Detection;

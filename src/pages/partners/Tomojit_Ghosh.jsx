@@ -1,10 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Settings, Zap, Calculator } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import tgcImage from '../../assets/tomojit_ghosh/TGC_1.png';
 
-const Tomojit_Ghosh = () => {
+export default function TomojitGhoshPage() {
   // Key advantages
   const advantages = [
     {
@@ -40,7 +40,7 @@ const Tomojit_Ghosh = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -98,7 +98,7 @@ const Tomojit_Ghosh = () => {
               className="flex justify-center"
             >
               <img
-                src={tgcImage}
+                src="/assets/tomojit_ghosh/TGC_1.png"
                 alt="Tomojit Ghosh Calibration"
                 className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
                 onError={(e) => {
@@ -160,4 +160,3 @@ const Tomojit_Ghosh = () => {
   );
 };
 
-export default Tomojit_Ghosh;

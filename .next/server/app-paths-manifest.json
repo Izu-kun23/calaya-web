@@ -1,0 +1,5 @@
+{
+  "/products/page": "app/products/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/partners/quantum-downhole/page": "app/partners/quantum-downhole/page.js"
+}

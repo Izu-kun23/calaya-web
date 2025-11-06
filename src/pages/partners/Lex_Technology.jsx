@@ -1,15 +1,11 @@
+'use client';
+
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ZoomIn, X } from 'lucide-react';
 
-// Import Lex Technology product images
-import product1 from '../../assets/lex/product1.jpeg';
-import product2 from '../../assets/lex/product2.jpeg';
-import product3 from '../../assets/lex/product3.jpeg';
-
-
-const Lex_Technology = () => {
+export default function LexTechnologyPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,19 +16,19 @@ const Lex_Technology = () => {
   const products = [
     {
       id: 1,
-      image: product1,
+      image: "/assets/lex/product1.jpeg",
       title: "Ultra-High-Speed ESP (UHS ESP®)",
       description: "We've developed our innovative PMM-driven Ultra-High-Speed ESP (UHS ESP®) with an operating speed between 1,000 and 12,000 rpm. UHS®ESP® provides effective operation in harsh well conditions, with limited power supply, and below perforation range."
     },
     {
       id: 2,
-      image: product2,
+      image: "/assets/lex/product2.jpeg",
       title: "LEX Universal ESP (applicable for geothermal wells)",
       description: "We have improved the standard ESP to enhance the efficiency and reliability of Lex pumps in various well environments. Our engineering team thoroughly analyzes the incoming data to select the optimum efficiency and specific power consumption of each system (formation-wellbore-ESP). As a result, our solutions achieve the maximum efficiency and provide 30-40% runlife increase and 20-50% lower OPEX."
     },
     {
       id: 3,
-      image: product3,
+      image: "/assets/lex/product3.jpeg",
       title: "Turbo Gaslift Pumps System",
       description: "To solve production problems in wells experiencing depletion of reservoir energy after the gas-lift operation, we have developed the Turbox gas lift pumps. The system creates deep drawdown and avoids electricity use in the well by replacing the electric motor with a gas turbine. This works in combination with the innovative Lex Ultra-High-Speed centrifugal pump operating at speeds up to 15,000 rpm."
     }
@@ -42,7 +38,7 @@ const Lex_Technology = () => {
   const galleryImages = [
     {
       id: 1,
-      src: product1,
+      src: "/assets/lex/product1.jpeg",
       alt: "Lex Technology Ultra-High-Speed ESP system showing advanced artificial lift technology",
       title: "Ultra-High-Speed ESP System",
       description: "Advanced PMM-driven Ultra-High-Speed ESP operating at speeds between 1,000-12,000 rpm",
@@ -50,7 +46,7 @@ const Lex_Technology = () => {
     },
     {
       id: 2,
-      src: product2,
+      src: "/assets/lex/product2.jpeg",
       alt: "Lex Technology Universal ESP system designed for geothermal well applications",
       title: "Universal ESP for Geothermal",
       description: "Enhanced ESP system optimized for geothermal well environments with improved efficiency",
@@ -58,7 +54,7 @@ const Lex_Technology = () => {
     },
     {
       id: 3,
-      src: product3,
+      src: "/assets/lex/product3.jpeg",
       alt: "Lex Technology Turbo Gaslift Pumps System with gas turbine technology",
       title: "Turbo Gaslift System",
       description: "Innovative gas turbine-driven pump system for wells with depleted reservoir energy",
@@ -523,4 +519,3 @@ const Lex_Technology = () => {
   );
 };
 
-export default Lex_Technology;

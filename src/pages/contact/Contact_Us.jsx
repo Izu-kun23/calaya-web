@@ -465,6 +465,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p>Plot 194B, 23 Fiddil Avenue, Off Ordinance Road, Trans-Amadi, Port Harcourt, Rivers State, Nigeria</p>
                   <p>P.O Box 4738</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+234) 84301123</p>
                   <p>(+234) 9028219836</p>
                 </div>
@@ -488,6 +489,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Asia Pacific Office</p>
                   <p>4806-11-3 Jalan CBD Perdana 2, Cyberjaya 6300, Selangor</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: +968-95221083</p>
                   <p>+968-24501499</p>
                   <p>FAX: +968-24501288</p>
@@ -512,6 +514,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Operations Center</p>
                   <p>Av Olof Oalm, 244-2 Andar 402, Maputo</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: 00258823165166</p>
                 </div>
               </div>
@@ -534,6 +537,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Regional Office</p>
                   <p>Carreterra Malabo, Sampaka S/N Bioko Norte, R.G.E.</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+240) 222 267 366</p>
                   <p>(+240) 551 632 846</p>
                 </div>
@@ -557,6 +561,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Operations Center</p>
                   <p>Congo (Gc Congosarl) Quarter Cq, 118 Tchimbamba Arrondissement E.P Lumumba Pointe-Noire</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+240) 66406541</p>
                 </div>
               </div>
@@ -579,6 +584,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">European Office</p>
                   <p>C/Martin Fierro – 3, 30, 1a; 50012 Zaragoza, Espana</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+34) 671418761</p>
                 </div>
               </div>
@@ -601,6 +607,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Regional Office</p>
                   <p>CITEC, Bairro Simulabuco-Cabinda</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+244) 933515530</p>
                   <p>(+244) 930614514</p>
                 </div>
@@ -624,6 +631,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">UK Office</p>
                   <p>Bradwell And Partners 219 Titan Court, 3 Bishop Square, Hatfield Business Park, AL10 9NA</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p>Tel: (+44) 161 460 5756</p>
                 </div>
               </div>
@@ -646,6 +654,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                   <p className="font-medium">Coming Soon</p>
                   <p>Details to be announced</p>
                   <p className="font-medium text-red-500">info@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
                   <p className="text-gray-500 italic">TBD</p>
                 </div>
               </div>
@@ -724,6 +733,7 @@ Calaya Engineering - Excellence in Engineering Solutions
                 <div className="text-right">
                   <p className="text-blue-100 mb-1">Port Harcourt, Nigeria</p>
                   <p className="text-blue-100">info@calayaengineering.com</p>
+                  <p className="text-blue-100">calayaengineering@yahoo.co.uk</p>
                 </div>
               </div>
             </div>

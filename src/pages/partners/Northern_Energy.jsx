@@ -1,14 +1,11 @@
+'use client';
+
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Drill, Settings, Zap, Shield, Wrench, ZoomIn, X } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import northernLogo from '../../assets/northern_energy/Northernenergy_logo.png';
-import northern1 from '../../assets/northern_energy/Northernenergy_1.png';
-import northern2 from '../../assets/northern_energy/Northernenergy_2.png';
-import northern3 from '../../assets/northern_energy/Northernenergy_3.png';
 
-const Northern_Energy = () => {
+export default function NorthernEnergyPage() {
   // Gallery state management
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -17,7 +14,7 @@ const Northern_Energy = () => {
   const galleryImages = [
     {
       id: 1,
-      src: northern1,
+      src: "/assets/northern_energy/Northernenergy_1.png",
       alt: "Northern Energy Equipment 1",
       title: "Drilling Technology",
       description: "Advanced drilling and well construction tools for precision operations",
@@ -25,7 +22,7 @@ const Northern_Energy = () => {
     },
     {
       id: 2,
-      src: northern2,
+      src: "/assets/northern_energy/Northernenergy_2.png",
       alt: "Northern Energy Equipment 2", 
       title: "Completion Systems",
       description: "Cutting-edge completion and artificial lift solutions for enhanced productivity",
@@ -33,7 +30,7 @@ const Northern_Energy = () => {
     },
     {
       id: 3,
-      src: northern3,
+      src: "/assets/northern_energy/Northernenergy_3.png",
       alt: "Northern Energy Equipment 3", 
       title: "Artificial Lift",
       description: "Innovative artificial lift technology for optimized well performance",
@@ -108,7 +105,7 @@ const Northern_Energy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -170,7 +167,7 @@ const Northern_Energy = () => {
               className="flex justify-center"
             >
               <img
-                src={northernLogo}
+                src="/assets/northern_energy/Northernenergy_logo.png"
                 alt="Northern Energy Innovations Logo"
                 className="w-full max-w-sm h-auto object-contain"
                 onError={(e) => {
@@ -544,4 +541,3 @@ const Northern_Energy = () => {
   );
 };
 
-export default Northern_Energy;

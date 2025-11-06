@@ -1,18 +1,14 @@
+'use client';
+
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn, ExternalLink } from "lucide-react";
-
-// Import TCK.W logo and gallery images
-import tckLogo from "../../assets/tck.w/tck.w_logo.png";
-import tckGal1 from "../../assets/tck.w/tck_gal1.jpg";
-import tckGal2 from "../../assets/tck.w/tck_gal2.jpg";
-import tckGal3 from "../../assets/tck.w/tck_gal3.jpg";
 
 /**
  * TCK.W Component - Real-time Online Wire Rope Inspection System
  * Features improved modal functionality, accessibility, and performance optimizations
  */
-const TCK_W = () => {
+export default function TCKWPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +17,7 @@ const TCK_W = () => {
   const galleryImages = [
     {
       id: 1,
-      src: tckGal1,
+      src: "/assets/tck.w/tck_gal1.jpg",
       alt: "TCK.W Port Industry Application showing wire rope inspection system in operation",
       title: "Port Industry Application",
       description: "Wire rope inspection in port operations using TCK.W technology",
@@ -29,7 +25,7 @@ const TCK_W = () => {
     },
     {
       id: 2,
-      src: tckGal2,
+      src: "/assets/tck.w/tck_gal2.jpg",
       alt: "TCK.W Advanced Monitoring Device displaying real-time inspection capabilities",
       title: "Advanced Monitoring Device",
       description: "Real-time wire rope inspection technology with AI-powered detection",
@@ -37,7 +33,7 @@ const TCK_W = () => {
     },
     {
       id: 3,
-      src: tckGal3,
+      src: "/assets/tck.w/tck_gal3.jpg",
       alt: "TCK.W Portable Monitor being used by field technician for on-site inspection",
       title: "TCK.W Portable Monitor",
       description: "Field technician using portable inspection system for real-time analysis",
@@ -291,7 +287,7 @@ const TCK_W = () => {
               className="flex justify-center"
             >
               <img
-                src={tckLogo}
+                src="/assets/tck.w/tck.w_logo.png"
                 alt="TCK.W Logo"
                 className="max-w-md w-full h-auto"
               />
@@ -482,4 +478,3 @@ const TCK_W = () => {
   );
 };
 
-export default TCK_W;

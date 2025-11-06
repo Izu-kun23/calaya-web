@@ -1,15 +1,11 @@
+'use client';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
-// Import IP Pipeline images
-import ipPipelineImage from '../../assets/product_partners/ip_pipeline.jpg';
-import contentImage from '../../assets/ip_pipeline/content_image.png';
-import ipPipeline1 from '../../assets/ip_pipeline/ip_pipeline1.jpeg';
-import ipPipeline2 from '../../assets/ip_pipeline/ip_pipeline2.png';
-
-const IP_Pipeline = () => {
+export default function IPPipelinePage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +14,7 @@ const IP_Pipeline = () => {
   const galleryImages = [
     {
       id: 1,
-      src: ipPipeline1,
+      src: "/assets/ip_pipeline/ip_pipeline1.jpeg",
       alt: "IP Pipeline inspection operations showing offshore platform with advanced pipeline inspection technology",
       title: "Offshore Pipeline Operations",
       description: "Advanced pipeline inspection operations on offshore platforms using IP Pipeline technology",
@@ -26,7 +22,7 @@ const IP_Pipeline = () => {
     },
     {
       id: 2,
-      src: ipPipeline2,
+      src: "/assets/ip_pipeline/ip_pipeline2.png",
       alt: "IP Pipeline advanced inspection tools displaying multi-function modules for comprehensive pipeline analysis",
       title: "Multi-Function Inspection Modules",
       description: "State-of-the-art pipeline inspection tools with advanced multi-function capabilities",
@@ -34,7 +30,7 @@ const IP_Pipeline = () => {
     },
     {
       id: 3,
-      src: contentImage,
+      src: "/assets/ip_pipeline/content_image.png",
       alt: "IP Pipeline inspection technology showcasing advanced equipment for pipeline integrity assessment",
       title: "Advanced Inspection Equipment",
       description: "Comprehensive pipeline inspection technology for integrity assessment and data analysis",
@@ -191,7 +187,7 @@ const IP_Pipeline = () => {
                 className="mt-8"
               >
                 <img
-                  src={contentImage}
+                  src="/assets/ip_pipeline/content_image.png"
                   alt="IP Pipeline Technology - Advanced Inspection Tools"
                   className="w-full h-auto rounded-lg"
                 />
@@ -207,7 +203,7 @@ const IP_Pipeline = () => {
               className="flex justify-center lg:justify-end"
             >
               <img
-                src={ipPipelineImage}
+                src="/assets/product_partners/ip_pipeline.jpg"
                 alt="IP Pipeline Technology - Efficient & Flexible Solutions"
                 className="w-full h-auto rounded-lg"
               />
@@ -401,4 +397,3 @@ const IP_Pipeline = () => {
   );
 };
 
-export default IP_Pipeline;

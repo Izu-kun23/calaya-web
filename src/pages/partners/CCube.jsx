@@ -1,12 +1,10 @@
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, TrendingUp, Globe, CheckCircle, Award } from "lucide-react";
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import CCube logo
-import logoCCube from "../../assets/product_partners/c-cube.jpeg";
-
-const CCube = () => {
+export default function CCubePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -15,7 +13,7 @@ const CCube = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -66,7 +64,7 @@ const CCube = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={logoCCube}
+                  src="/assets/product_partners/c-cube.jpeg"
                   alt="C-Cube International Logo"
                   className="h-32 w-auto sm:h-36 lg:h-50 rounded-2xl"
                 />
@@ -139,4 +137,3 @@ const CCube = () => {
   );
 };
 
-export default CCube;

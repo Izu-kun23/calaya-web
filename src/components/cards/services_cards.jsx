@@ -1,5 +1,6 @@
+'use client';
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const ServicesCard = ({ image, title, description, buttonText = "Learn More", link = "#" }) => {
   return (
@@ -26,7 +27,7 @@ const ServicesCard = ({ image, title, description, buttonText = "Learn More", li
         {/* Button */}
         <div className="mt-auto">
           <Link 
-            to={link}
+            href={link}
             className="w-full inline-flex items-center justify-center gap-2 bg-red-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-all duration-300 font-medium text-xs sm:text-sm"
           >
             {buttonText}

@@ -1,15 +1,11 @@
+'use client';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import DHVI logo and gallery images
-import dhviLogo from '../../assets/product_partners/DHVI.png';
-import dhviContent1 from '../../assets/dvhi/content1.png';
-import dhviCaseStudy1 from '../../assets/dvhi/case_study1.png';
-
-const DHVI = () => {
+export default function DHVIPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +14,7 @@ const DHVI = () => {
   const galleryImages = [
     {
       id: 1,
-      src: dhviContent1,
+      src: "/assets/dvhi/content1.png",
       alt: "DHVI downhole video inspection technology showing advanced equipment and systems",
       title: "DHVI Downhole Technology",
       description: "Advanced downhole video inspection technology and equipment for wellbore analysis",
@@ -26,7 +22,7 @@ const DHVI = () => {
     },
     {
       id: 2,
-      src: dhviCaseStudy1,
+      src: "/assets/dvhi/case_study1.png",
       alt: "DHVI case study showing leak detection combining camera and logging sensors",
       title: "Leak Detection Case Study",
       description: "Real-world application of DHVI technology for leak detection and wellbore analysis",
@@ -103,7 +99,7 @@ const DHVI = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -168,7 +164,7 @@ const DHVI = () => {
             >
               <div className="bg-gray-50 rounded-2xl p-8 max-w-md w-full">
                 <img
-                  src={dhviLogo}
+                  src="/assets/product_partners/DHVI.png"
                   alt="DHVI Logo - Downhole Video & Intervention"
                   className="w-full h-auto object-contain"
                 />
@@ -226,7 +222,7 @@ const DHVI = () => {
             className="mt-16 flex justify-center"
           >
             <img
-              src={dhviContent1}
+              src="/assets/dvhi/content1.png"
               alt="DHVI Downhole Video Inspection Technology and Equipment"
               className="w-full max-w-6xl h-auto rounded-xl"
             />
@@ -336,7 +332,7 @@ const DHVI = () => {
             {/* Case Study Image */}
             <div className="mb-12">
               <img
-                src={dhviCaseStudy1}
+                src="/assets/dvhi/case_study1.png"
                 alt="DHVI Case Study - Leak Detection Side View Images"
                 className="w-full max-w-5xl mx-auto rounded-xl"
               />
@@ -562,4 +558,3 @@ const DHVI = () => {
   );
 };
 
-export default DHVI;

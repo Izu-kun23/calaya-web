@@ -1,14 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Target, Shield, TrendingUp } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import ARIX images
-// import arixImage from '../../assets/arix/arix_image.png';
-import arixImage2 from '../../assets/arix/arix_image2.png';
-
-const Arix = () => {
+export default function ArixPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
@@ -16,7 +13,7 @@ const Arix = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -102,7 +99,7 @@ const Arix = () => {
               className="flex justify-start"
             >
               <img
-                src={arixImage2}
+                src="/assets/arix/arix_image2.png"
                 alt="ARIX Technologies"
                 className="w-full max-w-md h-auto rounded-2xl shadow-lg"
                 onError={(e) => {
@@ -201,4 +198,3 @@ const Arix = () => {
   );
 };
 
-export default Arix;

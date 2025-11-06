@@ -1,23 +1,24 @@
+'use client';
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
-// Auto-import all banner images in the folder
-const bannerImageModules = import.meta.glob(
-  '../../assets/images/banner_images/*.{jpg,jpeg,png,webp}',
-  { eager: true }
-)
+// Banner images - Next.js compatible approach
+// Using public folder paths
+const bannerImages = [
+  '/assets/images/banner_images/banner_img.jpg',
+  '/assets/images/banner_images/offshore.jpg',
+  '/assets/images/banner_images/valve_img.jpg',
+  '/assets/images/banner_images/wellheads.jpg',
+].filter(Boolean)
 
 import WhiteButtons from '../buttons/WhiteButtons'
 import Pagination from '../pagination/pagination'
 
 const Banner = () => {
-  // Extract and sort images
+  // Use banner images
   const images = useMemo(() => {
-    const urls = Object.values(bannerImageModules)
-      .map((mod) => (mod && typeof mod === 'object' && 'default' in mod ? mod.default : null))
-      .filter(Boolean)
-    return urls.length > 0 ? urls.sort((a, b) => a.localeCompare(b)) : []
+    return bannerImages.length > 0 ? bannerImages.sort((a, b) => a.localeCompare(b)) : []
   }, [])
 
   // Generate slide data with text
@@ -177,13 +178,13 @@ const Banner = () => {
                       window.dispatchEvent(new CustomEvent('openWhatWeDoDropdown'));
                     }
                   }}
-                  className="w-45 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300"
+                  className="w-full sm:w-auto min-w-[200px] px-8 h-16 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors duration-300"
                 >
                   <span className="text-black text-sm font-semibold">View Services</span>
                 </button>
                 <Link 
-                  to="/contact" 
-                  className="w-45 h-16 rounded-full flex items-center justify-center border border-white hover:border-red-500 group transition-colors duration-300"
+                  href="/contact" 
+                  className="w-full sm:w-auto min-w-[200px] px-8 h-16 rounded-full flex items-center justify-center border-2 border-white hover:border-red-500 group transition-colors duration-300"
                 >
                   <span className="text-white group-hover:text-red-500 text-sm font-semibold transition-colors duration-300">Contact Us</span>
                 </Link>
@@ -268,21 +269,6 @@ const Banner = () => {
                   />
                 </motion.svg>
               </motion.div>
-              
-              {/* Pulsing ring effect - around both text and arrow */}
-              <motion.div
-                className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 border-white/30"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.5, 0, 0.5]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: 1,
-                  ease: "easeInOut"
-                }}
-              />
             </motion.button>
           </motion.div>
         </div>

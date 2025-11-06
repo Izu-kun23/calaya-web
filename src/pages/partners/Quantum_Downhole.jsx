@@ -1,10 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Zap, Settings, Monitor, Target, Shield, Wrench, BarChart3 } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-const Quantum_Downhole = () => {
+export default function QuantumDownholePage() {
   // Key systems and technologies
   const systems = [
     {
@@ -74,7 +75,7 @@ const Quantum_Downhole = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -364,4 +365,3 @@ const Quantum_Downhole = () => {
   );
 };
 
-export default Quantum_Downhole;

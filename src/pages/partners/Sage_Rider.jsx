@@ -1,13 +1,11 @@
+'use client';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Target, Users, Shield, Zap, ZoomIn, X, ChevronLeft, ChevronRight, Settings, Monitor, Droplets, Gauge, Battery, Thermometer, Activity } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
 
-// Import SAGE RIDER logo
-import sageRiderLogo from '../../assets/sage_rider/sage_rider_logo.jpg';
-
-const Sage_Rider = () => {
+export default function SageRiderPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -122,7 +120,7 @@ const Sage_Rider = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -205,7 +203,7 @@ const Sage_Rider = () => {
               className="flex justify-center lg:justify-end"
             >
               <img
-                src={sageRiderLogo}
+                src="/assets/sage_rider/sage_rider_logo.jpg"
                 alt="SAGE RIDER"
                 className="w-full max-w-md h-auto rounded-2xl shadow-lg"
                 onError={(e) => {
@@ -296,4 +294,3 @@ const Sage_Rider = () => {
   );
 };
 
-export default Sage_Rider;

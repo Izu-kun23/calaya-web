@@ -1,8 +1,11 @@
+'use client';
 import React, { useState, useRef, useEffect, memo, useCallback, useMemo } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ChevronRight, Users, Wrench, Monitor, Shield, Search, Building, HardHat, Settings, Zap, Droplets } from "lucide-react";
-import calayaLogoWhite from "../../assets/images/calaya_logo_wc.png";
-import calayaLogoBlack from "../../assets/images/calaya_logo_1.png";
+// Images from public folder - accessed via absolute paths in Next.js
+const calayaLogoWhite = "/assets/images/calaya_logo_wc.png";
+const calayaLogoBlack = "/assets/images/calaya_logo_1.png";
 import DropDown from "../dropdown/drop_down";
 
 /**
@@ -14,9 +17,9 @@ const Navbar = () => {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navbarRef = useRef(null);
-  const location = useLocation();
+  const pathname = usePathname();
 
-  const isHomePage = location.pathname === "/";
+  const isHomePage = pathname === "/";
 
   // Memoize dropdown items to prevent recreation on every render
   const dropdownItems = useMemo(() => ({
@@ -185,11 +188,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link to="/" onClick={handleLinkClick}>
+          <Link href="/" onClick={handleLinkClick}>
             <img
               src={isHomePage ? calayaLogoWhite : calayaLogoBlack}
               alt="Calaya Engineering Logo"
-              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform hover:"
+              className="h-6 sm:h-8 md:h-10 lg:h-12 w-auto hover:scale-110 hover:-translate-y-1 transition-all duration-300 ease-out transform"
             />
           </Link>
         </div>
@@ -197,7 +200,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className={`hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8 text-xs sm:text-sm font-semibold ${isHomePage ? 'text-white' : 'text-gray-800'}`}>
           <Link
-            to="/"
+            href="/"
             className="relative group transition-colors duration-200"
             onClick={handleLinkClick}
           >
@@ -247,7 +250,7 @@ const Navbar = () => {
 
           {/* Product & Partners Link */}
           <Link
-            to="/products"
+            href="/products"
             className="relative group transition-colors duration-200"
             onClick={handleLinkClick}
           >
@@ -256,7 +259,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/projects"
+            href="/projects"
             className="relative group transition-colors duration-200"
             onClick={handleLinkClick}
           >
@@ -268,7 +271,7 @@ const Navbar = () => {
         {/* Desktop Contact Button */}
         <div className="hidden lg:flex flex-shrink-0">
           <Link
-            to="/contact"
+            href="/contact"
             className="bg-red-500 text-white px-4 py-2.5 rounded-full hover:bg-red-600 transition-colors duration-200 text-sm font-semibold"
             onClick={handleLinkClick}
           >
@@ -316,7 +319,7 @@ const Navbar = () => {
           <div className="flex-1 overflow-y-auto py-4">
             <div className="px-4 space-y-2">
               <Link
-                to="/"
+                href="/"
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
               >
@@ -351,7 +354,7 @@ const Navbar = () => {
                                 {item.submenu.map((subItem, subIndex) => (
                                   <Link
                                     key={subIndex}
-                                    to={subItem.link}
+                                    href={subItem.link}
                                     className="block px-4 py-2 text-xs text-gray-500 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
                                     onClick={handleLinkClick}
                                   >
@@ -363,7 +366,7 @@ const Navbar = () => {
                           </div>
                         ) : (
                           <Link
-                            to={item.link}
+                            href={item.link}
                             className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
                             onClick={handleLinkClick}
                           >
@@ -404,7 +407,7 @@ const Navbar = () => {
                                 {item.submenu.map((subItem, subIndex) => (
                                   <Link
                                     key={subIndex}
-                                    to={subItem.link}
+                                    href={subItem.link}
                                     className="block px-4 py-2 text-xs text-gray-500 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
                                     onClick={handleLinkClick}
                                   >
@@ -416,7 +419,7 @@ const Navbar = () => {
                           </div>
                         ) : (
                           <Link
-                            to={item.link}
+                            href={item.link}
                             className="block px-4 py-2 text-sm text-gray-600 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200"
                             onClick={handleLinkClick}
                           >
@@ -431,7 +434,7 @@ const Navbar = () => {
 
               {/* Mobile - Product & Partners */}
               <Link
-                to="/products"
+                href="/products"
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
               >
@@ -439,7 +442,7 @@ const Navbar = () => {
               </Link>
 
           <Link
-            to="/projects"
+            href="/projects"
                 className="block px-4 py-3 text-gray-800 hover:bg-red-500 hover:text-white rounded-lg transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
           >
@@ -451,7 +454,7 @@ const Navbar = () => {
           {/* Sidebar Footer */}
           <div className="p-4 border-t border-gray-200">
           <Link
-              to="/contact"
+              href="/contact"
               className="block w-full bg-red-500 text-white px-4 py-3 rounded-lg hover:bg-red-600 transition-colors duration-200 text-sm font-semibold text-center"
               onClick={handleLinkClick}
           >

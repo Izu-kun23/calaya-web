@@ -1,11 +1,10 @@
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Flame, Target, CheckCircle, AlertTriangle, Zap } from "lucide-react";
 
-// Import Shoot Fire logo
-import logoShootFire from "../../assets/product_partners/shootfire.jpg";
-
-const ShootFire = () => {
+export default function ShootFirePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -54,7 +53,7 @@ const ShootFire = () => {
               {/* Logo - Left Side */}
               <div className="flex-shrink-0">
                 <img
-                  src={logoShootFire}
+                  src="/assets/product_partners/shootfire.jpg"
                   alt="Shoot Fire by Vimal Fire Logo"
                   className="h-32 w-auto sm:h-36 lg:h-50 rounded-2xl"
                 />
@@ -130,4 +129,3 @@ const ShootFire = () => {
   );
 };
 
-export default ShootFire;

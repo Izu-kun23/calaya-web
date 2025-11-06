@@ -1,14 +1,11 @@
+'use client';
+
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { CheckCircle, Zap, Search, Settings, Monitor, Clock, Target, Gauge, Shield, ZoomIn, X } from 'lucide-react';
-import heroImage from '../../assets/images/Useable_Images/image12.jpg';
-import soundwaveLogo from '../../assets/sound_wave_inspection/soundwave_logo.png';
-import soundwave1 from '../../assets/sound_wave_inspection/soundwave_1.png';
-import soundwave2 from '../../assets/sound_wave_inspection/soundwave_2.png';
-import soundwave3 from '../../assets/sound_wave_inspection/soundwave_3.png';
 
-const Sound_Wave_Inspection = () => {
+export default function SoundWaveInspectionPage() {
   // Gallery state management
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -17,7 +14,7 @@ const Sound_Wave_Inspection = () => {
   const galleryImages = [
     {
       id: 1,
-      src: soundwave1,
+      src: "/assets/sound_wave_inspection/soundwave_1.png",
       alt: "Sound Wave Inspection Equipment 1",
       title: "MACHONE System",
       description: "Advanced sound-based inspection technology for ultra-fast tube analysis",
@@ -25,7 +22,7 @@ const Sound_Wave_Inspection = () => {
     },
     {
       id: 2,
-      src: soundwave2,
+      src: "/assets/sound_wave_inspection/soundwave_2.png",
       alt: "Sound Wave Inspection Equipment 2", 
       title: "Inspection Technology",
       description: "Precision defect detection system for heat exchanger tubes",
@@ -33,7 +30,7 @@ const Sound_Wave_Inspection = () => {
     },
     {
       id: 3,
-      src: soundwave3,
+      src: "/assets/sound_wave_inspection/soundwave_3.png",
       alt: "Sound Wave Inspection Equipment 3", 
       title: "Analysis System",
       description: "Non-invasive inspection system with 3-second per tube capability",
@@ -135,7 +132,7 @@ const Sound_Wave_Inspection = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/assets/images/Useable_Images/image12.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -197,7 +194,7 @@ const Sound_Wave_Inspection = () => {
               className="flex justify-center"
             >
               <img
-                src={soundwaveLogo}
+                src="/assets/sound_wave_inspection/soundwave_logo.png"
                 alt="Sound Wave Inspection Systems Logo"
                 className="w-full max-w-sm h-auto object-contain"
                 onError={(e) => {
@@ -520,4 +517,3 @@ const Sound_Wave_Inspection = () => {
   );
 };
 
-export default Sound_Wave_Inspection;
