@@ -14,14 +14,8 @@ const nextConfig = {
   // output: 'standalone',
   
   // Webpack configuration for additional optimizations
-  webpack: (config, { isServer, webpack }) => {
-    // Ignore old src/pages directory from build (we're using app directory now)
-    config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^\.\/src\/pages\/.*$/,
-      })
-    );
-    
+  webpack: (config, { isServer }) => {
+    // Add any custom webpack configuration here if needed
     return config;
   },
 }
