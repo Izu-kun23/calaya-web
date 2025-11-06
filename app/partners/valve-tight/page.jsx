@@ -331,7 +331,7 @@ export default function ValveTightPage() {
               information about the DBB-SAVER system and how it can enhance safety at your facility.
             </p>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Contact Us for More Information

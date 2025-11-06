@@ -60,14 +60,18 @@ export default function SageRiderPage() {
   const openModal = useCallback((index) => {
     setCurrentImageIndex(index);
     setSelectedImage(services[index]);
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = 'hidden';
+    // Prevent body scroll when modal is open (only on client)
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }, [services]);
 
   const closeModal = useCallback(() => {
     setSelectedImage(null);
-    // Restore body scroll
-    document.body.style.overflow = 'unset';
+    // Restore body scroll (only on client)
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'unset';
+    }
   }, []);
 
   const nextImage = useCallback(() => {
@@ -84,6 +88,8 @@ export default function SageRiderPage() {
 
   // Keyboard navigation
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const handleKeyDown = (e) => {
       if (!selectedImage) return;
       
@@ -109,7 +115,9 @@ export default function SageRiderPage() {
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      document.body.style.overflow = 'unset';
+      if (typeof window !== 'undefined') {
+        document.body.style.overflow = 'unset';
+      }
     };
   }, []);
 
@@ -282,7 +290,7 @@ export default function SageRiderPage() {
               maximize the performance and efficiency of your operations.
             </p>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Get in Touch

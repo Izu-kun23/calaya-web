@@ -474,7 +474,7 @@ export default function ScoreGlobalPage() {
               independent, cost-effective, and comprehensive maintenance solutions wherever you are in the world.
             </p>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Get in Touch
