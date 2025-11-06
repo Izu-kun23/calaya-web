@@ -42,14 +42,18 @@ export default function NorthernEnergyPage() {
   const openModal = useCallback((index) => {
     setCurrentImageIndex(index);
     setSelectedImage(galleryImages[index]);
-    // Lock body scroll
-    document.body.style.overflow = 'hidden';
+    // Lock body scroll (only on client)
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }, [galleryImages]);
 
   const closeModal = useCallback(() => {
     setSelectedImage(null);
-    // Restore body scroll
-    document.body.style.overflow = 'unset';
+    // Restore body scroll (only on client)
+    if (typeof window !== 'undefined') {
+      document.body.style.overflow = 'unset';
+    }
   }, []);
 
   // Products and services
@@ -529,7 +533,7 @@ export default function NorthernEnergyPage() {
               Contact Northern Energy Innovations for precision-engineered tools and advanced systems.
             </p>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Get in Touch
