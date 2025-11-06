@@ -52,7 +52,6 @@ export default function ProductsPage() {
     "ARIX Technologies": "/partners/arix",
     "GAS DATA": "/partners/gas-data",
     "Sound Wave Inspection Systems": "/partners/sound-wave-inspection",
-    "Valve Tight": "/partners/valve-tight",
     "SCORE Global Expertise": "/partners/score-global",
     "Northern Energy Innovations": "/partners/northern-energy",
     "EverGreen Energy Savers": "/partners/evergreen-energy",
@@ -193,12 +192,6 @@ export default function ProductsPage() {
       name: "Quantum Downhole Systems",
       image: quantumLogo,
       description: "Innovative wellbore cleanout and production evaluation solutions using patented concentric coiled tubing technology"
-    },
-    {
-      id: 23,
-      name: "Valve Tight",
-      image: arixImage,
-      description: "DBB-SAVER technology for leak prevention and monitoring"
     }
   ]
 
