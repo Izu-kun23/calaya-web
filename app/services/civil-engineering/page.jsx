@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
 import {
   Building,
@@ -13,7 +13,7 @@ import {
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
 
-export default function CivilEngineeringPage() {
+function CivilEngineeringContent() {
   const [activeTab, setActiveTab] = useState(0);
   const searchParams = useSearchParams();
 
@@ -252,5 +252,20 @@ export default function CivilEngineeringPage() {
       {/* Client Section */}
       <ClientSection />
     </div>
+  );
+}
+
+export default function CivilEngineeringPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CivilEngineeringContent />
+    </Suspense>
   );
 }
