@@ -22,6 +22,22 @@ export const metadata = {
     description: 'Leading multinational oil and gas engineering company operating across 7 countries. Expert services in procurement, civil engineering, facilities management, and technical manpower since 2005.',
   },
   themeColor: '#dc2626',
+  // Browser tab icons for consistent branding
+  icons: {
+    icon: [
+      { url: '/assets/tab_logo.png', sizes: '32x32' },
+      { url: '/assets/tab_logo.png', sizes: '48x48' },
+      { url: '/assets/tab_logo.png', sizes: '64x64' },
+    ],
+    shortcut: [
+      { url: '/assets/tab_logo.png', sizes: '32x32' },
+      { url: '/assets/tab_logo.png', sizes: '48x48' },
+    ],
+    apple: [
+      { url: '/assets/tab_logo.png', sizes: '152x152' },
+      { url: '/assets/tab_logo.png', sizes: '180x180' },
+    ],
+  },
   viewport: {
     width: 'device-width',
     initialScale: 1,
