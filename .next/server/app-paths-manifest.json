@@ -1,7 +1,7 @@
 {
-  "/services/facilities-management/page": "app/services/facilities-management/page.js",
   "/products/page": "app/products/page.js",
-  "/contact/page": "app/contact/page.js",
   "/partners/sage-rider/page": "app/partners/sage-rider/page.js",
-  "/page": "app/page.js"
+  "/services/facilities-management/page": "app/services/facilities-management/page.js",
+  "/page": "app/page.js",
+  "/contact/page": "app/contact/page.js"
 }
