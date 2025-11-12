@@ -1,78 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/partners/12s": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/12s",
-      "dataRoute": "/partners/12s.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/c-cube": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/c-cube",
-      "dataRoute": "/partners/c-cube.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/evergreen-energy": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/evergreen-energy",
-      "dataRoute": "/partners/evergreen-energy.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -97,30 +25,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/dhvi": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/dhvi",
-      "dataRoute": "/partners/dhvi.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/partners/arix": {
       "experimentalBypassFor": [
         {
@@ -136,6 +40,78 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/partners/arix",
       "dataRoute": "/partners/arix.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/12s": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/12s",
+      "dataRoute": "/partners/12s.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/gas-data": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/gas-data",
+      "dataRoute": "/partners/gas-data.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/c-cube": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/c-cube",
+      "dataRoute": "/partners/c-cube.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -193,7 +169,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/contact": {
+    "/partners/lex-technology": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -206,57 +182,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/contact",
-      "dataRoute": "/contact.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/_not-found": {
-      "initialStatus": 404,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/_not-found",
-      "dataRoute": "/_not-found.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/about": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/about",
-      "dataRoute": "/about.rsc",
+      "srcRoute": "/partners/lex-technology",
+      "dataRoute": "/partners/lex-technology.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -314,54 +241,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/gas-data": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/gas-data",
-      "dataRoute": "/partners/gas-data.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/certifications": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/certifications",
-      "dataRoute": "/certifications.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/partners/remediade": {
       "experimentalBypassFor": [
         {
@@ -377,54 +256,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/partners/remediade",
       "dataRoute": "/partners/remediade.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/sage-rider": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/sage-rider",
-      "dataRoute": "/partners/sage-rider.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/leak-detection": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/leak-detection",
-      "dataRoute": "/partners/leak-detection.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -458,7 +289,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/shootfire": {
+    "/partners/rs-clare": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -471,8 +302,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/shootfire",
-      "dataRoute": "/partners/shootfire.rsc",
+      "srcRoute": "/partners/rs-clare",
+      "dataRoute": "/partners/rs-clare.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -482,7 +313,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/samoa": {
+    "/partners/dhvi": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -495,8 +326,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/samoa",
-      "dataRoute": "/partners/samoa.rsc",
+      "srcRoute": "/partners/dhvi",
+      "dataRoute": "/partners/dhvi.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -506,7 +337,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/sound-wave-inspection": {
+    "/partners/sage-rider": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -519,32 +350,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/sound-wave-inspection",
-      "dataRoute": "/partners/sound-wave-inspection.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/tomojit-ghosh": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/tomojit-ghosh",
-      "dataRoute": "/partners/tomojit-ghosh.rsc",
+      "srcRoute": "/partners/sage-rider",
+      "dataRoute": "/partners/sage-rider.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -578,7 +385,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/policies/ohs": {
+    "/partners/shootfire": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -591,8 +398,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/policies/ohs",
-      "dataRoute": "/policies/ohs.rsc",
+      "srcRoute": "/partners/shootfire",
+      "dataRoute": "/partners/shootfire.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -602,7 +409,8 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/products": {
+    "/_not-found": {
+      "initialStatus": 404,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -615,8 +423,176 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/products",
-      "dataRoute": "/products.rsc",
+      "srcRoute": "/_not-found",
+      "dataRoute": "/_not-found.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/sound-wave-inspection": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/sound-wave-inspection",
+      "dataRoute": "/partners/sound-wave-inspection.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/samoa": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/samoa",
+      "dataRoute": "/partners/samoa.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/tck-w": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/tck-w",
+      "dataRoute": "/partners/tck-w.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/contact": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/contact",
+      "dataRoute": "/contact.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/leak-detection": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/leak-detection",
+      "dataRoute": "/partners/leak-detection.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/tomojit-ghosh": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/tomojit-ghosh",
+      "dataRoute": "/partners/tomojit-ghosh.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/partners/tck-w-rope": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/partners/tck-w-rope",
+      "dataRoute": "/partners/tck-w-rope.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -650,7 +626,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/rs-clare": {
+    "/policies/ohs": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -663,8 +639,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/rs-clare",
-      "dataRoute": "/partners/rs-clare.rsc",
+      "srcRoute": "/policies/ohs",
+      "dataRoute": "/policies/ohs.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -689,6 +665,126 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/partners/valve-tight",
       "dataRoute": "/partners/valve-tight.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/products": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/products",
+      "dataRoute": "/products.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/services/civil-engineering": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/services/civil-engineering",
+      "dataRoute": "/services/civil-engineering.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/about": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/about",
+      "dataRoute": "/about.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/services/corrosion-management": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/services/corrosion-management",
+      "dataRoute": "/services/corrosion-management.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/services/inspection": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/services/inspection",
+      "dataRoute": "/services/inspection.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -746,7 +842,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/tck-w": {
+    "/services/procurement": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -759,8 +855,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/tck-w",
-      "dataRoute": "/partners/tck-w.rsc",
+      "srcRoute": "/services/procurement",
+      "dataRoute": "/services/procurement.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -794,54 +890,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/partners/tck-w-rope": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/tck-w-rope",
-      "dataRoute": "/partners/tck-w-rope.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/partners/lex-technology": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/partners/lex-technology",
-      "dataRoute": "/partners/lex-technology.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/services/technical-manpower": {
       "experimentalBypassFor": [
         {
@@ -857,54 +905,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/services/technical-manpower",
       "dataRoute": "/services/technical-manpower.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/services/corrosion-management": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/services/corrosion-management",
-      "dataRoute": "/services/corrosion-management.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/services/civil-engineering": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/services/civil-engineering",
-      "dataRoute": "/services/civil-engineering.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -938,7 +938,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/services/inspection": {
+    "/certifications": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -951,8 +951,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/services/inspection",
-      "dataRoute": "/services/inspection.rsc",
+      "srcRoute": "/certifications",
+      "dataRoute": "/certifications.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -962,7 +962,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/services/procurement": {
+    "/partners/evergreen-energy": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -975,8 +975,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/services/procurement",
-      "dataRoute": "/services/procurement.rsc",
+      "srcRoute": "/partners/evergreen-energy",
+      "dataRoute": "/partners/evergreen-energy.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
