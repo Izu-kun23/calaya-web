@@ -436,10 +436,7 @@ function WellServicesContent() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-lg p-6 h-fit sticky top-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-red-600">
-                    {wellCategories[activeTab].icon}
-                  </span>
+                <div className="mb-4">
                   <h2 className="text-xl font-bold text-gray-900">
                     {wellCategories[activeTab].title}
                   </h2>
@@ -868,8 +865,7 @@ function WellServicesContent() {
 
                 {/* Benefits */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <TrendingUp className="w-6 h-6 text-green-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

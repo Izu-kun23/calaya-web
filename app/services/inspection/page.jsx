@@ -147,15 +147,12 @@ function InspectionContent() {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center gap-3 px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
+                className={`px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
                   activeTab === index
                     ? "border-red-600 text-red-600 bg-red-50"
                     : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
-                  {category.icon}
-                </span>
                 <span className="font-medium text-sm sm:text-base">{category.title}</span>
               </button>
             ))}
@@ -175,10 +172,7 @@ function InspectionContent() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-lg p-6 h-fit sticky top-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-red-600">
-                    {InspectionCategories[activeTab].icon}
-                  </span>
+                <div className="mb-4">
                   <h2 className="text-xl font-bold text-gray-900">
                     {InspectionCategories[activeTab].title}
                   </h2>
@@ -210,8 +204,7 @@ function InspectionContent() {
               >
                 {/* Overview */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Target className="w-6 h-6 text-red-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
@@ -221,8 +214,7 @@ function InspectionContent() {
 
                 {/* Services */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Settings className="w-6 h-6 text-red-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -237,8 +229,7 @@ function InspectionContent() {
 
                 {/* Benefits */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <TrendingUp className="w-6 h-6 text-green-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Key Benefits</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

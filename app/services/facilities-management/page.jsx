@@ -276,19 +276,12 @@ function FacilitiesManagementContent() {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center gap-3 px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
+                className={`px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
                   activeTab === index
                     ? "border-red-600 text-red-600 bg-red-50"
                     : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <span
-                  className={`${
-                    activeTab === index ? "text-red-600" : "text-gray-400"
-                  }`}
-                >
-                  {category.icon}
-                </span>
                 <span className="font-medium text-sm sm:text-base">
                   {category.title}
                 </span>
@@ -310,10 +303,7 @@ function FacilitiesManagementContent() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-lg  p-6 h-fit sticky top-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-red-600">
-                    {facilitiesCategories[activeTab].icon}
-                  </span>
+                <div className="mb-4">
                   <h2 className="text-xl font-bold text-gray-900">
                     {facilitiesCategories[activeTab].title}
                   </h2>
@@ -805,27 +795,29 @@ function FacilitiesManagementContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-end xs:items-center justify-center p-1.5 xs:p-3"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.88, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-4xl max-h-[90vh] w-full overflow-y-auto"
+              exit={{ scale: 0.88, opacity: 0 }}
+              className="relative w-full max-w-4xl xs:max-w-5xl flex flex-col items-center rounded-xl bg-black/25 p-1.5 xs:p-2"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage}
-                alt="Enlarged view"
-                className="w-full h-auto object-contain rounded-lg "
-              />
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors duration-300"
+                className="absolute top-2 right-2 xs:top-3 xs:right-3 z-20 bg-black/70 text-white p-2 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                aria-label="Close image viewer"
               >
-                <X className="w-6 h-6 text-white" />
+                <X className="w-5 h-5" />
               </button>
+
+              <img
+                src={selectedImage}
+                alt="Facilities management service detail"
+                className="w-full max-h-[76vh] xs:max-h-[82vh] object-contain mx-auto rounded-lg"
+              />
             </motion.div>
           </motion.div>
         )}

@@ -298,15 +298,12 @@ function CorrosionManagementContent() {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center gap-3 px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
+                className={`px-6 py-4 whitespace-nowrap border-b-2 transition-colors duration-300 ${
                   activeTab === index
                     ? "border-red-600 text-red-600 bg-red-50"
                     : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
-                  {category.icon}
-                </span>
                 <span className="font-medium text-sm sm:text-base">{category.title}</span>
               </button>
             ))}
@@ -326,10 +323,7 @@ function CorrosionManagementContent() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-lg p-6 h-fit sticky top-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-red-600">
-                    {corrosionCategories[activeTab].icon}
-                  </span>
+                <div className="mb-4">
                   <h2 className="text-xl font-bold text-gray-900">
                     {corrosionCategories[activeTab].title}
                   </h2>
@@ -361,8 +355,7 @@ function CorrosionManagementContent() {
               >
                 {/* Overview */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Target className="w-6 h-6 text-red-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
@@ -372,8 +365,7 @@ function CorrosionManagementContent() {
 
                 {/* Services */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Settings className="w-6 h-6 text-red-600" />
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -389,8 +381,7 @@ function CorrosionManagementContent() {
                 {/* Specific Applications - Only for Cathodic Protection Services tab */}
                 {activeTab === 1 && corrosionCategories[activeTab].detailedContent.applications && (
                   <div className="bg-white rounded-lg p-6 lg:p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Shield className="w-6 h-6 text-red-600" />
+                    <div className="mb-6">
                       <h3 className="text-xl font-bold text-gray-900">Specific Applications</h3>
                     </div>
                     <p className="text-gray-600 mb-6">
@@ -424,8 +415,7 @@ function CorrosionManagementContent() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                       >
-                        <div className="flex items-center justify-center gap-3 mb-6">
-                          <Shield className="w-8 h-8 text-red-600" />
+                        <div className="mb-6">
                           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
                             Cathodic Protection Services in Action
                           </h2>

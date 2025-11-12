@@ -16,10 +16,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/services/well-services/page": [
+    "/services/procurement/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/well-services/page.js"
+      "static/chunks/app/services/procurement/page.js"
+    ],
+    "/services/corrosion-management/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/corrosion-management/page.js"
+    ],
+    "/services/facilities-management/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/facilities-management/page.js"
+    ],
+    "/products/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/products/page.js"
+    ],
+    "/partners/sage-rider/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/partners/sage-rider/page.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
     ]
   }
 }
