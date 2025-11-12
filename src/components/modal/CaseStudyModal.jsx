@@ -99,7 +99,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                   {caseStudy.title === "36\" Station Manual Gate Valve Leak Sealing - WAPCo" && (
                     <div className="mt-4">
                       <img 
-                        src="//assets/casestudy/casestudy1.png" 
+                        src="/assets/casestudy/casestudy1.png" 
                         alt="WAPCo valve maintenance project" 
                         className="w-full max-w-2xl mx-auto rounded-lg"
                       />
@@ -108,7 +108,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                   {caseStudy.title === "Valve Sealant 701 for Slickline Operations - Addax Petroleum" && (
                     <div className="mt-4">
                       <img 
-                        src="//assets/casestudy/casestudy2.png" 
+                        src="/assets/casestudy/casestudy2.png" 
                         alt="Addax Petroleum RS Clare pumping operation" 
                         className="w-full max-w-2xl mx-auto rounded-lg"
                       />
@@ -117,7 +117,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }) => {
                   {caseStudy.title === "Greasing and Leak Sealing of GTS-4 - NLNG Bonny Facility" && (
                     <div className="mt-4">
                       <img 
-                        src="//assets/casestudy/casestudy3.png" 
+                        src="/assets/casestudy/casestudy3.png" 
                         alt="NLNG GTS pipeline valve maintenance with RS Clare equipment" 
                         className="w-full max-w-2xl mx-auto rounded-lg"
                       />

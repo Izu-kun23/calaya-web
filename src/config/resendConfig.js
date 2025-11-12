@@ -4,16 +4,16 @@
 export const resendConfig = {
   // IMPORTANT: Replace 're_YOUR_API_KEY_HERE' with your actual Resend API key
   // Get your API key from: https://resend.com/api-keys
-  apiKey: 're_eUpM7Rce_5ABztmWVUKZRmV7KkSUCM8ya',
+  apiKey: 're_ZxwApSCD_3rGFhmFUKuaWVAc5DjBicGnH',
   
   // Your verified domain (optional, but recommended)
-  from: 'noreply@calayaengineering.com', // Replace with your verified domain
+  from: 'noreply@calayaengineering.com',
   
   // Fallback email (must be verified in Resend)
   fromFallback: 'onboarding@resend.dev', // This works without domain verification
   
   // Recipient email
-  to: 'izuchukwuonuoha6@gmail.com',
+  to: ['info@calayaengineering.com', 'calayaengineering@yahoo.co.uk'],
   
   // Email template settings
   template: {

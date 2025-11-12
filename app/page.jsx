@@ -734,139 +734,141 @@ export default function HomePage() {
       </section>
 
       {/* Latest from Calaya Section */}
-      <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SmartMotion>
-            <div className="text-center mb-8 sm:mb-12">
-              <div className="flex items-center justify-center mb-4">
-                <span className="text-red-500 text-xl sm:text-2xl font-bold mr-3">|</span>
-                <h2 className="text-red-500 text-xs sm:text-sm font-semibold uppercase tracking-wide">
-                  Latest from Calaya
-                </h2>
+      {/**
+       * Latest from Calaya Section (Temporarily hidden per request)
+       */}
+      {false && (
+        <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SmartMotion>
+              <div className="text-center mb-8 sm:mb-12">
+                <div className="flex items-center justify-center mb-4">
+                  <span className="text-red-500 text-xl sm:text-2xl font-bold mr-3">|</span>
+                  <h2 className="text-red-500 text-xs sm:text-sm font-semibold uppercase tracking-wide">
+                    Latest from Calaya
+                  </h2>
+                </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Stay Updated with Our Latest News
+                </h1>
+                <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
+                  Discover our recent achievements, project updates, and industry insights
+                </p>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                Stay Updated with Our Latest News
-              </h1>
-              <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
-                Discover our recent achievements, project updates, and industry insights
-              </p>
+            </SmartMotion>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <SmartMotion delay={0.1}>
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+                  <div className="h-40 sm:h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <div className="text-3xl sm:text-4xl font-bold mb-2">2024</div>
+                      <div className="text-xs sm:text-sm uppercase tracking-wide">New Year</div>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-6">
+                    <div className="text-sm text-red-500 font-semibold mb-2">January 15, 2024</div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                      Expanding Operations to New Markets
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                      Calaya Engineering announces expansion into three new African markets, 
+                      strengthening our presence across the continent.
+                    </p>
+                    <Link
+                      href="/news/expansion-2024"
+                      className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
+                    >
+                      Read More →
+                    </Link>
+                  </div>
+                </div>
+              </SmartMotion>
+
+              <SmartMotion delay={0.2}>
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+                  <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <div className="text-3xl sm:text-4xl font-bold mb-2">500+</div>
+                      <div className="text-xs sm:text-sm uppercase tracking-wide">Projects</div>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-6">
+                    <div className="text-sm text-red-500 font-semibold mb-2">December 20, 2023</div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                      Milestone Achievement: 500+ Projects Completed
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                      We're proud to announce the successful completion of over 500 oil and gas 
+                      projects across our seven operating countries.
+                    </p>
+                    <Link
+                      href="/news/milestone-500"
+                      className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
+                    >
+                      Read More →
+                    </Link>
+                  </div>
+                </div>
+              </SmartMotion>
+
+              <SmartMotion delay={0.3}>
+                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
+                  <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                    <div className="text-white text-center">
+                      <div className="text-3xl sm:text-4xl font-bold mb-2">ISO</div>
+                      <div className="text-xs sm:text-sm uppercase tracking-wide">Certified</div>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-6">
+                    <div className="text-sm text-red-500 font-semibold mb-2">November 10, 2023</div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                      ISO 9001:2015 Certification Renewed
+                    </h3>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                      Calaya Engineering successfully renews ISO 9001:2015 certification, 
+                      reaffirming our commitment to quality management systems.
+                    </p>
+                    <Link
+                      href="/news/iso-certification"
+                      className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
+                    >
+                      Read More →
+                    </Link>
+                  </div>
+                </div>
+              </SmartMotion>
             </div>
-          </SmartMotion>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {/* News Item 1 */}
-            <SmartMotion delay={0.1}>
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-                <div className="h-40 sm:h-48 bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="text-3xl sm:text-4xl font-bold mb-2">2024</div>
-                    <div className="text-xs sm:text-sm uppercase tracking-wide">New Year</div>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6">
-                  <div className="text-sm text-red-500 font-semibold mb-2">January 15, 2024</div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Expanding Operations to New Markets
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    Calaya Engineering announces expansion into three new African markets, 
-                    strengthening our presence across the continent.
-                  </p>
-                  <Link
-                    href="/news/expansion-2024"
-                    className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
+            <SmartMotion delay={0.4}>
+              <div className="text-center mt-8 sm:mt-12">
+                <Link
+                  href="/news"
+                  className="inline-flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors duration-200 font-semibold text-sm sm:text-base"
+                >
+                  View All News
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4 sm:w-5 sm:h-5"
                   >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </SmartMotion>
-
-            {/* News Item 2 */}
-            <SmartMotion delay={0.2}>
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-                <div className="h-40 sm:h-48 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="text-3xl sm:text-4xl font-bold mb-2">500+</div>
-                    <div className="text-xs sm:text-sm uppercase tracking-wide">Projects</div>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6">
-                  <div className="text-sm text-red-500 font-semibold mb-2">December 20, 2023</div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    Milestone Achievement: 500+ Projects Completed
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    We're proud to announce the successful completion of over 500 oil and gas 
-                    projects across our seven operating countries.
-                  </p>
-                  <Link
-                    href="/news/milestone-500"
-                    className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </div>
-            </SmartMotion>
-
-            {/* News Item 3 */}
-            <SmartMotion delay={0.3}>
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100">
-                <div className="h-40 sm:h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="text-3xl sm:text-4xl font-bold mb-2">ISO</div>
-                    <div className="text-xs sm:text-sm uppercase tracking-wide">Certified</div>
-                  </div>
-                </div>
-                <div className="p-4 sm:p-6">
-                  <div className="text-sm text-red-500 font-semibold mb-2">November 10, 2023</div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
-                    ISO 9001:2015 Certification Renewed
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    Calaya Engineering successfully renews ISO 9001:2015 certification, 
-                    reaffirming our commitment to quality management systems.
-                  </p>
-                  <Link
-                    href="/news/iso-certification"
-                    className="text-red-500 font-semibold hover:text-red-600 transition-colors duration-200 text-sm"
-                  >
-                    Read More →
-                  </Link>
-                </div>
+                    <path
+                      fillRule="evenodd"
+                      d="M4.5 12a.75.75 0 0 1 .75-.75h11.69l-3.72-3.72a.75.75 0 1 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 1 1-1.06-1.06l3.72-3.72H5.25A.75.75 0 0 1 4.5 12Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </Link>
               </div>
             </SmartMotion>
           </div>
-
-          <SmartMotion delay={0.4}>
-            <div className="text-center mt-8 sm:mt-12">
-              <Link
-                href="/news"
-                className="inline-flex items-center gap-2 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-colors duration-200 font-semibold text-sm sm:text-base"
-              >
-                View All News
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.5 12a.75.75 0 0 1 .75-.75h11.69l-3.72-3.72a.75.75 0 1 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 1 1-1.06-1.06l3.72-3.72H5.25A.75.75 0 0 1 4.5 12Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </SmartMotion>
-        </div>
-      </section>
-
+        </section>
+      )}
+ 
       {/* Testimonials Section */}
-      <Testimonials />
-
+      {false && <Testimonials />}
+ 
       {/* Client Section */}
       <ClientSection />
     </div>

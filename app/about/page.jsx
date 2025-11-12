@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-75 overflow-hidden">
+      <section className="relative w-full min-h-[30vh] overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={aboutHeroImage}
@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
-          <div className="text-center text-white">
+          <div className="text-center text-white mt-[45px]">
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}

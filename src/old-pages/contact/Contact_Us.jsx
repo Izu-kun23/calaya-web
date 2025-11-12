@@ -49,7 +49,8 @@ const Contact_Us = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer re_c3b8DkHY_9LegVWyVqTaEsfYi1DFRArRk'
+          // Updated Resend API key for legacy contact form (not used in production build)
+          'Authorization': 'Bearer re_ZxwApSCD_3rGFhmFUKuaWVAc5DjBicGnH'
         },
         body: JSON.stringify({
           from: 'Calaya Engineering <onboarding@resend.dev>',

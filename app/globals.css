@@ -17,6 +17,33 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
+
+  /* Brand Colors */
+  --brand-blue-050: #f4f7fb;
+  --brand-blue-100: #d9e3f5;
+  --brand-blue-200: #b5c5e9;
+  --brand-blue-500: #1f3f8c;
+  --brand-blue-700: #142a5c;
+  --brand-blue-900: #0d1b3d;
+
+  --brand-red-050: #fdf4f4;
+  --brand-red-100: #fbd7d7;
+  --brand-red-500: #c62828;
+  --brand-red-600: #b71c1c;
+
+  /* Neutral Palette */
+  --neutral-050: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-500: #6b7280;
+  --neutral-700: #374151;
+  --neutral-900: #111827;
+
+  /* Layout */
+  --section-spacing: clamp(4rem, 8vw, 6rem);
+  --card-radius-lg: 1.5rem;
+  --card-radius-md: 1rem;
 }
 
 /* Global Font Classes */
@@ -66,10 +93,22 @@ body {
   font-family: var(--font-body);
   font-weight: var(--font-weight-regular);
   line-height: 1.6;
+  background: var(--neutral-050);
+  color: var(--neutral-900);
 }
 
 p, span, div, a, button {
   font-family: var(--font-body);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* Special Content Areas */
@@ -119,5 +158,159 @@ html, body {
 /* Ensure proper mobile viewport handling */
 * {
   box-sizing: border-box;
+}
+
+/* Global section helpers */
+.section-shell {
+  padding-block: var(--section-spacing);
+}
+
+.section-inner {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Card primitives */
+.card-default {
+  border-radius: var(--card-radius-lg);
+  border: 1px solid var(--neutral-200);
+  background: #fff;
+  box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.2);
+}
+
+.card-outline {
+  border-radius: var(--card-radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+}
+
+/* Button primitives */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  background: var(--brand-blue-500);
+  color: #fff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--brand-blue-700);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  border: 1px solid var(--brand-blue-500);
+  color: var(--brand-blue-500);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--brand-blue-500);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-blue-500);
+  background: transparent;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--brand-red-500);
+  background: rgba(198, 40, 40, 0.08);
+}
+
+/* Typography helpers */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.display-heading {
+  font-size: clamp(2.75rem, 5vw, 3.75rem);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--brand-blue-900);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--brand-blue-900);
+}
+
+.subheading {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--neutral-700);
+  line-height: 1.7;
+}
+
+/* Utility classes for consistent spacing */
+.stack-sm > * + * {
+  margin-top: 0.75rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1.5rem;
+}
+
+.stack-lg > * + * {
+  margin-top: 2rem;
+}
+
+/* Section dividers */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0));
+}
+
+/* Form styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  border-radius: 0.75rem;
+  border: 1px solid var(--neutral-200);
+  background: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: var(--neutral-700);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-blue-500);
+  box-shadow: 0 0 0 4px rgba(31, 63, 140, 0.12);
+}
+
+button {
+  cursor: pointer;
 }
 

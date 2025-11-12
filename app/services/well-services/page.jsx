@@ -6,11 +6,13 @@ import { useSearchParams } from 'next/navigation'
 import ClientSection from '../../../src/components/section/client_section'
 
 // Images from public folder
-const wellheadMaintenance1 = '/assets/wellhead_maintenance/wellhead_maintenance1.jpeg'
-const wellheadMaintenance2 = '/assets/wellhead_maintenance/wellhead_maintenance2.jpeg'
+const wellheadMaintenance1 = '/assets/wellhead_maintenance/fe79bee2-882a-4c12-8136-796445c1e26b.JPG'
+const wellheadMaintenance2 = '/assets/wellhead_maintenance/ef0f3628-40a7-4e69-b707-a2867153daae.JPG'
+const wellheadMaintenance3 = '/assets/wellhead_maintenance/db276577-68fb-45c6-b05a-ff6377a6e39e.JPG'
+const wellheadMaintenance4 = '/assets/wellhead_maintenance/aa5884f4-4542-408b-8850-a213c30fdb2f.JPG'
 const leakSealing1 = '/assets/wellhead_leak_sealing/wellhead_sealing1.jpeg'
-const leakSealing2 = '/assets/wellhead_leak_sealing/wellhead_sealing2.jpeg'
-const leakSealing3 = '/assets/wellhead_leak_sealing/wellhead_sealing7.jpeg'
+const leakSealing2 = '/assets/leak_sealing/PHOTO-2025-11-10-09-50-11.jpg'
+const leakSealing3 = '/assets/leak_sealing/PHOTO-2025-11-10-09-50-11 4.jpg'
 const wellCompletion1 = '/assets/well_services/Well_completion1.jpeg'
 const wellCompletion2 = '/assets/well_services/well_completion2.jpeg'
 const wellIntervention1 = '/assets/well_services/well_intervention1.jpeg'
@@ -39,7 +41,6 @@ function WellServicesContent() {
   
   const wellCategories = [
     {
-      icon: <Settings className="w-8 h-8" />,
       title: "Well Completion",
       description: "Comprehensive well completion services including casing, cementing, perforation, and production equipment installation to ensure optimal well performance and longevity.",
       features: [
@@ -78,7 +79,6 @@ function WellServicesContent() {
       }
     },
     {
-      icon: <Wrench className="w-8 h-8" />,
       title: "Well Intervention",
       description: "Advanced well intervention techniques and services to restore, enhance, or maintain well performance through specialized tools and methodologies.",
       features: [
@@ -116,7 +116,6 @@ function WellServicesContent() {
       }
     },
     {
-      icon: <Shield className="w-8 h-8" />,
       title: "Well Head Maintenance",
       description: "Professional wellhead maintenance services to ensure optimal performance, safety, and regulatory compliance for oil and gas production operations.",
       features: [
@@ -154,7 +153,6 @@ function WellServicesContent() {
       }
     },
     {
-      icon: <Droplets className="w-8 h-8" />,
       title: "Leak Sealing & Greasing Valves",
       description: "Specialized leak sealing and valve greasing services using RS Clare's globally recognized advanced lubricants and application equipment.",
       features: [
@@ -198,17 +196,17 @@ function WellServicesContent() {
     {
       id: 1,
       src: wellCompletion1,
-      alt: "Well Completion Operations - Industrial Platform",
-      title: "Professional Well Completion Operations",
-      description: "Advanced completion services with specialized equipment and safety protocols",
+      alt: "Completion crew performing valve checks on a production wellhead",
+      title: "Completion Crew Onsite",
+      description: "Calaya completion crew performs valve verification on a newly installed surface tree before handover.",
       category: "Completion"
     },
     {
       id: 2,
       src: wellCompletion2,
-      alt: "Well Completion Services - Equipment Installation",
-      title: "Advanced Completion Equipment",
-      description: "State-of-the-art equipment for casing, cementing, and production installation",
+      alt: "Technicians installing production equipment during well completion",
+      title: "Completion Equipment Setup",
+      description: "Technicians rig up production tubing and control lines while finalising the completion assembly.",
       category: "Equipment"
     }
   ]
@@ -217,41 +215,41 @@ function WellServicesContent() {
     {
       id: 1,
       src: wellIntervention1,
-      alt: "Well Intervention Operations - Night Operations",
-      title: "Night Operations Excellence",
-      description: "24/7 well intervention capabilities with advanced lighting and safety protocols",
+      alt: "Night well intervention crew working under tower lights",
+      title: "Night Intervention Crew",
+      description: "Night shift crew executes coil tubing stimulation under tower lighting with full safety supervision.",
       category: "Operations"
     },
     {
       id: 2,
       src: wellIntervention2,
-      alt: "Well Intervention - Heavy Equipment Operations",
-      title: "Heavy Equipment Operations",
-      description: "Advanced intervention rigs and specialized equipment for complex operations",
+      alt: "Heavy intervention spread rigged up around a live well",
+      title: "Heavy Intervention Spread",
+      description: "High-pressure pumping spread and support rig arranged around an active well during remedial work.",
       category: "Equipment"
     },
     {
       id: 3,
       src: wellIntervention3,
-      alt: "Well Intervention - Specialized Tools",
-      title: "Specialized Intervention Tools",
-      description: "Professional tools and techniques for precise well intervention operations",
+      alt: "Technician preparing specialist well intervention tools",
+      title: "Intervention Tooling",
+      description: "Specialist prepares precision intervention tools and sensors prior to running in hole.",
       category: "Tools"
     },
     {
       id: 4,
       src: wellIntervention4,
-      alt: "Well Intervention - Production Enhancement",
-      title: "Production Enhancement",
-      description: "Advanced techniques to maximize well productivity and operational efficiency",
+      alt: "Flowback equipment staged for production enhancement job",
+      title: "Production Enhancement Setup",
+      description: "Flowback manifolds, tanks, and monitoring gear staged for a production enhancement program.",
       category: "Enhancement"
     },
     {
       id: 5,
       src: wellIntervention5,
-      alt: "Well Intervention - Comprehensive Operations",
-      title: "Comprehensive Well Intervention",
-      description: "Complete intervention services from stimulation to integrity solutions",
+      alt: "Complete well intervention package deployed on location",
+      title: "Comprehensive Service Spread",
+      description: "Integrated intervention fleet with pumping units, nitrogen package, and control cabin ready for deployment.",
       category: "Services"
     }
   ]
@@ -260,18 +258,34 @@ function WellServicesContent() {
     {
       id: 1,
       src: wellheadMaintenance1,
-      alt: "Well Head Maintenance Service 1",
-      title: "Professional Well Head Maintenance",
-      description: "Expert maintenance services ensuring optimal performance",
+      alt: "Technicians performing bolt integrity checks on a wellhead assembly",
+      title: "Flange Integrity Check",
+      description: "Maintenance technicians secure wellhead flanges and inspect bolts during routine service.",
       category: "Maintenance"
     },
     {
       id: 2,
       src: wellheadMaintenance2,
-      alt: "Well Head Maintenance Service 2",
-      title: "Safety & Compliance Focus",
-      description: "Meeting highest safety and regulatory standards",
+      alt: "Engineers flushing and lubricating a horizontal tree assembly",
+      title: "Valve Service Routine",
+      description: "Team flushes and lubricates tree valves with RS Clare products to keep actuation smooth.",
       category: "Safety"
+    },
+    {
+      id: 3,
+      src: wellheadMaintenance3,
+      alt: "Field crew calibrating wellhead gauges and control panel",
+      title: "Instrumentation Calibration",
+      description: "Engineers calibrate pressure gauges and control panels as part of preventive maintenance.",
+      category: "Reliability"
+    },
+    {
+      id: 4,
+      src: wellheadMaintenance4,
+      alt: "Maintenance crew inspecting Christmas tree valves after service",
+      title: "Integrity Verification",
+      description: "Inspectors review the tree after service to confirm valve integrity before returning to production.",
+      category: "Integrity"
     }
   ]
 
@@ -279,26 +293,26 @@ function WellServicesContent() {
     {
       id: 1,
       src: leakSealing1,
-      alt: "Leak Sealing Service 1",
-      title: "RS Clare Advanced Lubricants",
-      description: "High-performance greases for superior sealing",
+      alt: "Close-up of RS Clare lubricant canisters used for leak sealing",
+      title: "RS Clare Lubricant Suite",
+      description: "RS Clare sealant cartridges and pumps staged for rapid response on problematic valves.",
       category: "Lubricants"
     },
     {
       id: 2,
       src: leakSealing2,
-      alt: "Leak Sealing Service 2",
-      title: "Professional Application",
-      description: "State-of-the-art equipment for precise operations",
+      alt: "Technician injecting sealant into a live Christmas tree valve",
+      title: "Field Leak Sealing",
+      description: "Field specialist injects RS Clare sealant into a passing valve to reinstate a reliable barrier.",
       category: "Application"
     },
     {
       id: 3,
       src: leakSealing3,
-      alt: "Leak Sealing Service 3",
-      title: "Multi-Industry Expertise",
-      description: "Versatile solutions across various markets",
-      category: "Expertise"
+      alt: "Portable pump unit greasing a valve body on location",
+      title: "Greasing Operations",
+      description: "Portable greasing skid delivers calibrated lubricant to protect valves during maintenance.",
+      category: "Maintenance"
     }
   ]
 
@@ -403,9 +417,6 @@ function WellServicesContent() {
                     : "border-transparent text-gray-600 hover:text-red-600 hover:border-red-300"
                 }`}
               >
-                <span className={`${activeTab === index ? "text-red-600" : "text-gray-400"}`}>
-                  {category.icon}
-                </span>
                 <span className="font-medium text-sm sm:text-base">{category.title}</span>
               </button>
             ))}
@@ -460,10 +471,7 @@ function WellServicesContent() {
               >
                 {/* Overview */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Target className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Service Overview</h3>
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">Service Overview</h3>
                   <p className="text-gray-700 leading-relaxed">
                     {wellCategories[activeTab].detailedContent.overview}
                   </p>
@@ -471,10 +479,7 @@ function WellServicesContent() {
 
                 {/* Services */}
                 <div className="bg-white rounded-lg p-6 lg:p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Settings className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">Our Services</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {wellCategories[activeTab].detailedContent.services.map((service, index) => (
                       <div key={index} className="border border-gray-200 rounded-lg p-4 transition-shadow duration-300">
@@ -532,7 +537,7 @@ function WellServicesContent() {
                                 openModal(index);
                               }
                             }}
-                            aria-label={`View ${image.title} in full size`}
+                            aria-label={`View ${image.alt} in full size`}
                           >
                             <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
@@ -560,7 +565,6 @@ function WellServicesContent() {
                                     {image.category}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
                                 <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
                                 <div className="flex items-center text-sm font-medium">
                                   <ZoomIn className="w-4 h-4 mr-2" />
@@ -627,7 +631,7 @@ function WellServicesContent() {
                                 openModal(index);
                               }
                             }}
-                            aria-label={`View ${image.title} in full size`}
+                            aria-label={`View ${image.alt} in full size`}
                           >
                             <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
@@ -655,7 +659,6 @@ function WellServicesContent() {
                                     {image.category}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
                                 <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
                                 <div className="flex items-center text-sm font-medium">
                                   <ZoomIn className="w-4 h-4 mr-2" />
@@ -722,7 +725,7 @@ function WellServicesContent() {
                                 openModal(index);
                               }
                             }}
-                            aria-label={`View ${image.title} in full size`}
+                            aria-label={`View ${image.alt} in full size`}
                           >
                             <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
@@ -750,7 +753,6 @@ function WellServicesContent() {
                                     {image.category}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
                                 <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
                                 <div className="flex items-center text-sm font-medium">
                                   <ZoomIn className="w-4 h-4 mr-2" />
@@ -817,7 +819,7 @@ function WellServicesContent() {
                                 openModal(index);
                               }
                             }}
-                            aria-label={`View ${image.title} in full size`}
+                            aria-label={`View ${image.alt} in full size`}
                           >
                             <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
@@ -845,7 +847,6 @@ function WellServicesContent() {
                                     {image.category}
                                   </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">{image.title}</h3>
                                 <p className="text-sm text-gray-200 mb-3 line-clamp-2">{image.description}</p>
                                 <div className="flex items-center text-sm font-medium">
                                   <ZoomIn className="w-4 h-4 mr-2" />

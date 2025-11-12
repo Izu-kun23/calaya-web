@@ -42,84 +42,17 @@ export default function ContactPage() {
     try {
       console.log('Sending email via Resend API...');
       
-      // Use Resend API directly with CORS proxy
-      const resendApiUrl = 'https://api.resend.com/emails';
-      
-      const response = await fetch(resendApiUrl, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer re_c3b8DkHY_9LegVWyVqTaEsfYi1DFRArRk'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          from: 'Calaya Engineering <onboarding@resend.dev>',
-          to: ['izuchukwuonuoha6@gmail.com'],
-          subject: `New Contact Form Submission - ${formData.subject}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-              <div style="background: linear-gradient(135deg, #dc2626, #b91c1c); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-                <h1 style="color: white; margin: 0; font-size: 24px;">Calaya Engineering</h1>
-                <p style="color: #fecaca; margin: 10px 0 0 0;">New Contact Form Submission</p>
-              </div>
-              
-              <div style="background: white; padding: 30px; border: 1px solid #e5e7eb; border-top: none;">
-                <div style="background: #fef2f2; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #dc2626;">
-                  <h2 style="color: #dc2626; margin: 0 0 15px 0; font-size: 18px;">🚨 New Customer Inquiry</h2>
-                  <p style="margin: 0; color: #374151; font-size: 16px;">A new customer has submitted a contact form and requires your attention.</p>
-                </div>
-                
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-                  <h3 style="color: #1f2937; margin: 0 0 15px 0; font-size: 18px;">Customer Information</h3>
-                  <p style="margin: 8px 0; color: #374151;"><strong>Name:</strong> ${formData.name}</p>
-                  <p style="margin: 8px 0; color: #374151;"><strong>Email:</strong> <a href="mailto:${formData.email}" style="color: #dc2626; text-decoration: none;">${formData.email}</a></p>
-                  <p style="margin: 8px 0; color: #374151;"><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
-                  <p style="margin: 8px 0; color: #374151;"><strong>Subject:</strong> ${formData.subject}</p>
-                </div>
-                
-                <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b;">
-                  <h3 style="color: #92400e; margin: 0 0 15px 0; font-size: 16px;">Customer Message</h3>
-                  <p style="margin: 0; color: #374151; white-space: pre-wrap;">${formData.message}</p>
-                </div>
-                
-                <div style="margin-top: 25px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #0ea5e9;">
-                  <p style="margin: 0; color: #0369a1; font-size: 14px;">
-                    <strong>📧 Reply directly to this email to respond to the customer.</strong>
-                  </p>
-                </div>
-              </div>
-              
-              <div style="background: #f9fafb; padding: 20px; text-align: center; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
-                <p style="margin: 0; color: #6b7280; font-size: 12px;">
-                  This email was sent from the Calaya Engineering website contact form.<br>
-                  <strong>Calaya Engineering</strong> - Excellence in Engineering Solutions
-                </p>
-              </div>
-            </div>
-          `,
-          text: `
-Calaya Engineering - New Contact Form Submission
-
-Customer Information:
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Subject: ${formData.subject}
-
-Customer Message:
-${formData.message}
-
----
-This email was sent from the Calaya Engineering website contact form.
-Reply directly to this email to respond to the customer.
-
-Calaya Engineering - Excellence in Engineering Solutions
-          `
-        })
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
         const result = await response.json();
-        console.log('Emails sent successfully:', result);
+        console.log('Contact email sent successfully:', result);
         
         setSubmitStatus('success');
         
@@ -137,13 +70,13 @@ Calaya Engineering - Excellence in Engineering Solutions
           setSubmitStatus(null);
         }, 5000);
       } else {
-        const errorData = await response.json();
-        console.error('Serverless function error:', {
+        const errorData = await response.json().catch(() => null);
+        console.error('Contact API error:', {
           status: response.status,
           statusText: response.statusText,
           error: errorData
         });
-        throw new Error(`Email sending failed: ${errorData.error || 'Unknown error'}`);
+        throw new Error(`Email sending failed: ${errorData?.error || 'Unknown error'}`);
       }
 
     } catch (error) {
