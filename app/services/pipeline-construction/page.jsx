@@ -395,71 +395,70 @@ function PipelineConstructionContent() {
 
                     <AnimatePresence>
                        {isHotTapModalOpen && currentHotTapImage && (
-                         <motion.div
-                           initial={{ opacity: 0 }}
-                           animate={{ opacity: 1 }}
-                           exit={{ opacity: 0 }}
-                           transition={{ duration: 0.3 }}
-                           className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center"
-                           onClick={closeHotTapModal}
-                           role="dialog"
-                           aria-modal="true"
-                           aria-label="Expanded hot tapping image"
-                         >
-                           <motion.div
-                             initial={{ scale: 0.8, opacity: 0 }}
-                             animate={{ scale: 1, opacity: 1 }}
-                             exit={{ scale: 0.8, opacity: 0 }}
-                             transition={{ duration: 0.3 }}
-                             className="relative w-full h-full flex items-center justify-center p-4"
-                             onClick={(event) => event.stopPropagation()}
-                           >
-                             <button
-                               onClick={closeHotTapModal}
-                               className="absolute top-6 right-6 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
-                               aria-label="Close image viewer"
-                             >
-                               <X className="w-6 h-6" />
-                             </button>
- 
-                             {hotTappingCount > 1 && (
-                               <>
-                                 <button
-                                   onClick={prevHotTapImage}
-                                   className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
-                                   aria-label="View previous image"
-                                 >
-                                   <ChevronLeft className="w-6 h-6" />
-                                 </button>
-                                 <button
-                                   onClick={nextHotTapImage}
-                                   className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/60 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm"
-                                   aria-label="View next image"
-                                 >
-                                   <ChevronRight className="w-6 h-6" />
-                                 </button>
-                               </>
-                             )}
- 
-                            <div className="w-full max-w-6xl">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-end xs:items-center justify-center p-4 xs:p-6"
+                          onClick={closeHotTapModal}
+                          role="dialog"
+                          aria-modal="true"
+                          aria-label="Expanded hot tapping image"
+                        >
+                          <motion.div
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative w-full max-w-5xl xs:max-w-6xl flex flex-col items-center gap-4 rounded-3xl xs:rounded-[28px] bg-black/60 p-4 xs:p-6"
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <button
+                              onClick={closeHotTapModal}
+                              className="absolute top-4 right-4 xs:top-6 xs:right-6 z-20 bg-black/70 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                              aria-label="Close image viewer"
+                            >
+                              <X className="w-6 h-6" />
+                            </button>
+
+                            {hotTappingCount > 1 && (
+                              <>
+                                <button
+                                  onClick={prevHotTapImage}
+                                  className="absolute left-4 xs:left-6 top-1/2 -translate-y-1/2 z-20 bg-black/70 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                                  aria-label="View previous image"
+                                >
+                                  <ChevronLeft className="w-6 h-6" />
+                                </button>
+                                <button
+                                  onClick={nextHotTapImage}
+                                  className="absolute right-4 xs:right-6 top-1/2 -translate-y-1/2 z-20 bg-black/70 text-white p-3 rounded-full hover:bg-black/80 transition-all duration-300 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                                  aria-label="View next image"
+                                >
+                                  <ChevronRight className="w-6 h-6" />
+                                </button>
+                              </>
+                            )}
+
+                            <div className="w-full max-w-full">
                               <img
                                 src={currentHotTapImage.src}
                                 alt={currentHotTapImage.alt}
-                                className="max-w-none max-h-none w-auto h-auto object-contain mx-auto"
-                                style={{ width: '530px', height: '630px' }}
+                                className="w-full max-h-[70vh] xs:max-h-[75vh] object-contain mx-auto rounded-2xl bg-black/40"
                                 loading="lazy"
                               />
-                              <div className="mt-4 text-center">
-                                <h3 className="text-xl font-semibold text-white mb-2">
+                              <div className="mt-3 xs:mt-4 text-center px-2">
+                                <h3 className="text-lg xs:text-xl font-semibold text-white mb-2">
                                   {currentHotTapImage.title}
                                 </h3>
-                                <p className="text-gray-300">
+                                <p className="text-gray-300 text-sm xs:text-base leading-relaxed">
                                   {currentHotTapImage.description}
                                 </p>
                               </div>
                             </div>
-                           </motion.div>
-                         </motion.div>
+                          </motion.div>
+                        </motion.div>
                        )}
                      </AnimatePresence>
                   </motion.section>

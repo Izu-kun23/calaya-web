@@ -41,7 +41,7 @@
   --neutral-900: #111827;
 
   /* Layout */
-  --section-spacing: clamp(4rem, 8vw, 6rem);
+  --section-spacing: clamp(2.75rem, 6vw, 6rem);
   --card-radius-lg: 1.5rem;
   --card-radius-md: 1rem;
 }
@@ -99,6 +99,15 @@ body {
 
 p, span, div, a, button {
   font-family: var(--font-body);
+}
+
+/* Fluid media defaults keep imagery within narrow columns */
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Links */
@@ -168,7 +177,7 @@ html, body {
 .section-inner {
   width: min(1120px, 100%);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
 }
 
 /* Card primitives */

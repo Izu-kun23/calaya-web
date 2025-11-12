@@ -223,15 +223,17 @@ export default function HomePage() {
 
   const scrollToSlide = (slideIndex) => {
     if (carouselRef.current) {
-      // Responsive card width based on screen size
+      // Responsive card width tuned to handheld-first breakpoints
       const getCardWidth = () => {
-        if (window.innerWidth < 640) return 260; // mobile
-        if (window.innerWidth < 768) return 320; // sm
-        if (window.innerWidth < 1024) return 350; // md
-        return 400; // lg+
+        const width = window.innerWidth;
+        if (width < 360) return 240;
+        if (width < 480) return 260;
+        if (width < 768) return 300;
+        if (width < 1024) return 340;
+        return 380;
       };
       const cardWidth = getCardWidth();
-      const gap = window.innerWidth < 640 ? 12 : 24; // gap-3 on mobile, gap-6 on larger screens
+      const gap = window.innerWidth < 480 ? 12 : window.innerWidth < 768 ? 16 : 24;
       const scrollPosition = slideIndex * (cardWidth + gap);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -327,15 +329,17 @@ export default function HomePage() {
   // Update current slide based on scroll position
   const updateCurrentSlide = () => {
     if (!carouselRef.current) return;
-    // Responsive card width based on screen size
+    // Mirror carousel slide math with new widths
     const getCardWidth = () => {
-      if (window.innerWidth < 640) return 260; // mobile
-      if (window.innerWidth < 768) return 320; // sm
-      if (window.innerWidth < 1024) return 350; // md
-      return 400; // lg+
+      const width = window.innerWidth;
+      if (width < 360) return 240;
+      if (width < 480) return 260;
+      if (width < 768) return 300;
+      if (width < 1024) return 340;
+      return 380;
     };
     const cardWidth = getCardWidth();
-    const gap = window.innerWidth < 640 ? 12 : 24; // gap-3 on mobile, gap-6 on larger screens
+    const gap = window.innerWidth < 480 ? 12 : window.innerWidth < 768 ? 16 : 24;
     const scrollPosition = carouselRef.current.scrollLeft;
     const newSlide = Math.round(scrollPosition / (cardWidth + gap));
     setCurrentSlide(Math.min(newSlide, totalSlides - 1));
@@ -350,7 +354,7 @@ export default function HomePage() {
       <section className="w-full bg-blue-50 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SmartMotion>
-            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-6 sm:mt-[-9px] mb-6 sm:mb-9 px-4 font-extrabold">
+            <h2 className="font-heading text-xl xs:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-4 xs:mt-6 mb-6 md:mb-8 px-2 xs:px-4 font-extrabold">
               Trusted by Industry Leaders Across 7 Countries
             </h2>
             <p className="font-body text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4 mb-8 leading-relaxed">
@@ -379,42 +383,42 @@ export default function HomePage() {
       </section>
 
       {/* Who We Are */}
-      <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white py-8 xs:py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8">
           <SmartMotion>
-            <h3 className="text-red-500 text-base sm:text-lg font-semibold tracking-wide uppercase mb-6 sm:mb-8 mt-6 sm:mt-1 text-center sm:text-left sm:ml-[280px] lg:ml-[560px]">
+            <h3 className="text-red-500 text-xs xs:text-sm sm:text-base font-semibold tracking-[0.35em] uppercase mb-5 xs:mb-6 md:mb-8 text-center md:text-left">
               Why Calaya?
             </h3>
           </SmartMotion>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xs:gap-10 items-center">
             <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
-              <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center md:text-left md:ml-5">
+              <div className="space-y-5 xs:space-y-6">
+                <h2 className="text-2xl xs:text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
                   At Calaya
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-1 p-4 sm:p-6 text-center md:text-left">
+                <p className="text-gray-700 leading-relaxed text-sm xs:text-base text-center md:text-left">
                   We are a distinguished multinational engineering company with
                   operations spanning seven countries: Nigeria, Equatorial
                   Guinea, Congo, Malaysia, Mozambique, Angola, and Spain. Since
                   our establishment in 2005, we have emerged as a trusted leader
                   in the oil and gas services sector, serving major international operators.
                 </p>
-                <p className="text-gray-700 leading-relaxed p-4 sm:p-6 text-center md:text-left">
+                <p className="text-gray-700 leading-relaxed text-sm xs:text-base text-center md:text-left">
                   Through innovative engineering approaches, ISO 9001:2015 certified quality management systems, and our unwavering commitment
                   to excellence, we have built lasting partnerships with industry giants like Shell, Chevron, and TotalEnergies, consistently exceeding expectations in
                   diverse international markets.
                 </p>
-                <div className="px-4 sm:px-6 text-center md:text-left">
-                  <div className="flex flex-wrap gap-4 mb-4">
+                <div className="text-center md:text-left">
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4 mb-4">
                     <span className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm font-medium">ISO 9001:2015 Certified</span>
                     <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">500+ Projects Completed</span>
                     <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">7+ Countries</span>
                   </div>
                 </div>
-                <div className="px-4 sm:px-8 text-center md:text-left">
+                <div className="text-center md:text-left">
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-1 border-2 border-red-500 bg-white text-red-500 px-5 py-3 rounded-md shadow hover:bg-red-500 hover:text-white transition-colors text-sm"
+                    className="inline-flex items-center gap-1 border-2 border-red-500 bg-white text-red-500 px-5 py-3 rounded-md shadow hover:bg-red-500 hover:text-white transition-colors text-sm xs:text-base"
                   >
                     Read more
                     <svg
@@ -435,12 +439,12 @@ export default function HomePage() {
             </SmartMotion>
 
             <SmartMotion delay={0.2} initial={{ opacity: 0, x: 40 }}>
-              <div className="relative">
+              <div className="relative w-full max-w-[420px] mx-auto md:max-w-none">
                 <div
                   ref={imageContainerRef}
                   onMouseMove={handleContainerMouseMove}
                   onMouseLeave={handleContainerMouseLeave}
-                  className="aspect-[4/3] w-full overflow-hidden rounded-xl shadow-xl transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                  className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl transform transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
                   style={{
                     transform: `translate(${containerOffset.x}px, ${containerOffset.y}px)`,
                   }}
@@ -458,14 +462,14 @@ export default function HomePage() {
       </section>
 
       {/* Blue Commitment Section */}
-      <section className="w-full bg-blue-900 py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <section className="w-full bg-blue-900 py-10 xs:py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8 text-white">
           <SmartMotion>
-            <h3 className="text-xs sm:text-sm font-semibold uppercase mb-6 sm:mb-7 mt-[-20px] sm:mt-[-30px] text-center sm:text-left sm:ml-[210px] lg:ml-[420px]">
+            <h3 className="text-[0.7rem] xs:text-xs sm:text-sm font-semibold uppercase tracking-[0.32em] mb-6 text-center md:text-left">
               We are committed to service delivery.
             </h3>
           </SmartMotion>
-          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="mt-8 xs:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6">
             <SmartMotion delay={0.1}>
               <WhiteCard
                 iconSrc={missionIcon}
@@ -508,29 +512,29 @@ export default function HomePage() {
 
       {/* Our Services Section */}
       <section
-        className="w-full relative bg-cover bg-center bg-no-repeat pt-[120px] pb-2"
+        className="w-full relative bg-cover bg-center bg-no-repeat pt-20 xs:pt-24 md:pt-32 pb-6"
         style={{
           backgroundImage: `url(${serviceImage})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/75 to-gray-900/75"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 xs:px-6">
           <SmartMotion>
-            <div className="text-left mt-[-60px]">
-              <div className="flex items-center mb-4">
+            <div className="text-center md:text-left -mt-10 xs:-mt-12 md:-mt-16">
+              <div className="flex items-center justify-center md:justify-start mb-4">
                 <span className="text-red-500 text-2xl font-bold mr-3">|</span>
-                <h2 className="text-red-500 text-sm font-semibold uppercase tracking-wide">
+                <h2 className="text-red-500 text-xs xs:text-sm font-semibold uppercase tracking-[0.3em]">
                   Our Top Services
                 </h2>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight mx-3 text-white">
+              <h1 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white max-w-3xl md:mx-0 mx-auto">
                 World-Class Engineering
                 <br />
                 Solutions for the
                 <br />
                 Oil & Gas Industry
               </h1>
-              <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed mx-3 mt-6 max-w-2xl">
+              <p className="text-gray-300 text-sm xs:text-base md:text-lg leading-relaxed mt-6 max-w-2xl mx-auto md:mx-0">
                 A trusted multinational engineering leader since 2005, delivering innovative solutions 
                 through strategic partnerships with industry giants like Shell, Chevron, and TotalEnergies. 
                 Our ISO 9001:2015 certified processes ensure excellence across 7 countries.
@@ -539,10 +543,10 @@ export default function HomePage() {
           </SmartMotion>
           
           {/* Service Cards Carousel */}
-          <div className="mt-16 relative px-2 sm:px-0 sm:ml-4">
+          <div className="mt-12 xs:mt-16 relative px-1 xs:px-2 md:px-0">
             <div 
               ref={carouselRef}
-              className="flex overflow-x-auto scrollbar-hide gap-3 sm:gap-4 md:gap-6 pt-4 pb-4 cursor-grab select-none" 
+              className="flex overflow-x-auto scrollbar-hide gap-3 xs:gap-4 md:gap-6 pt-4 pb-4 cursor-grab select-none"
               style={{ 
                 scrollbarWidth: 'none', 
                 msOverflowStyle: 'none',
@@ -557,9 +561,9 @@ export default function HomePage() {
               onTouchEnd={handleTouchEnd}
               onScroll={updateCurrentSlide}
             >
-              <div className="flex gap-3 sm:gap-4 md:gap-6 min-w-max">
+              <div className="flex gap-3 xs:gap-4 md:gap-6 min-w-max">
                 <SmartMotion delay={0.1}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={procurementImage}
                       title="Procurement Services"
@@ -570,7 +574,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.2}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={civilImage}
                       title="Civil Engineering"
@@ -581,7 +585,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.3}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={facilitiesImage}
                       title="Facilities Management"
@@ -592,7 +596,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.4}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={technicalImage}
                       title="Technical Manpower"
@@ -603,7 +607,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.5}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={pipelineImage}
                       title="Pipeline Construction"
@@ -614,7 +618,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.6}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={inspectionImage}
                       title="Inspection Services"
@@ -625,7 +629,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.7}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={corrosionImage}
                       title="Corrosion Management"
@@ -636,7 +640,7 @@ export default function HomePage() {
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.8}>
-                  <div className="w-[260px] sm:w-[320px] md:w-[350px] lg:w-[400px] flex-shrink-0">
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={wellImage}
                       title="Well Services"
@@ -653,16 +657,16 @@ export default function HomePage() {
       </section>
 
       {/* White background section with pagination controls */}
-      <section className="w-full bg-white pt-1 pb-[-5px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white pt-2 pb-6">
+        <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8">
           {/* Pagination Controls */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-12 sm:mb-16">
+          <div className="flex items-center justify-center gap-2 xs:gap-3 md:gap-4 mb-10 xs:mb-12 md:mb-16">
             {/* Previous Button */}
             <button
               onClick={prevSlide}
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+              className="w-10 h-10 xs:w-11 xs:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
             >
-              <MoveLeft className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
+              <MoveLeft className="w-5 h-5 md:w-6 md:h-6 text-red-500" />
             </button>
 
             {/* Pagination Dots */}
@@ -683,24 +687,24 @@ export default function HomePage() {
             {/* Next Button */}
             <button
               onClick={nextSlide}
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
+              className="w-10 h-10 xs:w-11 xs:h-11 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 hover:border-red-500"
             >
-              <MoveRight className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
+              <MoveRight className="w-5 h-5 md:w-6 md:h-6 text-red-500" />
             </button>
           </div>
         </div>
       </section>
 
       {/* Get in Touch Section */}
-      <section className="w-full bg-gray-50 py-8 sm:py-12 lg:py-18">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gray-50 py-10 xs:py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
             <SmartMotion delay={0.1} initial={{ opacity: 0, x: -40 }}>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   Ready to Work With Us?
                 </h2>
-                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto md:mx-0">
+                <p className="text-gray-700 text-sm xs:text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
                   Let's discuss how Calaya Engineering can help you achieve your oil and gas project goals. 
                   Our experienced team is ready to provide innovative solutions tailored to your needs.
                 </p>
@@ -708,10 +712,10 @@ export default function HomePage() {
             </SmartMotion>
             
             <SmartMotion delay={0.2} initial={{ opacity: 0, x: 40 }}>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full xs:w-auto">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-red-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 text-base sm:text-lg font-semibold"
+                  className="inline-flex w-full xs:w-auto justify-center items-center gap-2 bg-red-500 text-white px-6 xs:px-7 md:px-8 py-3 xs:py-3.5 md:py-4 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl transition-all duration-300 text-base xs:text-lg font-semibold"
                 >
                   Get in Touch
                   <svg
