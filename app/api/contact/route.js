@@ -171,10 +171,16 @@ export async function POST(request) {
       }
     }
 
-    const apiKey = process.env.CALAYA_RESEND_API_KEY || resendConfig.apiKey;
+    const apiKey = process.env.CALAYA_RESEND_API_KEY;
 
     if (!apiKey) {
-      return NextResponse.json({ error: 'Resend API key is not configured.' }, { status: 500 });
+      return NextResponse.json(
+        {
+          error:
+            'Resend API key is not configured. Set CALAYA_RESEND_API_KEY in your environment.',
+        },
+        { status: 500 },
+      );
     }
 
     const internalPayload = buildInternalPayload(formData);

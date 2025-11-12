@@ -1,25 +1,53 @@
 // Resend Configuration for Calaya Engineering Contact Form
 // Get your API key from: https://resend.com/api-keys
 
+/**
+ * Resend configuration for the Calaya Engineering contact form.
+ *
+ * All secrets MUST be provided through environment variables.
+ * See `.env.example` for the expected variable names.
+ */
+
+const commaSeparated = (value) =>
+  value
+    ?.split(',')
+    .map((item) => item.trim())
+    .filter(Boolean) ?? [];
+
 export const resendConfig = {
-  // IMPORTANT: Replace 're_YOUR_API_KEY_HERE' with your actual Resend API key
-  // Get your API key from: https://resend.com/api-keys
-  apiKey: 're_ZxwApSCD_3rGFhmFUKuaWVAc5DjBicGnH',
-  
-  // Your verified domain (optional, but recommended)
-  from: 'noreply@calayaengineering.com',
-  
-  // Fallback email (must be verified in Resend)
-  fromFallback: 'onboarding@resend.dev', // This works without domain verification
-  
-  // Recipient email
-  to: ['info@calayaengineering.com', 'calayaengineering@yahoo.co.uk'],
-  
-  // Email template settings
+  /**
+   * Resend API key is intentionally omitted here.
+   * Use `process.env.CALAYA_RESEND_API_KEY` at runtime.
+   */
+  apiKey: process.env.CALAYA_RESEND_API_KEY,
+
+  /**
+   * Preferred "from" address for outgoing messages.
+   * Should match a verified sender in Resend.
+   */
+  from: process.env.CALAYA_RESEND_FROM ?? 'noreply@calayaengineering.com',
+
+  /**
+   * Optional fallback "from" address if the primary sender is not configured.
+   */
+  fromFallback:
+    process.env.CALAYA_RESEND_FROM_FALLBACK ?? 'onboarding@resend.dev',
+
+  /**
+   * Recipients for the internal notification email.
+   * Provide as a comma-separated list in `CALAYA_RESEND_TO`.
+   */
+  to: (() => {
+    const recipients = commaSeparated(process.env.CALAYA_RESEND_TO);
+    return recipients.length > 0
+      ? recipients
+      : ['info@calayaengineering.com', 'calayaengineering@yahoo.co.uk'];
+  })(),
+
   template: {
     subject: 'New Contact Form Submission - Calaya Engineering',
-    replyTo: null, // Will be set dynamically to user's email
-  }
+    replyTo: null, // Will be set dynamically to the visitor's email
+  },
 };
 
 // Instructions for setup:
