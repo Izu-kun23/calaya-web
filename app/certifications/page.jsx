@@ -179,16 +179,7 @@ export default function CertificationsPage() {
             viewport={{ once: true }}
             className="mt-16 p-8 lg:p-12"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-              <div>
-                <div className="text-3xl lg:text-4xl font-bold mb-2 text-red-600">{certificationImages.length}</div>
-                <div className="text-red-600">Active Certifications</div>
-              </div>
-              <div>
-                <div className="text-3xl lg:text-4xl font-bold mb-2 text-red-600">100%</div>
-                <div className="text-red-600">Compliance Rate</div>
-              </div>
-            </div>
+            
           </motion.div>
         </div>
       </motion.section>
