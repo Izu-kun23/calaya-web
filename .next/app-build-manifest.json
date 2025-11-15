@@ -1,50 +1,55 @@
 {
   "pages": {
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/services/procurement/page": [
+    "/news/venus-pipeline-inspection/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/procurement/page.js"
+      "static/chunks/app/news/venus-pipeline-inspection/page.js"
     ],
-    "/services/corrosion-management/page": [
+    "/news/africa-energy-week-2024/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/corrosion-management/page.js"
+      "static/chunks/app/news/africa-energy-week-2024/page.js"
     ],
-    "/services/facilities-management/page": [
+    "/news/nigerian-ministers-visit/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/facilities-management/page.js"
+      "static/chunks/app/news/nigerian-ministers-visit/page.js"
     ],
-    "/products/page": [
+    "/news/sound-wave-inspection-system/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/products/page.js"
-    ],
-    "/partners/sage-rider/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/partners/sage-rider/page.js"
+      "static/chunks/app/news/sound-wave-inspection-system/page.js"
     ],
     "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/contact/page.js"
+    ],
+    "/partners/sound-wave-inspection/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/partners/sound-wave-inspection/page.js"
     ]
   }
 }
