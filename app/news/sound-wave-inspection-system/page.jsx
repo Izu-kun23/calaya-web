@@ -38,9 +38,6 @@ export default function SoundWaveInspectionSystemPage() {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <div className="text-red-500 text-xs sm:text-sm font-semibold uppercase tracking-wide mb-4">
-              November 2024
-            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Sound Wave Inspection System (SWIS)
             </h1>
