@@ -167,7 +167,7 @@ function WellServicesContent() {
         services: [
           {
             title: "Advanced Lubricants and sealants",
-            description: "Utilizing RS Clare's high-performance greases and advanced lubricant technology."
+            description: "Utilising RS Clare's high performance greases and advanced lubricant technology, featuring 601 and 701 lubricants for superior valve maintenance and leak sealing."
           },
           {
             title: "Professional Application Equipment",
