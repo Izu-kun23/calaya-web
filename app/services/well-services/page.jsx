@@ -158,7 +158,7 @@ function WellServicesContent() {
       description: "Specialized leak sealing and valve greasing services using RS Clare's globally recognized advanced lubricants and application equipment.",
       features: [
         "RS Clare Patent Rights",
-        "Advanced Lubricants",
+        "Advanced Lubricants and sealants",
         "Global Recognition",
         "Multi-Industry Expertise"
       ],
@@ -166,7 +166,7 @@ function WellServicesContent() {
         overview: "Calaya has a patent right from RS Clare, a globally recognized manufacturer of advanced lubricants, supplying high-performance greases and application equipment to the oil and gas, rail, marine, industrial and thermoplastics markets we serve. Calaya Engineering Services Limited are constantly evolving and adapting to the demands of our customers and the fluctuations of the Oil & Gas industry, demonstrating our flexibility and desire to provide seamless services.",
         services: [
           {
-            title: "RS Clare Advanced Lubricants",
+            title: "RS Clare Advanced Lubricants and sealants",
             description: "Utilizing RS Clare's globally recognized high-performance greases and advanced lubricant technology for superior valve maintenance and leak sealing."
           },
           {
