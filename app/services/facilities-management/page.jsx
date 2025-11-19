@@ -19,8 +19,10 @@ import ClientSection from "../../../src/components/section/client_section";
 const hvacImageOne = "/assets/facilities_management/hvac1.jpeg";
 const hvacImageTwo = "/assets/facilities_management/hvac2.jpeg";
 const tankCleaningImage = "/assets/facilities_management/tank_cleaning1.jpg";
-const onlineLeakImageOne = "/assets/facilities_management/Online_leak1.jpg";
-const onlineLeakImageTwo = "/assets/facilities_management/online_leak2.jpeg";
+const fluidDrivenImage = "/fluid_driven.png";
+const onlineLeakImageOne = "/onlineleak1.JPG";
+const onlineLeakImageTwo = "/onlineleak2.JPG";
+const onlineLeakImageThree = "/onlineleak3.JPG";
 const hydroBlastingImageNine = "/assets/hydroblasting/hydroblasting9.jpeg";
 const hydroBlastingImageTwo = "/assets/hydroblasting/hydroblasting2.jpeg";
 const gritBlastingImageOne = "/assets/gritblasting/gritblasting1.jpeg";
@@ -659,6 +661,45 @@ function FacilitiesManagementContent() {
                           </svg>
                         </div>
                       </motion.div>
+
+                      {/* GAMAJET TANK Equipment */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(fluidDrivenImage)}
+                      >
+                        <img
+                          src={fluidDrivenImage}
+                          alt="GAMAJET TANK Cleaning Equipment"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <h4 className="font-bold text-lg mb-2">
+                            GAMAJET TANK
+                          </h4>
+                          <p className="text-xs sm:text-sm text-white/90 leading-relaxed">
+                            Cleaning action: rotary impingement cleaning achieving 360 degrees total cleaning and 180 degrees in the case of directional machines
+                          </p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                            />
+                          </svg>
+                        </div>
+                      </motion.div>
                     </div>
                   </div>
                 )}
@@ -678,7 +719,7 @@ function FacilitiesManagementContent() {
                       minimal downtime and maximum efficiency.
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -738,6 +779,45 @@ function FacilitiesManagementContent() {
                           <p className="text-sm text-white/90">
                             Expert technicians using specialized tools for
                             critical equipment leak repair
+                          </p>
+                        </div>
+                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg
+                            className="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                            />
+                          </svg>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        onClick={() => setSelectedImage(onlineLeakImageThree)}
+                      >
+                        <img
+                          src={onlineLeakImageThree}
+                          alt="Professional Leak Repair Services"
+                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <h4 className="font-bold text-lg mb-1">
+                            Professional Leak Repair Services
+                          </h4>
+                          <p className="text-sm text-white/90">
+                            Specialized equipment and techniques for effective
+                            leak containment and repair
                           </p>
                         </div>
                         <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, Suspense } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Building,
   Wrench,
@@ -13,8 +13,15 @@ import {
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
 
+// Images from public folder
+const civilImage1 = "/civil1.JPG";
+const civilImage2 = "/civil2.JPG";
+const civilImage3 = "/civil3.JPG";
+const civilImage4 = "/cilvil4.JPG";
+
 function CivilEngineeringContent() {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
   const searchParams = useSearchParams();
 
   // Handle URL-based tab activation
@@ -212,6 +219,175 @@ function CivilEngineeringContent() {
                   </div>
                 </div>
 
+                {/* Civil Engineering Images Section */}
+                <div className="bg-white rounded-lg  p-6 lg:p-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Building className="w-6 h-6 text-red-600" />
+                    <h3 className="text-xl font-bold text-gray-900">
+                      Civil Engineering Projects
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Our civil engineering expertise spans infrastructure development, 
+                    construction management, and comprehensive project delivery across 
+                    various sectors.
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      onClick={() => setSelectedImage(civilImage1)}
+                    >
+                      <img
+                        src={civilImage1}
+                        alt="Civil Engineering Project 1"
+                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h4 className="font-bold text-lg mb-1">
+                          Civil Engineering Project
+                        </h4>
+                        <p className="text-sm text-white/90">
+                          Infrastructure development and construction
+                        </p>
+                      </div>
+                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                          />
+                        </svg>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      onClick={() => setSelectedImage(civilImage2)}
+                    >
+                      <img
+                        src={civilImage2}
+                        alt="Civil Engineering Project 2"
+                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h4 className="font-bold text-lg mb-1">
+                          Civil Engineering Project
+                        </h4>
+                        <p className="text-sm text-white/90">
+                          Construction and infrastructure development
+                        </p>
+                      </div>
+                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                          />
+                        </svg>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      onClick={() => setSelectedImage(civilImage3)}
+                    >
+                      <img
+                        src={civilImage3}
+                        alt="Civil Engineering Project 3"
+                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h4 className="font-bold text-lg mb-1">
+                          Civil Engineering Project
+                        </h4>
+                        <p className="text-sm text-white/90">
+                          Professional construction services
+                        </p>
+                      </div>
+                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                          />
+                        </svg>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      onClick={() => setSelectedImage(civilImage4)}
+                    >
+                      <img
+                        src={civilImage4}
+                        alt="Civil Engineering Project 4"
+                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h4 className="font-bold text-lg mb-1">
+                          Civil Engineering Project
+                        </h4>
+                        <p className="text-sm text-white/90">
+                          Infrastructure and construction management
+                        </p>
+                      </div>
+                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                          />
+                        </svg>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
                 {/* Benefits */}
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="mb-6">
@@ -238,6 +414,52 @@ function CivilEngineeringContent() {
 
       {/* Client Section */}
       <ClientSection />
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-end xs:items-center justify-center p-1.5 xs:p-3"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.88, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.88, opacity: 0 }}
+              className="relative w-full max-w-4xl xs:max-w-5xl flex flex-col items-center rounded-xl bg-black/25 p-1.5 xs:p-2"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-10 xs:top-2 right-2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 transition-colors duration-300"
+                aria-label="Close image"
+              >
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <img
+                src={selectedImage}
+                alt="Civil Engineering Project"
+                className="w-full h-auto max-h-[85vh] xs:max-h-[90vh] object-contain rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
