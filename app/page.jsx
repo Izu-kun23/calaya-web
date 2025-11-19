@@ -662,13 +662,15 @@ export default function HomePage() {
                   in the oil and gas services sector, serving major international operators.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-sm xs:text-base text-center md:text-left">
-                  Through innovative engineering approaches, ISO 9001:2015 certified quality management systems, and our unwavering commitment
+                  Through innovative engineering approaches, ISO 9001:2015 and ISO 45001:2018 certified quality management systems, and our unwavering commitment
                   to excellence, we have built lasting partnerships with industry giants like Shell, Chevron, and TotalEnergies, consistently exceeding expectations in
                   diverse international markets.
                 </p>
                 <div className="text-center md:text-left">
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4 mb-4">
                     <span className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm font-medium">ISO 9001:2015 Certified</span>
+                    <span className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm font-medium">ISO 45001:2018 Certified</span>
+
                     <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">500+ Projects Completed</span>
                     <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">9+ Countries</span>
                   </div>
