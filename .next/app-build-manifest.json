@@ -16,10 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/news/sound-wave-inspection-system/page": [
+    "/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/news/sound-wave-inspection-system/page.js"
+      "static/chunks/app/contact/page.js"
     ]
   }
 }

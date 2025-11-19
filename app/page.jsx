@@ -656,8 +656,8 @@ export default function HomePage() {
                 </h2>
                 <p className="text-gray-700 leading-relaxed text-sm xs:text-base text-center md:text-left">
                   We are a distinguished multinational engineering company with
-                  operations spanning seven countries: Nigeria, Equatorial
-                  Guinea, Congo, Malaysia, Mozambique, Angola, and Spain. Since
+                  operations spanning nine countries: Nigeria, Equatorial
+                  Guinea, Congo, Malaysia, Mozambique, Angola, Spain, Ghana and UK. Since
                   our establishment in 2005, we have emerged as a trusted leader
                   in the oil and gas services sector, serving major international operators.
                 </p>
