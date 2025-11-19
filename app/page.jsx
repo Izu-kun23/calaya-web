@@ -613,7 +613,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SmartMotion>
             <h2 className="font-heading text-xl xs:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 mt-4 xs:mt-6 mb-6 md:mb-8 px-2 xs:px-4 font-extrabold">
-              Trusted by Industry Leaders Across 7 Countries
+              Trusted by Industry Leaders Across the Globe
             </h2>
             <p className="font-body text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto px-4 mb-8 leading-relaxed">
               Partnering with major operators including Shell, Chevron, and TotalEnergies to deliver world-class engineering solutions
