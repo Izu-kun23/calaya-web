@@ -320,7 +320,7 @@ function WellServicesContent() {
       src: leakSealing4,
       alt: "RS Clare Valve Lubricant 601 drum with safety labels",
       title: "Valve Lubricant 601",
-      description: "701 Sealant used for valve leak sealing.",
+      description: "601 Sealant used for valve lubrication.",
       category: "RS Clare Products"
     }
   ]
