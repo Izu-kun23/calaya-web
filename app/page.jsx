@@ -21,7 +21,7 @@ const technicalImage = "/assets/images/service_images/technical.jpg";
 const pipelineImage = "/assets/images/service_images/pipeline.jpg";
 const corrosionImage = "/assets/images/service_images/corrosion.jpg";
 const inspectionImage = "/assets/images/service_images/inspection_image.jpg";
-const wellImage = "/assets/images/service_images/well.jpg";
+const wellImage = "/assets/well_services/well_intervention5.jpeg";
 import WhiteCard from "../src/components/cards/white_card";
 import ServicesCard from "../src/components/cards/services_cards";
 import ClientSection from "../src/components/section/client_section";
