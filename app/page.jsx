@@ -825,70 +825,15 @@ export default function HomePage() {
                 <SmartMotion delay={0.1}>
                   <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
-                      image={procurementImage}
-                      title="Procurement Services"
-                      description="Strategic sourcing and supply chain management for critical oil and gas equipment, ensuring quality, compliance, and cost optimization for major operators."
+                      image={wellImage}
+                      title="Well Services"
+                      description="Complete well lifecycle services including drilling support, completion, workover operations, and well intervention services for both onshore and offshore applications."
                       buttonText="Learn More"
-                      link="/services/procurement"
+                      link="/services/well-services"
                     />
                   </div>
                 </SmartMotion>
                 <SmartMotion delay={0.2}>
-                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
-                    <ServicesCard
-                      image={civilImage}
-                      title="Civil Engineering"
-                      description="Infrastructure development and construction management for offshore platforms, onshore facilities, and supporting infrastructure with international standards compliance."
-                      buttonText="Learn More"
-                      link="/services/civil-engineering"
-                    />
-                  </div>
-                </SmartMotion>
-                <SmartMotion delay={0.3}>
-                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
-                    <ServicesCard
-                      image={facilitiesImage}
-                      title="Facilities Management"
-                      description="Comprehensive operations and maintenance services for oil and gas facilities, ensuring optimal performance, safety compliance, and extended asset lifecycle."
-                      buttonText="Learn More"
-                      link="/services/facilities-management"
-                    />
-                  </div>
-                </SmartMotion>
-                <SmartMotion delay={0.4}>
-                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
-                    <ServicesCard
-                      image={technicalImage}
-                      title="Technical Manpower"
-                      description="Skilled engineering professionals and technical specialists deployed across international projects, providing expertise in drilling, production, and maintenance operations."
-                      buttonText="Learn More"
-                      link="/services/technical-manpower"
-                    />
-                  </div>
-                </SmartMotion>
-                <SmartMotion delay={0.5}>
-                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
-                    <ServicesCard
-                      image={pipelineImage}
-                      title="Pipeline Construction"
-                      description="End-to-end pipeline engineering and construction services, from design and installation to testing and commissioning, meeting international safety and environmental standards."
-                      buttonText="Learn More"
-                      link="/services/pipeline-construction"
-                    />
-                  </div>
-                </SmartMotion>
-                <SmartMotion delay={0.6}>
-                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
-                    <ServicesCard
-                      image={inspectionImage}
-                      title="Inspection Services"
-                      description="Advanced non-destructive testing and inspection services for critical infrastructure, ensuring compliance with international standards and regulatory requirements."
-                      buttonText="Learn More"
-                      link="/services/inspection"
-                    />
-                  </div>
-                </SmartMotion>
-                <SmartMotion delay={0.7}>
                   <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
                       image={corrosionImage}
@@ -899,14 +844,69 @@ export default function HomePage() {
                     />
                   </div>
                 </SmartMotion>
+                <SmartMotion delay={0.3}>
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
+                    <ServicesCard
+                      image={inspectionImage}
+                      title="Inspection Services"
+                      description="Advanced non-destructive testing and inspection services for critical infrastructure, ensuring compliance with international standards and regulatory requirements."
+                      buttonText="Learn More"
+                      link="/services/inspection"
+                    />
+                  </div>
+                </SmartMotion>
+                <SmartMotion delay={0.4}>
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
+                    <ServicesCard
+                      image={pipelineImage}
+                      title="Pipeline Construction"
+                      description="End-to-end pipeline engineering and construction services, from design and installation to testing and commissioning, meeting international safety and environmental standards."
+                      buttonText="Learn More"
+                      link="/services/pipeline-construction"
+                    />
+                  </div>
+                </SmartMotion>
+                <SmartMotion delay={0.5}>
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
+                    <ServicesCard
+                      image={technicalImage}
+                      title="Technical Manpower"
+                      description="Skilled engineering professionals and technical specialists deployed across international projects, providing expertise in drilling, production, and maintenance operations."
+                      buttonText="Learn More"
+                      link="/services/technical-manpower"
+                    />
+                  </div>
+                </SmartMotion>
+                <SmartMotion delay={0.6}>
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
+                    <ServicesCard
+                      image={facilitiesImage}
+                      title="Facilities Management"
+                      description="Comprehensive operations and maintenance services for oil and gas facilities, ensuring optimal performance, safety compliance, and extended asset lifecycle."
+                      buttonText="Learn More"
+                      link="/services/facilities-management"
+                    />
+                  </div>
+                </SmartMotion>
+                <SmartMotion delay={0.7}>
+                  <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
+                    <ServicesCard
+                      image={civilImage}
+                      title="Civil Engineering"
+                      description="Infrastructure development and construction management for offshore platforms, onshore facilities, and supporting infrastructure with international standards compliance."
+                      buttonText="Learn More"
+                      link="/services/civil-engineering"
+                    />
+                  </div>
+                </SmartMotion>
                 <SmartMotion delay={0.8}>
                   <div className="w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] flex-shrink-0">
                     <ServicesCard
-                      image={wellImage}
-                      title="Well Services"
-                      description="Complete well lifecycle services including drilling support, completion, workover operations, and well intervention services for both onshore and offshore applications."
+                      image={procurementImage}
+                      title="Procurement Services"
+                      description="Strategic sourcing and supply chain management for critical oil and gas equipment, ensuring quality, compliance, and cost optimization for major operators."
                       buttonText="Learn More"
-                      link="/services/well-services"
+                      link="/services/procurement"
                     />
                   </div>
                 </SmartMotion>

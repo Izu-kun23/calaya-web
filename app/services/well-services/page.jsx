@@ -13,6 +13,7 @@ const wellheadMaintenance4 = '/assets/wellhead_maintenance/aa5884f4-4542-408b-88
 const leakSealing1 = '/assets/wellhead_leak_sealing/wellhead_sealing1.jpeg'
 const leakSealing2 = '/assets/leak_sealing/PHOTO-2025-11-10-09-50-11.jpg'
 const leakSealing3 = '/assets/leak_sealing/PHOTO-2025-11-10-09-50-11 4.jpg'
+const leakSealing4 = '/601.JPG'
 const wellCompletion1 = '/assets/well_services/Well_completion1.jpeg'
 const wellCompletion2 = '/assets/well_services/well_completion2.jpeg'
 const wellIntervention1 = '/assets/well_services/well_intervention1.jpeg'
@@ -207,7 +208,7 @@ function WellServicesContent() {
       alt: "Technicians installing production equipment during well completion",
       title: "Completion Equipment Setup",
       description: "Technicians rig up production tubing and control lines while finalising the completion assembly.",
-      category: "Equipment"
+      category: "Completion"
     }
   ]
 
@@ -217,7 +218,7 @@ function WellServicesContent() {
       src: wellIntervention1,
       alt: "Night well intervention crew working under tower lights",
       title: "Night Intervention Crew",
-      description: "Night shift crew executes coil tubing stimulation under tower lighting with full safety supervision.",
+      description: "Coil Tubing Operation",
       category: "Operations"
     },
     {
@@ -226,15 +227,15 @@ function WellServicesContent() {
       alt: "Heavy intervention spread rigged up around a live well",
       title: "Heavy Intervention Spread",
       description: "High-pressure pumping spread and support rig arranged around an active well during remedial work.",
-      category: "Equipment"
+      category: "Operations"
     },
     {
       id: 3,
       src: wellIntervention3,
       alt: "Technician preparing specialist well intervention tools",
       title: "Intervention Tooling",
-      description: "Specialist prepares precision intervention tools and sensors prior to running in hole.",
-      category: "Tools"
+      description: "Night shift crew executes precision Intervention tools and censors prior to running in hole.",
+      category: "Operations"
     },
     {
       id: 4,
@@ -242,7 +243,7 @@ function WellServicesContent() {
       alt: "Flowback equipment staged for production enhancement job",
       title: "Production Enhancement Setup",
       description: "Flowback manifolds, tanks, and monitoring gear staged for a production enhancement program.",
-      category: "Enhancement"
+      category: "Operations"
     },
     {
       id: 5,
@@ -250,7 +251,7 @@ function WellServicesContent() {
       alt: "Complete well intervention package deployed on location",
       title: "Comprehensive Service Spread",
       description: "Integrated intervention fleet with pumping units, nitrogen package, and control cabin ready for deployment.",
-      category: "Services"
+      category: "Operations"
     }
   ]
 
@@ -267,7 +268,7 @@ function WellServicesContent() {
       id: 2,
       src: wellheadMaintenance2,
       alt: "Engineers flushing and lubricating a horizontal tree assembly",
-      title: "Valve Service Routine",
+      title: "Valve Routine Service",
       description: "Team flushes and lubricates tree valves with RS Clare products to keep actuation smooth.",
       category: "Safety"
     },
@@ -276,7 +277,7 @@ function WellServicesContent() {
       src: wellheadMaintenance3,
       alt: "Field crew calibrating wellhead gauges and control panel",
       title: "Instrumentation Calibration",
-      description: "Engineers calibrate pressure gauges and control panels as part of preventive maintenance.",
+      description: "Engineers performing gate and seat operation.",
       category: "Reliability"
     },
     {
@@ -302,17 +303,25 @@ function WellServicesContent() {
       id: 2,
       src: leakSealing2,
       alt: "Technician injecting sealant into a live Christmas tree valve",
-      title: "Field Leak Sealing",
-      description: "Field specialist injects RS Clare sealant into a passing valve to reinstate a reliable barrier.",
-      category: "Application"
+      title: "Valve Leak Sealing Product",
+      description: "701 Sealant used for valve leak sealing.",
+      category: "RS Clare Products"
     },
     {
       id: 3,
       src: leakSealing3,
       alt: "Portable pump unit greasing a valve body on location",
-      title: "Greasing Operations",
-      description: "Portable greasing skid delivers calibrated lubricant to protect valves during maintenance.",
-      category: "Maintenance"
+      title: "Leak Sealing and Valve Lubricants",
+      description: "RS Clare Products for Leak Sealing and Valve Lubricant.",
+      category: "RS Clare Products"
+    },
+    {
+      id: 4,
+      src: leakSealing4,
+      alt: "RS Clare Valve Lubricant 601 drum with safety labels",
+      title: "Valve Lubricant 601",
+      description: "701 Sealant used for valve leak sealing.",
+      category: "RS Clare Products"
     }
   ]
 
@@ -798,7 +807,7 @@ function WellServicesContent() {
                       </motion.div>
 
                       {/* Gallery Grid */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         {leakSealingImages.map((image, index) => (
                           <motion.div
                             key={image.id}

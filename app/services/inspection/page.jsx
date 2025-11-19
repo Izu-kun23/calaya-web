@@ -64,7 +64,6 @@ function InspectionContent() {
         "Ultrasonic Testing (UT)",
         "Radiographic Testing (RT)",
         "Eddy Current Testing (ECT)",
-        "Thickness Measurement",
         "Weld Quality Assessment",
       ],
       detailedContent: {
@@ -95,7 +94,7 @@ function InspectionContent() {
         "Digital Radiography (DR/CR)",
         "3D Laser Scanning",
         "Thermal Imaging Analysis",
-        "Automated Inspection Systems",
+        "Automated Inspection Systems (RMS, Machone, Arix)",
         "Real-time Data Analysis",
       ],
       detailedContent: {
@@ -106,7 +105,7 @@ function InspectionContent() {
           { title: "Magnetic Flux Leakage (MFL)", description: "Pipeline and tank inspection technology for rapid corrosion and defect detection over large surface areas with detailed mapping and analysis capabilities." },
           { title: "Digital Radiography (DR/CR)", description: "Advanced radiographic inspection using digital detectors for enhanced image quality, faster processing, and improved defect detection sensitivity." },
           { title: "3D Laser Scanning", description: "High-precision dimensional measurement and geometric analysis for deformation monitoring, corrosion mapping, and as-built documentation." },
-          { title: "Automated Inspection Systems", description: "Robotic and automated inspection solutions for consistent, repeatable testing in challenging environments with real-time data collection and analysis." },
+          { title: "Automated Inspection Systems (RMS, Machone, Arix)", description: "Robotic and automated inspection solutions for consistent, repeatable testing in challenging environments with real-time data collection and analysis." },
         ],
         benefits: [
           "Superior defect detection sensitivity",
