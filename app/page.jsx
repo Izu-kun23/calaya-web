@@ -884,7 +884,7 @@ export default function HomePage() {
                       title="Inspection Services"
                       description="Advanced non-destructive testing and inspection services for critical infrastructure, ensuring compliance with international standards and regulatory requirements."
                       buttonText="Learn More"
-                      link="/services/corrosion-management"
+                      link="/services/inspection"
                     />
                   </div>
                 </SmartMotion>
