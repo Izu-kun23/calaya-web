@@ -726,7 +726,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 xs:px-6 lg:px-8 text-white">
           <SmartMotion>
             <h3 className="text-[0.7rem] xs:text-xs sm:text-sm font-semibold uppercase tracking-[0.32em] mb-6 text-center md:text-left">
-              We are committed to service delivery.
+              We are committed to quality and exceptional service delivery.
             </h3>
           </SmartMotion>
           <div className="mt-8 xs:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6">
