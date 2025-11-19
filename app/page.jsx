@@ -670,7 +670,7 @@ export default function HomePage() {
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 xs:gap-4 mb-4">
                     <span className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm font-medium">ISO 9001:2015 Certified</span>
                     <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">500+ Projects Completed</span>
-                    <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">7+ Countries</span>
+                    <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium">9+ Countries</span>
                   </div>
                 </div>
                 <div className="text-center md:text-left">
