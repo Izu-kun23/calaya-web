@@ -570,13 +570,13 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Ghana - TBD */}
+            {/* Ghana */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-200"
+              className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-gray-200 overflow-hidden">
@@ -584,11 +584,11 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Ghana</h3>
                 <div className="text-left text-sm text-gray-600 space-y-2">
-                  <p className="font-medium">Coming Soon</p>
-                  <p>Details to be announced</p>
-                  <p className="font-medium text-red-500">info@calayaengineering.com</p>
-                  <p className="font-medium text-red-500">calayaengineering@yahoo.co.uk</p>
-                  <p className="text-gray-500 italic">TBD</p>
+                  <p className="font-medium">Regional Office</p>
+                  <p>KWAME Asante Avenue, House Number 104, Kwame Asante Avenue, Westlands, Accra, Ghana</p>
+                  <p className="font-medium text-red-500">info.ghana@calayaengineering.com</p>
+                  <p className="font-medium text-red-500">Kwadwo.Poku@calayaengineering.com</p>
+                  <p>Tel: (+233) 244636563</p>
                 </div>
               </div>
             </motion.div>
