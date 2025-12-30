@@ -342,7 +342,7 @@ function FacilitiesManagementContent() {
                 {/* Overview */}
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <Target className="w-6 h-6 text-red-600" />
+                    
                     <h3 className="text-xl font-bold text-gray-900">
                       Service Overview
                     </h3>
@@ -355,7 +355,6 @@ function FacilitiesManagementContent() {
                 {/* Services */}
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <Settings className="w-6 h-6 text-red-600" />
                     <h3 className="text-xl font-bold text-gray-900">
                       Our Services
                     </h3>
@@ -843,7 +842,6 @@ function FacilitiesManagementContent() {
                 {/* Benefits */}
                 <div className="bg-white rounded-lg  p-6 lg:p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <TrendingUp className="w-6 h-6 text-green-600" />
                     <h3 className="text-xl font-bold text-gray-900">
                       Key Benefits
                     </h3>

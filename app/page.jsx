@@ -234,7 +234,7 @@ const NewsCard = ({ images, video, date, title, description, link, gradientColor
   }, [hasMultipleImages, images?.length, isVideo]);
 
   return (
-    <Card className="w-full h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+    <Card className="w-full h-full flex flex-col  duration-300 border border-gray-100">
         <CardHeader
           color="blue-gray"
           className="relative h-56 overflow-hidden"
@@ -372,7 +372,7 @@ export default function HomePage() {
   // News carousel state
   const newsCarouselRef = useRef(null);
   const [currentNewsSlide, setCurrentNewsSlide] = useState(0);
-  const totalNewsSlides = 4; // 4 news cards
+  const totalNewsSlides = 2; // 4 news cards
   
   // Drag functionality state
   const [isDragging, setIsDragging] = useState(false);
