@@ -778,7 +778,7 @@ export default function HomePage() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/75 to-gray-900/75"></div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 xs:px-6">
+        <div className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6">
           <SmartMotion>
             <div className="text-center md:text-left -mt-10 xs:-mt-12 md:-mt-16">
               <div className="flex items-center justify-center md:justify-start mb-4">
@@ -803,7 +803,7 @@ export default function HomePage() {
           </SmartMotion>
           
           {/* Service Cards Carousel */}
-          <div className="mt-12 xs:mt-16 relative px-1 xs:px-2 md:px-0">
+          <div className="relative z-10 mt-16">
             <div 
               ref={carouselRef}
               className="flex overflow-x-auto scrollbar-hide gap-3 xs:gap-4 md:gap-6 pt-4 pb-4 cursor-grab select-none"

@@ -513,7 +513,7 @@ const HomePage = () => {
   }}
 >
   <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/75 to-gray-900/75"></div>
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+  <div className="relative  w-[200px] px-7 sm:px-6">
     <SmartMotion>
       <div className="text-left mt-[-60px]">
         <div className="flex items-center mb-4">
@@ -538,7 +538,7 @@ const HomePage = () => {
     </SmartMotion>
     
     {/* Service Cards Carousel */}
-    <div className="mt-16 relative px-2 sm:px-0 sm:ml-4">
+    <div className="mt-16 relative px-4 sm:px-6 lg:px-12">
       <div 
         ref={carouselRef}
         className="flex overflow-x-auto scrollbar-hide gap-3 sm:gap-4 md:gap-6 pt-4 pb-4 cursor-grab select-none" 
@@ -564,7 +564,7 @@ const HomePage = () => {
                 title="Procurement Services"
                 description="Strategic sourcing and supply chain management for critical oil and gas equipment, ensuring quality, compliance, and cost optimization for major operators."
                 buttonText="Learn More"
-                link="/services/procurement"
+                link="/services/procurement" 
               />
             </div>
           </SmartMotion>
