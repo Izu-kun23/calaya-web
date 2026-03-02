@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Linkedin, Twitter, Instagram, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Linkedin, Twitter, Instagram, Send, CheckCircle, AlertCircle, Loader2, ShieldCheck } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 // Flag images from public folder
 const nigeriaFlag = "/assets/flags/Flag_of_Nigeria.png";
@@ -25,6 +26,9 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const [captchaError, setCaptchaError] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,8 +38,19 @@ export default function ContactPage() {
     }));
   };
 
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+    if (token) setCaptchaError(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaToken) {
+      setCaptchaError(true);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -47,7 +62,7 @@ export default function ContactPage() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, captchaToken })
       });
 
       if (response.ok) {
@@ -56,7 +71,7 @@ export default function ContactPage() {
         
         setSubmitStatus('success');
         
-        // Reset form
+        // Reset form and captcha
         setFormData({
           name: '',
           email: '',
@@ -64,6 +79,8 @@ export default function ContactPage() {
           subject: '',
           message: ''
         });
+        setCaptchaToken(null);
+        if (recaptchaRef.current) recaptchaRef.current.reset();
 
         // Clear success message after 5 seconds
         setTimeout(() => {
@@ -329,12 +346,35 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* reCAPTCHA */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 mb-1">
+                    <ShieldCheck className="w-4 h-4 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-700">Human Verification *</span>
+                  </div>
+                  <div className="flex justify-start">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                      onChange={handleCaptchaChange}
+                      onExpired={() => { setCaptchaToken(null); }}
+                      onError={() => { setCaptchaToken(null); }}
+                    />
+                  </div>
+                  {captchaError && (
+                    <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+                      <AlertCircle className="w-4 h-4" />
+                      Please complete the CAPTCHA verification before submitting.
+                    </p>
+                  )}
+                </div>
+
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !captchaToken}
                   className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${
-                    isSubmitting
+                    isSubmitting || !captchaToken
                       ? 'bg-gray-400 cursor-not-allowed'
                       : 'bg-red-500 hover:bg-red-600 transform hover:-translate-y-1'
                   } text-white`}

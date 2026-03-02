@@ -163,10 +163,38 @@ Calaya Engineering Team
 export async function POST(request) {
   try {
     const formData = await request.json();
+    const { captchaToken, ...contactData } = formData;
+
+    // --- reCAPTCHA v2 Verification ---
+    if (!captchaToken) {
+      return NextResponse.json({ error: 'CAPTCHA token is missing. Please complete the verification.' }, { status: 400 });
+    }
+
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!recaptchaSecret) {
+      console.error('RECAPTCHA_SECRET_KEY is not configured.');
+      return NextResponse.json({ error: 'Server misconfiguration: reCAPTCHA secret key missing.' }, { status: 500 });
+    }
+
+    const verifyRes = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${captchaToken}`,
+      { method: 'POST' }
+    );
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      console.warn('reCAPTCHA verification failed:', verifyData['error-codes']);
+      return NextResponse.json(
+        { error: 'CAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
+    // ----------------------------------
+
     const requiredFields = ['name', 'email', 'subject', 'message'];
 
     for (const field of requiredFields) {
-      if (!formData[field] || typeof formData[field] !== 'string') {
+      if (!contactData[field] || typeof contactData[field] !== 'string') {
         return NextResponse.json({ error: `Missing required field: ${field}` }, { status: 400 });
       }
     }
@@ -183,18 +211,18 @@ export async function POST(request) {
       );
     }
 
-    const internalPayload = buildInternalPayload(formData);
-    const confirmationPayload = buildConfirmationPayload(formData);
+    const internalPayload = buildInternalPayload(contactData);
+    const confirmationPayload = buildConfirmationPayload(contactData);
 
     const sendEmail = async (payload) =>
       fetch(RESEND_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify(payload),
-    });
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify(payload),
+      });
 
     const [internalRes, confirmationRes] = await Promise.all([
       sendEmail(internalPayload),
