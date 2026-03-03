@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Linkedin, Twitter, Instagram, Send, CheckCircle, AlertCircle, Loader2, ShieldCheck } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -28,7 +28,9 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
   const [captchaToken, setCaptchaToken] = useState(null);
   const [captchaError, setCaptchaError] = useState(false);
-  const recaptchaRef = useRef(null);
+  const [showIncompleteWarning, setShowIncompleteWarning] = useState(false);
+
+  const isFormIncomplete = !formData.name || !formData.email || !formData.subject || !formData.message;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -36,11 +38,6 @@ export default function ContactPage() {
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleCaptchaChange = (token) => {
-    setCaptchaToken(token);
-    if (token) setCaptchaError(false);
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +53,7 @@ export default function ContactPage() {
 
     try {
       console.log('Sending email via Resend API...');
-      
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -68,10 +65,10 @@ export default function ContactPage() {
       if (response.ok) {
         const result = await response.json();
         console.log('Contact email sent successfully:', result);
-        
+
         setSubmitStatus('success');
-        
-        // Reset form and captcha
+
+        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -80,7 +77,6 @@ export default function ContactPage() {
           message: ''
         });
         setCaptchaToken(null);
-        if (recaptchaRef.current) recaptchaRef.current.reset();
 
         // Clear success message after 5 seconds
         setTimeout(() => {
@@ -99,7 +95,7 @@ export default function ContactPage() {
     } catch (error) {
       console.error('Email sending failed:', error);
       setSubmitStatus('error');
-      
+
       // Clear error message after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
@@ -123,7 +119,7 @@ export default function ContactPage() {
               Let's Collaborate
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              We are open to collaborate with leading oil and gas providers worldwide. 
+              We are open to collaborate with leading oil and gas providers worldwide.
               Reach out to discuss how we can support your next project.
             </p>
           </motion.div>
@@ -134,7 +130,7 @@ export default function ContactPage() {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            
+
             {/* Left Side - Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -194,25 +190,25 @@ export default function ContactPage() {
               <div className="pt-6">
                 <h3 className="font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://www.linkedin.com/company/calaya-engineering-services-limited/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.linkedin.com/company/calaya-engineering-services-limited/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
                   >
                     <Linkedin className="w-6 h-6" />
                   </a>
-                  <a 
-                    href="https://twitter.com/calayaengineering" 
-                    target="_blank" 
+                  <a
+                    href="https://twitter.com/calayaengineering"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-sky-500 hover:bg-sky-600 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
                   >
                     <Twitter className="w-6 h-6" />
                   </a>
-                  <a 
-                    href="https://instagram.com/calayaengineering" 
-                    target="_blank" 
+                  <a
+                    href="https://instagram.com/calayaengineering"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-lg transition-colors duration-300 hover:scale-110 transform"
                   >
@@ -232,7 +228,7 @@ export default function ContactPage() {
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                 Send us a Message
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Success/Error Messages */}
                 {submitStatus === 'success' && (
@@ -330,7 +326,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Message */}
-    <div>
+                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message *
                   </label>
@@ -352,15 +348,41 @@ export default function ContactPage() {
                     <ShieldCheck className="w-4 h-4 text-gray-500" />
                     <span className="text-sm font-medium text-gray-700">Human Verification *</span>
                   </div>
-                  <div className="flex justify-start">
-                    <ReCAPTCHA
-                      ref={recaptchaRef}
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                      onChange={handleCaptchaChange}
-                      onExpired={() => { setCaptchaToken(null); }}
-                      onError={() => { setCaptchaToken(null); }}
-                    />
+                  <div className="relative group">
+                    {/* Overlay to prevent interaction if form is incomplete */}
+                    {isFormIncomplete && (
+                      <div
+                        className="absolute inset-0 z-10 cursor-not-allowed"
+                        onClick={() => setShowIncompleteWarning(true)}
+                        onMouseEnter={() => setShowIncompleteWarning(true)}
+                      />
+                    )}
+
+                    <div className={`flex justify-start transition-opacity duration-300 ${isFormIncomplete ? 'opacity-50' : 'opacity-100'}`}>
+                      <ReCAPTCHA
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                        onChange={(token) => {
+                          setCaptchaToken(token);
+                          setCaptchaError(false);
+                          setShowIncompleteWarning(false);
+                        }}
+                        onExpired={() => setCaptchaToken(null)}
+                        onErrored={() => setCaptchaToken(null)}
+                      />
+                    </div>
                   </div>
+
+                  {showIncompleteWarning && isFormIncomplete && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-xs text-amber-600 flex items-center gap-1 font-medium bg-amber-50 p-2 rounded border border-amber-100"
+                    >
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      Please fill out all required fields above before verifying.
+                    </motion.p>
+                  )}
+
                   {captchaError && (
                     <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
                       <AlertCircle className="w-4 h-4" />
@@ -373,11 +395,10 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !captchaToken}
-                  className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${
-                    isSubmitting || !captchaToken
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-red-500 hover:bg-red-600 transform hover:-translate-y-1'
-                  } text-white`}
+                  className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${isSubmitting || !captchaToken
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-red-500 hover:bg-red-600 transform hover:-translate-y-1'
+                    } text-white`}
                 >
                   {isSubmitting ? (
                     <>
@@ -643,7 +664,7 @@ export default function ContactPage() {
             className="text-center mt-12"
           >
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              With operations spanning across multiple continents, we bring local expertise 
+              With operations spanning across multiple continents, we bring local expertise
               and global standards to every project, ensuring consistent quality and service delivery worldwide.
             </p>
           </motion.div>

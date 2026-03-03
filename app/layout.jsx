@@ -21,8 +21,10 @@ export const metadata = {
     title: 'Calaya Engineering - Premier Oil & Gas Services Since 2005',
     description: 'Leading multinational oil and gas engineering company operating across 7 countries. Expert services in procurement, civil engineering, facilities management, and technical manpower since 2005.',
   },
-  themeColor: '#dc2626',
-  // Browser tab icons for consistent branding
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       { url: '/assets/tab_logo.png', sizes: '32x32' },
@@ -38,17 +40,15 @@ export const metadata = {
       { url: '/assets/tab_logo.png', sizes: '180x180' },
     ],
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: 'cover',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+}
+
+export const viewport = {
+  themeColor: '#dc2626',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({ children }) {
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
               "numberOfEmployees": "100+",
               "areaServed": [
                 "Nigeria",
-                "Equatorial Guinea", 
+                "Equatorial Guinea",
                 "Congo",
                 "Malaysia",
                 "Mozambique",
@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
               "serviceType": [
                 "Procurement Services",
                 "Civil Engineering",
-                "Facilities Management", 
+                "Facilities Management",
                 "Technical Manpower",
                 "Pipeline Construction",
                 "Inspection Services",
