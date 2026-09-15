@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from '../src/components/navigation/navbar'
 import Footer from '../src/components/footer/Footer'
 import TopArrow from './components/TopArrowWrapper'
+import SmoothExperience from '../src/components/motion/SmoothExperience'
 
 export const metadata = {
   title: 'Calaya Engineering - Premier Oil & Gas Services Since 2005',
@@ -61,6 +62,7 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <SmoothExperience />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-grow">
@@ -119,4 +121,3 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
-
