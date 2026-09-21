@@ -1,85 +1,34 @@
-# Calaya Engineering - Netlify Deployment Guide
+# Calaya Engineering Deployment Guide
 
-## Quick Deploy to Netlify
+This is a Next.js App Router application and requires a deployment platform that supports the Next.js runtime.
 
-### Option 1: Deploy via Netlify UI (Recommended)
+## Vercel
 
-1. **Build your project locally:**
-   ```bash
-   npm run build
-   ```
+1. Import the repository into Vercel.
+2. Keep the detected framework preset as **Next.js**.
+3. Add the production environment variables used by the contact and email integrations.
+4. Deploy.
 
-2. **Go to [Netlify](https://netlify.com) and sign up/login**
+Vercel uses the scripts in `package.json` automatically. No custom rewrite or static publish directory is required.
 
-3. **Drag and drop your `dist` folder:**
-   - After running `npm run build`, you'll have a `dist` folder
-   - Simply drag this folder to the Netlify dashboard
-   - Your site will be live in seconds!
+## Other Next.js hosts
 
-### Option 2: Connect GitHub Repository
+Install dependencies and create the production build:
 
-1. **Push your code to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
+```bash
+npm ci
+npm run build
+npm run start
+```
 
-2. **Connect to Netlify:**
-   - Go to Netlify dashboard
-   - Click "New site from Git"
-   - Connect your GitHub account
-   - Select your repository
-   - Netlify will auto-detect Vite settings
+The host should run `npm run start` with the platform-provided `PORT` environment variable.
 
-3. **Deploy settings:**
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Node version: `18`
+## Verification
 
-### Option 3: Netlify CLI
+Before deployment, run:
 
-1. **Install Netlify CLI:**
-   ```bash
-   npm install -g netlify-cli
-   ```
+```bash
+npm run build
+```
 
-2. **Login to Netlify:**
-   ```bash
-   netlify login
-   ```
-
-3. **Deploy:**
-   ```bash
-   npm run build
-   netlify deploy --prod --dir=dist
-   ```
-
-## Configuration Files
-
-- `netlify.toml` - Netlify configuration (already created)
-- `package.json` - Build scripts (already configured)
-
-## Build Commands
-
-- **Development:** `npm run dev`
-- **Build:** `npm run build`
-- **Preview:** `npm run preview`
-
-## Features Included
-
-✅ Responsive design
-✅ Smooth animations
-✅ Client logo carousel
-✅ Contact information
-✅ Social media links
-✅ SEO-friendly structure
-
-## Custom Domain
-
-After deployment, you can:
-1. Go to Site settings > Domain management
-2. Add your custom domain
-3. Configure DNS settings
-
-Your Calaya Engineering website is ready for deployment! 🚀
+Confirm the required environment variables are configured in the hosting dashboard before testing the contact form.

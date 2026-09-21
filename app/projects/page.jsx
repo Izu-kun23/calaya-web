@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Building, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 
 // Hero image from public folder
-const heroImage = "/assets/images/Useable_Images/image12.jpg";
+const heroImage = "/assets/heroes/pipeline-construction-4k.jpg";
 
 // Client logos from public folder
 const naocLogo = "/assets/clients/naoc_logo.jpg";
@@ -291,7 +291,7 @@ export default function ProjectsPage() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
         <div className="absolute inset-0">

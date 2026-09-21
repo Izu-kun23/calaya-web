@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 // Images from public folder
 const hvacImageOne = "/assets/facilities_management/hvac1.jpeg";
@@ -249,10 +250,11 @@ function FacilitiesManagementContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/facilities-management-4k.jpg" alt="Industrial facilities maintained by Calaya" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -398,16 +400,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(hvacImageOne)}
                       >
                         <img
                           src={hvacImageOne}
                           alt="HVAC System Installation"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             HVAC System Installation
                           </h4>
@@ -415,7 +417,7 @@ function FacilitiesManagementContent() {
                             Professional installation of industrial HVAC systems
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -436,16 +438,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(hvacImageTwo)}
                       >
                         <img
                           src={hvacImageTwo}
                           alt="HVAC Maintenance Services"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             HVAC Maintenance Services
                           </h4>
@@ -453,7 +455,7 @@ function FacilitiesManagementContent() {
                             Regular maintenance and repair services
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -493,16 +495,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(hydroBlastingImageNine)}
                       >
                         <img
                           src={hydroBlastingImageNine}
                           alt="Hydro Blasting Operations"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Hydro Blasting Operations
                           </h4>
@@ -510,7 +512,7 @@ function FacilitiesManagementContent() {
                             High-pressure water blasting for surface preparation
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -531,16 +533,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(hydroBlastingImageTwo)}
                       >
                         <img
                           src={hydroBlastingImageTwo}
                           alt="Advanced Hydro Blasting"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Advanced Hydro Blasting
                           </h4>
@@ -548,7 +550,7 @@ function FacilitiesManagementContent() {
                             Specialized hydro blasting equipment and techniques
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -569,16 +571,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(gritBlastingImageOne)}
                       >
                         <img
                           src={gritBlastingImageOne}
                           alt="Grit Blasting Services"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Grit Blasting Services
                           </h4>
@@ -586,7 +588,7 @@ function FacilitiesManagementContent() {
                             Professional grit blasting for surface preparation
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -626,16 +628,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(tankCleaningImage)}
                       >
                         <img
                           src={tankCleaningImage}
                           alt="Professional Tank Cleaning Operations"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Professional Tank Cleaning Operations
                           </h4>
@@ -644,7 +646,7 @@ function FacilitiesManagementContent() {
                             and safety protocols
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -666,16 +668,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(fluidDrivenImage)}
                       >
                         <img
                           src={fluidDrivenImage}
                           alt="GAMAJET TANK Cleaning Equipment"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-2">
                             GAMAJET TANK
                           </h4>
@@ -683,7 +685,7 @@ function FacilitiesManagementContent() {
                             Cleaning action: rotary impingement cleaning achieving 360 degrees total cleaning and 180 degrees in the case of directional machines
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -723,16 +725,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(onlineLeakImageOne)}
                       >
                         <img
                           src={onlineLeakImageOne}
                           alt="Online Leak Repair Operations"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Online Leak Repair Operations
                           </h4>
@@ -741,7 +743,7 @@ function FacilitiesManagementContent() {
                             methodology without operational interruption
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -762,16 +764,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(onlineLeakImageTwo)}
                       >
                         <img
                           src={onlineLeakImageTwo}
                           alt="Advanced Leak Sealing Techniques"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Advanced Leak Sealing Techniques
                           </h4>
@@ -780,7 +782,7 @@ function FacilitiesManagementContent() {
                             critical equipment leak repair
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -801,16 +803,16 @@ function FacilitiesManagementContent() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="relative overflow-hidden rounded-lg  hover: transition-all duration-300 cursor-pointer group"
+                        className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                         onClick={() => setSelectedImage(onlineLeakImageThree)}
                       >
                         <img
                           src={onlineLeakImageThree}
                           alt="Professional Leak Repair Services"
-                          className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="gallery-hover-scrim"></div>
+                        <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                           <h4 className="font-bold text-lg mb-1">
                             Professional Leak Repair Services
                           </h4>
@@ -819,7 +821,7 @@ function FacilitiesManagementContent() {
                             leak containment and repair
                           </p>
                         </div>
-                        <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -907,7 +909,7 @@ function FacilitiesManagementContent() {
 export default function FacilitiesManagementPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

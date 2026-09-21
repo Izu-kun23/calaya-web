@@ -7,12 +7,12 @@ import { Gauge, TrendingUp, Shield, Globe, Settings, Target } from 'lucide-react
 export default function GMFlowPage() {
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/assets/images/Useable_Images/image12.jpg"
+            src="/assets/heroes/well-services-4k.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -164,4 +164,3 @@ export default function GMFlowPage() {
     </div>
   );
 };
-

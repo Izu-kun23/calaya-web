@@ -12,8 +12,8 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 export default function AfricaEnergyWeek2024Page() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    "/assets/news/latest_news1.jpeg",
-    "/assets/news/latest_news1.2.jpeg"
+    "/assets/heroes/africa-energy-week-1-4k.jpg",
+    "/assets/heroes/africa-energy-week-2-4k.jpg"
   ];
 
   const nextImage = () => {
@@ -25,7 +25,7 @@ export default function AfricaEnergyWeek2024Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section with Images */}
       <section className="relative bg-gray-900 text-white py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,4 +161,3 @@ export default function AfricaEnergyWeek2024Page() {
     </div>
   );
 }
-

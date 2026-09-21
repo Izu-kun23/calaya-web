@@ -11,7 +11,7 @@ import { ArrowLeft, CheckCircle, Zap, Gauge, Ruler, Target } from 'lucide-react'
  */
 export default function SoundWaveInspectionSystemPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section with Image */}
       <section className="relative bg-gray-900 text-white py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +54,7 @@ export default function SoundWaveInspectionSystemPage() {
             className="relative w-full max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-black"
           >
             <img
-              src="/assets/news/latest_news4.jpeg"
+              src="/assets/heroes/sound-wave-system-4k.jpg"
               alt="Sound Wave Inspection System (SWIS)"
               className="w-full h-auto object-cover"
             />
@@ -198,4 +198,3 @@ export default function SoundWaveInspectionSystemPage() {
     </div>
   );
 }
-

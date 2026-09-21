@@ -1,29 +1,23 @@
 'use client';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-4">
-      <motion.div
-        className="text-center text-white"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-9xl font-bold mb-4">404</h1>
-        <h2 className="text-3xl font-semibold mb-4">Page Not Found</h2>
-        <p className="text-lg mb-8 text-blue-100">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <Link
-          href="/"
-          className="inline-block bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full transition-colors duration-200 font-semibold"
-        >
-          Go Back Home
-        </Link>
-      </motion.div>
+    <div className="relative isolate flex min-h-screen items-end overflow-hidden bg-[#0B0E12] px-4 pb-16 pt-32 text-white sm:px-6 md:pb-24 lg:px-10">
+      <div aria-hidden="true" className="ambient-glow-a absolute -right-1/3 -top-1/2 -z-10 size-[80vw] rounded-full bg-[#D9272E]/20 blur-[130px]" />
+      <div className="mx-auto grid w-full max-w-[1500px] gap-12 border-t border-white/20 pt-8 md:grid-cols-12 md:items-end">
+        <div className="md:col-span-8">
+          <p className="mb-6 text-xs text-white/50">Error 404</p>
+          <h1 className="font-display text-[clamp(4.5rem,12vw,12rem)] font-normal leading-[.78] tracking-[-.06em]">Page not found.</h1>
+        </div>
+        <div className="md:col-span-4">
+          <p className="max-w-sm text-base leading-relaxed text-white/60">The page may have moved, or the address may be incorrect. Return to the homepage to continue.</p>
+          <Link href="/" className="mt-7 inline-flex min-h-12 items-center gap-3 rounded-full bg-[#D9272E] px-6 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0B0E12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            Return home <ArrowUpRight className="size-4" />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
-

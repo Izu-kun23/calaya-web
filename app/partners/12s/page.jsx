@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 /**
  * TwelveS Component - Engineering and Technical Services
@@ -11,10 +12,11 @@ import { ChevronRight } from "lucide-react";
  */
 export default function TwelveSPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <header className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/underwater-inspection-4k.jpg" alt="Underwater infrastructure captured with 12S imaging technology" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -341,4 +343,3 @@ export default function TwelveSPage() {
     </div>
   );
 }
-

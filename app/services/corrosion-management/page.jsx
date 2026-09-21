@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Shield, Search, CheckCircle, Target, TrendingUp, Settings, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 // Images from public folder
 const cathodicImage = "/assets/corrosion_management/cathodic_image.jpg";
@@ -270,10 +271,11 @@ function CorrosionManagementContent() {
   }, [activeTab])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/corrosion-management-4k.jpg" alt="Corrosion inspection work on industrial equipment" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -446,11 +448,11 @@ function CorrosionManagementContent() {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="gallery-hover-card relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
-                                className={`w-full object-cover group-hover:scale-110 transition-transform duration-500 ${cathodicProtectionImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
+                                className={`w-full object-cover transition-[filter] duration-300 ${cathodicProtectionImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
                                 loading="lazy"
                                 onLoad={() => setIsLoading(false)}
                               />
@@ -463,12 +465,12 @@ function CorrosionManagementContent() {
                               )}
 
                               {/* Overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="gallery-hover-scrim"></div>
 
                               {/* Content */}
-                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                              <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
                                 <div className="mb-2">
-                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-2">
                                     {image.category}
                                   </span>
                                 </div>
@@ -481,7 +483,7 @@ function CorrosionManagementContent() {
                               </div>
 
                               {/* Zoom Icon */}
-                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                              <div className="gallery-hover-action absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
                                 <ZoomIn className="w-6 h-6 text-gray-800" />
                               </div>
                             </article>
@@ -541,11 +543,11 @@ function CorrosionManagementContent() {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="gallery-hover-card relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
-                                className={`w-full object-cover group-hover:scale-110 transition-transform duration-500 ${dcvgImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
+                                className={`w-full object-cover transition-[filter] duration-300 ${dcvgImages.length === 1 ? 'h-80 lg:h-96' : 'h-72'}`}
                                 loading="lazy"
                                 onLoad={() => setIsLoading(false)}
                               />
@@ -558,12 +560,12 @@ function CorrosionManagementContent() {
                               )}
 
                               {/* Overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="gallery-hover-scrim"></div>
 
                               {/* Content */}
-                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                              <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
                                 <div className="mb-2">
-                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-2">
                                     {image.category}
                                   </span>
                                 </div>
@@ -576,7 +578,7 @@ function CorrosionManagementContent() {
                               </div>
 
                               {/* Zoom Icon */}
-                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                              <div className="gallery-hover-action absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
                                 <ZoomIn className="w-6 h-6 text-gray-800" />
                               </div>
                             </article>
@@ -636,11 +638,11 @@ function CorrosionManagementContent() {
                             }}
                             aria-label={`View ${image.title} in full size`}
                           >
-                            <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                            <article className="gallery-hover-card relative overflow-hidden rounded-xl transition-all duration-300 transform hover:-translate-y-1">
                               <img
                                 src={image.src}
                                 alt={image.alt}
-                                className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                                className="w-full h-72 object-cover transition-[filter] duration-300"
                                 loading="lazy"
                                 onLoad={() => setIsLoading(false)}
                               />
@@ -653,12 +655,12 @@ function CorrosionManagementContent() {
                               )}
 
                               {/* Overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="gallery-hover-scrim"></div>
 
                               {/* Content */}
-                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                              <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
                                 <div className="mb-2">
-                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                                  <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-2">
                                     {image.category}
                                   </span>
                                 </div>
@@ -671,7 +673,7 @@ function CorrosionManagementContent() {
                               </div>
 
                               {/* Zoom Icon */}
-                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                              <div className="gallery-hover-action absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
                                 <ZoomIn className="w-6 h-6 text-gray-800" />
                               </div>
                             </article>
@@ -785,7 +787,7 @@ function CorrosionManagementContent() {
 export default function CorrosionManagementPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

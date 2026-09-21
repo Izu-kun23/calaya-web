@@ -2,11 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ClientSection from "../../src/components/section/client_section";
-const aboutHeroImage = '/assets/images/Useable_Images/image5.jpg';
+const aboutHeroImage = '/assets/heroes/technical-manpower-4k.jpg';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="interior-page min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative w-full min-h-[30vh] overflow-hidden">
         <div className="absolute inset-0">
@@ -264,4 +264,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

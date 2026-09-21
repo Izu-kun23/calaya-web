@@ -65,13 +65,13 @@ export default function ValveTightPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
       <section className="relative bg-gray-900 text-white py-12 sm:py-16 lg:py-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/assets/images/Useable_Images/image12.jpg"
+            src="/assets/heroes/corrosion-management-4k.jpg"
             alt="Industrial facility"
             className="w-full h-full object-cover"
           />
@@ -342,4 +342,3 @@ export default function ValveTightPage() {
     </div>
   );
 };
-

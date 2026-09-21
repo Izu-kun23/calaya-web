@@ -3,14 +3,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Flame, Target, CheckCircle, AlertTriangle, Zap } from "lucide-react";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 export default function ShootFirePage() {
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-red-900 to-red-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-red-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/fire-suppression-4k.jpg" alt="Shoot Fire industrial fire-suppression system in operation" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,4 +130,3 @@ export default function ShootFirePage() {
     </div>
   );
 };
-

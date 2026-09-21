@@ -2,16 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import HeroBackdrop from '../../components/HeroBackdrop';
 
 export default function QuantumDownholePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="interior-page min-h-screen bg-white">
       {/* Header Section */}
       <section className="relative bg-gray-900 text-white py-24 lg:py-32 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-blue-900 to-blue-700"></div>
-        </div>
+        <HeroBackdrop src="/assets/heroes/quantum-downhole-4k.jpg" alt="Quantum Downhole wellbore service equipment" />
 
         {/* Content */}
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">

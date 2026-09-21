@@ -5,7 +5,7 @@ import { Building, Wrench, Shield, CheckCircle, Target, TrendingUp, Settings, Za
 import Link from 'next/link'
 
 // Hero image from public folder
-const heroImage = "/assets/images/Useable_Images/image12.jpg"
+const heroImage = "/assets/heroes/procurement-4k.jpg"
 
 // Product partner images from public folder
 const rsClareImage = "/assets/product_partners/rs_clare.jpg"
@@ -196,7 +196,7 @@ export default function ProductsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
       <section className="relative bg-gray-900 text-white py-12 sm:py-16 lg:py-20 overflow-hidden">
         {/* Background Image */}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Settings, Building, Wrench, Search, Users, TrendingUp, CheckCircle, Target, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 // Image from public folder
 const procurementDiagram = "/assets/images/Useable_Images/procurement.png";
@@ -139,10 +140,11 @@ function ProcurementContent() {
   }, [activeTab])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/procurement-4k.jpg" alt="Industrial equipment prepared for procurement and delivery" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -234,12 +236,29 @@ function ProcurementContent() {
                   {/* Procurement Process Diagram */}
                   <div className="mt-8 p-6 bg-gray-50 rounded-lg">
                     <h4 className="text-lg font-semibold text-gray-900 mb-4 text-center">Our Procurement Process</h4>
-                    <div className="flex justify-center cursor-pointer group" onClick={() => openModal(0)}>
+                    <div
+                      className="gallery-hover-card group relative flex cursor-pointer justify-center overflow-hidden rounded-lg"
+                      onClick={() => openModal(0)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          openModal(0);
+                        }
+                      }}
+                      aria-label="View the procurement process diagram in full size"
+                    >
                       <img 
                         src={procurementDiagram} 
                         alt="Procurement Service Process Diagram" 
-                        className="w-full max-w-lg h-auto group-hover:scale-105 transition-transform duration-300 rounded-lg "
+                        className="w-full max-w-lg h-auto transition-[filter] duration-300 rounded-lg "
                       />
+                      <div className="gallery-hover-scrim" />
+                      <div className="gallery-hover-content inset-x-0 bottom-0 flex items-center justify-center gap-2 p-5 text-sm font-semibold text-white">
+                        <ZoomIn className="h-4 w-4" />
+                        <span>Click to view full size</span>
+                      </div>
                     </div>
                     <p className="text-sm text-gray-600 mt-4 text-center">
                       Our comprehensive procurement process ensures efficient material management, supplier qualification, 
@@ -365,7 +384,7 @@ function ProcurementContent() {
 export default function ProcurementServicesPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

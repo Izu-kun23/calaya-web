@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle, Play } from 'lucide-react';
+import HeroBackdrop from '../../components/HeroBackdrop';
 
 /**
  * News Detail Page - VENUS Pipeline Inspection
@@ -11,10 +12,11 @@ import { ArrowLeft, CheckCircle, Play } from 'lucide-react';
  */
 export default function VenusPipelineInspectionPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section with Video */}
-      <section className="relative bg-gray-900 text-white py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gray-900 text-white py-8 sm:py-12 lg:py-16">
+        <HeroBackdrop src="/assets/heroes/inspection-4k.jpg" alt="Pipeline inspection equipment used in the field" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -161,4 +163,3 @@ export default function VenusPipelineInspectionPage() {
     </div>
   );
 }
-

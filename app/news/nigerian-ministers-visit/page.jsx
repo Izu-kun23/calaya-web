@@ -12,8 +12,8 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 export default function NigerianMinistersVisitPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    "/assets/news/latest_news2.0.jpeg",
-    "/assets/news/latest_news2.1.jpeg"
+    "/assets/heroes/nigerian-ministers-1-4k.jpg",
+    "/assets/heroes/nigerian-ministers-2-4k.jpg"
   ];
 
   const nextImage = () => {
@@ -25,7 +25,7 @@ export default function NigerianMinistersVisitPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section with Images */}
       <section className="relative bg-gray-900 text-white py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -198,4 +198,3 @@ export default function NigerianMinistersVisitPage() {
     </div>
   );
 }
-

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import HeroBackdrop from '../../components/HeroBackdrop';
 
 export default function IPPipelinePage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -96,10 +97,11 @@ export default function IPPipelinePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/ip-pipeline-4k.jpg" alt="IP Pipeline technicians working on offshore inspection equipment" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -257,11 +259,11 @@ export default function IPPipelinePage() {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="relative overflow-hidden rounded-xl  hover: transition-all duration-300 transform hover:-translate-y-1">
+                <article className="gallery-hover-card relative overflow-hidden rounded-xl hover: transition-all duration-300 transform hover:-translate-y-1">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-72 object-cover transition-[filter] duration-300"
                     loading="lazy"
                     onLoad={() => setIsLoading(false)}
                   />
@@ -274,12 +276,12 @@ export default function IPPipelinePage() {
                   )}
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="gallery-hover-scrim"></div>
                   
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
                     <div className="mb-2">
-                      <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                      <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-2">
                         {image.category}
                       </span>
                     </div>
@@ -292,7 +294,7 @@ export default function IPPipelinePage() {
                   </div>
 
                   {/* Zoom Icon */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                  <div className="gallery-hover-action absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
                     <ZoomIn className="w-6 h-6 text-gray-800" />
                   </div>
                 </article>
@@ -396,4 +398,3 @@ export default function IPPipelinePage() {
     </div>
   );
 };
-

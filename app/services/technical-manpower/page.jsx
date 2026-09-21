@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { HardHat, Users, CheckCircle, Target, TrendingUp, Settings } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 function TechnicalManpowerContent() {
   const [activeTab, setActiveTab] = useState(0);
@@ -56,10 +57,11 @@ function TechnicalManpowerContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/technical-manpower-4k.jpg" alt="Calaya technical personnel at an industrial facility" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -193,7 +195,7 @@ function TechnicalManpowerContent() {
 export default function TechnicalManpowerSupportPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

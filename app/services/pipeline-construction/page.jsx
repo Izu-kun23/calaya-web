@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, ZoomIn, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 function PipelineConstructionContent() {
   const [activeTab, setActiveTab] = useState(0);
@@ -216,10 +217,11 @@ function PipelineConstructionContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/pipeline-construction-4k.jpg" alt="Pipeline construction project in the field" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,15 +264,15 @@ function PipelineConstructionContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left Column - Service Overview */}
-            <div className="lg:col-span-1">
+            <div className="min-w-0 lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="bg-white rounded-lg  p-6 h-fit sticky top-8"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <h2 className="text-xl font-bold text-gray-900">
+                <div className="flex min-w-0 items-center gap-3 mb-4">
+                  <h2 className="pipeline-category-title min-w-0 max-w-full break-words text-xl font-bold text-gray-900">
                     {pipelineCategories[activeTab].title}
                   </h2>
                 </div>
@@ -291,7 +293,7 @@ function PipelineConstructionContent() {
             </div>
 
             {/* Right Column - Detailed Content */}
-            <div className="lg:col-span-2">
+            <div className="min-w-0 lg:col-span-2">
               <motion.div
                 key={activeTab}
                 initial={{ opacity: 0, y: 20 }}
@@ -366,18 +368,18 @@ function PipelineConstructionContent() {
                           }}
                           aria-label={`View ${image.title} in full size`}
                         >
-                          <article className="relative overflow-hidden rounded-xl transition-all duration-300 transform bg-white hover:-translate-y-1">
+                          <article className="gallery-hover-card relative overflow-hidden rounded-xl transition-all duration-300 transform bg-white hover:-translate-y-1">
                             <img
                               src={image.src}
                               alt={image.alt}
-                              className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                              className="w-full h-72 object-cover transition-[filter] duration-300"
                               loading="lazy"
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="gallery-hover-scrim"></div>
 
-                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                              <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-3">
+                            <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
+                              <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-3">
                                 {image.category}
                               </span>
                               <h4 className="text-lg font-semibold mb-2">{image.title}</h4>
@@ -478,7 +480,7 @@ function PipelineConstructionContent() {
 export default function PipelineConstructionPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

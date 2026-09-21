@@ -20,13 +20,14 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        // Professional Font Pairings for Calaya Engineering
-        'heading': ['Montserrat', 'system-ui', 'sans-serif'],
-        'body': ['Open Sans', 'system-ui', 'sans-serif'],
+        // Editorial system from design.md
+        'display': ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        'heading': ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        'body': ['Inter', 'system-ui', 'sans-serif'],
         'data': ['Roboto', 'system-ui', 'sans-serif'],
         
         // Default to Open Sans for all text
-        'sans': ['Open Sans', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
         'montserrat': ['Montserrat', 'system-ui', 'sans-serif'],
         'open-sans': ['Open Sans', 'system-ui', 'sans-serif'],
         'roboto': ['Roboto', 'system-ui', 'sans-serif'],

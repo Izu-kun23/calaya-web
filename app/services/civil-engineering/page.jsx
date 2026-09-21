@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import ClientSection from "../../../src/components/section/client_section";
+import HeroBackdrop from "../../components/HeroBackdrop";
 
 // Images from public folder
 const civilImage1 = "/civil1.JPG";
@@ -93,10 +94,11 @@ function CivilEngineeringContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/civil-engineering-4k.jpg" alt="Calaya civil engineering worksite" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -238,16 +240,16 @@ function CivilEngineeringContent() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.1 }}
-                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                       onClick={() => setSelectedImage(civilImage1)}
                     >
                       <img
                         src={civilImage1}
                         alt="Civil Engineering Project 1"
-                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
+                      <div className="gallery-hover-scrim"></div>
+                      <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                         <h4 className="font-bold text-lg mb-1">
                           Civil Engineering Project
                         </h4>
@@ -255,7 +257,7 @@ function CivilEngineeringContent() {
                           Infrastructure development and construction
                         </p>
                       </div>
-                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -276,16 +278,16 @@ function CivilEngineeringContent() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                       onClick={() => setSelectedImage(civilImage2)}
                     >
                       <img
                         src={civilImage2}
                         alt="Civil Engineering Project 2"
-                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
+                      <div className="gallery-hover-scrim"></div>
+                      <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                         <h4 className="font-bold text-lg mb-1">
                           Civil Engineering Project
                         </h4>
@@ -293,7 +295,7 @@ function CivilEngineeringContent() {
                           Construction and infrastructure development
                         </p>
                       </div>
-                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -314,16 +316,16 @@ function CivilEngineeringContent() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
-                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                       onClick={() => setSelectedImage(civilImage3)}
                     >
                       <img
                         src={civilImage3}
                         alt="Civil Engineering Project 3"
-                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
+                      <div className="gallery-hover-scrim"></div>
+                      <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                         <h4 className="font-bold text-lg mb-1">
                           Civil Engineering Project
                         </h4>
@@ -331,7 +333,7 @@ function CivilEngineeringContent() {
                           Professional construction services
                         </p>
                       </div>
-                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -352,16 +354,16 @@ function CivilEngineeringContent() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
-                      className="relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
+                      className="gallery-hover-card relative overflow-hidden rounded-lg hover:transition-all duration-300 cursor-pointer group"
                       onClick={() => setSelectedImage(civilImage4)}
                     >
                       <img
                         src={civilImage4}
                         alt="Civil Engineering Project 4"
-                        className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 lg:h-80 object-cover transition-[filter] duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
+                      <div className="gallery-hover-scrim"></div>
+                      <div className="gallery-hover-content bottom-4 left-4 right-4 text-white">
                         <h4 className="font-bold text-lg mb-1">
                           Civil Engineering Project
                         </h4>
@@ -369,7 +371,7 @@ function CivilEngineeringContent() {
                           Infrastructure and construction management
                         </p>
                       </div>
-                      <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="gallery-hover-action absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -467,7 +469,7 @@ function CivilEngineeringContent() {
 export default function CivilEngineeringPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="interior-loading min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import HeroBackdrop from '../components/HeroBackdrop';
 
 // Certification images from public folder
 const certification1 = "/assets/certifications/certification1.jpg";
@@ -75,15 +76,16 @@ export default function CertificationsPage() {
   }, [selectedImage, currentImageIndex]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20"
+        className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HeroBackdrop src="/assets/heroes/inspection-4k.jpg" alt="Calaya technician completing a quality inspection" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -149,13 +151,13 @@ export default function CertificationsPage() {
                 className="group cursor-pointer bg-white rounded-xl  overflow-hidden hover: transition-all duration-300 border border-gray-200"
                 onClick={() => openModal(cert, index)}
               >
-                <div className="relative overflow-hidden group-hover:bg-red-50 transition-colors duration-300">
+                <div className="gallery-hover-card relative overflow-hidden transition-colors duration-300">
                   <img
                     src={cert.src}
                     alt={cert.alt}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-64 object-cover transition-[filter] duration-300"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="gallery-hover-scrim flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-white rounded-full p-3 ">
                         <ExternalLink className="w-6 h-6 text-red-600" />

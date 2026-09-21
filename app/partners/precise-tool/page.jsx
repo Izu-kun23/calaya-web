@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn, X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import CaseStudyModal from '../../../src/components/modal/CaseStudyModal';
+import HeroBackdrop from '../../components/HeroBackdrop';
 
 export default function PreciseToolPage() {
   // Gallery state management
@@ -124,15 +125,16 @@ export default function PreciseToolPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-16 lg:py-24"
+        className="relative overflow-hidden bg-blue-900 text-white py-16 lg:py-24"
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+        <HeroBackdrop src="/assets/heroes/precision-tools-4k.jpg" alt="Precision measuring equipment from Precise Tool" />
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -398,13 +400,13 @@ export default function PreciseToolPage() {
                 }}
                 aria-label={`View ${image.title} in full size`}
               >
-                <article className="bg-white relative overflow-hidden rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
+                <article className="gallery-hover-card bg-white relative overflow-hidden rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
                   {image.isVideo ? (
                     <div className="relative w-full h-72">
                       <img
                         src={image.thumbnail}
                         alt={image.alt}
-                        className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-72 object-cover transition-[filter] duration-300"
                         loading="lazy"
                         onLoad={() => setIsLoading(false)}
                       />
@@ -418,7 +420,7 @@ export default function PreciseToolPage() {
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-72 object-cover transition-[filter] duration-300"
                       loading="lazy"
                       onLoad={() => setIsLoading(false)}
                     />
@@ -432,12 +434,12 @@ export default function PreciseToolPage() {
                   )}
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="gallery-hover-scrim"></div>
                   
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="gallery-hover-content bottom-0 left-0 right-0 p-6 text-white">
                     <div className="mb-2">
-                      <span className="inline-block px-2 py-1 text-xs font-semibold bg-blue-600 rounded-full mb-2">
+                      <span className="inline-block px-2 py-1 text-xs font-semibold bg-red-600 text-white rounded-full mb-2">
                         {image.category}
                       </span>
                     </div>
@@ -459,9 +461,9 @@ export default function PreciseToolPage() {
                   </div>
 
                   {/* Zoom/Play Icon */}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                  <div className={`gallery-hover-action absolute top-4 right-4 rounded-full p-3 opacity-0 backdrop-blur-sm transition-all duration-300 transform scale-75 group-hover:scale-100 group-hover:opacity-100 ${image.isVideo ? 'bg-red-600' : 'bg-white/90'}`}>
                     {image.isVideo ? (
-                      <Play className="w-6 h-6 text-gray-800" />
+                      <Play className="w-6 h-6 text-white" />
                     ) : (
                       <ZoomIn className="w-6 h-6 text-gray-800" />
                     )}

@@ -3,6 +3,7 @@ import Navbar from '../src/components/navigation/navbar'
 import Footer from '../src/components/footer/Footer'
 import TopArrow from './components/TopArrowWrapper'
 import SmoothExperience from '../src/components/motion/SmoothExperience'
+import ServiceWorkerCleanup from './components/ServiceWorkerCleanup'
 
 export const metadata = {
   title: 'Calaya Engineering - Premier Oil & Gas Services Since 2005',
@@ -47,8 +48,8 @@ export const viewport = {
   themeColor: '#dc2626',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
   viewportFit: 'cover',
 }
 
@@ -56,16 +57,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Fonts - Professional Font Pairings */}
+        {/* Editorial display and interface families */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <ServiceWorkerCleanup />
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <SmoothExperience />
-        <div className="min-h-screen flex flex-col">
+        <div className="site-sheet min-h-screen flex flex-col">
           <Navbar />
-          <main className="flex-grow">
+          <main id="main-content" className="flex-grow">
             {children}
           </main>
           <Footer />

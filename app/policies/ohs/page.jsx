@@ -2,13 +2,15 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ClientSection from '../../../src/components/section/client_section'
+import HeroBackdrop from '../../components/HeroBackdrop'
 
 export default function OHSPolicyPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="interior-page min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-12 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/technical-manpower-4k.jpg" alt="Calaya engineer working safely in the field" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

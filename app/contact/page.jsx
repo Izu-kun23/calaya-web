@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Linkedin, Twitter, Instagram, Send, CheckCircle, AlertCircle, Loader2, ShieldCheck } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import HeroBackdrop from '../components/HeroBackdrop';
+
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 // Flag images from public folder
 const nigeriaFlag = "/assets/flags/Flag_of_Nigeria.png";
@@ -106,10 +109,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
+    <div className="interior-page min-h-screen bg-gray-50 ">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-200 to-blue-800 text-white py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden bg-blue-900 text-white py-14 sm:py-16 lg:py-20">
+        <HeroBackdrop src="/assets/heroes/offshore-energy-4k.jpg" alt="Offshore energy facility supported by Calaya Engineering" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,7 +155,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="bg-gray-500 p-3 rounded-lg">
+                  <div className="bg-black p-3 rounded-lg">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -163,7 +167,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <div className="bg-gray-500 p-3 rounded-lg">
+                  <div className="bg-black p-3 rounded-lg">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -176,7 +180,7 @@ export default function ContactPage() {
 
                 {/* Location */}
                 <div className="flex items-start gap-4">
-                  <div className="bg-gray-500 p-3 rounded-lg">
+                  <div className="bg-black p-3 rounded-lg">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -359,16 +363,22 @@ export default function ContactPage() {
                     )}
 
                     <div className={`flex justify-start transition-opacity duration-300 ${isFormIncomplete ? 'opacity-50' : 'opacity-100'}`}>
-                      <ReCAPTCHA
-                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
-                        onChange={(token) => {
-                          setCaptchaToken(token);
-                          setCaptchaError(false);
-                          setShowIncompleteWarning(false);
-                        }}
-                        onExpired={() => setCaptchaToken(null)}
-                        onErrored={() => setCaptchaToken(null)}
-                      />
+                      {recaptchaSiteKey ? (
+                        <ReCAPTCHA
+                          sitekey={recaptchaSiteKey}
+                          onChange={(token) => {
+                            setCaptchaToken(token);
+                            setCaptchaError(false);
+                            setShowIncompleteWarning(false);
+                          }}
+                          onExpired={() => setCaptchaToken(null)}
+                          onErrored={() => setCaptchaToken(null)}
+                        />
+                      ) : (
+                        <p className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-600">
+                          Online verification is being configured. Please email info@calayaengineering.com in the meantime.
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -737,4 +747,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
