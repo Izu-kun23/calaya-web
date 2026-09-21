@@ -20,7 +20,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        // Editorial system from design.md
+        // Editorial system from docs/design.md
         'display': ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
         'heading': ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
         'body': ['Inter', 'system-ui', 'sans-serif'],

@@ -69,4 +69,3 @@ If you exceed the free tier (50 submissions/month):
 - GDPR compliant service
 
 The contact form is now production-ready and will work reliably without any server maintenance!
-

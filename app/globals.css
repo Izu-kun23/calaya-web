@@ -46,7 +46,7 @@
   --card-radius-md: 1rem;
 }
 
-/* 2026 editorial minimalism system — design.md */
+/* 2026 editorial minimalism system — docs/design.md */
 .editorial-page,
 .editorial-page :is(p, span, div, a, button) {
   font-family: 'Inter', system-ui, sans-serif;
@@ -160,7 +160,7 @@ body {
   color: var(--neutral-900);
 }
 
-/* 2026 editorial industrial system — see designer.md */
+/* 2026 editorial industrial system — see docs/designer.md */
 :root {
   --calaya-ink: #0b1220;
   --calaya-navy: #071a3a;
