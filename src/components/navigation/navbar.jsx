@@ -46,6 +46,7 @@ export default function Navbar() {
         <Link href="/" className="shrink-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B0E12]" aria-label="Calaya Engineering home"><img src="/assets/images/calaya_logo_1.png" alt="" className="h-8 w-auto lg:h-10" /></Link>
 
         <div className="hidden items-center gap-7 lg:flex xl:gap-9">
+          <Link href="/" className={topLink(pathname === '/')} aria-current={pathname === '/' ? 'page' : undefined}><RollLabel>Home</RollLabel></Link>
           <Link href="/projects" className={topLink(isActive('/projects'))} aria-current={isActive('/projects') ? 'page' : undefined}><RollLabel>Our work</RollLabel></Link>
           <div className="relative">
             <button className={`${topLink(servicesActive)} gap-1`} onClick={() => { setServicesOpen((value) => !value); setWhoOpen(false); }} aria-expanded={servicesOpen} aria-controls="services-menu" aria-current={servicesActive ? 'page' : undefined}><RollLabel>Services</RollLabel><ChevronDown className={`size-3.5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} /></button>
@@ -72,7 +73,7 @@ export default function Navbar() {
         <div className="flex h-full flex-col px-4 py-4 sm:px-6">
           <div className="flex items-center justify-between"><img src="/assets/images/calaya_logo_wc.png" alt="Calaya Engineering" className="h-9 w-auto" /><button onClick={() => { setOpen(false); menuButton.current?.focus(); }} className="grid size-11 place-items-center rounded-full border border-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9272E]" aria-label="Close navigation"><X className="size-5" /></button></div>
           <div className="mt-12 flex flex-1 flex-col overflow-y-auto">
-            {[['Our work', '/projects'], ['Products & partners', '/products'], ['Contact', '/contact']].map(([label, href]) => { const active = href === '/products' ? productsActive : isActive(href); return <Link key={href} href={href} aria-current={active ? 'page' : undefined} className={mobileTopLink(active)}>{label}</Link>; })}
+            {[['Home', '/'], ['Our work', '/projects'], ['Products & partners', '/products'], ['Contact', '/contact']].map(([label, href]) => { const active = href === '/' ? pathname === '/' : href === '/products' ? productsActive : isActive(href); return <Link key={href} href={href} aria-current={active ? 'page' : undefined} className={mobileTopLink(active)}>{label}</Link>; })}
             <p className="mt-8 text-xs text-white/45">Who We Are</p>
             <div className="mt-3 grid gap-0 sm:grid-cols-2">
               <Link href="/about" aria-current={isActive('/about') ? 'page' : undefined} className={mobileSubLink(isActive('/about'), 'border-t border-white/15 px-3 py-3 pr-5')}><span className="block text-base font-medium">About Us</span><span className="mt-1 block text-xs leading-relaxed text-white/60">Learn about our company history and mission</span></Link>
